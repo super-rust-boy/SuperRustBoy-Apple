@@ -14,8 +14,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	var window: NSWindow!
 
-
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
+
+		// Testing RustBoy
+		guard let stringPath = Bundle.main.path(forResource: "PokemonRed", ofType: "gb") else {
+			assertionFailure("Failed to find file")
+			return
+		}
+		let rustBoy = RustBoy(cartridgePath: "file://" + stringPath, saveFilePath: "")
+
 		// Create the SwiftUI view that provides the window contents.
 		let contentView = ContentView()
 

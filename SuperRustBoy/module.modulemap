@@ -1,0 +1,5 @@
+/* module.modulemap */
+module RustBoy {
+	header "../../super-rust-boy/headers/rustboy.h"
+	export *
+}
