@@ -9,8 +9,11 @@
 import RustBoy
 
 internal class RustBoy {
-	internal init(cartridgePath: String, saveFilePath: String) {
-		coreRef = rustBoyCreate(cartridgePath, saveFilePath)
+	internal init?(cartridgePath: String, saveFilePath: String) {
+
+		guard let ref = rustBoyCreate(cartridgePath, saveFilePath) else { return nil }
+
+		coreRef = ref
 	}
 
 	private let coreRef: UnsafeRawPointer
