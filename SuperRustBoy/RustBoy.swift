@@ -9,11 +9,22 @@
 import RustBoy
 
 internal class RustBoy {
+
+	internal enum Button {
+		case left, right, up, down, a, b, start, select
+	}
+
 	internal init?(cartridgePath: String, saveFilePath: String) {
-
 		guard let ref = rustBoyCreate(cartridgePath, saveFilePath) else { return nil }
-
 		coreRef = ref
+	}
+
+	internal func buttonDown(_ button: Button) {
+
+	}
+
+	internal func buttonUp(_ button: Button) {
+
 	}
 
 	private let coreRef: UnsafeRawPointer
