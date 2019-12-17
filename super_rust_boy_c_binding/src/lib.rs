@@ -40,3 +40,8 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 
 	Box::into_raw(instance) as *const c_void
 }
+
+#[no_mangle]
+pub extern fn rustBoyDelete(instance: *const c_void) {
+
+}

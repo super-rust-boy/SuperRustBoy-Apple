@@ -17,4 +17,8 @@ internal class RustBoy {
 	}
 
 	private let coreRef: UnsafeRawPointer
+
+	deinit {
+		rustBoyDelete(coreRef)
+	}
 }
