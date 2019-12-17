@@ -11,35 +11,21 @@
 		1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166F23A4367E00AB442A /* AudioToolbox.framework */; };
 		1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424167123A4369D00AB442A /* CoreAudio.framework */; };
 		1424167423A436EE00AB442A /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
+		14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AFE9C623A996C400DE036C /* librustboy_c_binding.a */; };
 		14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48B23A4319700029B8C /* AppDelegate.swift */; };
 		14D1D48E23A4319700029B8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48D23A4319700029B8C /* ContentView.swift */; };
 		14D1D49023A4319800029B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D48F23A4319800029B8C /* Assets.xcassets */; };
 		14D1D49323A4319800029B8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49223A4319800029B8C /* Preview Assets.xcassets */; };
 		14D1D49623A4319800029B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49423A4319800029B8C /* Main.storyboard */; };
-		14D1D4B123A431CC00029B8C /* librustboy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D1D4A623A431AA00029B8C /* librustboy.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		14D1D4A523A431AA00029B8C /* PBXContainerItemProxy */ = {
+		14AFE9C523A996C400DE036C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D1D49E23A431AA00029B8C /* rustboy.xcodeproj */;
+			containerPortal = 14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = CA6084A94AFA5AE367D6402A;
-			remoteInfo = "rustboy-staticlib";
-		};
-		14D1D4A723A431AA00029B8C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14D1D49E23A431AA00029B8C /* rustboy.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA60E23B4BAD8743E1149EE4;
-			remoteInfo = "rustboy-bin-bin";
-		};
-		14D1D4A923A431AA00029B8C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14D1D49E23A431AA00029B8C /* rustboy.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA603E20C036F5E6916DAF08;
-			remoteInfo = "debug-bin";
+			remoteGlobalIDString = CA6005185E1EC452EB8AEB35;
+			remoteInfo = "rustboy_c_binding-staticlib";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,6 +35,7 @@
 		1424166F23A4367E00AB442A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1424167123A4369D00AB442A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1424167323A436EE00AB442A /* RustBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
+		14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rustboy_c_binding.xcodeproj; path = ../super_rust_boy_c_binding/rustboy_c_binding.xcodeproj; sourceTree = "<group>"; };
 		14D1D48823A4319700029B8C /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D1D48B23A4319700029B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D1D48D23A4319700029B8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,7 +44,6 @@
 		14D1D49523A4319800029B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14D1D49723A4319800029B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperRustBoy.entitlements; sourceTree = "<group>"; };
-		14D1D49E23A431AA00029B8C /* rustboy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rustboy.xcodeproj; path = "../super-rust-boy/rustboy.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */,
 				1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */,
-				14D1D4B123A431CC00029B8C /* librustboy.a in Frameworks */,
 				1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */,
 				1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */,
 			);
@@ -75,12 +61,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14AFE9BE23A996B500DE036C /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		14AFE9C123A996C400DE036C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14AFE9C623A996C400DE036C /* librustboy_c_binding.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		14D1D47F23A4319700029B8C = {
 			isa = PBXGroup;
 			children = (
 				14D1D48A23A4319700029B8C /* SuperRustBoy */,
+				14AFE9BE23A996B500DE036C /* Dependencies */,
 				14D1D48923A4319700029B8C /* Products */,
-				14D1D49E23A431AA00029B8C /* rustboy.xcodeproj */,
 				14D1D4AC23A431CC00029B8C /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -115,16 +117,6 @@
 				14D1D49223A4319800029B8C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		14D1D49F23A431AA00029B8C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				14D1D4A623A431AA00029B8C /* librustboy.a */,
-				14D1D4A823A431AA00029B8C /* rustboy-bin */,
-				14D1D4AA23A431AA00029B8C /* debug */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		14D1D4AC23A431CC00029B8C /* Frameworks */ = {
@@ -185,8 +177,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 14D1D49F23A431AA00029B8C /* Products */;
-					ProjectRef = 14D1D49E23A431AA00029B8C /* rustboy.xcodeproj */;
+					ProductGroup = 14AFE9C123A996C400DE036C /* Products */;
+					ProjectRef = 14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -197,25 +189,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		14D1D4A623A431AA00029B8C /* librustboy.a */ = {
+		14AFE9C623A996C400DE036C /* librustboy_c_binding.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = librustboy.a;
-			remoteRef = 14D1D4A523A431AA00029B8C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		14D1D4A823A431AA00029B8C /* rustboy-bin */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "rustboy-bin";
-			remoteRef = 14D1D4A723A431AA00029B8C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		14D1D4AA23A431AA00029B8C /* debug */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = debug;
-			remoteRef = 14D1D4A923A431AA00029B8C /* PBXContainerItemProxy */;
+			path = librustboy_c_binding.a;
+			remoteRef = 14AFE9C523A996C400DE036C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -382,7 +360,7 @@
 				DEVELOPMENT_TEAM = 4358BDSNQG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../super-rust-boy/headers";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
 				INFOPLIST_FILE = SuperRustBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -407,7 +385,7 @@
 				DEVELOPMENT_TEAM = 4358BDSNQG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../super-rust-boy/headers";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
 				INFOPLIST_FILE = SuperRustBoy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

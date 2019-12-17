@@ -6,7 +6,7 @@
 		{
 			"label": "Generate C-Header",
 			"type": "shell",
-			"command": "cbindgen --config cbindgen.toml --crate rustboy --output headers/rustboy.h",
+			"command": "cbindgen --config cbindgen.toml --crate rustboy_c_binding --output headers/rustboy.h",
 			"problemMatcher": []
 		}
 	]
