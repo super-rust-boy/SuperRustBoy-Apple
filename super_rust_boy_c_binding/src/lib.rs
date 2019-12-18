@@ -60,14 +60,28 @@ pub extern fn rustBoyDelete(instance: *const c_void) {
 
 #[no_mangle]
 pub extern fn rustBoyButtonClickDown(instance: *const c_void, button: rustBoyButton) {
-	let mut rustboy = unsafe { Box::from_raw(instance as *mut RustBoy) };
-
-	rustboy.set_button(Buttons::SELECT, true);
+	let mut rust_boy = unsafe { Box::from_raw(instance as *mut RustBoy) };
+	rust_boy.set_button(button_for_rust_boy_button(button), true);
+	Box::into_raw(rust_boy);
 }
 
 #[no_mangle]
 pub extern fn rustBoyButtonClickUp(instance: *const c_void, button: rustBoyButton) {
-	let mut rustboy = unsafe { Box::from_raw(instance as *mut RustBoy) };
+	let mut rust_boy = unsafe { Box::from_raw(instance as *mut RustBoy) };
+	rust_boy.set_button(button_for_rust_boy_button(button), false);
+	Box::into_raw(rust_boy);
+}
 
-	rustboy.set_button(Buttons::SELECT, false);
+fn button_for_rust_boy_button(button: rustBoyButton) -> Buttons {
+	match button {
+		rustBoyButton::rustBoyButtonLeft => Buttons::A,
+		rustBoyButton::rustBoyButtonRight => Buttons::A,
+		rustBoyButton::rustBoyButtonUp => Buttons::A,
+		rustBoyButton::rustBoyButtonDown => Buttons::A,
+
+		rustBoyButton::rustBoyButtonA => Buttons::A,
+		rustBoyButton::rustBoyButtonB => Buttons::B,
+		rustBoyButton::rustBoyButtonStart => Buttons::START,
+		rustBoyButton::rustBoyButtonSelect => Buttons::SELECT
+	}
 }
