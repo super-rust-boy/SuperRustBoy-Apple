@@ -55,7 +55,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 
 #[no_mangle]
 pub extern fn rustBoyDelete(instance: *const c_void) {
-
+	let _ = unsafe { Box::from_raw(instance as *mut RustBoy) };
 }
 
 #[no_mangle]
