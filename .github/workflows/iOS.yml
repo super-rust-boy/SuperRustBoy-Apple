@@ -9,5 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: List Devices
+      run: xcrun simctl list devices --json
     - name: Build
       run: xcodebuild -scheme SuperRustBoy-iOS -destination platform="iOS Simulator",name="iPhone 8"
