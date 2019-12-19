@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+
+	@State private var buttonDownB: Bool = false
+	@State private var buttonDownA: Bool = false
+
     var body: some View {
 		VStack {
 			Color.red
@@ -16,8 +20,8 @@ struct ContentView: View {
 				DPad()
 					.padding()
 				HStack {
-					ActionButton(type: .b)
-					ActionButton(type: .a)
+					ActionButton(type: .b, touchDown: $buttonDownB)
+					ActionButton(type: .a, touchDown: $buttonDownA)
 				}
 					.padding()
 			}

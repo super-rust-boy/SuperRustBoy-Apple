@@ -65,6 +65,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		149BD6CF23ABE44800C3FB62 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				14D1D48D23A4319700029B8C /* ContentView.swift */,
+				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
+				149BD6C923ABBDD100C3FB62 /* ActionButton.swift */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		149BD6D023ABE45B00C3FB62 /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				14D1D48B23A4319700029B8C /* AppDelegate.swift */,
+				14D1D49423A4319800029B8C /* Main.storyboard */,
+				14D1D49723A4319800029B8C /* Info.plist */,
+			);
+			path = AppKit;
+			sourceTree = "<group>";
+		};
+		149BD6D123ABE48700C3FB62 /* RustBoy */ = {
+			isa = PBXGroup;
+			children = (
+				1424167323A436EE00AB442A /* RustBoy.swift */,
+			);
+			path = RustBoy;
+			sourceTree = "<group>";
+		};
 		14AFE9BE23A996B500DE036C /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,17 +130,13 @@
 		14D1D48A23A4319700029B8C /* SuperRustBoy */ = {
 			isa = PBXGroup;
 			children = (
-				14D1D48B23A4319700029B8C /* AppDelegate.swift */,
-				14D1D48D23A4319700029B8C /* ContentView.swift */,
-				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
-				149BD6C923ABBDD100C3FB62 /* ActionButton.swift */,
-				1424167323A436EE00AB442A /* RustBoy.swift */,
+				149BD6D123ABE48700C3FB62 /* RustBoy */,
+				149BD6D023ABE45B00C3FB62 /* AppKit */,
+				149BD6CF23ABE44800C3FB62 /* CommonUI */,
 				14D1D48F23A4319800029B8C /* Assets.xcassets */,
-				14D1D49423A4319800029B8C /* Main.storyboard */,
-				14D1D49723A4319800029B8C /* Info.plist */,
 				14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */,
-				14D1D49123A4319800029B8C /* Preview Content */,
 				1424166023A4341400AB442A /* module.modulemap */,
+				14D1D49123A4319800029B8C /* Preview Content */,
 			);
 			path = SuperRustBoy;
 			sourceTree = "<group>";
@@ -369,7 +393,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
-				INFOPLIST_FILE = SuperRustBoy/Info.plist;
+				INFOPLIST_FILE = SuperRustBoy/AppKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -394,7 +418,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
-				INFOPLIST_FILE = SuperRustBoy/Info.plist;
+				INFOPLIST_FILE = SuperRustBoy/AppKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

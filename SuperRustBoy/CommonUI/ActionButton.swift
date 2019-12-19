@@ -14,19 +14,27 @@ internal struct ActionButton: View {
 		case a, b
 	}
 
+	internal let type: ButtonType
+	@Binding var touchDown: Bool
+
 	internal var body: some View {
-		ZStack {
+
+		let gesture = DragGesture(minimumDistance: 0, coordinateSpace: .local)
+			.onChanged { value in
+				self.touchDown = true
+			}.onEnded { value in
+				self.touchDown = false
+			}
+
+		return ZStack {
 			Circle()
 				.foregroundColor(.blue)
 			Text(typeString)
 		}
+			.opacity(touchDown ? 0.5 : 1)
+			.gesture(gesture)
 	}
 
-	internal init(type: ButtonType) {
-		self.type = type
-	}
-
-	private let type: ButtonType
 	private var typeString: String {
 		switch type {
 			case .a: return "A"
