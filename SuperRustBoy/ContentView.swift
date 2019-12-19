@@ -10,8 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+		VStack {
+			Color.red
+			HStack {
+				DPad()
+					.padding()
+				HStack {
+					ActionButton(type: .b)
+					ActionButton(type: .a)
+				}
+					.padding()
+			}
+		}
     }
 }
 
@@ -19,5 +29,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+			.frame(width: 300, height: 500)
     }
 }

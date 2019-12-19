@@ -11,6 +11,8 @@
 		1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166F23A4367E00AB442A /* AudioToolbox.framework */; };
 		1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424167123A4369D00AB442A /* CoreAudio.framework */; };
 		1424167423A436EE00AB442A /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
+		149BD6CA23ABBDD100C3FB62 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6C923ABBDD100C3FB62 /* ActionButton.swift */; };
+		149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6CD23ABC53300C3FB62 /* DPad.swift */; };
 		14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AFE9C623A996C400DE036C /* librustboy_c_binding.a */; };
 		14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48B23A4319700029B8C /* AppDelegate.swift */; };
 		14D1D48E23A4319700029B8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48D23A4319700029B8C /* ContentView.swift */; };
@@ -35,6 +37,8 @@
 		1424166F23A4367E00AB442A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1424167123A4369D00AB442A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		1424167323A436EE00AB442A /* RustBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
+		149BD6C923ABBDD100C3FB62 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		149BD6CD23ABC53300C3FB62 /* DPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
 		14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rustboy_c_binding.xcodeproj; path = ../super_rust_boy_c_binding/rustboy_c_binding.xcodeproj; sourceTree = "<group>"; };
 		14D1D48823A4319700029B8C /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D1D48B23A4319700029B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			children = (
 				14D1D48B23A4319700029B8C /* AppDelegate.swift */,
 				14D1D48D23A4319700029B8C /* ContentView.swift */,
+				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
+				149BD6C923ABBDD100C3FB62 /* ActionButton.swift */,
 				1424167323A436EE00AB442A /* RustBoy.swift */,
 				14D1D48F23A4319800029B8C /* Assets.xcassets */,
 				14D1D49423A4319800029B8C /* Main.storyboard */,
@@ -217,8 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D1D48E23A4319700029B8C /* ContentView.swift in Sources */,
+				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
 				1424167423A436EE00AB442A /* RustBoy.swift in Sources */,
 				14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */,
+				149BD6CA23ABBDD100C3FB62 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
