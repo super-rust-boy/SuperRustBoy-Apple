@@ -13,6 +13,14 @@
 		1424167423A436EE00AB442A /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
 		149BD6CA23ABBDD100C3FB62 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6C923ABBDD100C3FB62 /* ActionButton.swift */; };
 		149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6CD23ABC53300C3FB62 /* DPad.swift */; };
+		149BD6D923ABE56B00C3FB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6D823ABE56B00C3FB62 /* AppDelegate.swift */; };
+		149BD6DB23ABE56B00C3FB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6DA23ABE56B00C3FB62 /* SceneDelegate.swift */; };
+		149BD6DF23ABE56D00C3FB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */; };
+		149BD6E223ABE56D00C3FB62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6E123ABE56D00C3FB62 /* Preview Assets.xcassets */; };
+		149BD6E523ABE56D00C3FB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */; };
+		149BD6EA23ABE5B200C3FB62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48D23A4319700029B8C /* ContentView.swift */; };
+		149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6CD23ABC53300C3FB62 /* DPad.swift */; };
+		149BD6EC23ABE5B200C3FB62 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6C923ABBDD100C3FB62 /* ActionButton.swift */; };
 		14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AFE9C623A996C400DE036C /* librustboy_c_binding.a */; };
 		14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48B23A4319700029B8C /* AppDelegate.swift */; };
 		14D1D48E23A4319700029B8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48D23A4319700029B8C /* ContentView.swift */; };
@@ -39,6 +47,13 @@
 		1424167323A436EE00AB442A /* RustBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
 		149BD6C923ABBDD100C3FB62 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		149BD6CD23ABC53300C3FB62 /* DPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
+		149BD6D623ABE56B00C3FB62 /* SuperRustBoy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperRustBoy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		149BD6D823ABE56B00C3FB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		149BD6DA23ABE56B00C3FB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		149BD6E123ABE56D00C3FB62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		149BD6E423ABE56D00C3FB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		149BD6E623ABE56D00C3FB62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rustboy_c_binding.xcodeproj; path = ../super_rust_boy_c_binding/rustboy_c_binding.xcodeproj; sourceTree = "<group>"; };
 		14D1D48823A4319700029B8C /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D1D48B23A4319700029B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +66,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		149BD6D323ABE56B00C3FB62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14D1D48523A4319700029B8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,22 +97,33 @@
 			path = CommonUI;
 			sourceTree = "<group>";
 		};
-		149BD6D023ABE45B00C3FB62 /* AppKit */ = {
-			isa = PBXGroup;
-			children = (
-				14D1D48B23A4319700029B8C /* AppDelegate.swift */,
-				14D1D49423A4319800029B8C /* Main.storyboard */,
-				14D1D49723A4319800029B8C /* Info.plist */,
-			);
-			path = AppKit;
-			sourceTree = "<group>";
-		};
 		149BD6D123ABE48700C3FB62 /* RustBoy */ = {
 			isa = PBXGroup;
 			children = (
 				1424167323A436EE00AB442A /* RustBoy.swift */,
 			);
 			path = RustBoy;
+			sourceTree = "<group>";
+		};
+		149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				149BD6D823ABE56B00C3FB62 /* AppDelegate.swift */,
+				149BD6DA23ABE56B00C3FB62 /* SceneDelegate.swift */,
+				149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */,
+				149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */,
+				149BD6E623ABE56D00C3FB62 /* Info.plist */,
+				149BD6E023ABE56D00C3FB62 /* Preview Content */,
+			);
+			path = "SuperRustBoy-iOS";
+			sourceTree = "<group>";
+		};
+		149BD6E023ABE56D00C3FB62 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				149BD6E123ABE56D00C3FB62 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		14AFE9BE23A996B500DE036C /* Dependencies */ = {
@@ -112,7 +145,10 @@
 		14D1D47F23A4319700029B8C = {
 			isa = PBXGroup;
 			children = (
-				14D1D48A23A4319700029B8C /* SuperRustBoy */,
+				14D1D48A23A4319700029B8C /* SuperRustBoy-AppKit */,
+				149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */,
+				149BD6CF23ABE44800C3FB62 /* CommonUI */,
+				149BD6D123ABE48700C3FB62 /* RustBoy */,
 				14AFE9BE23A996B500DE036C /* Dependencies */,
 				14D1D48923A4319700029B8C /* Products */,
 				14D1D4AC23A431CC00029B8C /* Frameworks */,
@@ -123,22 +159,23 @@
 			isa = PBXGroup;
 			children = (
 				14D1D48823A4319700029B8C /* SuperRustBoy.app */,
+				149BD6D623ABE56B00C3FB62 /* SuperRustBoy-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14D1D48A23A4319700029B8C /* SuperRustBoy */ = {
+		14D1D48A23A4319700029B8C /* SuperRustBoy-AppKit */ = {
 			isa = PBXGroup;
 			children = (
-				149BD6D123ABE48700C3FB62 /* RustBoy */,
-				149BD6D023ABE45B00C3FB62 /* AppKit */,
-				149BD6CF23ABE44800C3FB62 /* CommonUI */,
+				14D1D48B23A4319700029B8C /* AppDelegate.swift */,
+				14D1D49423A4319800029B8C /* Main.storyboard */,
+				14D1D49723A4319800029B8C /* Info.plist */,
 				14D1D48F23A4319800029B8C /* Assets.xcassets */,
 				14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */,
 				1424166023A4341400AB442A /* module.modulemap */,
 				14D1D49123A4319800029B8C /* Preview Content */,
 			);
-			path = SuperRustBoy;
+			path = "SuperRustBoy-AppKit";
 			sourceTree = "<group>";
 		};
 		14D1D49123A4319800029B8C /* Preview Content */ = {
@@ -162,6 +199,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		149BD6D523ABE56B00C3FB62 /* SuperRustBoy-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149BD6E723ABE56D00C3FB62 /* Build configuration list for PBXNativeTarget "SuperRustBoy-iOS" */;
+			buildPhases = (
+				149BD6D223ABE56B00C3FB62 /* Sources */,
+				149BD6D323ABE56B00C3FB62 /* Frameworks */,
+				149BD6D423ABE56B00C3FB62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SuperRustBoy-iOS";
+			productName = "SuperRustBoy-iOS";
+			productReference = 149BD6D623ABE56B00C3FB62 /* SuperRustBoy-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		14D1D48723A4319700029B8C /* SuperRustBoy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14D1D49B23A4319800029B8C /* Build configuration list for PBXNativeTarget "SuperRustBoy" */;
@@ -189,6 +243,9 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Sean Inge Asbjørnsen";
 				TargetAttributes = {
+					149BD6D523ABE56B00C3FB62 = {
+						CreatedOnToolsVersion = 11.3;
+					};
 					14D1D48723A4319700029B8C = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -214,6 +271,7 @@
 			projectRoot = "";
 			targets = (
 				14D1D48723A4319700029B8C /* SuperRustBoy */,
+				149BD6D523ABE56B00C3FB62 /* SuperRustBoy-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +287,16 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		149BD6D423ABE56B00C3FB62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149BD6E523ABE56D00C3FB62 /* LaunchScreen.storyboard in Resources */,
+				149BD6E223ABE56D00C3FB62 /* Preview Assets.xcassets in Resources */,
+				149BD6DF23ABE56D00C3FB62 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14D1D48623A4319700029B8C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +310,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		149BD6D223ABE56B00C3FB62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149BD6D923ABE56B00C3FB62 /* AppDelegate.swift in Sources */,
+				149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */,
+				149BD6DB23ABE56B00C3FB62 /* SceneDelegate.swift in Sources */,
+				149BD6EA23ABE5B200C3FB62 /* ContentView.swift in Sources */,
+				149BD6EC23ABE5B200C3FB62 /* ActionButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14D1D48423A4319700029B8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,6 +337,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				149BD6E423ABE56D00C3FB62 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		14D1D49423A4319800029B8C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -268,6 +356,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		149BD6E823ABE56D00C3FB62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 4358BDSNQG;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SuperRustBoy-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "apps.asby.SuperRustBoy-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		149BD6E923ABE56D00C3FB62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 4358BDSNQG;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "SuperRustBoy-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "apps.asby.SuperRustBoy-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		14D1D49923A4319800029B8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -434,6 +567,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		149BD6E723ABE56D00C3FB62 /* Build configuration list for PBXNativeTarget "SuperRustBoy-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149BD6E823ABE56D00C3FB62 /* Debug */,
+				149BD6E923ABE56D00C3FB62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		14D1D48323A4319700029B8C /* Build configuration list for PBXProject "SuperRustBoy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
