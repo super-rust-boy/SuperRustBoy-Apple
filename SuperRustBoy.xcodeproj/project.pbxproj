@@ -518,15 +518,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SuperRustBoy/SuperRustBoy.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SuperRustBoy-AppKit/SuperRustBoy.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-AppKit/Preview Content\"";
 				DEVELOPMENT_TEAM = 4358BDSNQG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
-				INFOPLIST_FILE = SuperRustBoy/AppKit/Info.plist;
+				INFOPLIST_FILE = "SuperRustBoy-AppKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -543,15 +543,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SuperRustBoy/SuperRustBoy.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SuperRustBoy-AppKit/SuperRustBoy.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-AppKit/Preview Content\"";
 				DEVELOPMENT_TEAM = 4358BDSNQG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
-				INFOPLIST_FILE = SuperRustBoy/AppKit/Info.plist;
+				INFOPLIST_FILE = "SuperRustBoy-AppKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
