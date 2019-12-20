@@ -30,7 +30,7 @@ internal struct DPad: View {
 				path.addLine(to: CGPoint(x: size, y: sizeOverThree * 2))
 				path.addLine(to: CGPoint(x: 0, y: sizeOverThree * 2))
 			}
-			.frame(width: min(geometry.size.width, geometry.size.height), height: min(geometry.size.width, geometry.size.height))
+				.frame(width: min(geometry.size.width, geometry.size.height), height: min(geometry.size.width, geometry.size.height))
 		}
 	}
 
@@ -39,7 +39,6 @@ internal struct DPad: View {
 struct DPad_Previews: PreviewProvider {
 	static var previews: some View {
 		DPad()
-			.frame(width: 300, height: 600)
 	}
 }
 

@@ -15,7 +15,7 @@ struct ContentView: View {
 
     var body: some View {
 		VStack {
-			Color.red
+			Rectangle()
 			HStack {
 				DPad()
 					.padding()
