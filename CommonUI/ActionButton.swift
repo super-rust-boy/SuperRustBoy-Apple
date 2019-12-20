@@ -30,6 +30,7 @@ internal struct ActionButton: View {
 			Circle()
 				.foregroundColor(.blue)
 			Text(typeString)
+				.foregroundColor(.white)
 		}
 			.opacity(touchDown ? 0.5 : 1)
 			.gesture(gesture)
