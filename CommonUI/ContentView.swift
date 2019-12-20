@@ -9,9 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+
+	@State private var buttonDownB: Bool = false
+	@State private var buttonDownA: Bool = false
+
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+		VStack {
+			Color.red
+			HStack {
+				DPad()
+					.padding()
+				HStack {
+					ActionButton(type: .b, touchDown: $buttonDownB)
+					ActionButton(type: .a, touchDown: $buttonDownA)
+				}
+					.padding()
+			}
+		}
     }
 }
 
