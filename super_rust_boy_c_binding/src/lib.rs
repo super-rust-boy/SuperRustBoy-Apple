@@ -54,22 +54,25 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 }
 
 #[no_mangle]
-pub extern fn rustBoyDelete(instance: *const c_void) {
-	let _ = unsafe { Box::from_raw(instance as *mut RustBoy) };
+pub unsafe extern fn rustBoyDelete(instance: *const c_void) {
+    let rust_boy = instance as *mut RustBoy;
+    rust_boy.drop_in_place();
 }
 
 #[no_mangle]
-pub extern fn rustBoyButtonClickDown(instance: *const c_void, button: rustBoyButton) {
-	let mut rust_boy = unsafe { Box::from_raw(instance as *mut RustBoy) };
-	rust_boy.set_button(button_for_rust_boy_button(button), true);
-	Box::into_raw(rust_boy);
+pub unsafe extern fn rustBoyButtonClickDown(instance: *const c_void, button: rustBoyButton) {
+    let rust_boy = instance as *mut RustBoy;
+    if let Some(rust_boy_ref) = rust_boy.as_mut() {
+        rust_boy_ref.set_button(button_for_rust_boy_button(button), true);
+    }
 }
 
 #[no_mangle]
-pub extern fn rustBoyButtonClickUp(instance: *const c_void, button: rustBoyButton) {
-	let mut rust_boy = unsafe { Box::from_raw(instance as *mut RustBoy) };
-	rust_boy.set_button(button_for_rust_boy_button(button), false);
-	Box::into_raw(rust_boy);
+pub unsafe extern fn rustBoyButtonClickUp(instance: *const c_void, button: rustBoyButton) {
+    let rust_boy = instance as *mut RustBoy;
+    if let Some(rust_boy_ref) = rust_boy.as_mut() {
+        rust_boy_ref.set_button(button_for_rust_boy_button(button), false);
+    }
 }
 
 fn button_for_rust_boy_button(button: rustBoyButton) -> Buttons {
