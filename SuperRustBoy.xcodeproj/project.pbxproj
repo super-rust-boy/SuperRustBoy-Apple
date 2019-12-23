@@ -27,6 +27,8 @@
 		14D1D49023A4319800029B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D48F23A4319800029B8C /* Assets.xcassets */; };
 		14D1D49323A4319800029B8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49223A4319800029B8C /* Preview Assets.xcassets */; };
 		14D1D49623A4319800029B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49423A4319800029B8C /* Main.storyboard */; };
+		14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
+		14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		14D1D49523A4319800029B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14D1D49723A4319800029B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperRustBoy.entitlements; sourceTree = "<group>"; };
+		14DA97BB23AFEF3C007119A7 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				14D1D48D23A4319700029B8C /* ContentView.swift */,
+				14DA97BB23AFEF3C007119A7 /* Display.swift */,
 				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
 				149BD6C923ABBDD100C3FB62 /* ActionButton.swift */,
 			);
@@ -318,6 +322,7 @@
 				149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */,
 				149BD6DB23ABE56B00C3FB62 /* SceneDelegate.swift in Sources */,
 				149BD6EA23ABE5B200C3FB62 /* ContentView.swift in Sources */,
+				14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */,
 				149BD6EC23ABE5B200C3FB62 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +335,7 @@
 				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
 				1424167423A436EE00AB442A /* RustBoy.swift in Sources */,
 				14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */,
+				14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */,
 				149BD6CA23ABBDD100C3FB62 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
