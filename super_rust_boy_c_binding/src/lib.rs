@@ -4,6 +4,7 @@ use rustboy::{RustBoy, UserPalette, VulkanRenderer, WindowType, Button};
 use winit::EventsLoop;
 
 #[repr(C)]
+#[allow(non_camel_case_types)]
 pub enum rustBoyButton {
 	rustBoyButtonLeft,
 	rustBoyButtonRight,
@@ -17,7 +18,7 @@ pub enum rustBoyButton {
 
 impl rustBoyButton {
     fn to_button(&self) -> Button {
-        use self::*;
+        use rustBoyButton::*;
 
         match self {
             rustBoyButtonLeft   => Button::Left,
@@ -77,17 +78,17 @@ pub unsafe extern fn rustBoyDelete(instance: *const c_void) {
 }
 
 #[no_mangle]
-pub unsafe extern fn rustBoyButtonClickDown(instance: *const c_void, button: rustBoyButton) {
+pub unsafe extern fn rustBoyButtonClickDown(instance: *const c_void, c_button: rustBoyButton) {
     let rust_boy = instance as *mut RustBoy;
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
-        rust_boy_ref.set_button(button.to_button(), true);
+        rust_boy_ref.set_button(c_button.to_button(), true);
     }
 }
 
 #[no_mangle]
-pub unsafe extern fn rustBoyButtonClickUp(instance: *const c_void, button: rustBoyButton) {
+pub unsafe extern fn rustBoyButtonClickUp(instance: *const c_void, c_button: rustBoyButton) {
     let rust_boy = instance as *mut RustBoy;
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
-        rust_boy_ref.set_button(button.to_button(), false);
+        rust_boy_ref.set_button(c_button.to_button(), false);
     }
 }
