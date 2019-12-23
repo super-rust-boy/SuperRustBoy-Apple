@@ -1,6 +1,6 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, VulkanRenderer, WindowType, Buttons};
+use rustboy::{RustBoy, UserPalette, VulkanRenderer, WindowType, Button};
 use winit::EventsLoop;
 
 #[repr(C)]
@@ -15,12 +15,29 @@ pub enum rustBoyButton {
 	rustBoyButtonSelect
 }
 
+impl rustBoyButton {
+    fn to_button(&self) -> Button {
+        use self::*;
+
+        match self {
+            rustBoyButtonLeft   => Button::Left,
+            rustBoyButtonRight  => Button::Right,
+            rustBoyButtonUp     => Button::Up,
+            rustBoyButtonDown   => Button::Down,
+            rustBoyButtonA      => Button::A,
+            rustBoyButtonB      => Button::B,
+            rustBoyButtonStart  => Button::Start,
+            rustBoyButtonSelect => Button::Select,
+        }
+    }
+}
+
 #[no_mangle]
 pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
 
 	if cartridge_path.is_null() {
 		println!("Cartridge path is null");
-		return std::ptr::null()
+		return std::ptr::null();
 	}
 
 	let cart_path_result = unsafe { CStr::from_ptr(cartridge_path) };
@@ -28,13 +45,13 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 		Ok(c) => c,
 		Err(_) => {
 			println!("Failed to parse cartridge path");
-			return std::ptr::null()
+			return std::ptr::null();
 		}
 	};
 
 	if save_file_path.is_null() {
 		println!("Save file path is null");
-		return std::ptr::null()
+		return std::ptr::null();
 	}
 
 	let save_path_result = unsafe { CStr::from_ptr(save_file_path) };
@@ -42,7 +59,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 		Ok(c) => c,
 		Err(_) => {
 			println!("Failed to parse save file path");
-			return std::ptr::null()
+			return std::ptr::null();
 		}
 	};
 
@@ -63,7 +80,7 @@ pub unsafe extern fn rustBoyDelete(instance: *const c_void) {
 pub unsafe extern fn rustBoyButtonClickDown(instance: *const c_void, button: rustBoyButton) {
     let rust_boy = instance as *mut RustBoy;
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
-        rust_boy_ref.set_button(button_for_rust_boy_button(button), true);
+        rust_boy_ref.set_button(button.to_button(), true);
     }
 }
 
@@ -71,20 +88,6 @@ pub unsafe extern fn rustBoyButtonClickDown(instance: *const c_void, button: rus
 pub unsafe extern fn rustBoyButtonClickUp(instance: *const c_void, button: rustBoyButton) {
     let rust_boy = instance as *mut RustBoy;
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
-        rust_boy_ref.set_button(button_for_rust_boy_button(button), false);
+        rust_boy_ref.set_button(button.to_button(), false);
     }
-}
-
-fn button_for_rust_boy_button(button: rustBoyButton) -> Buttons {
-	match button {
-		rustBoyButton::rustBoyButtonLeft => Buttons::A,
-		rustBoyButton::rustBoyButtonRight => Buttons::A,
-		rustBoyButton::rustBoyButtonUp => Buttons::A,
-		rustBoyButton::rustBoyButtonDown => Buttons::A,
-
-		rustBoyButton::rustBoyButtonA => Buttons::A,
-		rustBoyButton::rustBoyButtonB => Buttons::B,
-		rustBoyButton::rustBoyButtonStart => Buttons::START,
-		rustBoyButton::rustBoyButtonSelect => Buttons::SELECT
-	}
 }
