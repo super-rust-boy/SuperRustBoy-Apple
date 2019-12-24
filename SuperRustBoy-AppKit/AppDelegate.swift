@@ -14,20 +14,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	var window: NSWindow!
 
-	private lazy var rustBoy: RustBoy? = {
-
-		guard let stringPath = Bundle.main.path(forResource: "PokemonRed", ofType: "gb") else {
-			assertionFailure("Failed to find file")
-			return nil
-		}
-
-		return RustBoy(cartridgePath: "file://" + stringPath, saveFilePath: "")
-	}()
+	private let rustBoy = RustBoy()
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+		guard let stringPath = Bundle.main.path(forResource: "PokemonRed", ofType: "gb") else {
+			assertionFailure("Failed to find file")
+			return
+		}
+
+		let cartPath = "file://" + stringPath
+
+		rustBoy.cartridgePath = cartPath
+		rustBoy.saveFilePath = ""
+
 		// Create the SwiftUI view that provides the window contents.
-		let contentView = ContentView()
+		let rootView = RustBoyView(rustBoy: rustBoy)
 
 		// Create the window and set the content view.
 		window = NSWindow(
@@ -38,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		)
 		window.center()
 		window.setFrameAutosaveName("Main Window")
-		window.contentView = NSHostingView(rootView: contentView)
+		window.contentView = NSHostingView(rootView: rootView)
 		window.makeKeyAndOrderFront(nil)
 	}
 

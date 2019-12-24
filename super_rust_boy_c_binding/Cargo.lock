@@ -755,7 +755,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "rustboy"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "bitflags 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "cgmath 0.17.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -772,7 +772,7 @@ dependencies = [
 name = "rustboy_c_binding"
 version = "0.1.0"
 dependencies = [
- "rustboy 0.3.0",
+ "rustboy 0.4.0",
  "winit 0.19.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 

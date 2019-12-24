@@ -8,6 +8,11 @@
 
 import SwiftUI
 
+internal protocol ActionButtonListener {
+	func actionButtonTouchDown(_ actionButton: ActionButton)
+	func actionButtonTouchUp(_ actionButton: ActionButton)
+}
+
 internal struct ActionButton: View {
 
 	internal enum ButtonType {
@@ -15,15 +20,19 @@ internal struct ActionButton: View {
 	}
 
 	internal let type: ButtonType
-	@Binding var touchDown: Bool
+	internal let listener: ActionButtonListener
+
+	@State private var touchDown: Bool = false
 
 	internal var body: some View {
 
 		let gesture = DragGesture(minimumDistance: 0, coordinateSpace: .local)
 			.onChanged { value in
 				self.touchDown = true
+				self.listener.actionButtonTouchDown(self)
 			}.onEnded { value in
 				self.touchDown = false
+				self.listener.actionButtonTouchUp(self)
 			}
 
 		return ZStack {

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1402BD6223B158F100BB3FD5 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
+		1402BD6323B158F100BB3FD5 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
+		1402BD6723B1692F00BB3FD5 /* NSObject+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */; };
+		1402BD6823B1692F00BB3FD5 /* NSObject+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */; };
+		1402BD6A23B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */; };
+		1402BD6D23B2125900BB3FD5 /* PokemonRed.gb in Resources */ = {isa = PBXBuildFile; fileRef = 1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */; };
 		1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166B23A434C800AB442A /* libresolv.9.tbd */; };
 		1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166F23A4367E00AB442A /* AudioToolbox.framework */; };
 		1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424167123A4369D00AB442A /* CoreAudio.framework */; };
@@ -18,12 +24,10 @@
 		149BD6DF23ABE56D00C3FB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */; };
 		149BD6E223ABE56D00C3FB62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6E123ABE56D00C3FB62 /* Preview Assets.xcassets */; };
 		149BD6E523ABE56D00C3FB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */; };
-		149BD6EA23ABE5B200C3FB62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48D23A4319700029B8C /* ContentView.swift */; };
 		149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6CD23ABC53300C3FB62 /* DPad.swift */; };
 		149BD6EC23ABE5B200C3FB62 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6C923ABBDD100C3FB62 /* ActionButton.swift */; };
 		14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AFE9C623A996C400DE036C /* librustboy_c_binding.a */; };
 		14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48B23A4319700029B8C /* AppDelegate.swift */; };
-		14D1D48E23A4319700029B8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D1D48D23A4319700029B8C /* ContentView.swift */; };
 		14D1D49023A4319800029B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D48F23A4319800029B8C /* Assets.xcassets */; };
 		14D1D49323A4319800029B8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49223A4319800029B8C /* Preview Assets.xcassets */; };
 		14D1D49623A4319800029B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49423A4319800029B8C /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1402BD6123B158F100BB3FD5 /* RustBoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
+		1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+apply.swift"; sourceTree = "<group>"; };
+		1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+ActionButtonListener.swift"; sourceTree = "<group>"; };
+		1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokemonRed.gb; sourceTree = "<group>"; };
 		1424166023A4341400AB442A /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		1424166B23A434C800AB442A /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		1424166F23A4367E00AB442A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -59,7 +67,6 @@
 		14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rustboy_c_binding.xcodeproj; path = ../super_rust_boy_c_binding/rustboy_c_binding.xcodeproj; sourceTree = "<group>"; };
 		14D1D48823A4319700029B8C /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D1D48B23A4319700029B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14D1D48D23A4319700029B8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14D1D48F23A4319800029B8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14D1D49223A4319800029B8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14D1D49523A4319800029B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,10 +100,12 @@
 		149BD6CF23ABE44800C3FB62 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
-				14D1D48D23A4319700029B8C /* ContentView.swift */,
+				1402BD6123B158F100BB3FD5 /* RustBoyView.swift */,
 				14DA97BB23AFEF3C007119A7 /* Display.swift */,
 				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
 				149BD6C923ABBDD100C3FB62 /* ActionButton.swift */,
+				1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */,
+				1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -114,6 +123,7 @@
 			children = (
 				149BD6D823ABE56B00C3FB62 /* AppDelegate.swift */,
 				149BD6DA23ABE56B00C3FB62 /* SceneDelegate.swift */,
+				1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */,
 				149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */,
 				149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */,
 				149BD6E623ABE56D00C3FB62 /* Info.plist */,
@@ -305,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1402BD6D23B2125900BB3FD5 /* PokemonRed.gb in Resources */,
 				14D1D49623A4319800029B8C /* Main.storyboard in Resources */,
 				14D1D49323A4319800029B8C /* Preview Assets.xcassets in Resources */,
 				14D1D49023A4319800029B8C /* Assets.xcassets in Resources */,
@@ -318,11 +329,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1402BD6823B1692F00BB3FD5 /* NSObject+apply.swift in Sources */,
 				149BD6D923ABE56B00C3FB62 /* AppDelegate.swift in Sources */,
 				149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */,
 				149BD6DB23ABE56B00C3FB62 /* SceneDelegate.swift in Sources */,
-				149BD6EA23ABE5B200C3FB62 /* ContentView.swift in Sources */,
 				14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */,
+				1402BD6323B158F100BB3FD5 /* RustBoyView.swift in Sources */,
 				149BD6EC23ABE5B200C3FB62 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,11 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14D1D48E23A4319700029B8C /* ContentView.swift in Sources */,
+				1402BD6A23B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */,
+				1402BD6723B1692F00BB3FD5 /* NSObject+apply.swift in Sources */,
 				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
 				1424167423A436EE00AB442A /* RustBoy.swift in Sources */,
 				14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */,
 				14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */,
+				1402BD6223B158F100BB3FD5 /* RustBoyView.swift in Sources */,
 				149BD6CA23ABBDD100C3FB62 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

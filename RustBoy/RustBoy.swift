@@ -27,22 +27,68 @@ internal class RustBoy {
 		}
 	}
 
-	internal init?(cartridgePath: String, saveFilePath: String) {
-		guard let ref = rustBoyCreate(cartridgePath, saveFilePath) else { return nil }
-		coreRef = ref
+	internal enum BootStatus: Error {
+		case propertyMissing(name: String)
+		case failedToInitCore
+		case success
 	}
 
+	internal var cartridgePath:	String? {
+		didSet {
+			boot()
+		}
+	}
+
+	internal var saveFilePath:	String? {
+		didSet {
+			boot()
+		}
+	}
+
+	internal var display:		DisplayView? {
+		didSet {
+			boot()
+		}
+	}
+
+	internal init() {}
+
 	internal func buttonDown(_ button: Button) {
+		guard let coreRef = coreRef else { return }
 		rustBoyButtonClickDown(coreRef, button.asCoreButton)
 	}
 
 	internal func buttonUp(_ button: Button) {
+		guard let coreRef = coreRef else { return }
 		rustBoyButtonClickUp(coreRef, button.asCoreButton)
 	}
 
-	private let coreRef: UnsafeRawPointer
+	private var coreRef: UnsafeRawPointer?
+
+	internal func boot() -> BootStatus {
+
+		guard let cartPath	= cartridgePath	else { return .propertyMissing(name: "cartridgePath") }
+		guard let savePath	= saveFilePath	else { return .propertyMissing(name: "saveFilePath") }
+		guard let display	= display		else { return .propertyMissing(name: "display") }
+
+		if coreRef != nil {
+			rustBoyDelete(coreRef)
+		}
+
+		guard let coreRustBoy = rustBoyCreate(Self.bridge(obj: display), cartPath, savePath) else { return .failedToInitCore }
+
+		coreRef = coreRustBoy
+
+		return .success
+	}
+
+	private static func bridge<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
+		UnsafeMutableRawPointer(Unmanaged.passUnretained(obj).toOpaque())
+	}
 
 	deinit {
-		rustBoyDelete(coreRef)
+		if coreRef != nil {
+			rustBoyDelete(coreRef)
+		}
 	}
 }
