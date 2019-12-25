@@ -25,8 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		let cartPath = "file://" + stringPath
 
-		rustBoy.cartridgePath = cartPath
-		rustBoy.saveFilePath = ""
+		rustBoy.cartridge = RustBoy.Cartridge(path: cartPath)
 
 		// Create the SwiftUI view that provides the window contents.
 		let rootView = RustBoyView(rustBoy: rustBoy)

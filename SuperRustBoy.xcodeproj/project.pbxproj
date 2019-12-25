@@ -13,6 +13,8 @@
 		1402BD6823B1692F00BB3FD5 /* NSObject+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */; };
 		1402BD6A23B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */; };
 		1402BD6D23B2125900BB3FD5 /* PokemonRed.gb in Resources */ = {isa = PBXBuildFile; fileRef = 1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */; };
+		1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
+		1402BD6F23B3B16700BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */; };
 		1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166B23A434C800AB442A /* libresolv.9.tbd */; };
 		1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166F23A4367E00AB442A /* AudioToolbox.framework */; };
 		1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424167123A4369D00AB442A /* CoreAudio.framework */; };
@@ -329,6 +331,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */,
+				1402BD6F23B3B16700BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */,
 				1402BD6823B1692F00BB3FD5 /* NSObject+apply.swift in Sources */,
 				149BD6D923ABE56B00C3FB62 /* AppDelegate.swift in Sources */,
 				149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */,

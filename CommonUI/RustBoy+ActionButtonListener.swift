@@ -11,28 +11,26 @@ import Foundation
 extension RustBoy: ActionButtonListener {
 
 	internal func actionButtonTouchDown(_ actionButton: ActionButton) {
-
-		let button: RustBoy.Button
-
-		switch actionButton.type {
-			case .a: button = .a
-			case .b: button = .b
-		}
-
-		buttonDown(button)
+		buttonDown(actionButton.toRustBoyButton())
 	}
 
 	internal func actionButtonTouchUp(_ actionButton: ActionButton) {
+		buttonUp(actionButton.toRustBoyButton())
+	}
+
+}
+
+fileprivate extension ActionButton {
+	func toRustBoyButton() -> RustBoy.Button {
 		let button: RustBoy.Button
 
-		switch actionButton.type {
+		switch self.type {
 			case .a: button = .a
 			case .b: button = .b
 		}
 
-		buttonUp(button)
+		return button
 	}
-
 }
 
 

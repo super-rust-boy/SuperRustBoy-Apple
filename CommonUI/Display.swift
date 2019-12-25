@@ -40,6 +40,8 @@ internal struct Display: NSViewRepresentable {
 #else
 internal struct Display: UIViewRepresentable {
 
+	internal let rustBoy: RustBoy
+
 	internal func makeUIView(context: Context) -> DisplayView {
 		DisplayView()
 	}
