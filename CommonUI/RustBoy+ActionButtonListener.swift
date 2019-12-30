@@ -22,14 +22,10 @@ extension RustBoy: ActionButtonListener {
 
 fileprivate extension ActionButton {
 	func toRustBoyButton() -> RustBoy.Button {
-		let button: RustBoy.Button
-
 		switch self.type {
-			case .a: button = .a
-			case .b: button = .b
+			case .a: return .a
+			case .b: return .b
 		}
-
-		return button
 	}
 }
 
