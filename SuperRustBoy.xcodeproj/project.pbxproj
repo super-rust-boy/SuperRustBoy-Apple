@@ -12,7 +12,6 @@
 		1402BD6723B1692F00BB3FD5 /* NSObject+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */; };
 		1402BD6823B1692F00BB3FD5 /* NSObject+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */; };
 		1402BD6A23B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */; };
-		1402BD6D23B2125900BB3FD5 /* PokemonRed.gb in Resources */ = {isa = PBXBuildFile; fileRef = 1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */; };
 		1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
 		1402BD6F23B3B16700BB3FD5 /* RustBoy+ActionButtonListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */; };
 		1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166B23A434C800AB442A /* libresolv.9.tbd */; };
@@ -51,7 +50,6 @@
 		1402BD6123B158F100BB3FD5 /* RustBoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
 		1402BD6623B1692F00BB3FD5 /* NSObject+apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+apply.swift"; sourceTree = "<group>"; };
 		1402BD6923B2081600BB3FD5 /* RustBoy+ActionButtonListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+ActionButtonListener.swift"; sourceTree = "<group>"; };
-		1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokemonRed.gb; sourceTree = "<group>"; };
 		1424166023A4341400AB442A /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		1424166B23A434C800AB442A /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		1424166F23A4367E00AB442A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -125,7 +123,6 @@
 			children = (
 				149BD6D823ABE56B00C3FB62 /* AppDelegate.swift */,
 				149BD6DA23ABE56B00C3FB62 /* SceneDelegate.swift */,
-				1402BD6C23B2125900BB3FD5 /* PokemonRed.gb */,
 				149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */,
 				149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */,
 				149BD6E623ABE56D00C3FB62 /* Info.plist */,
@@ -317,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1402BD6D23B2125900BB3FD5 /* PokemonRed.gb in Resources */,
 				14D1D49623A4319800029B8C /* Main.storyboard in Resources */,
 				14D1D49323A4319800029B8C /* Preview Assets.xcassets in Resources */,
 				14D1D49023A4319800029B8C /* Assets.xcassets in Resources */,
