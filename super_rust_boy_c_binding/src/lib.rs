@@ -1,7 +1,7 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
 use rustboy::{RustBoy, UserPalette, VulkanRenderer, WindowType, Button};
-use winit::EventsLoop;
+use winit::{Window, EventsLoop};
 
 #[repr(C)]
 #[allow(non_camel_case_types)]
@@ -34,7 +34,7 @@ impl rustBoyButton {
 }
 
 #[no_mangle]
-pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
+pub extern fn rustBoyCreate(native_view: *const c_void, cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
 
 	if cartridge_path.is_null() {
 		println!("Cartridge path is null");
@@ -64,8 +64,10 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 		}
 	};
 
-	let events_loop = EventsLoop::new();
-	let renderer = VulkanRenderer::new(WindowType::Winit(&events_loop));
+	let dummy_events_loop = EventsLoop::new();
+	let dummy_window = Window::new(&dummy_events_loop).unwrap();
+
+	let renderer = VulkanRenderer::new(WindowType::IOS { ui_view: native_view, window: dummy_window });
 	let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false, renderer);
 
 	Box::into_raw(instance) as *const c_void
