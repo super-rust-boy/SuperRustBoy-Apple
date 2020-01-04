@@ -10,37 +10,37 @@ import SwiftUI
 
 internal struct DPad: View {
 
-	var body: some View {
+	internal let rustBoy: RustBoy
+
+	internal var body: some View {
 
 		GeometryReader { geometry in
-
-			Path { path in
-
-				let size = min(geometry.size.width, geometry.size.height)
-
-				let sizeOverThree = size / 3
-
-				path.move(to: CGPoint(x: sizeOverThree, y: 0))
-				path.addLine(to: CGPoint(x: sizeOverThree * 2, y: 0))
-				path.addLine(to: CGPoint(x: sizeOverThree * 2, y: size))
-				path.addLine(to: CGPoint(x: sizeOverThree, y: size))
-
-				path.move(to: CGPoint(x: 0, y: sizeOverThree))
-				path.addLine(to: CGPoint(x: size, y: sizeOverThree))
-				path.addLine(to: CGPoint(x: size, y: sizeOverThree * 2))
-				path.addLine(to: CGPoint(x: 0, y: sizeOverThree * 2))
+			ZStack {
+				HalfPad(types: (.left, .right), rustBoy: self.rustBoy)
+					.frame(height: min(geometry.size.height, geometry.size.width) / 3)
+				HalfPad(types: (.up, .down), rustBoy: self.rustBoy)
+					.frame(height: min(geometry.size.height, geometry.size.width) / 3)
+					.rotationEffect(.degrees(90))
 			}
-				.frame(width: min(geometry.size.width, geometry.size.height), height: min(geometry.size.width, geometry.size.height))
+				.frame(
+					width:	min(geometry.size.height, geometry.size.width),
+					height:	min(geometry.size.height, geometry.size.width)
+				)
 		}
 	}
 
 }
 
-struct DPad_Previews: PreviewProvider {
-	static var previews: some View {
-		DPad()
+fileprivate struct HalfPad: View {
+
+	fileprivate let types: (RustBoy.Button, RustBoy.Button)
+	fileprivate let rustBoy: RustBoy
+
+	fileprivate var body: some View {
+		HStack {
+			ActionButton(type: types.0, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
+			ActionButton(type: types.1, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
+				.rotationEffect(.degrees(180))
+		}
 	}
 }
-
-
-

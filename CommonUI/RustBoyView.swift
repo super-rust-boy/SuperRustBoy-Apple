@@ -16,11 +16,11 @@ internal struct RustBoyView: View {
 		VStack {
 			Display(rustBoy: rustBoy)
 			HStack {
-				DPad()
+				DPad(rustBoy: rustBoy)
 					.padding()
 				HStack {
-					ActionButton(type: .b, listener: rustBoy)
-					ActionButton(type: .a, listener: rustBoy)
+					ActionButton(type: .b, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "B")))
+					ActionButton(type: .a, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "A")))
 				}
 				.padding()
 			}
