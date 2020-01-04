@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-internal struct ActionButton: View {
+internal struct RustBoyButton: View {
 
-	internal let type: RustBoy.Button
+	internal let type: RustBoy.ButtonType
 	internal let rustBoy: RustBoy
 	internal let bodyView: AnyView
 

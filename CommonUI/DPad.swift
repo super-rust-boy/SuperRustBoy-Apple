@@ -33,13 +33,13 @@ internal struct DPad: View {
 
 fileprivate struct HalfPad: View {
 
-	fileprivate let types: (RustBoy.Button, RustBoy.Button)
+	fileprivate let types: (RustBoy.ButtonType, RustBoy.ButtonType)
 	fileprivate let rustBoy: RustBoy
 
 	fileprivate var body: some View {
 		HStack {
-			ActionButton(type: types.0, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
-			ActionButton(type: types.1, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
+			RustBoyButton(type: types.0, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
+			RustBoyButton(type: types.1, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
 				.rotationEffect(.degrees(180))
 		}
 	}

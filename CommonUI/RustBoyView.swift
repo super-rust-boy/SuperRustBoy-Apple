@@ -19,8 +19,8 @@ internal struct RustBoyView: View {
 				DPad(rustBoy: rustBoy)
 					.padding()
 				HStack {
-					ActionButton(type: .b, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "B")))
-					ActionButton(type: .a, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "A")))
+					RustBoyButton(type: .b, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "B")))
+					RustBoyButton(type: .a, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "A")))
 				}
 				.padding()
 			}
