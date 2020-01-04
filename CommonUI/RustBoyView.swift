@@ -10,25 +10,37 @@ import SwiftUI
 
 internal struct RustBoyView: View {
 
-	private let rustBoy: RustBoy
+	internal let rustBoy: RustBoy
 
 	internal var body: some View {
 		VStack {
 			Display(rustBoy: rustBoy)
+
 			HStack {
-				DPad()
+				DPad(rustBoy: rustBoy)
 					.padding()
 				HStack {
-					ActionButton(type: .b, listener: rustBoy)
-					ActionButton(type: .a, listener: rustBoy)
+					RustBoyButton(type: .b, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "B")))
+					RustBoyButton(type: .a, rustBoy: rustBoy, bodyView: AnyView(RoundButton(text: "A")))
 				}
 				.padding()
 			}
+
+			GeometryReader { geometry in
+				HStack {
+					VStack {
+						RustBoyButton(type: .start, rustBoy: self.rustBoy, bodyView: AnyView(RoundedRectangle(cornerRadius: 25)))
+						Text("Start")
+					}
+					VStack {
+						RustBoyButton(type: .select, rustBoy: self.rustBoy, bodyView: AnyView(RoundedRectangle(cornerRadius: 25)))
+						Text("Select")
+					}
+				}
+					.frame(width: geometry.size.width / 3)
+			}
+				.frame(height: 50)
+				.padding()
 		}
 	}
-
-	internal init(rustBoy: RustBoy) {
-		self.rustBoy = rustBoy
-	}
-
 }

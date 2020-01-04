@@ -12,7 +12,7 @@ import RustBoy
 
 internal class RustBoy {
 
-	internal enum Button {
+	internal enum ButtonType {
 		case left, right, up, down, a, b, start, select
 #if os(OSX)
 		fileprivate var asCoreButton: rustBoyButton {
@@ -60,14 +60,14 @@ internal class RustBoy {
 
 	internal init() {}
 
-	internal func buttonDown(_ button: Button) {
+	internal func buttonDown(_ button: ButtonType) {
 		guard let coreRef = coreRef else { return }
 #if os(OSX)
 		rustBoyButtonClickDown(coreRef, button.asCoreButton)
 #endif
 	}
 
-	internal func buttonUp(_ button: Button) {
+	internal func buttonUp(_ button: ButtonType) {
 		guard let coreRef = coreRef else { return }
 #if os(OSX)
 		rustBoyButtonClickUp(coreRef, button.asCoreButton)
