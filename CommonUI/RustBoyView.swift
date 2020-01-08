@@ -28,13 +28,13 @@ internal struct RustBoyView: View {
 
 			GeometryReader { geometry in
 				HStack {
+                    VStack {
+                        RustBoyButton(type: .select, rustBoy: self.rustBoy, bodyView: AnyView(RoundedRectangle(cornerRadius: 25)))
+                        Text("Select")
+                    }
 					VStack {
 						RustBoyButton(type: .start, rustBoy: self.rustBoy, bodyView: AnyView(RoundedRectangle(cornerRadius: 25)))
 						Text("Start")
-					}
-					VStack {
-						RustBoyButton(type: .select, rustBoy: self.rustBoy, bodyView: AnyView(RoundedRectangle(cornerRadius: 25)))
-						Text("Select")
 					}
 				}
 					.frame(width: geometry.size.width / 3)
