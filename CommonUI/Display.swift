@@ -22,33 +22,25 @@ internal class DisplayView: ViewType {
 #endif
 }
 
-#if os(OSX)
-internal struct Display: NSViewRepresentable {
+internal struct Display {
+    internal let rustBoy: RustBoy
 
-	internal let rustBoy: RustBoy
-
-    internal func makeNSView(context: Context) -> DisplayView {
-		DisplayView().apply { (view: DisplayView) in
-			rustBoy.display = view
-		}
-    }
-
-    internal func updateNSView(_ nsView: DisplayView, context: Context) {
-
+    fileprivate func createDisplayView() -> DisplayView {
+        DisplayView().apply { (view: DisplayView) in
+            rustBoy.display = view
+        }
     }
 }
+
+#if os(OSX)
+extension Display: NSViewRepresentable {
+    internal func makeNSView(context: Context) -> DisplayView { createDisplayView() }
+    internal func updateNSView(_ nsView: DisplayView, context: Context) {}
+}
 #else
-internal struct Display: UIViewRepresentable {
-
-	internal let rustBoy: RustBoy
-
-	internal func makeUIView(context: Context) -> DisplayView {
-		DisplayView()
-	}
-
-	internal func updateUIView(_ uiView: DisplayView, context: Context) {
-
-	}
+extension Display: UIViewRepresentable {
+	internal func makeUIView(context: Context) -> DisplayView { createDisplayView() }
+	internal func updateUIView(_ uiView: DisplayView, context: Context) {}
 }
 #endif
 
