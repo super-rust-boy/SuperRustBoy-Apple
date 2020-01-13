@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-internal struct RustBoyButton: View {
+internal struct RustBoyButton<ViewType>: View where ViewType: View {
 
 	internal let type: RustBoy.ButtonType
 	internal let rustBoy: RustBoy
-	internal let bodyView: AnyView
+	internal let content: () -> ViewType
 
 	@State private var touchDown: Bool = false
 
@@ -27,7 +27,7 @@ internal struct RustBoyButton: View {
 				self.rustBoy.buttonUp(self.type)
 			}
 
-		return bodyView
+		return content()
 			.opacity(touchDown ? 0.5 : 1)
 			.gesture(gesture)
 	}

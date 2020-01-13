@@ -16,9 +16,10 @@ internal struct DPad: View {
 
 		GeometryReader { geometry in
 			ZStack {
-				HalfPad(types: (.left, .right), rustBoy: self.rustBoy)
+                HalfPad(firstButtonType: .left, secondButtonType: .right, rustBoy: self.rustBoy)
 					.frame(height: min(geometry.size.height, geometry.size.width) / 3)
-				HalfPad(types: (.up, .down), rustBoy: self.rustBoy)
+
+                HalfPad(firstButtonType: .up, secondButtonType: .down, rustBoy: self.rustBoy)
 					.frame(height: min(geometry.size.height, geometry.size.width) / 3)
 					.rotationEffect(.degrees(90))
 			}
@@ -33,13 +34,14 @@ internal struct DPad: View {
 
 fileprivate struct HalfPad: View {
 
-	fileprivate let types: (RustBoy.ButtonType, RustBoy.ButtonType)
+	fileprivate let firstButtonType: RustBoy.ButtonType
+    fileprivate let secondButtonType: RustBoy.ButtonType
 	fileprivate let rustBoy: RustBoy
 
 	fileprivate var body: some View {
 		HStack {
-			RustBoyButton(type: types.0, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
-			RustBoyButton(type: types.1, rustBoy: rustBoy, bodyView: AnyView(Arrow()))
+            RustBoyButton(type: firstButtonType, rustBoy: rustBoy, content: Arrow.init)
+            RustBoyButton(type: secondButtonType, rustBoy: rustBoy, content: Arrow.init)
 				.rotationEffect(.degrees(180))
 		}
 	}
