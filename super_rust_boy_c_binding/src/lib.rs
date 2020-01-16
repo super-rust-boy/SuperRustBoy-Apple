@@ -1,7 +1,7 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, VulkanRenderer, WindowType, Button};
-use winit::{Window, EventsLoop};
+use rustboy::{RustBoy, UserPalette, VulkanRenderer, Button};
+use std::slice;
 
 #[repr(C)]
 #[allow(non_camel_case_types)]
@@ -34,7 +34,7 @@ impl rustBoyButton {
 }
 
 #[no_mangle]
-pub extern fn rustBoyCreate(native_view: *const c_void, cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
+pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
 
 	if cartridge_path.is_null() {
 		println!("Cartridge path is null");
@@ -64,10 +64,7 @@ pub extern fn rustBoyCreate(native_view: *const c_void, cartridge_path: *const c
 		}
 	};
 
-	let dummy_events_loop = EventsLoop::new();
-	let dummy_window = Window::new(&dummy_events_loop).unwrap();
-
-	let renderer = VulkanRenderer::new(WindowType::IOS { ui_view: native_view, window: dummy_window });
+	let renderer = VulkanRenderer::new();
 	let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false, renderer);
 
 	Box::into_raw(instance) as *const c_void
@@ -77,6 +74,17 @@ pub extern fn rustBoyCreate(native_view: *const c_void, cartridge_path: *const c
 pub unsafe extern fn rustBoyDelete(instance: *const c_void) {
     let rust_boy = instance as *mut RustBoy;
     rust_boy.drop_in_place();
+}
+
+#[no_mangle]
+pub unsafe extern fn rustBoyFrame(instance: *const c_void, buffer: *mut u32, length: u32) {
+	let rust_boy = instance as *mut RustBoy;
+    if let Some(rust_boy_ref) = rust_boy.as_mut() {
+
+		let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
+
+        rust_boy_ref.frame(&mut buffer_slice);
+    }
 }
 
 #[no_mangle]

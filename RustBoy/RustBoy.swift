@@ -8,6 +8,7 @@
 
 #if os(OSX)
 import RustBoy
+import CoreVideo
 #endif
 
 internal class RustBoy {
@@ -32,9 +33,9 @@ internal class RustBoy {
 
 	internal struct Cartridge {
 		fileprivate let path: String
-		fileprivate let saveFilePath: String?
+		fileprivate let saveFilePath: String
 
-		internal init(path: String, saveFilePath: String? = nil) {
+		internal init(path: String, saveFilePath: String) {
 			self.path = path
 			self.saveFilePath = saveFilePath
 		}
@@ -52,11 +53,7 @@ internal class RustBoy {
 		}
 	}
 
-	internal var display: DisplayView? {
-		didSet {
-			boot()
-		}
-	}
+	internal var display: DisplayView?
 
 	internal init() {}
 
@@ -74,12 +71,16 @@ internal class RustBoy {
 #endif
 	}
 
+    internal func frame(buffer: inout [UInt32]) {
+        rustBoyFrame(coreRef, &buffer, UInt32(buffer.count))
+    }
+
 	private var coreRef: UnsafeRawPointer?
+    private var displayLink: CVDisplayLink?
 
-	internal func boot() -> BootStatus {
+	private func boot() -> BootStatus {
 
-		guard let cart		= cartridge		else { return .propertyMissing(name: "cartridge") }
-		guard let display	= display		else { return .propertyMissing(name: "display") }
+		guard let cart = cartridge else { return .propertyMissing(name: "cartridge") }
 
 #if os(OSX)
 		if coreRef != nil {
@@ -87,16 +88,18 @@ internal class RustBoy {
 		}
 
 
-		guard let coreRustBoy = rustBoyCreate(Self.bridge(obj: display), cart.path, cart.saveFilePath) else { return .failedToInitCore }
+		guard let coreRustBoy = rustBoyCreate(cart.path, cart.saveFilePath) else { return .failedToInitCore }
 
 		coreRef = coreRustBoy
 #endif
 
-		return .success
-	}
+        CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
 
-	private static func bridge<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
-		UnsafeMutableRawPointer(Unmanaged.passUnretained(obj).toOpaque())
+        CVDisplayLinkSetOutputCallback(displayLink!, displayCallback, bridge(obj: self))
+
+        CVDisplayLinkStart(displayLink!)
+
+		return .success
 	}
 
 	deinit {
@@ -106,4 +109,25 @@ internal class RustBoy {
 		}
 #endif
 	}
+}
+
+private let displayCallback: CVDisplayLinkOutputCallback = { (displayLink: CVDisplayLink, inNow: UnsafePointer<CVTimeStamp>, inOutputTime: UnsafePointer<CVTimeStamp>, flagsIn: CVOptionFlags, flagsOut: UnsafeMutablePointer<CVOptionFlags>, userData: UnsafeMutableRawPointer?) -> CVReturn in
+
+    DispatchQueue.main.async {
+        let rustBoy: RustBoy = bridge(ptr: userData!)
+
+        var buffer = [UInt32](repeating: 0, count: 144 * 160)
+
+        rustBoy.frame(buffer: &buffer)
+    }
+
+    return .zero
+}
+
+private func bridge<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
+    UnsafeMutableRawPointer(Unmanaged.passUnretained(obj).toOpaque())
+}
+
+private func bridge< T:AnyObject >( ptr: UnsafeMutableRawPointer ) -> T {
+    return Unmanaged< T >.fromOpaque( ptr ).takeUnretainedValue()
 }

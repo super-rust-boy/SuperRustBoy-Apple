@@ -14,20 +14,14 @@ internal typealias ViewType = NSView
 internal typealias ViewType = UIView
 #endif
 
-internal class DisplayView: ViewType {
-#if os(OSX)
-	// TODO: Use CAMetalLayer as backing layer for NSView
-#else
-	override class var layerClass: AnyClass { CAMetalLayer.self }
-#endif
-}
+internal class DisplayView: ViewType {}
 
 internal struct Display {
     internal let rustBoy: RustBoy
 
     fileprivate func createDisplayView() -> DisplayView {
-        DisplayView().apply { (view: DisplayView) in
-            rustBoy.display = view
+        DisplayView().apply {
+            rustBoy.display = $0
         }
     }
 }
