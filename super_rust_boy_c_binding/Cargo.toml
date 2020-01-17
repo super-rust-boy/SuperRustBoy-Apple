@@ -13,4 +13,3 @@ crate-type = ["staticlib"]
 
 [dependencies]
 rustboy = { path = "../../super-rust-boy" }
-winit = "0.19"
