@@ -123,11 +123,3 @@ private let displayCallback: CVDisplayLinkOutputCallback = { (displayLink: CVDis
 
     return .zero
 }
-
-private func bridge<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
-    UnsafeMutableRawPointer(Unmanaged.passUnretained(obj).toOpaque())
-}
-
-private func bridge< T:AnyObject >( ptr: UnsafeMutableRawPointer ) -> T {
-    return Unmanaged< T >.fromOpaque( ptr ).takeUnretainedValue()
-}
