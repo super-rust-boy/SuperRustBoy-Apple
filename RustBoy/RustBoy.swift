@@ -58,65 +58,60 @@ internal class RustBoy {
 
 	internal init() {}
 
-	internal func buttonDown(_ button: ButtonType) {
-		guard let coreRef = coreRef else { return }
+    internal func buttonDown(_ button: ButtonType) {
 #if os(OSX)
-		rustBoyButtonClickDown(coreRef, button.asCoreButton)
+        coreRustBoy?.buttonDown(button)
 #endif
-	}
-
-	internal func buttonUp(_ button: ButtonType) {
-		guard let coreRef = coreRef else { return }
-#if os(OSX)
-		rustBoyButtonClickUp(coreRef, button.asCoreButton)
-#endif
-	}
-
-    internal func frame(buffer: inout [UInt32]) {
-        rustBoyFrame(coreRef, &buffer, UInt32(buffer.count))
     }
 
-	private var coreRef: UnsafeRawPointer?
-    private var timer: Timer?
-    private static let framerate: Double = 60
-
-    private var buffer = [UInt32](repeating: 0, count: 144 * 160)
-
-	private func boot() -> BootStatus {
-
-		guard let cart = cartridge else { return .cartridgeMissing }
+	internal func buttonUp(_ button: ButtonType) {
+#if os(OSX)
+        coreRustBoy?.buttonUp(button)
+#endif
+    }
 
 #if os(OSX)
-		if coreRef != nil {
-			rustBoyDelete(coreRef)
-		}
+    private class CoreRustBoy {
 
-
-		guard let coreRustBoy = rustBoyCreate(cart.path, cart.saveFilePath) else { return .failedToInitCore }
-
-		coreRef = coreRustBoy
-
-        timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
-
-            guard let weakSelf = self else {
-                print("Failed to capture self")
-                return
+        fileprivate init?(cartridge: Cartridge) {
+            guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
+            self.coreRef = coreRef
+            timer = Timer.scheduledTimer(withTimeInterval: 1 / RustBoy.framerate, repeats: true) { timer in
+                rustBoyFrame(coreRef, &self.buffer, UInt32(self.buffer.count))
             }
-
-            weakSelf.frame(buffer: &weakSelf.buffer)
-
-//            print("Buffer: \(weakSelf.buffer)")
         }
+
+        fileprivate func buttonDown(_ button: ButtonType) {
+            rustBoyButtonClickDown(coreRef, button.asCoreButton)
+        }
+
+        fileprivate func buttonUp(_ button: ButtonType) {
+            rustBoyButtonClickUp(coreRef, button.asCoreButton)
+        }
+
+        deinit {
+            timer?.invalidate()
+            rustBoyDelete(coreRef)
+        }
+
+        private let coreRef: UnsafeRawPointer
+        private var timer: Timer?
+        private var buffer = [UInt32](repeating: 0, count: 144 * 160)
+    }
+
+    private var coreRustBoy: CoreRustBoy?
+#endif
+
+    private static let framerate: Double = 60
+
+	private func boot() -> BootStatus {
+		guard let cart = cartridge else { return .cartridgeMissing }
+#if os(OSX)
+        guard let coreRustBoy = CoreRustBoy(cartridge: cart) else { return .failedToInitCore }
+
+        self.coreRustBoy = coreRustBoy
 #endif
 
 		return .success
-	}
-
-	deinit {
-#if os(OSX)
-		if coreRef != nil {
-			rustBoyDelete(coreRef)
-		}
-#endif
 	}
 }
