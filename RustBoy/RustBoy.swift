@@ -42,14 +42,15 @@ internal class RustBoy {
 	}
 
 	internal enum BootStatus: Error {
-		case propertyMissing(name: String)
+        case cartridgeMissing
 		case failedToInitCore
 		case success
 	}
 
 	internal var cartridge: Cartridge? {
 		didSet {
-			boot()
+			let result = boot()
+            assert(result == .success, "Boot failed with error: \(result)")
 		}
 	}
 
@@ -76,11 +77,14 @@ internal class RustBoy {
     }
 
 	private var coreRef: UnsafeRawPointer?
-    private var displayLink: CVDisplayLink?
+    private var timer: Timer?
+    private static let framerate: Double = 60
+
+    private var buffer = [UInt32](repeating: 0, count: 144 * 160)
 
 	private func boot() -> BootStatus {
 
-		guard let cart = cartridge else { return .propertyMissing(name: "cartridge") }
+		guard let cart = cartridge else { return .cartridgeMissing }
 
 #if os(OSX)
 		if coreRef != nil {
@@ -91,13 +95,19 @@ internal class RustBoy {
 		guard let coreRustBoy = rustBoyCreate(cart.path, cart.saveFilePath) else { return .failedToInitCore }
 
 		coreRef = coreRustBoy
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
+
+            guard let weakSelf = self else {
+                print("Failed to capture self")
+                return
+            }
+
+            weakSelf.frame(buffer: &weakSelf.buffer)
+
+//            print("Buffer: \(weakSelf.buffer)")
+        }
 #endif
-
-        CVDisplayLinkCreateWithActiveCGDisplays(&displayLink)
-
-        CVDisplayLinkSetOutputCallback(displayLink!, displayCallback, bridge(obj: self))
-
-        CVDisplayLinkStart(displayLink!)
 
 		return .success
 	}
@@ -109,17 +119,4 @@ internal class RustBoy {
 		}
 #endif
 	}
-}
-
-private let displayCallback: CVDisplayLinkOutputCallback = { (displayLink: CVDisplayLink, inNow: UnsafePointer<CVTimeStamp>, inOutputTime: UnsafePointer<CVTimeStamp>, flagsIn: CVOptionFlags, flagsOut: UnsafeMutablePointer<CVOptionFlags>, userData: UnsafeMutableRawPointer?) -> CVReturn in
-
-    DispatchQueue.main.async {
-        let rustBoy: RustBoy = bridge(ptr: userData!)
-
-        var buffer = [UInt32](repeating: 0, count: 144 * 160)
-
-        rustBoy.frame(buffer: &buffer)
-    }
-
-    return .zero
 }
