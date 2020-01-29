@@ -9,9 +9,8 @@
 import Foundation
 
 internal extension NSObjectProtocol where Self: NSObject {
-    func apply<T>(_ apply: (T) -> ()) -> T {
-        let obj = self as! T
-        apply(obj)
-        return obj
+    func apply(_ apply: (Self) -> ()) -> Self {
+        apply(self)
+        return self
     }
 }

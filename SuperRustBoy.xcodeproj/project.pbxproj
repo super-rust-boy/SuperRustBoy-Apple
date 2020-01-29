@@ -35,20 +35,8 @@
 		14D1D49623A4319800029B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49423A4319800029B8C /* Main.storyboard */; };
 		14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
 		14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
-		59967EA923CF759400CD7E20 /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59967EA823CF73CB00CD7E20 /* librustboy_c_binding.a */; };
-		59DAE52723D240DD0089359C /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DAE52623D240DD0089359C /* C-Interop.swift */; };
-		59DAE52823D240DD0089359C /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DAE52623D240DD0089359C /* C-Interop.swift */; };
+		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		59967EA723CF73CB00CD7E20 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 59967EA223CF73CB00CD7E20 /* rustboy_c_binding.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA60CB9CE1C287198330A3C3;
-			remoteInfo = "rustboy_c_binding-staticlib";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1402BD6123B158F100BB3FD5 /* RustBoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
@@ -81,6 +69,7 @@
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
 		59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.1.130.dylib; path = ../../../usr/local/lib/libvulkan.1.1.130.dylib; sourceTree = "<group>"; };
 		59DAE52623D240DD0089359C /* C-Interop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
+		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59967EA923CF759400CD7E20 /* librustboy_c_binding.a in Frameworks */,
+				59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */,
 				1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */,
 				1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */,
 				1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */,
@@ -148,14 +137,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		14AFE9BE23A996B500DE036C /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				59967EA223CF73CB00CD7E20 /* rustboy_c_binding.xcodeproj */,
-			);
-			path = Dependencies;
-			sourceTree = "<group>";
-		};
 		14D1D47F23A4319700029B8C = {
 			isa = PBXGroup;
 			children = (
@@ -163,8 +144,6 @@
 				149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */,
 				149BD6CF23ABE44800C3FB62 /* CommonUI */,
 				149BD6D123ABE48700C3FB62 /* RustBoy */,
-				59DAE52323D240AC0089359C /* Utils */,
-				14AFE9BE23A996B500DE036C /* Dependencies */,
 				14D1D48923A4319700029B8C /* Products */,
 				14D1D4AC23A431CC00029B8C /* Frameworks */,
 			);
@@ -206,6 +185,7 @@
 			children = (
 				59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */,
 				59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */,
+				59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */,
 				1424167123A4369D00AB442A /* CoreAudio.framework */,
 				1424166F23A4367E00AB442A /* AudioToolbox.framework */,
 				1424166B23A434C800AB442A /* libresolv.9.tbd */,
@@ -295,12 +275,6 @@
 			mainGroup = 14D1D47F23A4319700029B8C;
 			productRefGroup = 14D1D48923A4319700029B8C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 59967EA323CF73CB00CD7E20 /* Products */;
-					ProjectRef = 59967EA223CF73CB00CD7E20 /* rustboy_c_binding.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				14D1D48723A4319700029B8C /* SuperRustBoy */,
@@ -308,16 +282,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		59967EA823CF73CB00CD7E20 /* librustboy_c_binding.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = librustboy_c_binding.a;
-			remoteRef = 59967EA723CF73CB00CD7E20 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		149BD6D423ABE56B00C3FB62 /* Resources */ = {
