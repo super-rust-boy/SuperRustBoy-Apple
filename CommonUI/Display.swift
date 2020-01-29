@@ -9,9 +9,9 @@
 import SwiftUI
 
 #if os(OSX)
-internal typealias ViewType = NSView
+internal typealias ViewType = NSImageView
 #else
-internal typealias ViewType = UIView
+internal typealias ViewType = UIImageView
 #endif
 
 internal class DisplayView: ViewType {}
@@ -21,6 +21,8 @@ internal struct Display {
 
     fileprivate func createDisplayView() -> DisplayView {
         DisplayView().apply {
+            $0.wantsLayer = true
+            $0.layer?.backgroundColor = NSColor.black.cgColor
             rustBoy.display = $0
         }
     }

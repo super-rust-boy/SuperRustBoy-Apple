@@ -7,6 +7,7 @@
 //
 
 #if os(OSX)
+import AppKit
 import RustBoy
 import CoreVideo
 #endif
@@ -54,11 +55,18 @@ internal class RustBoy {
 #if os(OSX)
     private class CoreRustBoy {
 
+        fileprivate weak var display: DisplayView?
+
         fileprivate init?(cartridge: Cartridge) {
             guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
             self.coreRef = coreRef
             timer = Timer.scheduledTimer(withTimeInterval: 1 / RustBoy.framerate, repeats: true) { timer in
                 rustBoyFrame(coreRef, &self.buffer, UInt32(self.buffer.count))
+
+                let data = Data(bytes: &self.buffer, count: self.buffer.count)
+                let image = NSImage(data: data)
+
+                self.display?.image = image
             }
         }
 
