@@ -15,30 +15,11 @@ internal class RustBoy {
 
 	internal enum ButtonType {
 		case left, right, up, down, a, b, start, select
-#if os(OSX)
-		fileprivate var asCoreButton: rustBoyButton {
-			switch self {
-				case .left:		return rustBoyButtonLeft
-				case .right:	return rustBoyButtonRight
-				case .up:		return rustBoyButtonUp
-				case .down:		return rustBoyButtonDown
-				case .a:		return rustBoyButtonA
-				case .b:		return rustBoyButtonB
-				case .start:	return rustBoyButtonStart
-				case .select:	return rustBoyButtonSelect
-			}
-		}
-#endif
 	}
 
-	internal struct Cartridge {
-		fileprivate let path: String
-		fileprivate let saveFilePath: String
-
-		internal init(path: String, saveFilePath: String) {
-			self.path = path
-			self.saveFilePath = saveFilePath
-		}
+    internal struct Cartridge: Equatable {
+		internal let path: String
+		internal let saveFilePath: String
 	}
 
 	internal enum BootStatus: Error {
@@ -82,11 +63,11 @@ internal class RustBoy {
         }
 
         fileprivate func buttonDown(_ button: ButtonType) {
-            rustBoyButtonClickDown(coreRef, button.asCoreButton)
+            rustBoyButtonClickDown(coreRef, rustBoyButton(button))
         }
 
         fileprivate func buttonUp(_ button: ButtonType) {
-            rustBoyButtonClickUp(coreRef, button.asCoreButton)
+            rustBoyButtonClickUp(coreRef, rustBoyButton(button))
         }
 
         deinit {
@@ -115,3 +96,20 @@ internal class RustBoy {
 		return .success
 	}
 }
+
+#if os(OSX)
+    private extension rustBoyButton {
+        init(_ buttonType: RustBoy.ButtonType) {
+            switch buttonType {
+                case .left:     self = rustBoyButtonLeft
+                case .right:    self = rustBoyButtonRight
+                case .up:       self = rustBoyButtonUp
+                case .down:     self = rustBoyButtonDown
+                case .a:        self = rustBoyButtonA
+                case .b:        self = rustBoyButtonB
+                case .start:    self = rustBoyButtonStart
+                case .select:   self = rustBoyButtonSelect
+            }
+        }
+    }
+#endif
