@@ -12,7 +12,8 @@ iOS and macOS clients for [super-rust-boy](https://github.com/coopersimon/super-
 
 ## Prerequisites 
 
-* Rust and cargo installed
+* Rust and cargo installed (TLDR; Run `curl https://sh.rustup.rs -sSf | sh` in terminal)
+* MoltenVK installed (TLDR; [Downloads page](https://vulkan.lunarg.com/sdk/home))
 
 ### Steps
 
