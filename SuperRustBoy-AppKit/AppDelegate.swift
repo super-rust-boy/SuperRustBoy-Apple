@@ -14,7 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	var window: NSWindow!
 
-	private let rustBoy = RustBoy()
+    private let rustBoy = RustBoy.setup {
+        $0.autoBoot = true
+    }
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 

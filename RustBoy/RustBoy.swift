@@ -12,6 +12,8 @@ import CoreRustBoy
 import CoreVideo
 #endif
 
+extension RustBoy: EmptyInstantiable {}
+
 internal class RustBoy {
 
 	internal enum ButtonType {
@@ -31,10 +33,18 @@ internal class RustBoy {
 
 	internal var cartridge: Cartridge? {
 		didSet {
-			let result = boot()
-            assert(result == .success, "Boot failed with error: \(result)")
+            guard cartridge != nil else {
+                coreRustBoy = nil
+                return
+            }
+
+            if autoBoot {
+                let _ = boot()
+            }
 		}
 	}
+
+    internal var autoBoot = false
 
     internal var display: DisplayView? {
         didSet {
@@ -44,7 +54,7 @@ internal class RustBoy {
         }
     }
 
-	internal init() {}
+    internal required init() {}
 
     internal func buttonDown(_ button: ButtonType) {
 #if os(OSX)
@@ -58,11 +68,7 @@ internal class RustBoy {
 #endif
     }
 
-#if os(OSX)
-    private var coreRustBoy: CoreRustBoy?
-#endif
-
-	private func boot() -> BootStatus {
+	internal func boot() -> BootStatus {
 		guard let cart = cartridge else { return .cartridgeMissing }
 #if os(OSX)
         guard let coreRustBoy = CoreRustBoy(cartridge: cart) else { return .failedToInitCore }
@@ -73,6 +79,10 @@ internal class RustBoy {
 
 		return .success
 	}
+
+#if os(OSX)
+    private var coreRustBoy: CoreRustBoy?
+#endif
 }
 
 #if os(OSX)
