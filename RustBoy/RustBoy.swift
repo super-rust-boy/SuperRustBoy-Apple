@@ -8,7 +8,7 @@
 
 #if os(OSX)
 import AppKit
-import RustBoy
+import CoreRustBoy
 import CoreVideo
 #endif
 
