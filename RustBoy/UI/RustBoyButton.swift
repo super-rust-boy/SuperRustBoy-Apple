@@ -1,5 +1,5 @@
 //
-//  ActionButton.swift
+//  RustBoyButton.swift
 //  SuperRustBoy
 //
 //  Created by Sean Inge Asbjørnsen on 19/12/2019.
