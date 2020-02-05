@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 
 		let cartPath = NSHomeDirectory() + "/Roms/PokemonRed.gb"
-        let savePath = NSTemporaryDirectory() + "savefile.sav"
+        let savePath = NSHomeDirectory() + "/Roms/SaveFiles/PokemonRed.sav"
 
         rustBoy.cartridge = RustBoy.Cartridge(path: cartPath, saveFilePath: savePath)
 
