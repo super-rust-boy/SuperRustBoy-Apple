@@ -19,11 +19,12 @@ internal struct RustBoyView: View {
 			HStack {
 				DPad(rustBoy: rustBoy)
 					.padding()
+
 				HStack {
                     RustBoyButton(type: .b, rustBoy: rustBoy) { RoundButton(text: "B") }
                     RustBoyButton(type: .a, rustBoy: rustBoy) { RoundButton(text: "A") }
 				}
-				.padding()
+                    .padding()
 			}
 
 			GeometryReader { geometry in
