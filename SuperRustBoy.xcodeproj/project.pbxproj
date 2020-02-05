@@ -25,7 +25,6 @@
 		149BD6E523ABE56D00C3FB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149BD6E323ABE56D00C3FB62 /* LaunchScreen.storyboard */; };
 		149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6CD23ABC53300C3FB62 /* DPad.swift */; };
 		149BD6EC23ABE5B200C3FB62 /* RustBoyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149BD6C923ABBDD100C3FB62 /* RustBoyButton.swift */; };
-		14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AFE9C623A996C400DE036C /* librustboy_c_binding.a */; };
 		14C0DEC123C02D550049005E /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0DEC023C02D550049005E /* Arrow.swift */; };
 		14C0DEC223C02D550049005E /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0DEC023C02D550049005E /* Arrow.swift */; };
 		14C0DEC623C0376E0049005E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0DEC523C0376E0049005E /* RoundButton.swift */; };
@@ -36,17 +35,8 @@
 		14D1D49623A4319800029B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49423A4319800029B8C /* Main.storyboard */; };
 		14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
 		14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
+		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		14AFE9C523A996C400DE036C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA6005185E1EC452EB8AEB35;
-			remoteInfo = "rustboy_c_binding-staticlib";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1402BD6123B158F100BB3FD5 /* RustBoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
@@ -65,7 +55,6 @@
 		149BD6E123ABE56D00C3FB62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		149BD6E423ABE56D00C3FB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		149BD6E623ABE56D00C3FB62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = rustboy_c_binding.xcodeproj; path = ../super_rust_boy_c_binding/rustboy_c_binding.xcodeproj; sourceTree = "<group>"; };
 		14C0DEC023C02D550049005E /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		14C0DEC523C0376E0049005E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		14D1D48823A4319700029B8C /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +65,7 @@
 		14D1D49723A4319800029B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperRustBoy.entitlements; sourceTree = "<group>"; };
 		14DA97BB23AFEF3C007119A7 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14AFE9C723A996D200DE036C /* librustboy_c_binding.a in Frameworks */,
+				59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */,
 				1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */,
 				1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */,
 				1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */,
@@ -143,22 +133,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		14AFE9BE23A996B500DE036C /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */,
-			);
-			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		14AFE9C123A996C400DE036C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				14AFE9C623A996C400DE036C /* librustboy_c_binding.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		14D1D47F23A4319700029B8C = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +140,6 @@
 				149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */,
 				149BD6CF23ABE44800C3FB62 /* CommonUI */,
 				149BD6D123ABE48700C3FB62 /* RustBoy */,
-				14AFE9BE23A996B500DE036C /* Dependencies */,
 				14D1D48923A4319700029B8C /* Products */,
 				14D1D4AC23A431CC00029B8C /* Frameworks */,
 			);
@@ -206,6 +179,7 @@
 		14D1D4AC23A431CC00029B8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */,
 				1424167123A4369D00AB442A /* CoreAudio.framework */,
 				1424166F23A4367E00AB442A /* AudioToolbox.framework */,
 				1424166B23A434C800AB442A /* libresolv.9.tbd */,
@@ -279,12 +253,6 @@
 			mainGroup = 14D1D47F23A4319700029B8C;
 			productRefGroup = 14D1D48923A4319700029B8C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 14AFE9C123A996C400DE036C /* Products */;
-					ProjectRef = 14AFE9B623A9969B00DE036C /* rustboy_c_binding.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				14D1D48723A4319700029B8C /* SuperRustBoy */,
@@ -292,16 +260,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		14AFE9C623A996C400DE036C /* librustboy_c_binding.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = librustboy_c_binding.a;
-			remoteRef = 14AFE9C523A996C400DE036C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		149BD6D423ABE56B00C3FB62 /* Resources */ = {
@@ -550,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-AppKit/Preview Content\"";
-				DEVELOPMENT_TEAM = 4358BDSNQG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
@@ -575,7 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-AppKit/Preview Content\"";
-				DEVELOPMENT_TEAM = 4358BDSNQG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
