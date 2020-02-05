@@ -35,6 +35,8 @@
 		14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
 		592305B023EB593100DEA521 /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */; };
 		592305B123EB593100DEA521 /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */; };
+		592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */; };
+		592D628123EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */; };
 		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 		5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
 		5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
@@ -67,6 +69,7 @@
 		14D1D49723A4319800029B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperRustBoy.entitlements; sourceTree = "<group>"; };
 		14DA97BB23AFEF3C007119A7 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+EmptyInstantiable.swift"; sourceTree = "<group>"; };
 		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5955D44123E220BE00BED3D3 /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				1424167323A436EE00AB442A /* RustBoy.swift */,
+				592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */,
 				592305B223EB5DB300DEA521 /* UI */,
 			);
 			path = RustBoy;
@@ -307,6 +311,7 @@
 			files = (
 				1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */,
 				5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */,
+				592D628123EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				14C0DEC223C02D550049005E /* Arrow.swift in Sources */,
 				149BD6D923ABE56B00C3FB62 /* AppDelegate.swift in Sources */,
 				592305B123EB593100DEA521 /* EmptyInstantiable.swift in Sources */,
@@ -327,6 +332,7 @@
 				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
 				5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */,
 				1424167423A436EE00AB442A /* RustBoy.swift in Sources */,
+				592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */,
 				14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */,
 				592305B023EB593100DEA521 /* EmptyInstantiable.swift in Sources */,

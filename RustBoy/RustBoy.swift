@@ -12,8 +12,6 @@ import CoreRustBoy
 import CoreVideo
 #endif
 
-extension RustBoy: EmptyInstantiable {}
-
 internal class RustBoy {
 
 	internal enum ButtonType {
