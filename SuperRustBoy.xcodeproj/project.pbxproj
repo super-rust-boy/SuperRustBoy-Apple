@@ -104,7 +104,6 @@
 				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
 				14C0DEC023C02D550049005E /* Arrow.swift */,
 				14C0DEC523C0376E0049005E /* RoundButton.swift */,
-				1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -199,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				5955D44123E220BE00BED3D3 /* C-Interop.swift */,
+				1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
