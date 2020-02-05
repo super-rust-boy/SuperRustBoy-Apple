@@ -20,12 +20,11 @@ internal struct Display {
     internal let rustBoy: RustBoy
 
     fileprivate func createDisplayView() -> DisplayView {
-        DisplayView().apply {
+        DisplayView.setup {
 #if os(OSX)
             $0.wantsLayer = true
             $0.layer?.backgroundColor = NSColor.black.cgColor
 #endif
-
             rustBoy.display = $0
         }
     }
