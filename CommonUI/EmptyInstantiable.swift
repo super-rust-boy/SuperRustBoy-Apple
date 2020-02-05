@@ -1,5 +1,5 @@
 //
-//  NSObject+apply.swift
+//  EmptyInstantiable.swift
 //  SuperRustBoy
 //
 //  Created by Sean Inge Asbjørnsen on 23/12/2019.
