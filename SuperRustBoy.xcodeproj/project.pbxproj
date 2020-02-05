@@ -95,23 +95,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		149BD6CF23ABE44800C3FB62 /* CommonUI */ = {
-			isa = PBXGroup;
-			children = (
-				1402BD6123B158F100BB3FD5 /* RustBoyView.swift */,
-				149BD6C923ABBDD100C3FB62 /* RustBoyButton.swift */,
-				14DA97BB23AFEF3C007119A7 /* Display.swift */,
-				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
-				14C0DEC023C02D550049005E /* Arrow.swift */,
-				14C0DEC523C0376E0049005E /* RoundButton.swift */,
-			);
-			path = CommonUI;
-			sourceTree = "<group>";
-		};
 		149BD6D123ABE48700C3FB62 /* RustBoy */ = {
 			isa = PBXGroup;
 			children = (
 				1424167323A436EE00AB442A /* RustBoy.swift */,
+				592305B223EB5DB300DEA521 /* UI */,
 			);
 			path = RustBoy;
 			sourceTree = "<group>";
@@ -142,7 +130,6 @@
 			children = (
 				14D1D48A23A4319700029B8C /* SuperRustBoy-AppKit */,
 				149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */,
-				149BD6CF23ABE44800C3FB62 /* CommonUI */,
 				149BD6D123ABE48700C3FB62 /* RustBoy */,
 				5955D44023E220BE00BED3D3 /* Utils */,
 				14D1D48923A4319700029B8C /* Products */,
@@ -192,6 +179,19 @@
 				1424166B23A434C800AB442A /* libresolv.9.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		592305B223EB5DB300DEA521 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1402BD6123B158F100BB3FD5 /* RustBoyView.swift */,
+				149BD6C923ABBDD100C3FB62 /* RustBoyButton.swift */,
+				14DA97BB23AFEF3C007119A7 /* Display.swift */,
+				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
+				14C0DEC023C02D550049005E /* Arrow.swift */,
+				14C0DEC523C0376E0049005E /* RoundButton.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		5955D44023E220BE00BED3D3 /* Utils */ = {
