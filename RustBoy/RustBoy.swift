@@ -38,7 +38,9 @@ internal class RustBoy {
 
     internal var display: DisplayView? {
         didSet {
+#if os(OSX)
             coreRustBoy?.display = display
+#endif
         }
     }
 
@@ -56,7 +58,9 @@ internal class RustBoy {
 #endif
     }
 
+#if os(OSX)
     private var coreRustBoy: CoreRustBoy?
+#endif
 
 	private func boot() -> BootStatus {
 		guard let cart = cartridge else { return .cartridgeMissing }

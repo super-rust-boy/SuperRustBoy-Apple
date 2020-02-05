@@ -21,8 +21,11 @@ internal struct Display {
 
     fileprivate func createDisplayView() -> DisplayView {
         DisplayView().apply {
+#if os(OSX)
             $0.wantsLayer = true
             $0.layer?.backgroundColor = NSColor.black.cgColor
+#endif
+
             rustBoy.display = $0
         }
     }
