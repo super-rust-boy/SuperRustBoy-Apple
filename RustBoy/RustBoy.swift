@@ -14,23 +14,23 @@ import CoreVideo
 
 internal class RustBoy {
 
-	internal enum ButtonType {
-		case left, right, up, down, a, b, start, select
-	}
+    internal enum ButtonType {
+        case left, right, up, down, a, b, start, select
+    }
 
     internal struct Cartridge: Equatable {
-		internal let path: String
-		internal let saveFilePath: String
-	}
+        internal let path: String
+        internal let saveFilePath: String
+    }
 
-	internal enum BootStatus: Error {
+    internal enum BootStatus: Error {
         case cartridgeMissing
-		case failedToInitCore
-		case success
-	}
+        case failedToInitCore
+        case success
+    }
 
-	internal var cartridge: Cartridge? {
-		didSet {
+    internal var cartridge: Cartridge? {
+        didSet {
             guard cartridge != nil else {
 #if os(OSX)
                 coreRustBoy = nil
@@ -41,8 +41,8 @@ internal class RustBoy {
             if autoBoot {
                 let _ = boot()
             }
-		}
-	}
+        }
+    }
 
     internal var autoBoot = false
 
@@ -62,14 +62,14 @@ internal class RustBoy {
 #endif
     }
 
-	internal func buttonUnpressed(_ button: ButtonType) {
+    internal func buttonUnpressed(_ button: ButtonType) {
 #if os(OSX)
         coreRustBoy?.buttonUnpressed(rustBoyButton(button))
 #endif
     }
 
-	internal func boot() -> BootStatus {
-		guard let cart = cartridge else { return .cartridgeMissing }
+    internal func boot() -> BootStatus {
+        guard let cart = cartridge else { return .cartridgeMissing }
 #if os(OSX)
         guard let coreRustBoy = CoreRustBoy(cartridge: cart) else { return .failedToInitCore }
 
@@ -77,8 +77,8 @@ internal class RustBoy {
         self.coreRustBoy?.display = display
 #endif
 
-		return .success
-	}
+        return .success
+    }
 
 #if os(OSX)
     private var coreRustBoy: CoreRustBoy?
