@@ -12,7 +12,7 @@ import CoreRustBoy
 import CoreVideo
 #endif
 
-internal class RustBoy {
+internal final class RustBoy {
 
     internal enum ButtonType {
         case left, right, up, down, a, b, start, select
@@ -86,7 +86,7 @@ internal class RustBoy {
 }
 
 #if os(OSX)
-fileprivate class CoreRustBoy {
+fileprivate final class CoreRustBoy {
 
     fileprivate weak var display: DisplayView?
 
