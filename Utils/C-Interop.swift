@@ -13,5 +13,5 @@ internal func bridge<T: AnyObject>(obj: T) -> UnsafeMutableRawPointer {
 }
 
 internal func bridge<T: AnyObject>(ptr: UnsafeMutableRawPointer) -> T {
-    return Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
+    Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
 }

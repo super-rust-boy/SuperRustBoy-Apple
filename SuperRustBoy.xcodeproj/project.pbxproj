@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1402BD6223B158F100BB3FD5 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
 		1402BD6323B158F100BB3FD5 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
-		1402BD6723B1692F00BB3FD5 /* NSObjectProtocol+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObjectProtocol+apply.swift */; };
-		1402BD6823B1692F00BB3FD5 /* NSObjectProtocol+apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* NSObjectProtocol+apply.swift */; };
 		1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
 		1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166B23A434C800AB442A /* libresolv.9.tbd */; };
 		1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166F23A4367E00AB442A /* AudioToolbox.framework */; };
@@ -35,6 +33,10 @@
 		14D1D49623A4319800029B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14D1D49423A4319800029B8C /* Main.storyboard */; };
 		14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
 		14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA97BB23AFEF3C007119A7 /* Display.swift */; };
+		592305B023EB593100DEA521 /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */; };
+		592305B123EB593100DEA521 /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */; };
+		592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */; };
+		592D628123EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */; };
 		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 		5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
 		5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
@@ -42,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		1402BD6123B158F100BB3FD5 /* RustBoyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
-		1402BD6623B1692F00BB3FD5 /* NSObjectProtocol+apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol+apply.swift"; sourceTree = "<group>"; };
+		1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInstantiable.swift; sourceTree = "<group>"; };
 		1424166023A4341400AB442A /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		1424166B23A434C800AB442A /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		1424166F23A4367E00AB442A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -67,6 +69,7 @@
 		14D1D49723A4319800029B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperRustBoy.entitlements; sourceTree = "<group>"; };
 		14DA97BB23AFEF3C007119A7 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+EmptyInstantiable.swift"; sourceTree = "<group>"; };
 		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5955D44123E220BE00BED3D3 /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
@@ -95,24 +98,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		149BD6CF23ABE44800C3FB62 /* CommonUI */ = {
-			isa = PBXGroup;
-			children = (
-				1402BD6123B158F100BB3FD5 /* RustBoyView.swift */,
-				149BD6C923ABBDD100C3FB62 /* RustBoyButton.swift */,
-				14DA97BB23AFEF3C007119A7 /* Display.swift */,
-				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
-				14C0DEC023C02D550049005E /* Arrow.swift */,
-				14C0DEC523C0376E0049005E /* RoundButton.swift */,
-				1402BD6623B1692F00BB3FD5 /* NSObjectProtocol+apply.swift */,
-			);
-			path = CommonUI;
-			sourceTree = "<group>";
-		};
 		149BD6D123ABE48700C3FB62 /* RustBoy */ = {
 			isa = PBXGroup;
 			children = (
 				1424167323A436EE00AB442A /* RustBoy.swift */,
+				592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */,
+				592305B223EB5DB300DEA521 /* UI */,
 			);
 			path = RustBoy;
 			sourceTree = "<group>";
@@ -143,7 +134,6 @@
 			children = (
 				14D1D48A23A4319700029B8C /* SuperRustBoy-AppKit */,
 				149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */,
-				149BD6CF23ABE44800C3FB62 /* CommonUI */,
 				149BD6D123ABE48700C3FB62 /* RustBoy */,
 				5955D44023E220BE00BED3D3 /* Utils */,
 				14D1D48923A4319700029B8C /* Products */,
@@ -195,10 +185,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		592305B223EB5DB300DEA521 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1402BD6123B158F100BB3FD5 /* RustBoyView.swift */,
+				149BD6C923ABBDD100C3FB62 /* RustBoyButton.swift */,
+				14DA97BB23AFEF3C007119A7 /* Display.swift */,
+				149BD6CD23ABC53300C3FB62 /* DPad.swift */,
+				14C0DEC023C02D550049005E /* Arrow.swift */,
+				14C0DEC523C0376E0049005E /* RoundButton.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		5955D44023E220BE00BED3D3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				5955D44123E220BE00BED3D3 /* C-Interop.swift */,
+				1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,10 +310,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */,
-				1402BD6823B1692F00BB3FD5 /* NSObjectProtocol+apply.swift in Sources */,
 				5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */,
+				592D628123EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				14C0DEC223C02D550049005E /* Arrow.swift in Sources */,
 				149BD6D923ABE56B00C3FB62 /* AppDelegate.swift in Sources */,
+				592305B123EB593100DEA521 /* EmptyInstantiable.swift in Sources */,
 				149BD6EB23ABE5B200C3FB62 /* DPad.swift in Sources */,
 				149BD6DB23ABE56B00C3FB62 /* SceneDelegate.swift in Sources */,
 				14C0DEC723C0376E0049005E /* RoundButton.swift in Sources */,
@@ -324,12 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C0DEC623C0376E0049005E /* RoundButton.swift in Sources */,
-				1402BD6723B1692F00BB3FD5 /* NSObjectProtocol+apply.swift in Sources */,
 				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
 				5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */,
 				1424167423A436EE00AB442A /* RustBoy.swift in Sources */,
+				592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */,
 				14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */,
+				592305B023EB593100DEA521 /* EmptyInstantiable.swift in Sources */,
 				1402BD6223B158F100BB3FD5 /* RustBoyView.swift in Sources */,
 				149BD6CA23ABBDD100C3FB62 /* RustBoyButton.swift in Sources */,
 				14C0DEC123C02D550049005E /* Arrow.swift in Sources */,
