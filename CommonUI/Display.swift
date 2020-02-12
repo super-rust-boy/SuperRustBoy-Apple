@@ -9,25 +9,24 @@
 import SwiftUI
 
 #if os(OSX)
-internal typealias ViewType = NSView
+internal typealias ViewType = NSImageView
 #else
-internal typealias ViewType = UIView
+internal typealias ViewType = UIImageView
 #endif
 
-internal class DisplayView: ViewType {
-#if os(OSX)
-	// TODO: Use CAMetalLayer as backing layer for NSView
-#else
-	override class var layerClass: AnyClass { CAMetalLayer.self }
-#endif
-}
+internal class DisplayView: ViewType {}
 
 internal struct Display {
     internal let rustBoy: RustBoy
 
     fileprivate func createDisplayView() -> DisplayView {
-        DisplayView().apply { (view: DisplayView) in
-            rustBoy.display = view
+        DisplayView().apply {
+#if os(OSX)
+            $0.wantsLayer = true
+            $0.layer?.backgroundColor = NSColor.black.cgColor
+#endif
+
+            rustBoy.display = $0
         }
     }
 }

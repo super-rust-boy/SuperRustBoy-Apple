@@ -773,7 +773,6 @@ name = "rustboy_c_binding"
 version = "0.1.0"
 dependencies = [
  "rustboy 0.4.0",
- "winit 0.19.5 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]

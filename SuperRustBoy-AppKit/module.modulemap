@@ -1,5 +1,5 @@
 /* module.modulemap */
-module RustBoy {
+module CoreRustBoy {
 	header "../super_rust_boy_c_binding/headers/rustboy.h"
 	export *
 }

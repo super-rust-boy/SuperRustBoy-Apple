@@ -18,14 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-		guard let stringPath = Bundle.main.path(forResource: "PokemonRed", ofType: "gb") else {
-			assertionFailure("Failed to find file")
-			return
-		}
+		let cartPath = NSHomeDirectory() + "/Roms/PokemonRed.gb"
+        let savePath = NSHomeDirectory() + "/Roms/SaveFiles/PokemonRed.sav"
 
-		let cartPath = "file://" + stringPath
-
-		rustBoy.cartridge = RustBoy.Cartridge(path: cartPath)
+        rustBoy.cartridge = RustBoy.Cartridge(path: cartPath, saveFilePath: savePath)
 
 		// Create the SwiftUI view that provides the window contents.
 		let rootView = RustBoyView(rustBoy: rustBoy)

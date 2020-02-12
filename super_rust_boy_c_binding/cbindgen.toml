@@ -1,4 +1,3 @@
-no_includes = true
 language = "C"
 [fn]
 rename_args = "camelCase"
