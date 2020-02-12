@@ -32,7 +32,9 @@ internal class RustBoy {
 	internal var cartridge: Cartridge? {
 		didSet {
             guard cartridge != nil else {
+#if os(OSX)
                 coreRustBoy = nil
+#endif
                 return
             }
 
