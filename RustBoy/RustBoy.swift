@@ -56,15 +56,15 @@ internal class RustBoy {
 
     internal required init() {}
 
-    internal func buttonDown(_ button: ButtonType) {
+    internal func buttonPressed(_ button: ButtonType) {
 #if os(OSX)
-        coreRustBoy?.buttonDown(rustBoyButton(button))
+        coreRustBoy?.buttonPressed(rustBoyButton(button))
 #endif
     }
 
-	internal func buttonUp(_ button: ButtonType) {
+	internal func buttonUnpressed(_ button: ButtonType) {
 #if os(OSX)
-        coreRustBoy?.buttonUp(rustBoyButton(button))
+        coreRustBoy?.buttonUnpressed(rustBoyButton(button))
 #endif
     }
 
@@ -98,11 +98,11 @@ fileprivate class CoreRustBoy {
         }
     }
 
-    fileprivate func buttonDown(_ button: rustBoyButton) {
+    fileprivate func buttonPressed(_ button: rustBoyButton) {
         rustBoyButtonClickDown(coreRef, button)
     }
 
-    fileprivate func buttonUp(_ button: rustBoyButton) {
+    fileprivate func buttonUnpressed(_ button: rustBoyButton) {
         rustBoyButtonClickUp(coreRef, button)
     }
 

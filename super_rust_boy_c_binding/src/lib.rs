@@ -6,14 +6,14 @@ use std::slice;
 #[repr(C)]
 #[allow(non_camel_case_types)]
 pub enum rustBoyButton {
-	rustBoyButtonLeft,
-	rustBoyButtonRight,
-	rustBoyButtonUp,
-	rustBoyButtonDown,
-	rustBoyButtonA,
-	rustBoyButtonB,
-	rustBoyButtonStart,
-	rustBoyButtonSelect
+    rustBoyButtonLeft,
+    rustBoyButtonRight,
+    rustBoyButtonUp,
+    rustBoyButtonDown,
+    rustBoyButtonA,
+    rustBoyButtonB,
+    rustBoyButtonStart,
+    rustBoyButtonSelect
 }
 
 impl rustBoyButton {
@@ -36,38 +36,38 @@ impl rustBoyButton {
 #[no_mangle]
 pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
 
-	if cartridge_path.is_null() {
-		println!("Cartridge path is null");
-		return std::ptr::null();
-	}
+    if cartridge_path.is_null() {
+        println!("Cartridge path is null");
+        return std::ptr::null();
+    }
 
-	let cart_path_result = unsafe { CStr::from_ptr(cartridge_path) };
-	let cart_path = match cart_path_result.to_str() {
-		Ok(c) => c,
-		Err(_) => {
-			println!("Failed to parse cartridge path");
-			return std::ptr::null();
-		}
-	};
+    let cart_path_result = unsafe { CStr::from_ptr(cartridge_path) };
+    let cart_path = match cart_path_result.to_str() {
+        Ok(c) => c,
+        Err(_) => {
+            println!("Failed to parse cartridge path");
+            return std::ptr::null();
+        }
+    };
 
-	if save_file_path.is_null() {
-		println!("Save file path is null");
-		return std::ptr::null();
-	}
+    if save_file_path.is_null() {
+        println!("Save file path is null");
+        return std::ptr::null();
+    }
 
-	let save_path_result = unsafe { CStr::from_ptr(save_file_path) };
-	let save_path = match save_path_result.to_str() {
-		Ok(c) => c,
-		Err(_) => {
-			println!("Failed to parse save file path");
-			return std::ptr::null();
-		}
-	};
+    let save_path_result = unsafe { CStr::from_ptr(save_file_path) };
+    let save_path = match save_path_result.to_str() {
+        Ok(c) => c,
+        Err(_) => {
+            println!("Failed to parse save file path");
+            return std::ptr::null();
+        }
+    };
 
-	let renderer = VulkanRenderer::new();
-	let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false, renderer);
+    let renderer = VulkanRenderer::new();
+    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false, renderer);
 
-	Box::into_raw(instance) as *const c_void
+    Box::into_raw(instance) as *const c_void
 }
 
 #[no_mangle]
@@ -78,10 +78,10 @@ pub unsafe extern fn rustBoyDelete(instance: *const c_void) {
 
 #[no_mangle]
 pub unsafe extern fn rustBoyFrame(instance: *const c_void, buffer: *mut u32, length: u32) {
-	let rust_boy = instance as *mut RustBoy;
+    let rust_boy = instance as *mut RustBoy;
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
 
-		let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
+        let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
 
         rust_boy_ref.frame(&mut buffer_slice);
     }

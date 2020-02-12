@@ -21,10 +21,10 @@ internal struct RustBoyButton<ViewType>: View where ViewType: View {
 		let gesture = DragGesture(minimumDistance: 0, coordinateSpace: .local)
 			.onChanged { value in
 				self.touchDown = true
-				self.rustBoy.buttonDown(self.type)
+				self.rustBoy.buttonPressed(self.type)
 			}.onEnded { value in
 				self.touchDown = false
-				self.rustBoy.buttonUp(self.type)
+				self.rustBoy.buttonUnpressed(self.type)
 			}
 
 		return content()
