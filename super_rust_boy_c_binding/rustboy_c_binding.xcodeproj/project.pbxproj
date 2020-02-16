@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CA60682A6F2BE3EBE9D899F7 /* Cargo */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CA604E046B66D13B84572DD6 /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			buildPhases = (
+				CA60A4E658A6BB6E3B578CFE /* Cargo build */,
+			);
+			dependencies = (
+			);
+			name = Cargo;
+			productName = Cargo;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		59741A0223F9E42500B400A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60B5653DAF5EF8F95AD438 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60682A6F2BE3EBE9D899F7;
+			remoteInfo = Cargo;
+		};
+		CA60DAC53ED1DF633206EFF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60B5653DAF5EF8F95AD438 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60682A6F2BE3EBE9D899F7;
+			remoteInfo = Cargo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		597419F923F9E34300B400A6 /* librustboy_c_binding_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librustboy_c_binding_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		CA605C54D0650C61841FC91A /* Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = Cargo.toml; sourceTree = "<group>"; };
+		CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		ADDEDBA66A6E2 /* Required Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				ADDEDBA66A6E1 /* libresolv.tbd */,
+			);
+			name = "Required Libraries";
+			sourceTree = "<group>";
+		};
+		CA605119700BCF1A570015EB = {
+			isa = PBXGroup;
+			children = (
+				CA605C54D0650C61841FC91A /* Cargo.toml */,
+				ADDEDBA66A6E2 /* Required Libraries */,
+				CA60DC989B716CB8AB3B4096 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA60DC989B716CB8AB3B4096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */,
+				597419F923F9E34300B400A6 /* librustboy_c_binding_iOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		597419F823F9E34300B400A6 /* rustboy_c_binding_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 597419FF23F9E34300B400A6 /* Build configuration list for PBXNativeTarget "rustboy_c_binding_iOS" */;
+			buildPhases = (
+				59741A0423F9E43800B400A6 /* Copy files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59741A0323F9E42500B400A6 /* PBXTargetDependency */,
+			);
+			name = rustboy_c_binding_iOS;
+			productName = rustboy_c_binding_iOS;
+			productReference = 597419F923F9E34300B400A6 /* librustboy_c_binding_iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CA60194B8D3368455784A4BA /* rustboy_c_binding-staticlib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60A23C38F55DDB9BDD0BE7 /* Build configuration list for PBXNativeTarget "rustboy_c_binding-staticlib" */;
+			buildPhases = (
+				CA60387672AD2521AD49E086 /* Copy files (librustboy_c_binding.a) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60CF1C4A821E16CB894157 /* PBXTargetDependency */,
+			);
+			name = "rustboy_c_binding-staticlib";
+			productName = librustboy_c_binding.a;
+			productReference = CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA60B5653DAF5EF8F95AD438 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					597419F823F9E34300B400A6 = {
+						CreatedOnToolsVersion = 11.3.1;
+						ProvisioningStyle = Automatic;
+					};
+					CA60194B8D3368455784A4BA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60682A6F2BE3EBE9D899F7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA604E046B66D13B84572DD6 /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA605119700BCF1A570015EB;
+			productRefGroup = CA60DC989B716CB8AB3B4096 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA60194B8D3368455784A4BA /* rustboy_c_binding-staticlib */,
+				597419F823F9E34300B400A6 /* rustboy_c_binding_iOS */,
+				CA60682A6F2BE3EBE9D899F7 /* Cargo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59741A0423F9E43800B400A6 /* Copy files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/librustboy_c_binding_iOS.a",
+			);
+			name = "Copy files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/librustboy_c_binding_iOS.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/librustboy_c_binding_iOS.a\" \"${BUILT_PRODUCTS_DIR}/\"\n";
+		};
+		CA60387672AD2521AD49E086 /* Copy files (librustboy_c_binding.a) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/librustboy_c_binding.a",
+			);
+			name = "Copy files (librustboy_c_binding.a)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/librustboy_c_binding.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/librustboy_c_binding.a\" \"${BUILT_PRODUCTS_DIR}/\"\n";
+		};
+		CA60A4E658A6BB6E3B578CFE /* Cargo build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Cargo.toml",
+			);
+			name = "Cargo build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n\tcargo build $CARGO_FLAGS;\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59741A0323F9E42500B400A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60682A6F2BE3EBE9D899F7 /* Cargo */;
+			targetProxy = 59741A0223F9E42500B400A6 /* PBXContainerItemProxy */;
+		};
+		CA60CF1C4A821E16CB894157 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60682A6F2BE3EBE9D899F7 /* Cargo */;
+			targetProxy = CA60DAC53ED1DF633206EFF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		59741A0023F9E34300B400A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "--release --target aarch64-apple-ios";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		59741A0123F9E34300B400A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "--target aarch64-apple-ios";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA600CE86A9EE00BBD3AE4AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "--release";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = rustboy_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA602716830D57C06FB3D338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = rustboy_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CA60ABEDDCFB7966A5BD1407 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = rustboy_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CA60E7B50F9191AE6FA794C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = rustboy_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		597419FF23F9E34300B400A6 /* Build configuration list for PBXNativeTarget "rustboy_c_binding_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59741A0023F9E34300B400A6 /* Release */,
+				59741A0123F9E34300B400A6 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA604E046B66D13B84572DD6 /* Build configuration list for PBXAggregateTarget "Cargo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA600CE86A9EE00BBD3AE4AE /* Release */,
+				CA602716830D57C06FB3D338 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60A23C38F55DDB9BDD0BE7 /* Build configuration list for PBXNativeTarget "rustboy_c_binding-staticlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60ABEDDCFB7966A5BD1407 /* Release */,
+				CA60E7B50F9191AE6FA794C1 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA60B5653DAF5EF8F95AD438 /* Project object */;
+}

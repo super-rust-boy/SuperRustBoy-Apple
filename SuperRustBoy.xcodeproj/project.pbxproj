@@ -40,6 +40,7 @@
 		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 		5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
 		5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
+		59741A0623F9E5B300B400A6 /* librustboy_c_binding_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+EmptyInstantiable.swift"; sourceTree = "<group>"; };
 		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5955D44123E220BE00BED3D3 /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
+		59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
 		59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.1.130.dylib; path = ../../../usr/local/lib/libvulkan.1.1.130.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59741A0623F9E5B300B400A6 /* librustboy_c_binding_iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +178,7 @@
 		14D1D4AC23A431CC00029B8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */,
 				59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */,
 				59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */,
 				59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */,
