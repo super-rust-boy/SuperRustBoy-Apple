@@ -8,9 +8,11 @@
 
 #if os(OSX)
 import AppKit
+#else
+import UIKit
+#endif
 import CoreRustBoy
 import CoreVideo
-#endif
 
 internal final class RustBoy {
 
@@ -32,9 +34,7 @@ internal final class RustBoy {
     internal var cartridge: Cartridge? {
         didSet {
             guard cartridge != nil else {
-#if os(OSX)
                 coreRustBoy = nil
-#endif
                 return
             }
 
@@ -48,44 +48,36 @@ internal final class RustBoy {
 
     internal var display: DisplayView? {
         didSet {
-#if os(OSX)
             coreRustBoy?.display = display
-#endif
         }
     }
 
     internal required init() {}
 
     internal func buttonPressed(_ button: ButtonType) {
-#if os(OSX)
         coreRustBoy?.buttonPressed(rustBoyButton(button))
-#endif
     }
 
     internal func buttonUnpressed(_ button: ButtonType) {
-#if os(OSX)
         coreRustBoy?.buttonUnpressed(rustBoyButton(button))
-#endif
     }
 
     internal func boot() -> BootStatus {
         guard let cart = cartridge else { return .cartridgeMissing }
-#if os(OSX)
+
         guard let coreRustBoy = CoreRustBoy(cartridge: cart) else { return .failedToInitCore }
 
         self.coreRustBoy = coreRustBoy
         self.coreRustBoy?.display = display
-#endif
 
         return .success
     }
 
-#if os(OSX)
     private var coreRustBoy: CoreRustBoy?
-#endif
+
 }
 
-#if os(OSX)
+
 fileprivate final class CoreRustBoy {
 
     fileprivate weak var display: DisplayView?
@@ -129,7 +121,12 @@ fileprivate final class CoreRustBoy {
             intent:             CGColorRenderingIntent.saturation
         )
 
+#if os(OSX)
         let image = NSImage(cgImage: coreImage!, size: NSSize(width: 160, height: 144))
+#else
+        let image = UIImage(cgImage: coreImage!)
+#endif
+
         display.image = image
     }
 
@@ -143,21 +140,19 @@ fileprivate final class CoreRustBoy {
     private var buffer = [UInt8](repeating: 0, count: 144 * 640)
     private static let framerate: Double = 60
 }
-#endif
 
-#if os(OSX)
-    private extension rustBoyButton {
-        init(_ buttonType: RustBoy.ButtonType) {
-            switch buttonType {
-                case .left:     self = rustBoyButtonLeft
-                case .right:    self = rustBoyButtonRight
-                case .up:       self = rustBoyButtonUp
-                case .down:     self = rustBoyButtonDown
-                case .a:        self = rustBoyButtonA
-                case .b:        self = rustBoyButtonB
-                case .start:    self = rustBoyButtonStart
-                case .select:   self = rustBoyButtonSelect
-            }
+private extension rustBoyButton {
+    init(_ buttonType: RustBoy.ButtonType) {
+        switch buttonType {
+            case .left:     self = rustBoyButtonLeft
+            case .right:    self = rustBoyButtonRight
+            case .up:       self = rustBoyButtonUp
+            case .down:     self = rustBoyButtonDown
+            case .a:        self = rustBoyButtonA
+            case .b:        self = rustBoyButtonB
+            case .start:    self = rustBoyButtonStart
+            case .select:   self = rustBoyButtonSelect
         }
     }
-#endif
+}
+

@@ -9,9 +9,11 @@
 import UIKit
 import SwiftUI
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIDocumentPickerDelegate {
 
     var window: UIWindow?
+
+    let picker = UIDocumentPickerViewController(documentTypes: ["public.item"], in: .import)
 
     private let rustBoy = RustBoy.setup {
         $0.autoBoot = true
@@ -25,13 +27,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         let rootView = RustBoyView(rustBoy: rustBoy)
 
+        picker.delegate = self
+
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: rootView)
             self.window = window
             window.makeKeyAndVisible()
+
+            window.rootViewController?.present(picker, animated: true)
         }
+    }
+
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+
+        let nsURL = urls.first! as NSURL
+
+        let romPath = nsURL.resourceSpecifier
+        let saveFilePath = NSTemporaryDirectory() + "save.sav"
+
+        let cartride = RustBoy.Cartridge(path: romPath!, saveFilePath: saveFilePath)
+        rustBoy.cartridge = cartride
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
