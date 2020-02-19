@@ -1,6 +1,6 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, VulkanRenderer, Button};
+use rustboy::{RustBoy, UserPalette, Button};
 use std::slice;
 
 #[repr(C)]
@@ -64,8 +64,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
         }
     };
 
-    let renderer = VulkanRenderer::new();
-    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false, renderer);
+    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false);
 
     Box::into_raw(instance) as *const c_void
 }
@@ -77,7 +76,7 @@ pub unsafe extern fn rustBoyDelete(instance: *const c_void) {
 }
 
 #[no_mangle]
-pub unsafe extern fn rustBoyFrame(instance: *const c_void, buffer: *mut u32, length: u32) {
+pub unsafe extern fn rustBoyFrame(instance: *const c_void, buffer: *mut u8, length: u32) {
     let rust_boy = instance as *mut RustBoy;
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
 

@@ -140,7 +140,7 @@ fileprivate final class CoreRustBoy {
 
     private let coreRef: UnsafeRawPointer
     private var timer: Timer?
-    private var buffer = [UInt32](repeating: 0, count: 144 * 640)
+    private var buffer = [UInt8](repeating: 0, count: 144 * 640)
     private static let framerate: Double = 60
 }
 #endif
