@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "592DFEF023FF215300793939"
-               BuildableName = "librustboy_c_binding-iOS.a"
+               BuildableName = "librustboy_c_binding.a"
                BlueprintName = "rustboy_c_binding-iOS"
                ReferencedContainer = "container:rustboy_c_binding.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "592DFEF023FF215300793939"
-            BuildableName = "librustboy_c_binding-iOS.a"
+            BuildableName = "librustboy_c_binding.a"
             BlueprintName = "rustboy_c_binding-iOS"
             ReferencedContainer = "container:rustboy_c_binding.xcodeproj">
          </BuildableReference>

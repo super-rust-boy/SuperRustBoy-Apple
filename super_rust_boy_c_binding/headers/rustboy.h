@@ -14,12 +14,12 @@ typedef enum {
   rustBoyButtonSelect,
 } rustBoyButton;
 
-void rustBoyButtonClickDown(const void *instance, rustBoyButton cButton);
+void rustBoyButtonClickDown(const void* instance, rustBoyButton button);
 
-void rustBoyButtonClickUp(const void *instance, rustBoyButton cButton);
+void rustBoyButtonClickUp(const void* instance, rustBoyButton button);
 
-const void *rustBoyCreate(const char *cartridgePath, const char *saveFilePath);
+const void* rustBoyCreate(const char* cartridgePath, const char* saveFilePath);
 
-void rustBoyDelete(const void *instance);
+void rustBoyDelete(const void* instance);
 
-void rustBoyFrame(const void *instance, uint8_t *buffer, uint32_t length);
+void rustBoyFrame(const void* instance, uint8_t* buffer, uint32_t length);

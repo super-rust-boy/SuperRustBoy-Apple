@@ -51,6 +51,8 @@
 /* Begin PBXFileReference section */
 		592DFEF723FF215300793939 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		592DFF0423FF382600793939 /* rustboy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rustboy.h; sourceTree = "<group>"; };
+		592DFF0523FF3AF000793939 /* cbindgen.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cbindgen.toml; sourceTree = "<group>"; };
+		592DFF0723FF3B1C00793939 /* lib.rs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lib.rs; sourceTree = "<group>"; };
 		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CA605C54D0650C61841FC91A /* Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = Cargo.toml; sourceTree = "<group>"; };
 		CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +67,14 @@
 			path = headers;
 			sourceTree = "<group>";
 		};
+		592DFF0623FF3B1C00793939 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				592DFF0723FF3B1C00793939 /* lib.rs */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		ADDEDBA66A6E2 /* Required Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,8 +86,10 @@
 		CA605119700BCF1A570015EB = {
 			isa = PBXGroup;
 			children = (
-				592DFF0323FF382600793939 /* headers */,
 				CA605C54D0650C61841FC91A /* Cargo.toml */,
+				592DFF0523FF3AF000793939 /* cbindgen.toml */,
+				592DFF0623FF3B1C00793939 /* src */,
+				592DFF0323FF382600793939 /* headers */,
 				ADDEDBA66A6E2 /* Required Libraries */,
 				CA60DC989B716CB8AB3B4096 /* Products */,
 			);
