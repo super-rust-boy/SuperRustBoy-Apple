@@ -42,12 +42,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIDocumentPickerDelegat
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
 
-        let nsURL = urls.first! as NSURL
+        guard let pickedURL = urls.first else { return }
 
-        let romPath = nsURL.resourceSpecifier
-        let saveFilePath = NSTemporaryDirectory() + "save.sav"
+        let nsPickedURL = pickedURL as NSURL
+        guard let romPath = nsPickedURL.resourceSpecifier else { return }
 
-        let cartride = RustBoy.Cartridge(path: romPath!, saveFilePath: saveFilePath)
+        guard let documentsPathURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let nsDocumentsPathURL = documentsPathURL as NSURL
+
+        guard let documentsPath = nsDocumentsPathURL.resourceSpecifier else { return }
+
+        let saveFilePath = documentsPath + pickedURL.deletingPathExtension().lastPathComponent + ".sav"
+
+        let cartride = RustBoy.Cartridge(path: romPath, saveFilePath: saveFilePath)
         rustBoy.cartridge = cartride
     }
 
