@@ -37,6 +37,7 @@
 		592305B123EB593100DEA521 /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */; };
 		592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */; };
 		592D628123EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */; };
+		592DFF0223FF254500793939 /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592DFF0123FF254500793939 /* librustboy_c_binding.a */; };
 		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 		5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
 		5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
@@ -70,10 +71,14 @@
 		14D1D49823A4319800029B8C /* SuperRustBoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SuperRustBoy.entitlements; sourceTree = "<group>"; };
 		14DA97BB23AFEF3C007119A7 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		592D627F23EB61C50014960F /* RustBoy+EmptyInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+EmptyInstantiable.swift"; sourceTree = "<group>"; };
+		592DFEFF23FF249500793939 /* librustboy_c_binding-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "librustboy_c_binding-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		592DFF0123FF254500793939 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5955D44123E220BE00BED3D3 /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
+		59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
 		59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.1.130.dylib; path = ../../../usr/local/lib/libvulkan.1.1.130.dylib; sourceTree = "<group>"; };
+		59F8B88223FDA25000931945 /* librustboy_c_binding.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librustboy_c_binding.a; path = "super_rust_boy_c_binding/target/aarch64-apple-ios/debug/librustboy_c_binding.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592DFF0223FF254500793939 /* librustboy_c_binding.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +181,10 @@
 		14D1D4AC23A431CC00029B8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				592DFF0123FF254500793939 /* librustboy_c_binding.a */,
+				592DFEFF23FF249500793939 /* librustboy_c_binding-iOS.a */,
+				59F8B88223FDA25000931945 /* librustboy_c_binding.a */,
+				59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */,
 				59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */,
 				59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */,
 				59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */,
@@ -368,20 +378,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
 				INFOPLIST_FILE = "SuperRustBoy-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/super_rust_boy_c_binding/target/aarch64-apple-ios/debug",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "apps.asby.SuperRustBoy-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -391,20 +409,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"SuperRustBoy-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/super_rust_boy_c_binding/headers";
 				INFOPLIST_FILE = "SuperRustBoy-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/super_rust_boy_c_binding/target/aarch64-apple-ios/debug",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "apps.asby.SuperRustBoy-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

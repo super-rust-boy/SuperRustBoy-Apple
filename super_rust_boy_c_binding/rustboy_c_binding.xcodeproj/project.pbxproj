@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		592DFEF823FF222900793939 /* Cargo iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 592DFEFA23FF222900793939 /* Build configuration list for PBXAggregateTarget "Cargo iOS" */;
+			buildPhases = (
+				592DFEF923FF222900793939 /* Cargo build */,
+			);
+			dependencies = (
+			);
+			name = "Cargo iOS";
+			productName = Cargo;
+		};
+		CA60682A6F2BE3EBE9D899F7 /* Cargo macOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CA604E046B66D13B84572DD6 /* Build configuration list for PBXAggregateTarget "Cargo macOS" */;
+			buildPhases = (
+				CA60A4E658A6BB6E3B578CFE /* Cargo build */,
+			);
+			dependencies = (
+			);
+			name = "Cargo macOS";
+			productName = Cargo;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		592DFEFD23FF227A00793939 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60B5653DAF5EF8F95AD438 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 592DFEF823FF222900793939;
+			remoteInfo = "Cargo iOS";
+		};
+		CA60DAC53ED1DF633206EFF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60B5653DAF5EF8F95AD438 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60682A6F2BE3EBE9D899F7;
+			remoteInfo = Cargo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		592DFEF723FF215300793939 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		592DFF0423FF382600793939 /* rustboy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rustboy.h; sourceTree = "<group>"; };
+		592DFF0523FF3AF000793939 /* cbindgen.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cbindgen.toml; sourceTree = "<group>"; };
+		592DFF0723FF3B1C00793939 /* lib.rs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lib.rs; sourceTree = "<group>"; };
+		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		CA605C54D0650C61841FC91A /* Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = Cargo.toml; sourceTree = "<group>"; };
+		CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		592DFF0323FF382600793939 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				592DFF0423FF382600793939 /* rustboy.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		592DFF0623FF3B1C00793939 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				592DFF0723FF3B1C00793939 /* lib.rs */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		ADDEDBA66A6E2 /* Required Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				ADDEDBA66A6E1 /* libresolv.tbd */,
+			);
+			name = "Required Libraries";
+			sourceTree = "<group>";
+		};
+		CA605119700BCF1A570015EB = {
+			isa = PBXGroup;
+			children = (
+				CA605C54D0650C61841FC91A /* Cargo.toml */,
+				592DFF0523FF3AF000793939 /* cbindgen.toml */,
+				592DFF0623FF3B1C00793939 /* src */,
+				592DFF0323FF382600793939 /* headers */,
+				ADDEDBA66A6E2 /* Required Libraries */,
+				CA60DC989B716CB8AB3B4096 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA60DC989B716CB8AB3B4096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */,
+				592DFEF723FF215300793939 /* librustboy_c_binding.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		592DFEF023FF215300793939 /* rustboy_c_binding-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 592DFEF423FF215300793939 /* Build configuration list for PBXNativeTarget "rustboy_c_binding-iOS" */;
+			buildPhases = (
+				592DFEF323FF215300793939 /* Copy files (librustboy_c_binding.a) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				592DFEFE23FF227A00793939 /* PBXTargetDependency */,
+			);
+			name = "rustboy_c_binding-iOS";
+			productName = librustboy_c_binding.a;
+			productReference = 592DFEF723FF215300793939 /* librustboy_c_binding.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CA60194B8D3368455784A4BA /* rustboy_c_binding-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60A23C38F55DDB9BDD0BE7 /* Build configuration list for PBXNativeTarget "rustboy_c_binding-macOS" */;
+			buildPhases = (
+				CA60387672AD2521AD49E086 /* Copy files (librustboy_c_binding.a) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60CF1C4A821E16CB894157 /* PBXTargetDependency */,
+			);
+			name = "rustboy_c_binding-macOS";
+			productName = librustboy_c_binding.a;
+			productReference = CA60CB9CE1C287198330A3C3 /* librustboy_c_binding.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA60B5653DAF5EF8F95AD438 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					CA60194B8D3368455784A4BA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60682A6F2BE3EBE9D899F7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA604E046B66D13B84572DD6 /* Build configuration list for PBXAggregateTarget "Cargo macOS" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA605119700BCF1A570015EB;
+			productRefGroup = CA60DC989B716CB8AB3B4096 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA60194B8D3368455784A4BA /* rustboy_c_binding-macOS */,
+				592DFEF023FF215300793939 /* rustboy_c_binding-iOS */,
+				CA60682A6F2BE3EBE9D899F7 /* Cargo macOS */,
+				592DFEF823FF222900793939 /* Cargo iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		592DFEF323FF215300793939 /* Copy files (librustboy_c_binding.a) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/librustboy_c_binding.a",
+			);
+			name = "Copy files (librustboy_c_binding.a)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/librustboy_c_binding.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/librustboy_c_binding.a\" \"${BUILT_PRODUCTS_DIR}/\"\n";
+		};
+		592DFEF923FF222900793939 /* Cargo build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Cargo.toml",
+			);
+			name = "Cargo build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n\tcargo build $CARGO_FLAGS;\nfi\n";
+		};
+		CA60387672AD2521AD49E086 /* Copy files (librustboy_c_binding.a) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/librustboy_c_binding.a",
+			);
+			name = "Copy files (librustboy_c_binding.a)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/librustboy_c_binding.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/librustboy_c_binding.a\" \"${BUILT_PRODUCTS_DIR}/\"\n";
+		};
+		CA60A4E658A6BB6E3B578CFE /* Cargo build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Cargo.toml",
+			);
+			name = "Cargo build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n\tcargo build $CARGO_FLAGS;\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		592DFEFE23FF227A00793939 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 592DFEF823FF222900793939 /* Cargo iOS */;
+			targetProxy = 592DFEFD23FF227A00793939 /* PBXContainerItemProxy */;
+		};
+		CA60CF1C4A821E16CB894157 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60682A6F2BE3EBE9D899F7 /* Cargo macOS */;
+			targetProxy = CA60DAC53ED1DF633206EFF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		592DFEF523FF215300793939 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/release";
+				ENABLE_BITCODE = NO;
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = rustboy_c_binding;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		592DFEF623FF215300793939 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/debug";
+				ENABLE_BITCODE = NO;
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = rustboy_c_binding;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		592DFEFB23FF222900793939 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "--release --target aarch64-apple-ios";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/release";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		592DFEFC23FF222900793939 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "--target aarch64-apple-ios";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CA600CE86A9EE00BBD3AE4AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "--release";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = rustboy_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA602716830D57C06FB3D338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = rustboy_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CA60ABEDDCFB7966A5BD1407 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = rustboy_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CA60E7B50F9191AE6FA794C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = rustboy_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		592DFEF423FF215300793939 /* Build configuration list for PBXNativeTarget "rustboy_c_binding-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592DFEF523FF215300793939 /* Release */,
+				592DFEF623FF215300793939 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		592DFEFA23FF222900793939 /* Build configuration list for PBXAggregateTarget "Cargo iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592DFEFB23FF222900793939 /* Release */,
+				592DFEFC23FF222900793939 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA604E046B66D13B84572DD6 /* Build configuration list for PBXAggregateTarget "Cargo macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA600CE86A9EE00BBD3AE4AE /* Release */,
+				CA602716830D57C06FB3D338 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60A23C38F55DDB9BDD0BE7 /* Build configuration list for PBXNativeTarget "rustboy_c_binding-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60ABEDDCFB7966A5BD1407 /* Release */,
+				CA60E7B50F9191AE6FA794C1 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA60B5653DAF5EF8F95AD438 /* Project object */;
+}
