@@ -8,10 +8,20 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout core repo
+      uses: actions/checkout@v2
+      with:
+        repository: super-rust-boy/super-rust-boy
+        ref: feature/CPU_renderer_disabled_audio
+
+    - name: Checkout app repo 
+      uses: actions/checkout@v2
+
+    - name: Install simulator target
     - uses: actions-rs/toolchain@v1
       with:
         toolchain: stable
         target: x86_64-apple-ios
+
     - name: Build
       run: xcodebuild -workspace SuperRustBoy.xcworkspace -scheme SuperRustBoy-iOS -destination platform="iOS Simulator",name="iPhone 8"
