@@ -9,7 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: List Devices
-      run: xcrun simctl list devices --json
+    - name: Install cargo
+      run: curl https://sh.rustup.rs -sSf | sh
+    - name: Install iOS toolchains
+      run: rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
     - name: Build
       run: xcodebuild -scheme SuperRustBoy-iOS -destination platform="iOS Simulator",name="iPhone 8"
