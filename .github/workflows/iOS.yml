@@ -9,9 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install cargo
-      run: curl https://sh.rustup.rs -sSf | sh -y
-    - name: Install iOS toolchains
-      run: rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
+    - uses: actions-rs/cargo@v1.0.1
+      with:
+        toolchain: x86_64-apple-ios
     - name: Build
       run: xcodebuild -scheme SuperRustBoy-iOS -destination platform="iOS Simulator",name="iPhone 8"
