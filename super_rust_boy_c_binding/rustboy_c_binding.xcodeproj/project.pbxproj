@@ -216,7 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n\tcargo build $CARGO_FLAGS;\nfi\n";
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n    echo \"cargo build $CARGO_FLAGS\"\n\tcargo build $CARGO_FLAGS;\nfi\n";
 		};
 		CA60387672AD2521AD49E086 /* Copy files (librustboy_c_binding.a) */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -279,6 +279,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CARGO_FLAGS = "";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/release";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/release";
 				ENABLE_BITCODE = NO;
 				INSTALL_GROUP = "";
 				INSTALL_MODE_FLAG = "";
@@ -295,6 +296,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CARGO_FLAGS = "";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/debug";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/debug";
 				ENABLE_BITCODE = NO;
 				INSTALL_GROUP = "";
 				INSTALL_MODE_FLAG = "";
@@ -310,8 +312,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CARGO_FLAGS = "--release --target aarch64-apple-ios";
+				"CARGO_FLAGS[sdk=iphonesimulator*]" = "--release --target x86_64-apple-ios";
 				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/release";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/release";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -323,8 +327,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CARGO_FLAGS = "--target aarch64-apple-ios";
+				"CARGO_FLAGS[sdk=iphonesimulator*]" = "--target x86_64-apple-ios";
 				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/debug";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/debug";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
