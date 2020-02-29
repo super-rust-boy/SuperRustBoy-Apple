@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions-rs/toolchain@v1
-        with:
+      with:
             toolchain: x86_64-apple-ios
     - uses: actions-rs/cargo@v1.0.1
       with:
