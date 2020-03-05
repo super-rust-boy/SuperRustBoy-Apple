@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1402BD6223B158F100BB3FD5 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
 		1402BD6323B158F100BB3FD5 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
 		1402BD6E23B2404E00BB3FD5 /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424167323A436EE00AB442A /* RustBoy.swift */; };
 		1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1424166B23A434C800AB442A /* libresolv.9.tbd */; };
@@ -41,6 +40,8 @@
 		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 		5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
 		5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
+		5998C52E24118DF20043C2F0 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
+		5998C53024118E470043C2F0 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998C52F24118E470043C2F0 /* FilePickerView.swift */; };
 		59D9169824085DC200D8B566 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D9169724085DC200D8B566 /* FilePickerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
 		59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.1.130.dylib; path = ../../../usr/local/lib/libvulkan.1.1.130.dylib; sourceTree = "<group>"; };
+		5998C52F24118E470043C2F0 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		59D9169724085DC200D8B566 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		59F8B88223FDA25000931945 /* librustboy_c_binding.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librustboy_c_binding.a; path = "super_rust_boy_c_binding/target/aarch64-apple-ios/debug/librustboy_c_binding.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				14D1D48B23A4319700029B8C /* AppDelegate.swift */,
+				5998C52F24118E470043C2F0 /* FilePickerView.swift */,
 				14D1D49423A4319800029B8C /* Main.storyboard */,
 				14D1D49723A4319800029B8C /* Info.plist */,
 				14D1D48F23A4319800029B8C /* Assets.xcassets */,
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5998C52E24118DF20043C2F0 /* RustBoyView.swift in Sources */,
 				14C0DEC623C0376E0049005E /* RoundButton.swift in Sources */,
 				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
 				5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */,
@@ -349,8 +353,8 @@
 				592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				14D1D48C23A4319700029B8C /* AppDelegate.swift in Sources */,
 				14DA97BC23AFEF3C007119A7 /* Display.swift in Sources */,
+				5998C53024118E470043C2F0 /* FilePickerView.swift in Sources */,
 				592305B023EB593100DEA521 /* EmptyInstantiable.swift in Sources */,
-				1402BD6223B158F100BB3FD5 /* RustBoyView.swift in Sources */,
 				149BD6CA23ABBDD100C3FB62 /* RustBoyButton.swift in Sources */,
 				14C0DEC123C02D550049005E /* Arrow.swift in Sources */,
 			);

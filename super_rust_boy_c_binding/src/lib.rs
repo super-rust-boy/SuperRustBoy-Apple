@@ -64,7 +64,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
         }
     };
 
-    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false);
+    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, true);
 
     Box::into_raw(instance) as *const c_void
 }
