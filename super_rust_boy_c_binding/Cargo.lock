@@ -84,7 +84,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "rustboy"
 version = "0.5.0"
-source = "git+https://github.com/super-rust-boy/super-rust-boy.git?branch=feature/CPU_renderer_disabled_audio#0697d79da62d8347fe9878f54c71b4d75eb16bb3"
+source = "git+https://github.com/super-rust-boy/super-rust-boy.git?branch=feature/CPU_renderer_disabled_audio#9c3d3387c959d89d28f7a05659b32d31cd7fc5d7"
 dependencies = [
  "bitflags 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "chrono 0.4.10 (registry+https://github.com/rust-lang/crates.io-index)",
