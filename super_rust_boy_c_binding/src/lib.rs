@@ -1,11 +1,22 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, Button, FRAME_SIZE_BYTES};
+use rustboy::{RustBoy, UserPalette, Button};
 use std::slice;
 
 #[no_mangle]
-pub extern fn rustBoyGetFrameSize() -> u64 {
-    FRAME_SIZE_BYTES as u64
+pub extern fn rustBoyGetFrameInfo() -> rustBoyFrameInfo {
+    rustBoyFrameInfo {
+        width: 160,
+        height: 144,
+        bytesPerPixel: 4
+    }
+}
+
+#[repr(C)]
+pub struct rustBoyFrameInfo {
+    width: u32,
+    height: u32,
+    bytesPerPixel: u32
 }
 
 #[repr(C)]
