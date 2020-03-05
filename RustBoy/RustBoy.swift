@@ -136,7 +136,7 @@ fileprivate final class CoreRustBoy {
             width:              Int(frameInfo.width),
             height:             Int(frameInfo.height),
             bitsPerComponent:   8,
-            bitsPerPixel:       32,
+            bitsPerPixel:       Int(frameInfo.bytesPerPixel * 8),
             bytesPerRow:        Int(frameInfo.width * frameInfo.bytesPerPixel),
             space:              colorSpace,
             bitmapInfo:         [CGBitmapInfo.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)],
