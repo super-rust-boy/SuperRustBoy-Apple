@@ -12,4 +12,4 @@ path = "src/lib.rs"
 crate-type = ["staticlib"]
 
 [dependencies]
-rustboy = { path = "../../super-rust-boy" }
+rustboy = { git = "https://github.com/super-rust-boy/super-rust-boy.git", branch = "feature/CPU_renderer_disabled_audio" }
