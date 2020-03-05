@@ -50,6 +50,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "rustboy"
 version = "0.5.0"
+source = "git+https://github.com/super-rust-boy/super-rust-boy.git?branch=feature/CPU_renderer_disabled_audio#5057801f812b53aa401b7efd48564758748e252e"
 dependencies = [
  "bitflags 1.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "chrono 0.4.10 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -59,7 +60,7 @@ dependencies = [
 name = "rustboy_c_binding"
 version = "0.1.0"
 dependencies = [
- "rustboy 0.5.0",
+ "rustboy 0.5.0 (git+https://github.com/super-rust-boy/super-rust-boy.git?branch=feature/CPU_renderer_disabled_audio)",
 ]
 
 [[package]]
@@ -99,6 +100,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum num-integer 0.1.41 (registry+https://github.com/rust-lang/crates.io-index)" = "b85e541ef8255f6cf42bbfe4ef361305c6c135d10919ecc26126c4e5ae94bc09"
 "checksum num-traits 0.2.10 (registry+https://github.com/rust-lang/crates.io-index)" = "d4c81ffc11c212fa327657cb19dd85eb7419e163b5b076bede2bdb5c974c07e4"
 "checksum redox_syscall 0.1.56 (registry+https://github.com/rust-lang/crates.io-index)" = "2439c63f3f6139d1b57529d16bc3b8bb855230c8efcc5d3a896c8bea7c3b1e84"
+"checksum rustboy 0.5.0 (git+https://github.com/super-rust-boy/super-rust-boy.git?branch=feature/CPU_renderer_disabled_audio)" = "<none>"
 "checksum time 0.1.42 (registry+https://github.com/rust-lang/crates.io-index)" = "db8dcfca086c1143c9270ac42a2bbd8a7ee477b78ac8e45b19abfb0cbede4b6f"
 "checksum winapi 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)" = "8093091eeb260906a183e6ae1abdba2ef5ef2257a21801128899c3fc699229c6"
 "checksum winapi-i686-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6"
