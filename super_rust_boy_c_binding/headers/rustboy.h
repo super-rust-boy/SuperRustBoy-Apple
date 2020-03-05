@@ -20,3 +20,5 @@ const void* rustBoyCreate(const char* cartridgePath, const char* saveFilePath);
 void rustBoyDelete(const void* instance);
 
 void rustBoyFrame(const void* instance, uint8_t* buffer, uint32_t length);
+
+uint64_t rustBoyGetFrameSize(void);

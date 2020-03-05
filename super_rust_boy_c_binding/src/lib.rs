@@ -1,7 +1,12 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, Button};
+use rustboy::{RustBoy, UserPalette, Button, FRAME_SIZE_BYTES};
 use std::slice;
+
+#[no_mangle]
+pub extern fn rustBoyGetFrameSize() -> u64 {
+    FRAME_SIZE_BYTES as u64
+}
 
 #[repr(C)]
 #[allow(non_camel_case_types)]
@@ -64,7 +69,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
         }
     };
 
-    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false);
+    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, true);
 
     Box::into_raw(instance) as *const c_void
 }
