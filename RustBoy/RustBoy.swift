@@ -109,6 +109,7 @@ fileprivate final class CoreRustBoy {
     private static var frameBufferSize: UInt32 {
         frameInfo.width * frameInfo.height * frameInfo.bytesPerPixel
     }
+    private static let bitsPerByte = 8
 
     private func render() {
         rustBoyFrame(coreRef, &buffer, UInt32(buffer.count))
@@ -136,7 +137,7 @@ fileprivate final class CoreRustBoy {
             width:              Int(frameInfo.width),
             height:             Int(frameInfo.height),
             bitsPerComponent:   8,
-            bitsPerPixel:       Int(frameInfo.bytesPerPixel * 8),
+            bitsPerPixel:       Int(frameInfo.bytesPerPixel) * bitsPerByte,
             bytesPerRow:        Int(frameInfo.width * frameInfo.bytesPerPixel),
             space:              colorSpace,
             bitmapInfo:         [CGBitmapInfo.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)],
