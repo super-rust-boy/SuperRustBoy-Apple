@@ -33,10 +33,7 @@ internal final class RustBoy {
 
     internal var cartridge: Cartridge? {
         didSet {
-            guard cartridge != nil else {
-                coreRustBoy = nil
-                return
-            }
+            coreRustBoy = nil
 
             if autoBoot {
                 let _ = boot()
@@ -85,8 +82,8 @@ fileprivate final class CoreRustBoy {
     fileprivate init?(cartridge: RustBoy.Cartridge) {
         guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
-        timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { timer in
-            self.render()
+        timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
+            self?.render()
         }
     }
 
