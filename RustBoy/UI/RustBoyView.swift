@@ -30,6 +30,68 @@ internal struct RustBoyView: View {
             }
     }
 
+	internal var body: some View {
+		VStack {
+			Display(rustBoy: rustBoy)
+
+            HStack {
+				DPad(rustBoy: rustBoy)
+                    .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
+					.padding()
+                    .layoutPriority(1)
+
+                Spacer()
+
+				HStack {
+                    RustBoyButton(type: .b, rustBoy: rustBoy) { RoundButton(text: "B") }
+                        .frame(maxHeight: Self.elementSize)
+                    RustBoyButton(type: .a, rustBoy: rustBoy) { RoundButton(text: "A") }
+                        .frame(maxHeight: Self.elementSize)
+				}
+                    .frame(maxWidth: Self.elementSizeTimesTwo)
+                    .padding()
+                    .layoutPriority(1)
+			}
+                .frame(maxHeight: Self.elementSize * 4)
+
+            HStack {
+
+                HStack {
+                    Button(action: {
+                        self.pickerOpen = true
+                    }, label: {
+                        ZStack {
+                            Circle()
+                                .frame(width: 45)
+
+                            Text("Open")
+                                .foregroundColor(.white)
+                        }
+                    })
+
+                    // Used as a spacer
+                    Color.black
+                        .opacity(0)
+                }
+                    .padding()
+
+                HStack {
+                    Self.optionButton(rustBoy: rustBoy, title: "Select")
+                    Self.optionButton(rustBoy: rustBoy, title: "Start")
+                }
+                    .padding()
+
+                // Used as a spacer
+                Color.black
+                    .opacity(0)
+			}
+                .frame(maxHeight: Self.elementSize)
+        }
+            .sheet(isPresented: $pickerOpen) {
+                FilePickerView(data: self.pickerData)
+            }
+	}
+
     @ObservedObject
     private var pickerData: FilePickerView.Data = FilePickerView.Data()
 
@@ -37,54 +99,15 @@ internal struct RustBoyView: View {
     private var pickerOpen = false
 
     private var cancellable: AnyCancellable?
-
-	internal var body: some View {
-		VStack {
-			Display(rustBoy: rustBoy)
-
-			HStack {
-				DPad(rustBoy: rustBoy)
-					.padding()
-
-				HStack {
-                    RustBoyButton(type: .b, rustBoy: rustBoy) { RoundButton(text: "B") }
-                    RustBoyButton(type: .a, rustBoy: rustBoy) { RoundButton(text: "A") }
-				}
-                    .padding()
-			}
-
-            HStack {
-
-                Button(action: {
-                    self.pickerOpen = true
-                }, label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 60, height: 60)
-
-                        Text("Open")
-                            .foregroundColor(.white)
-                    }
-                })
-
-                HStack {
-                    Self.optionButton(rustBoy: rustBoy, title: "Select")
-                    Self.optionButton(rustBoy: rustBoy, title: "Start")
-                }
-			}
-				.padding()
-        }
-            .sheet(isPresented: $pickerOpen) {
-                FilePickerView(data: self.pickerData)
-            }
-	}
+    private static let elementSize = CGFloat(75)
+    private static let elementSizeTimesTwo = elementSize * 2
 
     private static func optionButton(rustBoy: RustBoy, title: String) -> some View {
         VStack {
             RustBoyButton(type: .start, rustBoy: rustBoy) { RoundedRectangle(cornerRadius: 25) }
             Text(title)
         }
-            .frame(width: 75, height: 50)
+            .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
     }
 
     private static func savePath(forRomURL romURL: NSURL) -> String? {
@@ -94,5 +117,22 @@ internal struct RustBoyView: View {
         guard let romFilename = romURL.deletingPathExtension?.lastPathComponent else { return nil }
 
         return documentsPath + romFilename + ".sav"
+    }
+}
+
+struct RustBoyView_Preview: PreviewProvider {
+
+    private static let deviceNames: [String] = [
+        "iPhone SE",
+        "iPhone 11 Pro Max",
+        "iPad Pro (11-inch)"
+    ]
+
+    static var previews: some View {
+        ForEach(deviceNames, id: \.self) { deviceName in
+            RustBoyView(rustBoy: RustBoy())
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }
