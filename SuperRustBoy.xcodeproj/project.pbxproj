@@ -55,7 +55,7 @@
 		1424167323A436EE00AB442A /* RustBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
 		149BD6C923ABBDD100C3FB62 /* RustBoyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoyButton.swift; sourceTree = "<group>"; };
 		149BD6CD23ABC53300C3FB62 /* DPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
-		149BD6D623ABE56B00C3FB62 /* SuperRustBoy-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperRustBoy-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		149BD6D623ABE56B00C3FB62 /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		149BD6D823ABE56B00C3FB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		149BD6DA23ABE56B00C3FB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		149BD6DE23ABE56D00C3FB62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				14D1D48823A4319700029B8C /* SuperRustBoy.app */,
-				149BD6D623ABE56B00C3FB62 /* SuperRustBoy-iOS.app */,
+				149BD6D623ABE56B00C3FB62 /* SuperRustBoy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 			);
 			name = "SuperRustBoy-iOS";
 			productName = "SuperRustBoy-iOS";
-			productReference = 149BD6D623ABE56B00C3FB62 /* SuperRustBoy-iOS.app */;
+			productReference = 149BD6D623ABE56B00C3FB62 /* SuperRustBoy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		14D1D48723A4319700029B8C /* SuperRustBoy */ = {
@@ -403,8 +403,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/super_rust_boy_c_binding/target/aarch64-apple-ios/debug",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "apps.asby.SuperRustBoy-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = apps.asby.SuperRustBoy;
+				PRODUCT_NAME = SuperRustBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
@@ -434,8 +434,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/super_rust_boy_c_binding/target/aarch64-apple-ios/debug",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "apps.asby.SuperRustBoy-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = apps.asby.SuperRustBoy;
+				PRODUCT_NAME = SuperRustBoy;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)";
