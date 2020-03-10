@@ -11,7 +11,7 @@ import Combine
 
 internal struct RustBoyView: View {
 
-	internal let rustBoy: RustBoy
+    internal let rustBoy: RustBoy
 
     internal init(rustBoy: RustBoy) {
         self.rustBoy = rustBoy
@@ -30,28 +30,28 @@ internal struct RustBoyView: View {
             }
     }
 
-	internal var body: some View {
-		VStack {
-			Display(rustBoy: rustBoy)
+    internal var body: some View {
+        VStack {
+            Display(rustBoy: rustBoy)
 
             HStack {
-				DPad(rustBoy: rustBoy)
+                DPad(rustBoy: rustBoy)
                     .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
-					.padding()
+                    .padding()
                     .layoutPriority(1)
 
                 Spacer()
 
-				HStack {
+                HStack {
                     RustBoyButton(type: .b, rustBoy: rustBoy) { RoundButton(text: "B") }
                         .frame(maxHeight: Self.elementSize)
                     RustBoyButton(type: .a, rustBoy: rustBoy) { RoundButton(text: "A") }
                         .frame(maxHeight: Self.elementSize)
-				}
+                }
                     .frame(maxWidth: Self.elementSizeTimesTwo)
                     .padding()
                     .layoutPriority(1)
-			}
+            }
                 .frame(maxHeight: Self.elementSize * 4)
 
             HStack {
@@ -84,13 +84,13 @@ internal struct RustBoyView: View {
                 // Used as a spacer
                 Color.black
                     .opacity(0)
-			}
+            }
                 .frame(maxHeight: Self.elementSize)
         }
             .sheet(isPresented: $pickerOpen) {
                 FilePickerView(data: self.pickerData)
             }
-	}
+    }
 
     @ObservedObject
     private var pickerData: FilePickerView.Data = FilePickerView.Data()
