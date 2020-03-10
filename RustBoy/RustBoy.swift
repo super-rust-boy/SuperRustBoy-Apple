@@ -87,6 +87,11 @@ fileprivate final class CoreRustBoy {
         }
     }
 
+    deinit {
+        timer?.invalidate()
+        rustBoyDelete(coreRef)
+    }
+
     fileprivate func buttonPressed(_ button: rustBoyButton) {
         rustBoyButtonClickDown(coreRef, button)
     }
@@ -95,21 +100,45 @@ fileprivate final class CoreRustBoy {
         rustBoyButtonClickUp(coreRef, button)
     }
 
+    private let coreRef: UnsafeRawPointer
+    private var timer: Timer?
+    private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
+
+    private static let framerate: Double = 60
+    private static let frameInfo = rustBoyGetFrameInfo()
+    private static var frameBufferSize: UInt32 {
+        frameInfo.width * frameInfo.height * frameInfo.bytesPerPixel
+    }
+    private static let bitsPerByte = 8
+
     private func render() {
         rustBoyFrame(coreRef, &buffer, UInt32(buffer.count))
 
         guard let display = display else { return }
 
         let data = Data(bytes: &buffer, count: buffer.count)
-        let dataProvider = CGDataProvider(data: data as CFData)!
-        let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
 
-        let coreImage = CGImage(
-            width:              160,
-            height:             144,
+        guard let coreImage = Self.createCGImage(from: data) else { return }
+
+#if os(OSX)
+        let image = NSImage(cgImage: coreImage, size: NSSize(width: Int(Self.frameInfo.width), height: Int(Self.frameInfo.height)))
+#else
+        let image = UIImage(cgImage: coreImage)
+#endif
+
+        display.image = image
+    }
+
+    private static func createCGImage(from data: Data) -> CGImage? {
+        guard let dataProvider = CGDataProvider(data: data as CFData) else { return nil }
+        guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB) else { return nil }
+
+        return CGImage(
+            width:              Int(frameInfo.width),
+            height:             Int(frameInfo.height),
             bitsPerComponent:   8,
-            bitsPerPixel:       32,
-            bytesPerRow:        640,
+            bitsPerPixel:       Int(frameInfo.bytesPerPixel) * bitsPerByte,
+            bytesPerRow:        Int(frameInfo.width * frameInfo.bytesPerPixel),
             space:              colorSpace,
             bitmapInfo:         [CGBitmapInfo.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)],
             provider:           dataProvider,
@@ -117,25 +146,7 @@ fileprivate final class CoreRustBoy {
             shouldInterpolate:  false,
             intent:             CGColorRenderingIntent.saturation
         )
-
-#if os(OSX)
-        let image = NSImage(cgImage: coreImage!, size: NSSize(width: 160, height: 144))
-#else
-        let image = UIImage(cgImage: coreImage!)
-#endif
-
-        display.image = image
     }
-
-    deinit {
-        timer?.invalidate()
-        rustBoyDelete(coreRef)
-    }
-
-    private let coreRef: UnsafeRawPointer
-    private var timer: Timer?
-    private var buffer = [UInt8](repeating: 0, count: 144 * 640)
-    private static let framerate: Double = 60
 }
 
 private extension rustBoyButton {

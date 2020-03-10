@@ -3,6 +3,22 @@ use std::os::raw::c_char;
 use rustboy::{RustBoy, UserPalette, Button};
 use std::slice;
 
+#[no_mangle]
+pub extern fn rustBoyGetFrameInfo() -> rustBoyFrameInfo {
+    rustBoyFrameInfo {
+        width: 160,
+        height: 144,
+        bytesPerPixel: 4
+    }
+}
+
+#[repr(C)]
+pub struct rustBoyFrameInfo {
+    width: u32,
+    height: u32,
+    bytesPerPixel: u32
+}
+
 #[repr(C)]
 #[allow(non_camel_case_types)]
 pub enum rustBoyButton {
@@ -64,7 +80,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
         }
     };
 
-    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, false);
+    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, true);
 
     Box::into_raw(instance) as *const c_void
 }
