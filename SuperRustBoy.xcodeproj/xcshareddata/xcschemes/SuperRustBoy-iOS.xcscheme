@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "149BD6D523ABE56B00C3FB62"
-               BuildableName = "SuperRustBoy-iOS.app"
+               BuildableName = "SuperRustBoy.app"
                BlueprintName = "SuperRustBoy-iOS"
                ReferencedContainer = "container:SuperRustBoy.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "149BD6D523ABE56B00C3FB62"
-            BuildableName = "SuperRustBoy-iOS.app"
+            BuildableName = "SuperRustBoy.app"
             BlueprintName = "SuperRustBoy-iOS"
             ReferencedContainer = "container:SuperRustBoy.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "149BD6D523ABE56B00C3FB62"
-            BuildableName = "SuperRustBoy-iOS.app"
+            BuildableName = "SuperRustBoy.app"
             BlueprintName = "SuperRustBoy-iOS"
             ReferencedContainer = "container:SuperRustBoy.xcodeproj">
          </BuildableReference>

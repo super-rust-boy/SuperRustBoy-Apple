@@ -24,6 +24,8 @@ internal struct Display {
 #if os(OSX)
             $0.wantsLayer = true
             $0.layer?.backgroundColor = NSColor.black.cgColor
+#else
+            $0.contentMode = .scaleAspectFit
 #endif
             rustBoy.display = $0
         }
