@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdint.h>
 
 typedef enum {
@@ -21,7 +22,7 @@ void rustBoyButtonClickDown(const void* instance, rustBoyButton button);
 
 void rustBoyButtonClickUp(const void* instance, rustBoyButton button);
 
-const void* rustBoyCreate(const char* cartridgePath, const char* saveFilePath);
+const void* rustBoyCreate(const char* cartridgePath, const char* saveFilePath, bool mute);
 
 void rustBoyDelete(const void* instance);
 
