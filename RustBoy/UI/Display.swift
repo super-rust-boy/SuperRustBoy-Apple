@@ -26,11 +26,26 @@ internal struct Display {
             $0.layer?.backgroundColor = NSColor.black.cgColor
 #else
             $0.contentMode = .scaleAspectFit
+            $0.backgroundColor = Self.backgroundColor
 #endif
             rustBoy.display = $0
         }
     }
+
+#if os(iOS) || os(tvOS)
+    private static let backgroundColor = UIColor { traitCollection -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            return .white
+        case .light, .unspecified:
+            return .black
+        @unknown default:
+            return .black
+        }
+    }
+#endif
 }
+
 
 #if os(OSX)
 extension Display: NSViewRepresentable {
