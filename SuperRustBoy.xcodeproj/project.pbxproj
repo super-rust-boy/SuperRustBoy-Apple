@@ -40,6 +40,8 @@
 		59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */; };
 		5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
 		5955D44323E220BE00BED3D3 /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955D44123E220BE00BED3D3 /* C-Interop.swift */; };
+		596A4365241CF7F800D90BFA /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A4364241CF7F800D90BFA /* Speaker.swift */; };
+		596A4366241CF7F800D90BFA /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596A4364241CF7F800D90BFA /* Speaker.swift */; };
 		5998C52E24118DF20043C2F0 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
 		5998C53024118E470043C2F0 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998C52F24118E470043C2F0 /* FilePickerView.swift */; };
 		59D9169824085DC200D8B566 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D9169724085DC200D8B566 /* FilePickerView.swift */; };
@@ -77,6 +79,7 @@
 		592DFF0123FF254500793939 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59427FFB23E1FB8B00795ADC /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5955D44123E220BE00BED3D3 /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
+		596A4364241CF7F800D90BFA /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		59741A0523F9E5B300B400A6 /* librustboy_c_binding_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59967EAD23CF822700CD7E20 /* libvulkan.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.dylib; path = ../../../usr/local/lib/libvulkan.1.dylib; sourceTree = "<group>"; };
 		59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.1.130.dylib; path = ../../../usr/local/lib/libvulkan.1.1.130.dylib; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 		14D1D47F23A4319700029B8C = {
 			isa = PBXGroup;
 			children = (
+				596A4363241CF7E700D90BFA /* Speaker */,
 				14D1D48A23A4319700029B8C /* SuperRustBoy-AppKit */,
 				149BD6D723ABE56B00C3FB62 /* SuperRustBoy-iOS */,
 				149BD6D123ABE48700C3FB62 /* RustBoy */,
@@ -221,6 +225,14 @@
 				1402BD6623B1692F00BB3FD5 /* EmptyInstantiable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		596A4363241CF7E700D90BFA /* Speaker */ = {
+			isa = PBXGroup;
+			children = (
+				596A4364241CF7F800D90BFA /* Speaker.swift */,
+			);
+			path = Speaker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +348,7 @@
 				14C0DEC723C0376E0049005E /* RoundButton.swift in Sources */,
 				14DA97BD23AFEF3C007119A7 /* Display.swift in Sources */,
 				59D9169824085DC200D8B566 /* FilePickerView.swift in Sources */,
+				596A4366241CF7F800D90BFA /* Speaker.swift in Sources */,
 				1402BD6323B158F100BB3FD5 /* RustBoyView.swift in Sources */,
 				149BD6EC23ABE5B200C3FB62 /* RustBoyButton.swift in Sources */,
 			);
@@ -348,6 +361,7 @@
 				5998C52E24118DF20043C2F0 /* RustBoyView.swift in Sources */,
 				14C0DEC623C0376E0049005E /* RoundButton.swift in Sources */,
 				149BD6CE23ABC53300C3FB62 /* DPad.swift in Sources */,
+				596A4365241CF7F800D90BFA /* Speaker.swift in Sources */,
 				5955D44223E220BE00BED3D3 /* C-Interop.swift in Sources */,
 				1424167423A436EE00AB442A /* RustBoy.swift in Sources */,
 				592D628023EB61C50014960F /* RustBoy+EmptyInstantiable.swift in Sources */,
