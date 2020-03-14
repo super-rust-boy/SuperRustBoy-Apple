@@ -1,6 +1,6 @@
 [package]
 name = "rustboy_c_binding"
-version = "0.1.0"
+version = "0.6.0"
 authors = ["SeanAsby <seanasbjornsen@gmail.com>"]
 edition = "2018"
 
@@ -11,5 +11,6 @@ name = "rustboy_c_binding"
 path = "src/lib.rs"
 crate-type = ["staticlib"]
 
-[dependencies]
-rustboy = { git = "https://github.com/super-rust-boy/super-rust-boy.git", branch = "feature/CPU_renderer_disabled_audio" }
+[dependencies.rustboy]
+git = "https://github.com/super-rust-boy/super-rust-boy"
+tag = "0.6.0"
