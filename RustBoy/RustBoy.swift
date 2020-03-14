@@ -74,13 +74,14 @@ internal final class RustBoy {
 }
 
 
-fileprivate final class CoreRustBoy {
+private final class CoreRustBoy {
 
     fileprivate weak var display: DisplayView?
 
     fileprivate init?(cartridge: RustBoy.Cartridge) {
         guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
+        audioHandler = AudioHandle(coreRustBoyRef: coreRef)
         timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
             self?.render()
         }
@@ -100,6 +101,8 @@ fileprivate final class CoreRustBoy {
     }
 
     private let coreRef: UnsafeRawPointer
+    private let audioHandler: AudioHandle
+
     private var timer: Timer?
     private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
 
@@ -146,6 +149,21 @@ fileprivate final class CoreRustBoy {
             intent:             CGColorRenderingIntent.saturation
         )
     }
+}
+
+private final class AudioHandle {
+
+    fileprivate init(coreRustBoyRef: UnsafeRawPointer) {
+        coreAudioHandleRef = rustBoyGetAudioHandle(coreRustBoyRef, Self.sampleRate)
+    }
+
+    deinit {
+        rustBoyDeleteAudioHandle(coreAudioHandleRef)
+    }
+
+    private let coreAudioHandleRef: UnsafeRawPointer
+
+    private static let sampleRate: UInt32 = 44100
 }
 
 private extension rustBoyButton {

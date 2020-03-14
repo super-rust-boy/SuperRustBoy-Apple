@@ -1,6 +1,6 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, Button};
+use rustboy::{RustBoy, UserPalette, Button, RustBoyAudioHandle};
 use std::slice;
 
 #[no_mangle]
@@ -116,4 +116,23 @@ pub unsafe extern fn rustBoyButtonClickUp(instance: *const c_void, c_button: rus
     if let Some(rust_boy_ref) = rust_boy.as_mut() {
         rust_boy_ref.set_button(c_button.to_button(), false);
     }
+}
+
+#[no_mangle]
+pub unsafe extern fn rustBoyGetAudioHandle(instance: *const c_void, sample_rate: u32) -> *const c_void {
+    let rust_boy = instance as *mut RustBoy;
+
+    match rust_boy.as_mut() {
+        Some(rust_boy_ref) => {
+            let audio_handle = Box::new(rust_boy_ref.enable_audio(sample_rate as usize));
+            Box::into_raw(audio_handle) as *const c_void
+        }
+        None => std::ptr::null()
+    }
+}
+
+#[no_mangle]
+pub unsafe extern fn rustBoyDeleteAudioHandle(instance: *const c_void) {
+    let audio_handle = instance as *mut RustBoyAudioHandle;
+    audio_handle.drop_in_place();
 }
