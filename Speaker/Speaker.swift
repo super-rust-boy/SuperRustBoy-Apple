@@ -21,9 +21,19 @@ internal final class Speaker {
         }
     }
 
-    internal init?() {
+    internal init?(sampleRate: Float64) {
 
-        var desc = AudioStreamBasicDescription(mSampleRate: 0, mFormatID: kAudioFormatLinearPCM, mFormatFlags: 0, mBytesPerPacket: 0, mFramesPerPacket: 0, mBytesPerFrame: 0, mChannelsPerFrame: 0, mBitsPerChannel: 0, mReserved: 0)
+        var desc = AudioStreamBasicDescription(
+            mSampleRate:        sampleRate,
+            mFormatID:          kAudioFormatLinearPCM,
+            mFormatFlags:       kAudioFormatFlagIsFloat,
+            mBytesPerPacket:    8,
+            mFramesPerPacket:   1,
+            mBytesPerFrame:     8,
+            mChannelsPerFrame:  2,
+            mBitsPerChannel:    32,
+            mReserved:          0
+        )
 
         let createError = AudioQueueNewOutput(&desc, Self.audioQueueOutputCallback, bridge(obj: self), nil, nil, 0, &audioqueue)
 

@@ -70,6 +70,7 @@ internal final class RustBoy {
         return .success
     }
 
+    private let speaker = Speaker(sampleRate: Float64(AudioHandle.sampleRate))
     private var coreRustBoy: CoreRustBoy?
 }
 
@@ -77,11 +78,12 @@ internal final class RustBoy {
 private final class CoreRustBoy {
 
     fileprivate weak var display: DisplayView?
+    fileprivate let audioHandle: AudioHandle
 
     fileprivate init?(cartridge: RustBoy.Cartridge) {
         guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
-        audioHandler = AudioHandle(coreRustBoyRef: coreRef)
+        audioHandle = AudioHandle(coreRustBoyRef: coreRef)
         timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
             self?.render()
         }
@@ -101,7 +103,6 @@ private final class CoreRustBoy {
     }
 
     private let coreRef: UnsafeRawPointer
-    private let audioHandler: AudioHandle
 
     private var timer: Timer?
     private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
@@ -153,6 +154,8 @@ private final class CoreRustBoy {
 
 private final class AudioHandle {
 
+    fileprivate static let sampleRate: UInt32 = 44100
+
     fileprivate init(coreRustBoyRef: UnsafeRawPointer) {
         coreAudioHandleRef = rustBoyGetAudioHandle(coreRustBoyRef, Self.sampleRate)
     }
@@ -161,9 +164,11 @@ private final class AudioHandle {
         rustBoyDeleteAudioHandle(coreAudioHandleRef)
     }
 
-    private let coreAudioHandleRef: UnsafeRawPointer
+    fileprivate func getAudioPacket(buffer: inout [Float]) {
+        rustBoyGetAudioPacket(coreAudioHandleRef, &buffer, UInt32(buffer.count))
+    }
 
-    private static let sampleRate: UInt32 = 44100
+    private let coreAudioHandleRef: UnsafeRawPointer
 }
 
 private extension rustBoyButton {

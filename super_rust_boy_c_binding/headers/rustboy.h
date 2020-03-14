@@ -32,4 +32,6 @@ void rustBoyFrame(const void* instance, uint8_t* buffer, uint32_t length);
 
 const void* rustBoyGetAudioHandle(const void* instance, uint32_t sampleRate);
 
-void rustBoyDeleteAudioHandle(const void *instance);
+void rustBoyDeleteAudioHandle(const void* instance);
+
+void rustBoyGetAudioPacket(const void* instance, float* buffer, uint32_t length);

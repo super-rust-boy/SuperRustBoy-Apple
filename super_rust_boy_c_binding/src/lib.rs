@@ -136,3 +136,12 @@ pub unsafe extern fn rustBoyDeleteAudioHandle(instance: *const c_void) {
     let audio_handle = instance as *mut RustBoyAudioHandle;
     audio_handle.drop_in_place();
 }
+
+#[no_mangle]
+pub unsafe extern fn rustBoyGetAudioPacket(instance: *const c_void, buffer: *mut f32, length: u32) {
+    let audio_handle = instance as *mut RustBoyAudioHandle;
+    if let Some(audio_handle_ref) = audio_handle.as_mut() {
+        let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
+        audio_handle_ref.get_audio_packet(&mut buffer_slice)
+    }
+}
