@@ -22,7 +22,7 @@ void rustBoyButtonClickDown(const void* instance, rustBoyButton button);
 
 void rustBoyButtonClickUp(const void* instance, rustBoyButton button);
 
-const void* rustBoyCreate(const char* cartridgePath, const char* saveFilePath, bool mute);
+const void* rustBoyCreate(const char* cartridgePath, const char* saveFilePath);
 
 void rustBoyDelete(const void* instance);
 

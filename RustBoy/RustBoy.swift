@@ -62,7 +62,7 @@ internal final class RustBoy {
     internal func boot() -> BootStatus {
         guard let cart = cartridge else { return .cartridgeMissing }
 
-        guard let coreRustBoy = CoreRustBoy(cartridge: cart, mute: Self.mute) else { return .failedToInitCore }
+        guard let coreRustBoy = CoreRustBoy(cartridge: cart) else { return .failedToInitCore }
 
         self.coreRustBoy = coreRustBoy
         self.coreRustBoy?.display = display
@@ -71,11 +71,6 @@ internal final class RustBoy {
     }
 
     private var coreRustBoy: CoreRustBoy?
-#if os(OSX)
-        private static let mute = false
-#else
-        private static let mute = true
-#endif
 }
 
 
@@ -83,8 +78,8 @@ fileprivate final class CoreRustBoy {
 
     fileprivate weak var display: DisplayView?
 
-    fileprivate init?(cartridge: RustBoy.Cartridge, mute: Bool) {
-        guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath, mute) else { return nil }
+    fileprivate init?(cartridge: RustBoy.Cartridge) {
+        guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
         timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
             self?.render()

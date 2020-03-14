@@ -50,7 +50,7 @@ impl rustBoyButton {
 }
 
 #[no_mangle]
-pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *const c_char, mute: bool) -> *const c_void {
+pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *const c_char) -> *const c_void {
 
     if cartridge_path.is_null() {
         println!("Cartridge path is null");
@@ -80,7 +80,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
         }
     };
 
-    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default, mute);
+    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default);
 
     Box::into_raw(instance) as *const c_void
 }
