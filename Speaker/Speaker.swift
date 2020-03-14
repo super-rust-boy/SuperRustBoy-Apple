@@ -51,7 +51,7 @@ internal final class Speaker {
 
         for _ in 0..<Self.numberOfBuffers {
             var audioQueueBuffer: AudioQueueBufferRef?
-            let error = AudioQueueAllocateBuffer(audioqueue, 0, &audioQueueBuffer)
+            let error = AudioQueueAllocateBuffer(audioqueue, Self.bufferSize, &audioQueueBuffer)
 
             guard error == noErr else {
                 assertionFailure("Failed to create buffer")
@@ -65,6 +65,13 @@ internal final class Speaker {
 
             buffers.append(buffer)
         }
+
+        let startError = AudioQueueStart(audioqueue, nil)
+
+        guard startError == noErr else {
+            assertionFailure("Failed to start")
+            return nil
+        }
     }
 
     deinit {
@@ -76,6 +83,7 @@ internal final class Speaker {
     private var buffers: [AudioQueueBufferRef] = []
 
     private static let numberOfBuffers = 3
+    private static let bufferSize: UInt32 = 1024
 
     private static let startedListener: AudioQueuePropertyListenerProc = { userData, audioQueue, propertyID in
 
@@ -116,6 +124,10 @@ internal final class Speaker {
         }
 
         let speaker: Speaker = bridge(ptr: userData)
+
+        // Fill buffer with silence
+        memset(buffer.pointee.mAudioData, 0, Int(Speaker.bufferSize))
+        buffer.pointee.mAudioDataByteSize = Speaker.bufferSize
 
         let error = AudioQueueEnqueueBuffer(audioQueue, buffer, 0, nil)
 
