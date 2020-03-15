@@ -17,11 +17,11 @@ internal final class Speaker {
     internal var volume: Float {
         get {
             var volume: Float = 0
-            AudioQueueGetParameter(audioqueue, kAudioQueueParam_Volume, &volume)
+            AudioQueueGetParameter(audioQueue, kAudioQueueParam_Volume, &volume)
             return volume
         }
         set {
-            AudioQueueSetParameter(audioqueue, kAudioQueueParam_Volume, newValue)
+            AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, newValue)
         }
     }
 
@@ -43,14 +43,14 @@ internal final class Speaker {
             mReserved:          0
         )
 
-        let createError = AudioQueueNewOutput(&desc, Self.audioQueueOutputCallback, bridge(obj: self), nil, nil, 0, &audioqueue)
+        let createError = AudioQueueNewOutput(&desc, Self.audioQueueOutputCallback, bridge(obj: self), nil, nil, 0, &audioQueue)
 
         guard createError == noErr else {
             assertionFailure("Error creating audio queue")
             return nil
         }
 
-        let isRunningListenerError = AudioQueueAddPropertyListener(audioqueue, kAudioQueueProperty_IsRunning, Self.startedListener, bridge(obj: self))
+        let isRunningListenerError = AudioQueueAddPropertyListener(audioQueue, kAudioQueueProperty_IsRunning, Self.startedListener, bridge(obj: self))
 
         guard isRunningListenerError == noErr else {
             assertionFailure("Error adding listener to audio queue")
@@ -59,7 +59,7 @@ internal final class Speaker {
 
         for _ in 0..<Self.numberOfBuffers {
             var audioQueueBuffer: AudioQueueBufferRef?
-            let error = AudioQueueAllocateBuffer(audioqueue, bufferSize, &audioQueueBuffer)
+            let error = AudioQueueAllocateBuffer(audioQueue, bufferSize, &audioQueueBuffer)
 
             guard error == noErr else {
                 assertionFailure("Failed to create buffer")
@@ -74,7 +74,7 @@ internal final class Speaker {
             buffers.append(buffer)
         }
 
-        let startError = AudioQueueStart(audioqueue, nil)
+        let startError = AudioQueueStart(audioQueue, nil)
 
         guard startError == noErr else {
             assertionFailure("Failed to start")
@@ -83,11 +83,11 @@ internal final class Speaker {
     }
 
     deinit {
-        let error = AudioQueueDispose(audioqueue, true)
+        let error = AudioQueueDispose(audioQueue, true)
         assert(error == noErr, "Error disposing audio queue")
     }
 
-    private var audioqueue: AudioQueueRef!
+    private var audioQueue: AudioQueueRef!
     private var buffers: [AudioQueueBufferRef] = []
 
     private static let numberOfBuffers = 300
