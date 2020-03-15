@@ -29,7 +29,7 @@ internal final class Speaker {
 
     internal init?(sampleRate: Float64) {
 
-        bufferSize = UInt32(sampleRate / 60)
+        bufferSize = Int(sampleRate / 60)
 
         var desc = AudioStreamBasicDescription(
             mSampleRate:        sampleRate,
@@ -59,7 +59,7 @@ internal final class Speaker {
 
         for _ in 0..<Self.numberOfBuffers {
             var audioQueueBuffer: AudioQueueBufferRef?
-            let error = AudioQueueAllocateBuffer(audioQueue, bufferSize, &audioQueueBuffer)
+            let error = AudioQueueAllocateBuffer(audioQueue, UInt32(bufferSize), &audioQueueBuffer)
 
             guard error == noErr else {
                 assertionFailure("Failed to create buffer")
@@ -90,8 +90,9 @@ internal final class Speaker {
     private var audioQueue: AudioQueueRef!
     private var buffers: [AudioQueueBufferRef] = []
 
+    private let bufferSize: Int
+
     private static let numberOfBuffers = 300
-    private let bufferSize: UInt32
 
     private static let startedListener: AudioQueuePropertyListenerProc = { userData, audioQueue, propertyID in
 
@@ -134,19 +135,19 @@ internal final class Speaker {
         let speaker: Speaker = bridge(ptr: userData)
 
         // Fill buffer with silence
-        memset(buffer.pointee.mAudioData, 0, Int(speaker.bufferSize))
-        buffer.pointee.mAudioDataByteSize = speaker.bufferSize
+        memset(buffer.pointee.mAudioData, 0, speaker.bufferSize)
+        buffer.pointee.mAudioDataByteSize = UInt32(speaker.bufferSize)
 
         if let delegate = speaker.delegate {
 
-            var floatBuffer = [Float](repeating: 0, count: Int(speaker.bufferSize / 4))
+            var floatBuffer = [Float](repeating: 0, count: speaker.bufferSize / 4)
 
             speaker.delegate?.speaker(speaker, requestsData: &floatBuffer)
 
 //            print("FloatBuffer: \(floatBuffer)")
 //            print()
 
-            memcpy(buffer.pointee.mAudioData, floatBuffer, Int(speaker.bufferSize))
+            memcpy(buffer.pointee.mAudioData, floatBuffer, speaker.bufferSize)
         }
 
         let error = AudioQueueEnqueueBuffer(audioQueue, buffer, 0, nil)
