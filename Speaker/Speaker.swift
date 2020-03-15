@@ -8,6 +8,10 @@
 
 import AudioToolbox
 
+internal protocol SpeakerDelegate: AnyObject {
+    func speaker(_ speaker: Speaker, requestsData data: inout [Float])
+}
+
 internal final class Speaker {
 
     internal var volume: Float {
@@ -20,6 +24,8 @@ internal final class Speaker {
             AudioQueueSetParameter(audioqueue, kAudioQueueParam_Volume, newValue)
         }
     }
+
+    internal weak var delegate: SpeakerDelegate?
 
     internal init?(sampleRate: Float64) {
 
@@ -128,6 +134,19 @@ internal final class Speaker {
         // Fill buffer with silence
         memset(buffer.pointee.mAudioData, 0, Int(Speaker.bufferSize))
         buffer.pointee.mAudioDataByteSize = Speaker.bufferSize
+
+        if let delegate = speaker.delegate {
+
+            var floatBuffer = [Float](repeating: 0, count: Int(Speaker.bufferSize / 4))
+
+            speaker.delegate?.speaker(speaker, requestsData: &floatBuffer)
+
+            let multipliedBuffer = floatBuffer.map { $0 * 8 }
+
+//            print("FloatBuffer: \(newBuffer)")
+
+            memcpy(buffer.pointee.mAudioData, multipliedBuffer, Int(Speaker.bufferSize))
+        }
 
         let error = AudioQueueEnqueueBuffer(audioQueue, buffer, 0, nil)
 

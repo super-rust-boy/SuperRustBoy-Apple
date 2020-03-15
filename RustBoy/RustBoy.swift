@@ -66,6 +66,7 @@ internal final class RustBoy {
 
         self.coreRustBoy = coreRustBoy
         self.coreRustBoy?.display = display
+        speaker?.delegate = coreRustBoy.audioHandle
 
         return .success
     }
@@ -169,6 +170,12 @@ private final class AudioHandle {
     }
 
     private let coreAudioHandleRef: UnsafeRawPointer
+}
+
+extension AudioHandle: SpeakerDelegate {
+    func speaker(_ speaker: Speaker, requestsData data: inout [Float]) {
+        getAudioPacket(buffer: &data)
+    }
 }
 
 private extension rustBoyButton {
