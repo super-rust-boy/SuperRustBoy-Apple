@@ -88,8 +88,8 @@ internal final class Speaker {
     private var audioqueue: AudioQueueRef!
     private var buffers: [AudioQueueBufferRef] = []
 
-    private static let numberOfBuffers = 3
-    private static let bufferSize: UInt32 = 1024
+    private static let numberOfBuffers = 500
+    private static let bufferSize: UInt32 = 512
 
     private static let startedListener: AudioQueuePropertyListenerProc = { userData, audioQueue, propertyID in
 
@@ -141,11 +141,10 @@ internal final class Speaker {
 
             speaker.delegate?.speaker(speaker, requestsData: &floatBuffer)
 
-            let multipliedBuffer = floatBuffer.map { $0 * 8 }
+//            print("FloatBuffer: \(floatBuffer)")
+//            print()
 
-//            print("FloatBuffer: \(newBuffer)")
-
-            memcpy(buffer.pointee.mAudioData, multipliedBuffer, Int(Speaker.bufferSize))
+            memcpy(buffer.pointee.mAudioData, floatBuffer, Int(Speaker.bufferSize))
         }
 
         let error = AudioQueueEnqueueBuffer(audioQueue, buffer, 0, nil)
