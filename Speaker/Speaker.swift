@@ -88,8 +88,8 @@ internal final class Speaker {
     private var audioqueue: AudioQueueRef!
     private var buffers: [AudioQueueBufferRef] = []
 
-    private static let numberOfBuffers = 500
-    private static let bufferSize: UInt32 = 512
+    private static let numberOfBuffers = 50
+    private static let bufferSize: UInt32 = 2048
 
     private static let startedListener: AudioQueuePropertyListenerProc = { userData, audioQueue, propertyID in
 
