@@ -13,6 +13,7 @@ import UIKit
 #endif
 import CoreRustBoy
 import CoreVideo
+import AVFoundation
 
 internal final class RustBoy {
 
@@ -155,7 +156,7 @@ private final class CoreRustBoy {
 
 private final class AudioHandle {
 
-    fileprivate static let sampleRate: UInt32 = 44100
+    fileprivate static let sampleRate: UInt32 = UInt32(AVAudioSession.sharedInstance().sampleRate)
 
     fileprivate init(coreRustBoyRef: UnsafeRawPointer) {
         coreAudioHandleRef = rustBoyGetAudioHandle(coreRustBoyRef, Self.sampleRate)

@@ -29,7 +29,7 @@ internal final class Speaker {
 
     internal init?(sampleRate: Float64) {
 
-        bufferSize = Int(sampleRate / 60)
+        //bufferSize
 
         var desc = AudioStreamBasicDescription(
             mSampleRate:        sampleRate,
@@ -90,9 +90,9 @@ internal final class Speaker {
     private var audioQueue: AudioQueueRef!
     private var buffers: [AudioQueueBufferRef] = []
 
-    private let bufferSize: Int
+    private let bufferSize: Int = 4096
 
-    private static let numberOfBuffers = 300
+    private static let numberOfBuffers = 25
 
     private static let startedListener: AudioQueuePropertyListenerProc = { userData, audioQueue, propertyID in
 
@@ -135,7 +135,6 @@ internal final class Speaker {
         let speaker: Speaker = bridge(ptr: userData)
 
         // Fill buffer with silence
-        memset(buffer.pointee.mAudioData, 0, speaker.bufferSize)
         buffer.pointee.mAudioDataByteSize = UInt32(speaker.bufferSize)
 
         if let delegate = speaker.delegate {
@@ -148,6 +147,8 @@ internal final class Speaker {
 //            print()
 
             memcpy(buffer.pointee.mAudioData, floatBuffer, speaker.bufferSize)
+        } else {
+            memset(buffer.pointee.mAudioData, 0, speaker.bufferSize)
         }
 
         let error = AudioQueueEnqueueBuffer(audioQueue, buffer, 0, nil)
