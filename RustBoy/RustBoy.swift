@@ -156,7 +156,11 @@ private final class CoreRustBoy {
 
 private final class AudioHandle {
 
-    fileprivate static let sampleRate: UInt32 = UInt32(AVAudioSession.sharedInstance().sampleRate)
+#if os(OSX)
+    fileprivate static let sampleRate = UInt32(44100)
+#else
+    fileprivate static let sampleRate = UInt32(AVAudioSession.sharedInstance().sampleRate)
+#endif
 
     fileprivate init(coreRustBoyRef: UnsafeRawPointer) {
         coreAudioHandleRef = rustBoyGetAudioHandle(coreRustBoyRef, Self.sampleRate)
