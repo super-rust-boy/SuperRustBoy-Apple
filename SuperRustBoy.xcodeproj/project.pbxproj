@@ -43,6 +43,7 @@
 		5998C52E24118DF20043C2F0 /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402BD6123B158F100BB3FD5 /* RustBoyView.swift */; };
 		5998C53024118E470043C2F0 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5998C52F24118E470043C2F0 /* FilePickerView.swift */; };
 		59D9169824085DC200D8B566 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D9169724085DC200D8B566 /* FilePickerView.swift */; };
+		59F852FC24A3FDC8003704E5 /* libsnes_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F852FB24A3FDC8003704E5 /* libsnes_c_binding.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		59967EB123CF823A00CD7E20 /* libvulkan.1.1.130.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.1.130.dylib; path = ../../../usr/local/lib/libvulkan.1.1.130.dylib; sourceTree = "<group>"; };
 		5998C52F24118E470043C2F0 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		59D9169724085DC200D8B566 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
+		59F852FB24A3FDC8003704E5 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F8B88223FDA25000931945 /* librustboy_c_binding.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librustboy_c_binding.a; path = "super_rust_boy_c_binding/target/aarch64-apple-ios/debug/librustboy_c_binding.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59427FFC23E1FB8B00795ADC /* librustboy_c_binding.a in Frameworks */,
+				59F852FC24A3FDC8003704E5 /* libsnes_c_binding.a in Frameworks */,
 				1424166C23A434CD00AB442A /* libresolv.9.tbd in Frameworks */,
 				1424167223A4369D00AB442A /* CoreAudio.framework in Frameworks */,
 				1424167023A4367E00AB442A /* AudioToolbox.framework in Frameworks */,
@@ -187,6 +190,7 @@
 		14D1D4AC23A431CC00029B8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59F852FB24A3FDC8003704E5 /* libsnes_c_binding.a */,
 				592DFF0123FF254500793939 /* librustboy_c_binding.a */,
 				592DFEFF23FF249500793939 /* librustboy_c_binding-iOS.a */,
 				59F8B88223FDA25000931945 /* librustboy_c_binding.a */,
