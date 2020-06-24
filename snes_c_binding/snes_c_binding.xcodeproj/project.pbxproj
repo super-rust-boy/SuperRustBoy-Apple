@@ -1,0 +1,254 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CA60A4F02F6CB0207B02AB73 /* Cargo */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			buildPhases = (
+				CA6039A95960A95472218C97 /* Cargo build */,
+			);
+			dependencies = (
+			);
+			name = Cargo;
+			productName = Cargo;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		CA60FAE0CCCBA9F0C9DA18EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA604676FE590547AC6FC57F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60A4F02F6CB0207B02AB73;
+			remoteInfo = Cargo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		59F852FA24A3FD04003704E5 /* snes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snes.h; sourceTree = "<group>"; };
+		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA60C302EF549CC60DBB85C8 /* Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = Cargo.toml; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		59F852F924A3FD04003704E5 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				59F852FA24A3FD04003704E5 /* snes.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		ADDEDBA66A6E2 /* Required Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				ADDEDBA66A6E1 /* libresolv.tbd */,
+			);
+			name = "Required Libraries";
+			sourceTree = "<group>";
+		};
+		CA602A420EA4A0ED5CC06A6A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA603A9252CBEFE16596F55A = {
+			isa = PBXGroup;
+			children = (
+				CA60C302EF549CC60DBB85C8 /* Cargo.toml */,
+				59F852F924A3FD04003704E5 /* headers */,
+				ADDEDBA66A6E2 /* Required Libraries */,
+				CA602A420EA4A0ED5CC06A6A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib" */;
+			buildPhases = (
+				CA6074E460DBB6D2FDCD3A5F /* Copy files (libsnes_c_binding.a) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60FC5933D791340F9F404A /* PBXTargetDependency */,
+			);
+			name = "snes_c_binding-staticlib";
+			productName = libsnes_c_binding.a;
+			productReference = CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA604676FE590547AC6FC57F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					CA6021EBE591C0680A387C43 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60A4F02F6CB0207B02AB73 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA603A9252CBEFE16596F55A;
+			productRefGroup = CA602A420EA4A0ED5CC06A6A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */,
+				CA60A4F02F6CB0207B02AB73 /* Cargo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA6039A95960A95472218C97 /* Cargo build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Cargo.toml",
+			);
+			name = "Cargo build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n\tcargo build $CARGO_FLAGS;\nfi\n";
+		};
+		CA6074E460DBB6D2FDCD3A5F /* Copy files (libsnes_c_binding.a) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/libsnes_c_binding.a",
+			);
+			name = "Copy files (libsnes_c_binding.a)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/libsnes_c_binding.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/libsnes_c_binding.a\" \"${BUILT_PRODUCTS_DIR}/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA60FC5933D791340F9F404A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60A4F02F6CB0207B02AB73 /* Cargo */;
+			targetProxy = CA60FAE0CCCBA9F0C9DA18EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CA60170D3265513DAACD375D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = snes_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CA60AF575CD80A6D95238BF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "--release";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = snes_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA60BFF8DD02B93AB30E4522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = snes_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CA60E3FCD07A8507D15D89B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = snes_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60AF575CD80A6D95238BF4 /* Release */,
+				CA60BFF8DD02B93AB30E4522 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60170D3265513DAACD375D /* Release */,
+				CA60E3FCD07A8507D15D89B6 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA604676FE590547AC6FC57F /* Project object */;
+}
