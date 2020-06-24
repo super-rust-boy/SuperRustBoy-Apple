@@ -104,11 +104,11 @@ pub unsafe extern fn snesDelete(instance: *const c_void) {
 #[no_mangle]
 pub unsafe extern fn snesFrame(instance: *const c_void, buffer: *mut u8, length: u32) {
     let snes = instance as *mut SNES;
-    if let Some(rust_boy_ref) = snes.as_mut() {
+    if let Some(snes_ref) = snes.as_mut() {
 
         let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
 
-        rust_boy_ref.frame(&mut buffer_slice);
+        snes_ref.frame(&mut buffer_slice);
     }
 }
 
