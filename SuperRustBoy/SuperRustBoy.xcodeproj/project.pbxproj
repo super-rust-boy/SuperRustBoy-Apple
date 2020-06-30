@@ -107,8 +107,8 @@
 				59C0D44F24CEEDA400C18650 /* Speaker.swift */,
 				59EEA0D424ABBE3900E53B0F /* module.modulemap */,
 				5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */,
-				5976F82A24ABBCD8000D7941 /* Assets.xcassets */,
 				59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */,
+				5976F82A24ABBCD8000D7941 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";

@@ -11,8 +11,20 @@ import Combine
 
 internal struct RustBoyView: View {
 
-    init() {
-        _ = cancellable
+    private let rustBoy: RustBoy
+
+    internal init(rustBoy: RustBoy) {
+        self.rustBoy = rustBoy
+        cancellable = pickerData.$fileURLs
+            .compactMap { $0.first }
+            .map { $0 as NSURL }
+            .compactMap {
+                guard let romPath = $0.resourceSpecifier else { return nil }
+                guard let savePath = Self.savePath(forRomURL: $0) else { return nil }
+
+                return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
+            }
+            .assign(to: \.cartridge, on: rustBoy)
     }
 
     internal var body: some View {
@@ -83,21 +95,7 @@ internal struct RustBoyView: View {
     @State
     private var pickerOpen = false
 
-    @State
-    private var rustBoy = RustBoy.setup {
-        $0.autoBoot = true
-    }
-
-    private lazy var cancellable: AnyCancellable = pickerData.$fileURLs
-        .compactMap { $0.first }
-        .map { $0 as NSURL }
-        .compactMap {
-            guard let romPath = $0.resourceSpecifier else { return nil }
-            guard let savePath = Self.savePath(forRomURL: $0) else { return nil }
-
-            return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
-        }
-        .assign(to: \.cartridge, on: rustBoy)
+    private var cancellable: AnyCancellable?
 
     private static let elementSize = CGFloat(75)
     private static let elementSizeTimesTwo = elementSize * 2
@@ -123,14 +121,14 @@ internal struct RustBoyView: View {
 struct RustBoyView_Preview: PreviewProvider {
 
     private static let deviceNames: [String] = [
-        "iPhone SE",
+        "iPhone SE (2nd generation)",
         "iPhone 11 Pro Max",
-        "iPad Pro (11-inch)"
+        "iPad Pro (11-inch) (2nd generation)"
     ]
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            RustBoyView()
+            RustBoyView(rustBoy: RustBoy())
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

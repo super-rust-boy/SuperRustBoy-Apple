@@ -9,13 +9,9 @@ import Combine
 import Foundation
 import GameController
 
-internal final class GameControllerManager {
+internal final class GameControllerManager: ObservableObject {
 
-    internal static let shared = GameControllerManager()
-
-    private var cancellables = Set<AnyCancellable>()
-
-    private init() {
+    internal init() {
         NotificationCenter
             .default
             .publisher(for: .GCControllerDidConnect)
@@ -35,6 +31,12 @@ internal final class GameControllerManager {
             }
             .store(in: &cancellables)
     }
+
+    internal func attachKeyboard(to rustBoy: RustBoy) {
+
+    }
+
+    private var cancellables = Set<AnyCancellable>()
 
     private static func setupController(controller: GCController, rustBoy: RustBoy) {
 

@@ -10,11 +10,27 @@ import SwiftUI
 @main
 struct SuperRustBoyApp: App {
 
-    let manager = GameControllerManager.shared
+    @StateObject
+    private var controllerManager = GameControllerManager()
+
+    var body: some Scene {
+        RustBoyScene(controllerManager: controllerManager)
+    }
+}
+
+extension RustBoy: ObservableObject {}
+
+struct RustBoyScene: Scene {
+
+    @ObservedObject
+    internal var controllerManager: GameControllerManager
+
+    @StateObject
+    private var rustBoy = RustBoy()
 
     var body: some Scene {
         WindowGroup {
-            RustBoyView()
+            RustBoyView(rustBoy: rustBoy)
         }
     }
 }
