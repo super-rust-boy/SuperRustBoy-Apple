@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct SuperRustBoyApp: App {
 
+    let manager = GameControllerManager.shared
+
     var body: some Scene {
         WindowGroup {
             RustBoyView()

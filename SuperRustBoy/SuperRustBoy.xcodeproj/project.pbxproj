@@ -37,6 +37,8 @@
 		59EEA0DB24ABC05800E53B0F /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */; };
 		59EEA0DE24ABC07200E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */; };
 		59EEA0E024ABC07B00E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */; };
+		59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */; };
+		59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 				59EEA0D424ABBE3900E53B0F /* module.modulemap */,
 				5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */,
 				5976F82A24ABBCD8000D7941 /* Assets.xcassets */,
+				59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -280,6 +284,7 @@
 				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
 				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
+				59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
 				5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
 				59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
@@ -300,6 +305,7 @@
 				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
+				59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
 				5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
 				59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
