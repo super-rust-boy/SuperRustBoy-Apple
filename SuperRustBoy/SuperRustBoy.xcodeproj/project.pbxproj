@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
+		5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
+		5976F83D24ABBCD8000D7941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82924ABBCD8000D7941 /* ContentView.swift */; };
+		5976F83E24ABBCD8000D7941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82924ABBCD8000D7941 /* ContentView.swift */; };
+		5976F83F24ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
+		5976F84024ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
+		59C0D45024CEEDA500C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
+		59C0D45124CEEDA500C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
+		59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
+		59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
+		59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
+		59EEA0C024ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
+		59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */; };
+		59EEA0C224ABBDCF00E53B0F /* RustBoyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */; };
+		59EEA0C324ABBDCF00E53B0F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */; };
+		59EEA0C424ABBDCF00E53B0F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */; };
+		59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B924ABBDCF00E53B0F /* Display.swift */; };
+		59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B924ABBDCF00E53B0F /* Display.swift */; };
+		59EEA0C724ABBDCF00E53B0F /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */; };
+		59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */; };
+		59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */; };
+		59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */; };
+		59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */; };
+		59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */; };
+		59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */; };
+		59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */; };
+		59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
+		59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
+		59EEA0D924ABC04900E53B0F /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0D824ABC04900E53B0F /* FilePickerView.swift */; };
+		59EEA0DB24ABC05800E53B0F /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */; };
+		59EEA0DE24ABC07200E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */; };
+		59EEA0E024ABC07B00E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRustBoyApp.swift; sourceTree = "<group>"; };
+		5976F82924ABBCD8000D7941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5976F82A24ABBCD8000D7941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5976F82F24ABBCD8000D7941 /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5976F83224ABBCD8000D7941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5976F83724ABBCD8000D7941 /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5976F83924ABBCD8000D7941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5976F83A24ABBCD8000D7941 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		59C0D44F24CEEDA400C18650 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		59EEA0B524ABBDCF00E53B0F /* DPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
+		59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
+		59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyButton.swift; sourceTree = "<group>"; };
+		59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		59EEA0B924ABBDCF00E53B0F /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RustBoy+EmptyInstantiable.swift"; sourceTree = "<group>"; };
+		59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
+		59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
+		59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyInstantiable.swift; sourceTree = "<group>"; };
+		59EEA0D424ABBE3900E53B0F /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		59EEA0D824ABC04900E53B0F /* FilePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
+		59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
+		59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5976F82C24ABBCD8000D7941 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59EEA0DE24ABC07200E53B0F /* librustboy_c_binding.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5976F83424ABBCD8000D7941 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59EEA0E024ABC07B00E53B0F /* librustboy_c_binding.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5976F82224ABBCD7000D7941 = {
+			isa = PBXGroup;
+			children = (
+				59EEA0CD24ABBDDA00E53B0F /* Utils */,
+				59EEA0B324ABBDCF00E53B0F /* RustBoy */,
+				5976F82724ABBCD8000D7941 /* Shared */,
+				5976F83124ABBCD8000D7941 /* iOS */,
+				5976F83824ABBCD8000D7941 /* macOS */,
+				5976F83024ABBCD8000D7941 /* Products */,
+				59EEA0DC24ABC07200E53B0F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5976F82724ABBCD8000D7941 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				59C0D44F24CEEDA400C18650 /* Speaker.swift */,
+				59EEA0D424ABBE3900E53B0F /* module.modulemap */,
+				5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */,
+				5976F82924ABBCD8000D7941 /* ContentView.swift */,
+				5976F82A24ABBCD8000D7941 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5976F83024ABBCD8000D7941 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5976F82F24ABBCD8000D7941 /* SuperRustBoy.app */,
+				5976F83724ABBCD8000D7941 /* SuperRustBoy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5976F83124ABBCD8000D7941 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				59EEA0D824ABC04900E53B0F /* FilePickerView.swift */,
+				5976F83224ABBCD8000D7941 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5976F83824ABBCD8000D7941 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */,
+				5976F83924ABBCD8000D7941 /* Info.plist */,
+				5976F83A24ABBCD8000D7941 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		59EEA0B324ABBDCF00E53B0F /* RustBoy */ = {
+			isa = PBXGroup;
+			children = (
+				59EEA0B424ABBDCF00E53B0F /* UI */,
+				59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */,
+				59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */,
+			);
+			path = RustBoy;
+			sourceTree = "<group>";
+		};
+		59EEA0B424ABBDCF00E53B0F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				59EEA0B524ABBDCF00E53B0F /* DPad.swift */,
+				59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */,
+				59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */,
+				59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */,
+				59EEA0B924ABBDCF00E53B0F /* Display.swift */,
+				59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		59EEA0CD24ABBDDA00E53B0F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */,
+				59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		59EEA0DC24ABC07200E53B0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */,
+				59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5976F82E24ABBCD8000D7941 /* iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5976F84324ABBCD8000D7941 /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildPhases = (
+				5976F82B24ABBCD8000D7941 /* Sources */,
+				5976F82C24ABBCD8000D7941 /* Frameworks */,
+				5976F82D24ABBCD8000D7941 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOS;
+			productName = iOS;
+			productReference = 5976F82F24ABBCD8000D7941 /* SuperRustBoy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5976F83624ABBCD8000D7941 /* macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5976F84624ABBCD8000D7941 /* Build configuration list for PBXNativeTarget "macOS" */;
+			buildPhases = (
+				5976F83324ABBCD8000D7941 /* Sources */,
+				5976F83424ABBCD8000D7941 /* Frameworks */,
+				5976F83524ABBCD8000D7941 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = macOS;
+			productName = macOS;
+			productReference = 5976F83724ABBCD8000D7941 /* SuperRustBoy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5976F82324ABBCD7000D7941 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					5976F82E24ABBCD8000D7941 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					5976F83624ABBCD8000D7941 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 5976F82624ABBCD7000D7941 /* Build configuration list for PBXProject "SuperRustBoy" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5976F82224ABBCD7000D7941;
+			productRefGroup = 5976F83024ABBCD8000D7941 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5976F82E24ABBCD8000D7941 /* iOS */,
+				5976F83624ABBCD8000D7941 /* macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5976F82D24ABBCD8000D7941 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5976F83F24ABBCD8000D7941 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5976F83524ABBCD8000D7941 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5976F84024ABBCD8000D7941 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5976F82B24ABBCD8000D7941 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59EEA0C324ABBDCF00E53B0F /* RoundButton.swift in Sources */,
+				59EEA0C724ABBDCF00E53B0F /* Arrow.swift in Sources */,
+				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
+				5976F83D24ABBCD8000D7941 /* ContentView.swift in Sources */,
+				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
+				59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
+				5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
+				59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
+				59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
+				59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */,
+				59EEA0D924ABC04900E53B0F /* FilePickerView.swift in Sources */,
+				59C0D45024CEEDA500C18650 /* Speaker.swift in Sources */,
+				59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
+				59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5976F83324ABBCD8000D7941 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59EEA0C424ABBDCF00E53B0F /* RoundButton.swift in Sources */,
+				59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */,
+				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
+				5976F83E24ABBCD8000D7941 /* ContentView.swift in Sources */,
+				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
+				59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
+				5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
+				59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
+				59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
+				59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */,
+				59EEA0DB24ABC05800E53B0F /* FilePickerView.swift in Sources */,
+				59C0D45124CEEDA500C18650 /* Speaker.swift in Sources */,
+				59EEA0C224ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
+				59EEA0C024ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5976F84124ABBCD8000D7941 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared/";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5976F84224ABBCD8000D7941 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared/";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5976F84424ABBCD8000D7941 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuperRustBoy.SuperRustBoy;
+				PRODUCT_NAME = SuperRustBoy;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5976F84524ABBCD8000D7941 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuperRustBoy.SuperRustBoy;
+				PRODUCT_NAME = SuperRustBoy;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5976F84724ABBCD8000D7941 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuperRustBoy.SuperRustBoy;
+				PRODUCT_NAME = SuperRustBoy;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5976F84824ABBCD8000D7941 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SuperRustBoy.SuperRustBoy;
+				PRODUCT_NAME = SuperRustBoy;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5976F82624ABBCD7000D7941 /* Build configuration list for PBXProject "SuperRustBoy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5976F84124ABBCD8000D7941 /* Debug */,
+				5976F84224ABBCD8000D7941 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5976F84324ABBCD8000D7941 /* Build configuration list for PBXNativeTarget "iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5976F84424ABBCD8000D7941 /* Debug */,
+				5976F84524ABBCD8000D7941 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5976F84624ABBCD8000D7941 /* Build configuration list for PBXNativeTarget "macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5976F84724ABBCD8000D7941 /* Debug */,
+				5976F84824ABBCD8000D7941 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5976F82324ABBCD7000D7941 /* Project object */;
+}
