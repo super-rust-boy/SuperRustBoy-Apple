@@ -20,9 +20,8 @@ internal final class GameControllerManager {
             .default
             .publisher(for: .GCControllerDidConnect)
             .compactMap { $0.object as? GCController }
-            .filter { $0 }
             .sink { controller in
-                print("Controller: \(controller.physicalInputProfile)")
+                print("Controller: \(controller)")
 //                controllers.forEach { Self.setupController(controller: $0, rustBoy: self.rustBoy) }
             }
             .store(in: &cancellables)
