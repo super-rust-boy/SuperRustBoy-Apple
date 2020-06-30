@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
 		5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
-		5976F83D24ABBCD8000D7941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82924ABBCD8000D7941 /* ContentView.swift */; };
-		5976F83E24ABBCD8000D7941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82924ABBCD8000D7941 /* ContentView.swift */; };
 		5976F83F24ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
 		5976F84024ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
 		59C0D45024CEEDA500C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
@@ -43,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRustBoyApp.swift; sourceTree = "<group>"; };
-		5976F82924ABBCD8000D7941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5976F82A24ABBCD8000D7941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5976F82F24ABBCD8000D7941 /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976F83224ABBCD8000D7941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +104,6 @@
 				59C0D44F24CEEDA400C18650 /* Speaker.swift */,
 				59EEA0D424ABBE3900E53B0F /* module.modulemap */,
 				5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */,
-				5976F82924ABBCD8000D7941 /* ContentView.swift */,
 				5976F82A24ABBCD8000D7941 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -282,7 +278,6 @@
 				59EEA0C324ABBDCF00E53B0F /* RoundButton.swift in Sources */,
 				59EEA0C724ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
-				5976F83D24ABBCD8000D7941 /* ContentView.swift in Sources */,
 				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
@@ -303,7 +298,6 @@
 				59EEA0C424ABBDCF00E53B0F /* RoundButton.swift in Sources */,
 				59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
-				5976F83E24ABBCD8000D7941 /* ContentView.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
