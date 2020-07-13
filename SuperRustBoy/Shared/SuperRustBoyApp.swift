@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 @main
 struct SuperRustBoyApp: App {
@@ -14,23 +15,36 @@ struct SuperRustBoyApp: App {
     private var controllerManager = GameControllerManager()
 
     var body: some Scene {
-        RustBoyScene(controllerManager: controllerManager)
+        DocumentGroup(viewing: GenericFile.self) { viewer -> RustBoyView in
+            let rustboy = RustBoy()
+            rustboy.autoBoot = true
+            rustboy.cartridge = viewer
+                .fileURL
+                .map { fileURL in
+                    let romPath = fileURL.path
+                    let savePath = Self.savePath(forRomURL: fileURL)
+
+                    return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
+                }
+
+            return RustBoyView(rustBoy: rustboy)
+        }
+    }
+
+    private static func savePath(forRomURL romURL: URL) -> String {
+        romURL.deletingPathExtension().path + ".sav"
     }
 }
 
-extension RustBoy: ObservableObject {}
+struct GenericFile: FileDocument {
+    static var readableContentTypes = [UTType.item]
 
-struct RustBoyScene: Scene {
+    init(fileWrapper: FileWrapper, contentType: UTType) throws {
 
-    @ObservedObject
-    internal var controllerManager: GameControllerManager
+    }
 
-    @StateObject
-    private var rustBoy = RustBoy()
+    // this will be called when the system wants to write our data to disk
+    func write(to fileWrapper: inout FileWrapper, contentType: UTType) throws {
 
-    var body: some Scene {
-        WindowGroup {
-            RustBoyView(rustBoy: rustBoy)
-        }
     }
 }

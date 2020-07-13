@@ -11,8 +11,8 @@
 		5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
 		5976F83F24ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
 		5976F84024ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
-		59C0D45024CEEDA500C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
-		59C0D45124CEEDA500C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
+		59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
+		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
@@ -33,8 +33,6 @@
 		59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */; };
 		59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
 		59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
-		59EEA0D924ABC04900E53B0F /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0D824ABC04900E53B0F /* FilePickerView.swift */; };
-		59EEA0DB24ABC05800E53B0F /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */; };
 		59EEA0DE24ABC07200E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */; };
 		59EEA0E024ABC07B00E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */; };
 		59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */; };
@@ -61,8 +59,6 @@
 		59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
 		59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyInstantiable.swift; sourceTree = "<group>"; };
 		59EEA0D424ABBE3900E53B0F /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		59EEA0D824ABC04900E53B0F /* FilePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
-		59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerManger.swift; sourceTree = "<group>"; };
@@ -125,7 +121,6 @@
 		5976F83124ABBCD8000D7941 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				59EEA0D824ABC04900E53B0F /* FilePickerView.swift */,
 				5976F83224ABBCD8000D7941 /* Info.plist */,
 			);
 			path = iOS;
@@ -134,7 +129,6 @@
 		5976F83824ABBCD8000D7941 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				59EEA0DA24ABC05800E53B0F /* FilePickerView.swift */,
 				5976F83924ABBCD8000D7941 /* Info.plist */,
 				5976F83A24ABBCD8000D7941 /* macOS.entitlements */,
 			);
@@ -282,6 +276,7 @@
 				59EEA0C324ABBDCF00E53B0F /* RoundButton.swift in Sources */,
 				59EEA0C724ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
+				59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */,
 				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
@@ -289,8 +284,6 @@
 				59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */,
-				59EEA0D924ABC04900E53B0F /* FilePickerView.swift in Sources */,
-				59C0D45024CEEDA500C18650 /* Speaker.swift in Sources */,
 				59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
 				59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
 			);
@@ -303,6 +296,7 @@
 				59EEA0C424ABBDCF00E53B0F /* RoundButton.swift in Sources */,
 				59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
+				59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
@@ -310,8 +304,6 @@
 				59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */,
-				59EEA0DB24ABC05800E53B0F /* FilePickerView.swift in Sources */,
-				59C0D45124CEEDA500C18650 /* Speaker.swift in Sources */,
 				59EEA0C224ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
 				59EEA0C024ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
 			);

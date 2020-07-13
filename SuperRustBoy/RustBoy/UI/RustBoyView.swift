@@ -11,21 +11,7 @@ import Combine
 
 internal struct RustBoyView: View {
 
-    private let rustBoy: RustBoy
-
-    internal init(rustBoy: RustBoy) {
-        self.rustBoy = rustBoy
-        cancellable = pickerData.$fileURLs
-            .compactMap { $0.first }
-            .map { $0 as NSURL }
-            .compactMap {
-                guard let romPath = $0.resourceSpecifier else { return nil }
-                guard let savePath = Self.savePath(forRomURL: $0) else { return nil }
-
-                return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
-            }
-            .assign(to: \.cartridge, on: rustBoy)
-    }
+    internal let rustBoy: RustBoy
 
     internal var body: some View {
         VStack {
@@ -45,57 +31,26 @@ internal struct RustBoyView: View {
                     RustBoyButton(type: .a, rustBoy: rustBoy) { RoundButton(text: "A") }
                         .frame(maxHeight: Self.elementSize)
                 }
-                    .frame(maxWidth: Self.elementSizeTimesTwo)
-                    .padding()
-                    .layoutPriority(1)
+                .frame(maxWidth: Self.elementSizeTimesTwo)
+                .padding()
+                .layoutPriority(1)
             }
-                .frame(maxHeight: Self.elementSize * 4)
+            .frame(maxHeight: Self.elementSize * 4)
 
             HStack {
-
-                HStack {
-                    Button(action: {
-                        self.pickerOpen = true
-                    }, label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 45)
-
-                            Text("Open")
-                                .foregroundColor(.white)
-                        }
-                    })
-
-                    // Used as a spacer
-                    Color.black
-                        .opacity(0)
-                }
-                    .padding()
+                Spacer()
 
                 HStack {
                     Self.optionButton(rustBoy: rustBoy, title: "Select")
                     Self.optionButton(rustBoy: rustBoy, title: "Start")
                 }
-                    .padding()
+                .padding()
 
-                // Used as a spacer
-                Color.black
-                    .opacity(0)
+                Spacer()
             }
-                .frame(maxHeight: Self.elementSize)
+            .frame(maxHeight: Self.elementSize)
         }
-            .sheet(isPresented: $pickerOpen) {
-                FilePickerView(data: self.pickerData)
-            }
     }
-
-    @StateObject
-    private var pickerData: FilePickerView.Data = FilePickerView.Data()
-
-    @State
-    private var pickerOpen = false
-
-    private var cancellable: AnyCancellable?
 
     private static let elementSize = CGFloat(75)
     private static let elementSizeTimesTwo = elementSize * 2
@@ -105,16 +60,7 @@ internal struct RustBoyView: View {
             RustBoyButton(type: .start, rustBoy: rustBoy) { RoundedRectangle(cornerRadius: 25) }
             Text(title)
         }
-            .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
-    }
-
-    private static func savePath(forRomURL romURL: NSURL) -> String? {
-
-        guard let documentsPathURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as NSURL? else { return nil }
-        guard let documentsPath = documentsPathURL.resourceSpecifier else { return nil }
-        guard let romFilename = romURL.deletingPathExtension?.lastPathComponent else { return nil }
-
-        return documentsPath + romFilename + ".sav"
+        .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
     }
 }
 
@@ -132,5 +78,6 @@ struct RustBoyView_Preview: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
+        .preferredColorScheme(.light)
     }
 }
