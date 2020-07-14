@@ -11,7 +11,16 @@ import Combine
 
 internal struct RustBoyView: View {
 
+    @ObservedObject
+    internal var gameControllerManager: GameControllerManager
+
     internal let rustBoy: RustBoy
+
+    private static let columns = [
+        GridItem(.flexible(minimum: 50)),
+        GridItem(.fixed(100)),
+        GridItem(.flexible(minimum: 50))
+    ]
 
     internal var body: some View {
         VStack {
@@ -21,7 +30,6 @@ internal struct RustBoyView: View {
                 DPad(rustBoy: rustBoy)
                     .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
                     .padding()
-                    .layoutPriority(1)
 
                 Spacer()
 
@@ -33,22 +41,31 @@ internal struct RustBoyView: View {
                 }
                 .frame(maxWidth: Self.elementSizeTimesTwo)
                 .padding()
-                .layoutPriority(1)
             }
-            .frame(maxHeight: Self.elementSize * 4)
+            .padding(.bottom, 75)
 
-            HStack {
+            LazyVGrid(columns: Self.columns) {
                 Spacer()
 
-                HStack {
-                    Self.optionButton(rustBoy: rustBoy, title: "Select")
-                    Self.optionButton(rustBoy: rustBoy, title: "Start")
+                VStack {
+                    Spacer()
+                    HStack {
+                        Self.optionButton(rustBoy: rustBoy, title: "Select")
+                        Self.optionButton(rustBoy: rustBoy, title: "Start")
+                    }
                 }
                 .padding()
 
-                Spacer()
+                VStack {
+                    ForEach(gameControllerManager.controllers, id: \.playerIndex) { controller in
+                        GameControllerIndicator(gameController: controller)
+                    }
+
+                    if gameControllerManager.controllers.isEmpty {
+                        Spacer()
+                    }
+                }
             }
-            .frame(maxHeight: Self.elementSize)
         }
     }
 
@@ -74,7 +91,7 @@ struct RustBoyView_Preview: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            RustBoyView(rustBoy: RustBoy())
+            RustBoyView(gameControllerManager: GameControllerManager(), rustBoy: RustBoy())
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

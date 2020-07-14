@@ -27,7 +27,7 @@ struct SuperRustBoyApp: App {
                     return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
                 }
 
-            return RustBoyView(rustBoy: rustboy)
+            return RustBoyView(gameControllerManager: controllerManager, rustBoy: rustboy)
         }
     }
 

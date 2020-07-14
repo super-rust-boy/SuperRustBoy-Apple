@@ -13,6 +13,8 @@
 		5976F84024ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
 		59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
+		59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
+		59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
 		59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
@@ -48,6 +50,7 @@
 		5976F83924ABBCD8000D7941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5976F83A24ABBCD8000D7941 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		59C0D44F24CEEDA400C18650 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIndicator.swift; sourceTree = "<group>"; };
 		59EEA0B524ABBDCF00E53B0F /* DPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
 		59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
 		59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyButton.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 				59EEA0D424ABBE3900E53B0F /* module.modulemap */,
 				5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */,
 				59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */,
+				59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */,
 				5976F82A24ABBCD8000D7941 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -277,6 +281,7 @@
 				59EEA0C724ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
 				59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */,
+				59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
 				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
@@ -297,6 +302,7 @@
 				59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
 				59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */,
+				59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,

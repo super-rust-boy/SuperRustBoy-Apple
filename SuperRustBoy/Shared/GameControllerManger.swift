@@ -9,7 +9,20 @@ import Combine
 import Foundation
 import GameController
 
+internal protocol GameController {
+    var playerIndex: Int? { get }
+    var batteryLevel: Float? { get }
+    var kind: GameControllerType { get }
+    var rustBoy: RustBoy? { get set }
+}
+
+internal enum GameControllerType {
+    case keyboard, controller
+}
+
 internal final class GameControllerManager: ObservableObject {
+
+    internal private(set) var controllers = [GameController]()
 
     internal init() {
         NotificationCenter
@@ -17,69 +30,77 @@ internal final class GameControllerManager: ObservableObject {
             .publisher(for: .GCControllerDidConnect)
             .compactMap { $0.object as? GCController }
             .sink { controller in
-                print("Controller: \(controller)")
-//                controllers.forEach { Self.setupController(controller: $0, rustBoy: self.rustBoy) }
+                self.controllers.append(Controller(controller: controller))
+                self.objectWillChange.send()
             }
             .store(in: &cancellables)
-
-        NotificationCenter
-            .default
-            .publisher(for: .GCKeyboardDidConnect)
-            .compactMap { $0.object as? GCKeyboard }
-            .sink { keyboard in
-                print("Keyboard: \(keyboard)")
-            }
-            .store(in: &cancellables)
-    }
-
-    internal func attachKeyboard(to rustBoy: RustBoy) {
-
     }
 
     private var cancellables = Set<AnyCancellable>()
+}
 
-    private static func setupController(controller: GCController, rustBoy: RustBoy) {
+fileprivate struct Controller: GameController {
+    var playerIndex: Int? {
+        internalController.playerIndex.rawValue
+    }
 
-        controller.extendedGamepad?.dpad.valueChangedHandler = { (dpad, x, y) in
+    var batteryLevel: Float? {
+        internalController.battery?.batteryLevel
+    }
+
+    var kind: GameControllerType {
+        internalController.isAttachedToDevice ? .keyboard : .controller
+    }
+
+    weak var rustBoy: RustBoy?
+
+    let internalController: GCController
+
+    init(controller: GCController) {
+        self.internalController = controller
+
+        print("Controller.init: \(controller.extendedGamepad)")
+
+        controller.extendedGamepad?.dpad.valueChangedHandler = { [rustBoy] (dpad, x, y) in
              switch x {
              case 1:
-                 rustBoy.buttonPressed(.right)
+                 rustBoy?.buttonPressed(.right)
 
              case -1:
-                 rustBoy.buttonPressed(.left)
+                 rustBoy?.buttonPressed(.left)
 
              default:
-                 rustBoy.buttonUnpressed(.right)
-                 rustBoy.buttonUnpressed(.left)
+                 rustBoy?.buttonUnpressed(.right)
+                 rustBoy?.buttonUnpressed(.left)
              }
 
              switch y {
              case 1:
-                 rustBoy.buttonPressed(.up)
+                 rustBoy?.buttonPressed(.up)
 
              case -1:
-                 rustBoy.buttonPressed(.down)
+                 rustBoy?.buttonPressed(.down)
 
              default:
-                 rustBoy.buttonUnpressed(.up)
-                 rustBoy.buttonUnpressed(.down)
+                 rustBoy?.buttonUnpressed(.up)
+                 rustBoy?.buttonUnpressed(.down)
              }
          }
 
-        controller.extendedGamepad?.buttonA.valueChangedHandler = { (button, pressure, isPressed) in
-            isPressed ? rustBoy.buttonPressed(.a) : rustBoy.buttonUnpressed(.a)
+        controller.extendedGamepad?.buttonA.valueChangedHandler = { [rustBoy] (button, pressure, isPressed) in
+            isPressed ? rustBoy?.buttonPressed(.a) : rustBoy?.buttonUnpressed(.a)
         }
 
-        controller.extendedGamepad?.buttonB.valueChangedHandler = { (button, pressure, isPressed) in
-            isPressed ? rustBoy.buttonPressed(.b) : rustBoy.buttonUnpressed(.b)
+        controller.extendedGamepad?.buttonB.valueChangedHandler = { [rustBoy] (button, pressure, isPressed) in
+            isPressed ? rustBoy?.buttonPressed(.b) : rustBoy?.buttonUnpressed(.b)
         }
 
-        controller.extendedGamepad?.buttonMenu.valueChangedHandler = { (button, pressure, isPressed) in
-            isPressed ? rustBoy.buttonPressed(.start) : rustBoy.buttonUnpressed(.start)
+        controller.extendedGamepad?.buttonMenu.valueChangedHandler = { [rustBoy] (button, pressure, isPressed) in
+            isPressed ? rustBoy?.buttonPressed(.start) : rustBoy?.buttonUnpressed(.start)
         }
 
-        controller.extendedGamepad?.buttonOptions?.valueChangedHandler = { (button, pressure, isPressed) in
-            isPressed ? rustBoy.buttonPressed(.select) : rustBoy.buttonUnpressed(.select)
+        controller.extendedGamepad?.buttonOptions?.valueChangedHandler = { [rustBoy] (button, pressure, isPressed) in
+            isPressed ? rustBoy?.buttonPressed(.select) : rustBoy?.buttonUnpressed(.select)
         }
     }
 }
