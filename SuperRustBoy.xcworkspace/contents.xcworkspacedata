@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:snes_c_binding/snes_c_binding.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:super_rust_boy_c_binding/rustboy_c_binding.xcodeproj">
    </FileRef>
    <FileRef

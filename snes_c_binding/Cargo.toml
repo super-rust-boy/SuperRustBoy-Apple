@@ -1,0 +1,15 @@
+[package]
+name = "snes_c_binding"
+version = "0.1.0"
+authors = ["simon <simon.d.cooper@hotmail.co.uk>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "snes_c_binding"
+path = "src/lib.rs"
+crate-type = ["staticlib"]
+
+[dependencies.oxide-7]
+git = "https://github.com/coopersimon/oxide-7"
