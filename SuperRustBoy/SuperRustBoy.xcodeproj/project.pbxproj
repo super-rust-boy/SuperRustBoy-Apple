@@ -15,6 +15,7 @@
 		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
 		59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
+		59E933A424D1E62B00D84D02 /* SNES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A324D1E62B00D84D02 /* SNES.swift */; };
 		59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
@@ -51,6 +52,7 @@
 		5976F83A24ABBCD8000D7941 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		59C0D44F24CEEDA400C18650 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIndicator.swift; sourceTree = "<group>"; };
+		59E933A324D1E62B00D84D02 /* SNES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNES.swift; sourceTree = "<group>"; };
 		59EEA0B524ABBDCF00E53B0F /* DPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
 		59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
 		59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyButton.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				59EEA0CD24ABBDDA00E53B0F /* Utils */,
 				59EEA0B324ABBDCF00E53B0F /* RustBoy */,
+				59E933A124D1E62B00D84D02 /* SNES */,
 				5976F82724ABBCD8000D7941 /* Shared */,
 				5976F83124ABBCD8000D7941 /* iOS */,
 				5976F83824ABBCD8000D7941 /* macOS */,
@@ -137,6 +140,15 @@
 				5976F83A24ABBCD8000D7941 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		59E933A124D1E62B00D84D02 /* SNES */ = {
+			isa = PBXGroup;
+			children = (
+				59E933A324D1E62B00D84D02 /* SNES.swift */,
+			);
+			name = SNES;
+			path = ../SNES;
 			sourceTree = "<group>";
 		};
 		59EEA0B324ABBDCF00E53B0F /* RustBoy */ = {
@@ -288,6 +300,7 @@
 				5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
 				59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
+				59E933A424D1E62B00D84D02 /* SNES.swift in Sources */,
 				59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */,
 				59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
 				59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
