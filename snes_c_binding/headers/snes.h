@@ -25,14 +25,16 @@ typedef struct {
   uint32_t fps;
 } snesFrameInfo;
 
-void snesButtonClickDown(const void* instance, snesButton cButton, uint32_t controller);
+void snesButtonClickDown(const void *instance, snesButton cButton, uint32_t controller);
 
-void snesButtonClickUp(const void* instance, snesButton cButton, uint32_t controller);
+void snesButtonClickUp(const void *instance, snesButton cButton, uint32_t controller);
 
-const void* snesCreate(const char* cartridgePath, const char *saveFilePath);
+void snesCartName(const void *instance, uint8_t *outBuffer, uint32_t outBufferLen);
 
-void snesDelete(const void* instance);
+const void *snesCreate(const char *cartridgePath, const char *saveFilePath);
 
-void snesFrame(const void* instance, uint8_t* buffer, uint32_t length);
+void snesDelete(const void *instance);
+
+void snesFrame(const void *instance, uint8_t *buffer, uint32_t length);
 
 snesFrameInfo snesGetFrameInfo(void);

@@ -1040,8 +1040,8 @@ dependencies = [
 
 [[package]]
 name = "oxide-7"
-version = "0.1.0"
-source = "git+https://github.com/coopersimon/oxide-7?branch=external_audio#7b480bf5e35b506f699cc5097d3eaa16f001536f"
+version = "0.2.0"
+source = "git+https://github.com/coopersimon/oxide-7#b6e389b746e8b888f04861d7145d2d2cf241fc7f"
 dependencies = [
  "bitflags",
  "bytemuck",

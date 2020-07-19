@@ -1,4 +1,4 @@
-use std::ffi::{c_void, CStr};
+use std::ffi::{c_void, CStr, CString};
 use std::os::raw::c_char;
 use oxide7::{SNES, Button, SNESAudioHandler};
 use std::slice;
@@ -125,5 +125,19 @@ pub unsafe extern fn snesButtonClickUp(instance: *const c_void, c_button: snesBu
     let snes = instance as *mut SNES;
     if let Some(snes_ref) = snes.as_mut() {
         snes_ref.set_button(c_button.to_button(), false, controller as usize);
+    }
+}
+
+#[no_mangle]
+pub unsafe extern fn snesCartName(instance: *const c_void, out_buffer: *mut u8, out_buffer_len: u32) {
+    let snes = instance as *mut SNES;
+    if let Some(snes_ref) = snes.as_ref() {
+        let cart_name = snes_ref.rom_name();
+        if let Ok(raw_string) = CString::new(cart_name) {
+            let raw_bytes = raw_string.as_bytes_with_nul();
+            let out_str = slice::from_raw_parts_mut(out_buffer, out_buffer_len as usize);
+            out_str[..raw_bytes.len()].copy_from_slice(raw_bytes);
+        }
+        
     }
 }
