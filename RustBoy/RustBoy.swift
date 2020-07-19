@@ -13,6 +13,7 @@ import UIKit
 #endif
 import CoreRustBoy
 import CoreVideo
+import AVFoundation
 
 internal final class RustBoy {
 
@@ -66,21 +67,25 @@ internal final class RustBoy {
 
         self.coreRustBoy = coreRustBoy
         self.coreRustBoy?.display = display
+        speaker?.delegate = coreRustBoy.audioHandle
 
         return .success
     }
 
+    private let speaker = Speaker(sampleRate: Float64(AudioHandle.sampleRate))
     private var coreRustBoy: CoreRustBoy?
 }
 
 
-fileprivate final class CoreRustBoy {
+private final class CoreRustBoy {
 
     fileprivate weak var display: DisplayView?
+    fileprivate let audioHandle: AudioHandle
 
     fileprivate init?(cartridge: RustBoy.Cartridge) {
         guard let coreRef = rustBoyCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
+        audioHandle = AudioHandle(coreRustBoyRef: coreRef)
         timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
             self?.render()
         }
@@ -100,6 +105,7 @@ fileprivate final class CoreRustBoy {
     }
 
     private let coreRef: UnsafeRawPointer
+
     private var timer: Timer?
     private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
 
@@ -145,6 +151,35 @@ fileprivate final class CoreRustBoy {
             shouldInterpolate:  false,
             intent:             CGColorRenderingIntent.saturation
         )
+    }
+}
+
+private final class AudioHandle {
+
+#if os(OSX)
+    fileprivate static let sampleRate = UInt32(44100)
+#else
+    fileprivate static let sampleRate = UInt32(AVAudioSession.sharedInstance().sampleRate)
+#endif
+
+    fileprivate init(coreRustBoyRef: UnsafeRawPointer) {
+        coreAudioHandleRef = rustBoyGetAudioHandle(coreRustBoyRef, Self.sampleRate)
+    }
+
+    deinit {
+        rustBoyDeleteAudioHandle(coreAudioHandleRef)
+    }
+
+    fileprivate func getAudioPacket(buffer: inout [Float]) {
+        rustBoyGetAudioPacket(coreAudioHandleRef, &buffer, UInt32(buffer.count))
+    }
+
+    private let coreAudioHandleRef: UnsafeRawPointer
+}
+
+extension AudioHandle: SpeakerDelegate {
+    func speaker(_ speaker: Speaker, requestsData data: inout [Float]) {
+        getAudioPacket(buffer: &data)
     }
 }
 

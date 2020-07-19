@@ -18,6 +18,8 @@ typedef struct {
   uint32_t bytesPerPixel;
 } rustBoyFrameInfo;
 
+rustBoyFrameInfo rustBoyGetFrameInfo(void);
+
 void rustBoyButtonClickDown(const void* instance, rustBoyButton button);
 
 void rustBoyButtonClickUp(const void* instance, rustBoyButton button);
@@ -28,4 +30,8 @@ void rustBoyDelete(const void* instance);
 
 void rustBoyFrame(const void* instance, uint8_t* buffer, uint32_t length);
 
-rustBoyFrameInfo rustBoyGetFrameInfo(void);
+const void* rustBoyGetAudioHandle(const void* instance, uint32_t sampleRate);
+
+void rustBoyDeleteAudioHandle(const void* instance);
+
+void rustBoyGetAudioPacket(const void* instance, float* buffer, uint32_t length);
