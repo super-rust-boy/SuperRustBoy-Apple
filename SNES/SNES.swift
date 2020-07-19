@@ -18,7 +18,7 @@ import CoreVideo
 internal final class SNES {
 
     internal enum ButtonType {
-        case left, right, up, down, a, b, start, select
+        case left, right, up, down, a, b, x, y, start, select, leftShoulder, rightShoulder
     }
 
     internal struct Cartridge: Equatable {
@@ -153,14 +153,18 @@ private final class CoreSNES {
 private extension snesButton {
     init(_ buttonType: SNES.ButtonType) {
         switch buttonType {
-            case .left:     self = snesButtonLeft
-            case .right:    self = snesButtonRight
-            case .up:       self = snesButtonUp
-            case .down:     self = snesButtonDown
-            case .a:        self = snesButtonA
-            case .b:        self = snesButtonB
-            case .start:    self = snesButtonStart
-            case .select:   self = snesButtonSelect
+            case .left:          self = snesButtonLeft
+            case .right:         self = snesButtonRight
+            case .up:            self = snesButtonUp
+            case .down:          self = snesButtonDown
+            case .a:             self = snesButtonA
+            case .b:             self = snesButtonB
+            case .x:             self = snesButtonX
+            case .y:             self = snesButtonY
+            case .start:         self = snesButtonStart
+            case .select:        self = snesButtonSelect
+            case .leftShoulder:  self = snesButtonL
+            case .rightShoulder: self = snesButtonR
         }
     }
 }
