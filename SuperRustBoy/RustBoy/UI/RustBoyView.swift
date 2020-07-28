@@ -47,8 +47,8 @@ internal struct RustBoyView: View {
                 VStack {
                     Spacer()
                     HStack {
-                        Self.optionButton(rustBoy: rustBoy, title: "Select")
-                        Self.optionButton(rustBoy: rustBoy, title: "Start")
+                        OptionButton(rustBoy: rustBoy, buttonType: .select, title: "Select")
+                        OptionButton(rustBoy: rustBoy, buttonType: .start, title: "Start")
                     }
                 }
                 .padding()
@@ -61,12 +61,19 @@ internal struct RustBoyView: View {
     private static let elementSize = CGFloat(75)
     private static let elementSizeTimesTwo = elementSize * 2
 
-    private static func optionButton(rustBoy: RustBoy, title: String) -> some View {
-        VStack {
-            RustBoyButton(type: .start, rustBoy: rustBoy) { RoundedRectangle(cornerRadius: 25) }
-            Text(title)
+    private struct OptionButton: View {
+
+        let rustBoy: RustBoy
+        let buttonType: RustBoy.ButtonType
+        let title: String
+
+        var body: some View {
+            VStack {
+                RustBoyButton(type: buttonType, rustBoy: rustBoy) { RoundedRectangle(cornerRadius: 25) }
+                Text(title)
+            }
+            .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
         }
-        .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
     }
 }
 
