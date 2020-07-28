@@ -88,12 +88,18 @@ internal struct GameControllerIndicator: View {
 
 struct GameControllerIndicator_Previews: PreviewProvider {
 
-    struct MockedGameController: GameController {
+    class MockedGameController: GameController {
         let playerIndex: Int?
         let batteryLevel: Float?
         let kind: GameControllerType
 
         var rustBoy: RustBoy? = nil
+
+        init(playerIndex: Int?, batteryLevel: Float?, kind: GameControllerType) {
+            self.playerIndex = playerIndex
+            self.batteryLevel = batteryLevel
+            self.kind = kind
+        }
     }
 
     static var previews: some View {

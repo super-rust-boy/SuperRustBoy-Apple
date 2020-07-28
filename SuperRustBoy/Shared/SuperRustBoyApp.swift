@@ -27,7 +27,12 @@ struct SuperRustBoyApp: App {
                     return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
                 }
 
-            return RustBoyView(gameControllerManager: controllerManager, rustBoy: rustboy)
+            // TODO: This won't work if controllers are attached at a later point in time
+            controllerManager.controllers.forEach { controller in
+                controller.rustBoy = rustboy
+            }
+
+            return RustBoyView(rustBoy: rustboy)
         }
     }
 

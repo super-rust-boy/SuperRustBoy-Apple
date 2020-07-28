@@ -11,9 +11,6 @@ import Combine
 
 internal struct RustBoyView: View {
 
-    @ObservedObject
-    internal var gameControllerManager: GameControllerManager
-
     internal let rustBoy: RustBoy
 
     private static let columns = [
@@ -56,15 +53,7 @@ internal struct RustBoyView: View {
                 }
                 .padding()
 
-                VStack {
-                    ForEach(gameControllerManager.controllers, id: \.playerIndex) { controller in
-                        GameControllerIndicator(gameController: controller)
-                    }
-
-                    if gameControllerManager.controllers.isEmpty {
-                        Spacer()
-                    }
-                }
+                Spacer()
             }
         }
     }
@@ -91,7 +80,7 @@ struct RustBoyView_Preview: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            RustBoyView(gameControllerManager: GameControllerManager(), rustBoy: RustBoy())
+            RustBoyView(rustBoy: RustBoy())
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
