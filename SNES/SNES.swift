@@ -21,17 +21,6 @@ internal final class SNES: Emulator {
         case left, right, up, down, a, b, x, y, start, select, leftShoulder, rightShoulder
     }
 
-    internal struct Cartridge: Equatable {
-        internal let path: String
-        internal let saveFilePath: String
-    }
-
-    internal enum BootStatus: Error {
-        case cartridgeMissing
-        case failedToInitCore
-        case success
-    }
-
     internal var cartridge: Cartridge? {
         didSet {
             coreSNES = nil
