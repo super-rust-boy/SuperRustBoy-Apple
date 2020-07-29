@@ -10,10 +10,10 @@
 import AppKit
 #else
 import UIKit
+import AVFoundation
 #endif
 import CoreRustBoy
 import CoreVideo
-import AVFoundation
 
 internal final class RustBoy {
 
