@@ -19,13 +19,16 @@ internal struct GameControllerIndicator: View {
                 VStack {
                     image
 
-                    ProgressView(value: gameController.batteryLevel ?? 1)
-                        .accentColor(batteryIndicatorColor)
-                        .border(imageColor, width: 0.5)
-                        .frame(width: 35)
+                    if let batteryLevel = gameController.batteryLevel {
+                        ProgressView(value: batteryLevel)
+                            .accentColor(batteryIndicatorColor)
+                            .border(imageColor, width: 0.5)
+                            .padding(5)
+                    }
                 }
+                .frame(width: 35, height: 35)
 
-                Text(gameController.playerIndex.map { String($0) } ?? "X" )
+                Text(gameController.playerIndex.map { String($0) } ?? "-" )
                     .accentColor(imageColor)
             }
         }
@@ -57,16 +60,16 @@ internal struct GameControllerIndicator: View {
 
         switch index {
         case 1:
-            return .purple
+            return .blue
 
         case 2:
             return .green
 
         case 3:
-            return .blue
+            return .purple
 
         case 4:
-            return .purple
+            return .yellow
 
         default:
             return .gray
@@ -104,13 +107,16 @@ struct GameControllerIndicator_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 1, batteryLevel: 0.1, kind: .controller))
+            GameControllerIndicator(gameController: MockedGameController(playerIndex: 1, batteryLevel: nil, kind: .keyboard))
                 .padding()
 
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 2, batteryLevel: 0.35, kind: .controller))
+            GameControllerIndicator(gameController: MockedGameController(playerIndex: 2, batteryLevel: 0.1, kind: .controller))
                 .padding()
 
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 3, batteryLevel: 0.75, kind: .controller))
+            GameControllerIndicator(gameController: MockedGameController(playerIndex: 3, batteryLevel: 0.35, kind: .controller))
+                .padding()
+
+            GameControllerIndicator(gameController: MockedGameController(playerIndex: 4, batteryLevel: 0.75, kind: .controller))
                 .padding()
 
             GameControllerIndicator(gameController: MockedGameController(playerIndex: nil, batteryLevel: nil, kind: .keyboard))
