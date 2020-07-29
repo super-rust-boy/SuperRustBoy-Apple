@@ -15,7 +15,7 @@ import AVFoundation
 import CoreSNES
 import CoreVideo
 
-internal final class SNES {
+internal final class SNES: Emulator {
 
     internal enum ButtonType {
         case left, right, up, down, a, b, x, y, start, select, leftShoulder, rightShoulder
@@ -42,15 +42,11 @@ internal final class SNES {
         }
     }
 
-    internal var autoBoot = false
-
-    internal var display: DisplayView? {
+    internal override var display: DisplayView? {
         didSet {
             coreSNES?.display = display
         }
     }
-
-    internal required init() {}
 
     internal func buttonPressed(_ button: ButtonType, controller: UInt32) {
         coreSNES?.buttonPressed(snesButton(button), controller: controller)

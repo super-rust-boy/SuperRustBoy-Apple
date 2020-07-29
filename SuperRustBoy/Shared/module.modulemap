@@ -5,6 +5,6 @@ module CoreRustBoy {
 }
 
 module CoreSNES {
-    header "../snes_c_binding/headers/snes.h"
+    header "../../snes_c_binding/headers/snes.h"
     export *
 }

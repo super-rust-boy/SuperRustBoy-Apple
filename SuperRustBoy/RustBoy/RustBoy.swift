@@ -15,21 +15,10 @@ import AVFoundation
 import CoreRustBoy
 import CoreVideo
 
-internal final class RustBoy {
+internal final class RustBoy: Emulator {
 
     internal enum ButtonType {
         case left, right, up, down, a, b, start, select
-    }
-
-    internal struct Cartridge: Equatable {
-        internal let path: String
-        internal let saveFilePath: String
-    }
-
-    internal enum BootStatus: Error {
-        case cartridgeMissing
-        case failedToInitCore
-        case success
     }
 
     internal var cartridge: Cartridge? {
@@ -42,15 +31,11 @@ internal final class RustBoy {
         }
     }
 
-    internal var autoBoot = false
-
-    internal var display: DisplayView? {
+    internal override var display: DisplayView? {
         didSet {
             coreRustBoy?.display = display
         }
     }
-
-    internal required init() {}
 
     internal func buttonPressed(_ button: ButtonType) {
         coreRustBoy?.buttonPressed(rustBoyButton(button))

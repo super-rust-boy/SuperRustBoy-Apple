@@ -21,7 +21,7 @@ internal struct RustBoyView: View {
 
     internal var body: some View {
         VStack {
-            Display(rustBoy: rustBoy)
+            Display(emulator: rustBoy)
 
             HStack {
                 DPad(rustBoy: rustBoy)

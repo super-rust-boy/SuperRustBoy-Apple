@@ -17,7 +17,7 @@ internal typealias ViewType = UIImageView
 internal class DisplayView: ViewType {}
 
 internal struct Display {
-    internal let rustBoy: RustBoy
+    internal let emulator: Emulator
 
     fileprivate func createDisplayView() -> DisplayView {
         DisplayView.setup {
@@ -28,7 +28,7 @@ internal struct Display {
             $0.contentMode = .scaleAspectFit
             $0.backgroundColor = Self.backgroundColor
 #endif
-            rustBoy.display = $0
+            emulator.display = $0
         }
     }
 
