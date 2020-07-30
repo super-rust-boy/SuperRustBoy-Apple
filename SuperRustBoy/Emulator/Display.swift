@@ -49,10 +49,16 @@ internal struct Display {
 extension DisplayView: EmulatorDisplay {
     var imageData: CGImage? {
         get {
+#if os(OSX)
+            return nil
+#else
             self.image?.cgImage
+#endif
         }
         set {
+#if os(iOS)
             self.image = newValue.map(UIImage.init)
+#endif
         }
     }
 }
