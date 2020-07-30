@@ -21,7 +21,10 @@ internal struct SNESView: View {
                 }
                 .padding()
 
-                Color.white
+                HStack {
+                    OptionButton(text: "Start")
+                    OptionButton(text: "Select")
+                }
             }
         }
     }
@@ -37,6 +40,21 @@ internal struct SNESView: View {
                 }
 
                 RoundButton(text: "A", color: .red)
+            }
+        }
+    }
+
+    private struct OptionButton: View {
+        let text: String
+
+        var body: some View {
+            VStack {
+                RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(.black)
+                    .frame(width: 30, height: 60)
+                    .rotationEffect(.degrees(45))
+
+                Text(text)
             }
         }
     }
