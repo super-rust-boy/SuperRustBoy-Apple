@@ -17,7 +17,7 @@ internal typealias ViewType = UIImageView
 internal class DisplayView: ViewType {}
 
 internal struct Display {
-    internal let emulator: RustBoy
+    internal let emulator: Emulator
 
     fileprivate func createDisplayView() -> DisplayView {
         DisplayView.setup {

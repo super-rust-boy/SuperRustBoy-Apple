@@ -165,6 +165,7 @@
 			children = (
 				59E933A624D1E6A300D84D02 /* Emulator.swift */,
 				5926B73A24D2F5A7005D302E /* PlayerIndices.swift */,
+				59EEA0B924ABBDCF00E53B0F /* Display.swift */,
 			);
 			path = Emulator;
 			sourceTree = "<group>";
@@ -186,7 +187,6 @@
 				59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */,
 				59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */,
 				59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */,
-				59EEA0B924ABBDCF00E53B0F /* Display.swift */,
 				59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */,
 			);
 			path = UI;
