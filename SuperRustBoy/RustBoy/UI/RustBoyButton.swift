@@ -10,7 +10,7 @@ import SwiftUI
 
 internal struct RustBoyButton<ViewType>: View where ViewType: View {
 
-	internal let type: RustBoy.ButtonType
+	internal let type: RustBoy.Button
 	internal let rustBoy: RustBoy
 	internal let content: () -> ViewType
 

@@ -17,7 +17,7 @@ internal typealias ViewType = UIImageView
 internal class DisplayView: ViewType {}
 
 internal struct Display {
-    internal let emulator: Emulator
+    internal let emulator: RustBoy
 
     fileprivate func createDisplayView() -> DisplayView {
         DisplayView.setup {
@@ -44,6 +44,17 @@ internal struct Display {
         }
     }
 #endif
+}
+
+extension DisplayView: EmulatorDisplay {
+    var imageData: CGImage? {
+        get {
+            self.image?.cgImage
+        }
+        set {
+            self.image = newValue.map(UIImage.init)
+        }
+    }
 }
 
 

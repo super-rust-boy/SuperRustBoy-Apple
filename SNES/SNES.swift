@@ -6,114 +6,59 @@
 //  Copyright © 2020 Sean Inge Asbjørnsen. All rights reserved.
 //
 
-#if os(OSX)
-import AppKit
-#else
-import UIKit
-import AVFoundation
-#endif
+import CoreGraphics
 import CoreSNES
-import CoreVideo
+import Foundation
 
-internal final class SNES: Emulator {
-
-    internal enum ButtonType {
+internal final class SNES: BaseEmulator<CoreSNES> {
+    internal enum Button {
         case left, right, up, down, a, b, x, y, start, select, leftShoulder, rightShoulder
     }
 
-    internal var cartridge: Cartridge? {
-        didSet {
-            coreSNES = nil
-
-            if autoBoot {
-                let _ = boot()
-            }
-        }
+    internal struct Cartridge {
+        internal let path: String
+        internal let saveFilePath: String
     }
-
-    internal override var display: DisplayView? {
-        didSet {
-            coreSNES?.display = display
-        }
-    }
-
-    internal func buttonPressed(_ button: ButtonType, controller: UInt32) {
-        coreSNES?.buttonPressed(snesButton(button), controller: controller)
-    }
-
-    internal func buttonUnpressed(_ button: ButtonType, controller: UInt32) {
-        coreSNES?.buttonUnpressed(snesButton(button), controller: controller)
-    }
-
-    internal func boot() -> BootStatus {
-        guard let cart = cartridge else { return .cartridgeMissing }
-
-        guard let coreSNES = CoreSNES(cartridge: cart) else { return .failedToInitCore }
-
-        self.coreSNES = coreSNES
-        self.coreSNES?.display = display
-
-        return .success
-    }
-
-    private var coreSNES: CoreSNES?
 }
 
+internal final class CoreSNES: CoreEmulator {
+    static var sampleRate: Float = 44100
 
-private final class CoreSNES {
-
-    fileprivate weak var display: DisplayView?
-
-    fileprivate init?(cartridge: SNES.Cartridge) {
+    internal required init?(cartridge: SNES.Cartridge, sampleRate: UInt32) {
         guard let coreRef = snesCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
-        timer = Timer.scheduledTimer(withTimeInterval: 1 / Self.framerate, repeats: true) { [weak self] timer in
-            self?.render()
-        }
     }
 
     deinit {
-        timer?.invalidate()
         snesDelete(coreRef)
     }
 
-    fileprivate func buttonPressed(_ button: snesButton, controller: UInt32) {
-        snesButtonClickDown(coreRef, button, controller)
+    internal func buttonPressed(_ button: SNES.Button, playerIndex: PlayerIndices.TwoPlayer) {
+        snesButtonClickDown(coreRef, snesButton(button), playerIndex.rawValue)
     }
 
-    fileprivate func buttonUnpressed(_ button: snesButton, controller: UInt32) {
-        snesButtonClickUp(coreRef, button, controller)
+    internal func buttonUnpressed(_ button: SNES.Button, playerIndex: PlayerIndices.TwoPlayer) {
+        snesButtonClickUp(coreRef, snesButton(button), playerIndex.rawValue)
     }
 
-    private let coreRef: UnsafeRawPointer
-
-    private var timer: Timer?
-    private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
-
-    private static let framerate: Double = 60
-    private static let frameInfo = snesGetFrameInfo()
-    private static var frameBufferSize: UInt32 {
-        frameInfo.width * frameInfo.height * frameInfo.bytesPerPixel
-    }
-    private static let bitsPerByte = 8
-
-    private func render() {
+    internal func render() -> CGImage? {
         snesFrame(coreRef, &buffer, UInt32(buffer.count))
-
-        guard let display = display else { return }
 
         let data = Data(bytes: &buffer, count: buffer.count)
 
-        guard let coreImage = Self.createCGImage(from: data) else { return }
-
-#if os(OSX)
-        let image = NSImage(cgImage: coreImage, size: NSSize(width: Int(Self.frameInfo.width), height: Int(Self.frameInfo.height)))
-#else
-        let image = UIImage(cgImage: coreImage)
-#endif
-
-        display.image = image
+        return Self.createCGImage(from: data)
     }
+
+    internal func getAudioPacket(buffer: inout [Float]) {
+        // TODO
+    }
+
+    private let coreRef: UnsafeRawPointer
+    private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
+    private static let frameInfo = snesGetFrameInfo()
+    private static let frameBufferSize: UInt32 = frameInfo.width * frameInfo.height * frameInfo.bytesPerPixel
+
+    private static let bitsPerByte = 8
 
     private static func createCGImage(from data: Data) -> CGImage? {
         guard let dataProvider = CGDataProvider(data: data as CFData) else { return nil }
@@ -136,7 +81,7 @@ private final class CoreSNES {
 }
 
 private extension snesButton {
-    init(_ buttonType: SNES.ButtonType) {
+    init(_ buttonType: SNES.Button) {
         switch buttonType {
             case .left:          self = snesButtonLeft
             case .right:         self = snesButtonRight

@@ -34,8 +34,8 @@ internal struct DPad: View {
 
 fileprivate struct HalfPad: View {
 
-	fileprivate let firstButtonType: RustBoy.ButtonType
-    fileprivate let secondButtonType: RustBoy.ButtonType
+	fileprivate let firstButtonType: RustBoy.Button
+    fileprivate let secondButtonType: RustBoy.Button
 	fileprivate let rustBoy: RustBoy
 
 	fileprivate var body: some View {

@@ -64,7 +64,7 @@ internal struct RustBoyView: View {
     private struct OptionButton: View {
 
         let rustBoy: RustBoy
-        let buttonType: RustBoy.ButtonType
+        let buttonType: RustBoy.Button
         let title: String
 
         var body: some View {

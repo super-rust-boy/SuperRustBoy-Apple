@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5926B73624D2E642005D302E /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73524D2E642005D302E /* RustBoy.swift */; };
+		5926B73724D2E642005D302E /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73524D2E642005D302E /* RustBoy.swift */; };
+		5926B73B24D2F5A7005D302E /* PlayerIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73A24D2F5A7005D302E /* PlayerIndices.swift */; };
+		5926B73C24D2F5A7005D302E /* PlayerIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73A24D2F5A7005D302E /* PlayerIndices.swift */; };
+		5926B73E24D2F68F005D302E /* SNES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A324D1E62B00D84D02 /* SNES.swift */; };
+		5926B73F24D2F690005D302E /* SNES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A324D1E62B00D84D02 /* SNES.swift */; };
 		5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
 		5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */; };
 		5976F83F24ABBCD8000D7941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5976F82A24ABBCD8000D7941 /* Assets.xcassets */; };
@@ -15,10 +21,8 @@
 		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
 		59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
-		59E933A424D1E62B00D84D02 /* SNES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A324D1E62B00D84D02 /* SNES.swift */; };
 		59E933A724D1E6A300D84D02 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A624D1E6A300D84D02 /* Emulator.swift */; };
 		59E933A824D1E6A300D84D02 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A624D1E6A300D84D02 /* Emulator.swift */; };
-		59E933A924D1E70F00D84D02 /* SNES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A324D1E62B00D84D02 /* SNES.swift */; };
 		59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
@@ -33,8 +37,6 @@
 		59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */; };
 		59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */; };
 		59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */; };
-		59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */; };
-		59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */; };
 		59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */; };
 		59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */; };
 		59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5926B73524D2E642005D302E /* RustBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
+		5926B73A24D2F5A7005D302E /* PlayerIndices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerIndices.swift; sourceTree = "<group>"; };
 		5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRustBoyApp.swift; sourceTree = "<group>"; };
 		5976F82A24ABBCD8000D7941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5976F82F24ABBCD8000D7941 /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +69,6 @@
 		59EEA0B924ABBDCF00E53B0F /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RustBoy+EmptyInstantiable.swift"; sourceTree = "<group>"; };
-		59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
 		59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
 		59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyInstantiable.swift; sourceTree = "<group>"; };
 		59EEA0D424ABBE3900E53B0F /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				59E933A624D1E6A300D84D02 /* Emulator.swift */,
+				5926B73A24D2F5A7005D302E /* PlayerIndices.swift */,
 			);
 			path = Emulator;
 			sourceTree = "<group>";
@@ -168,9 +172,9 @@
 		59EEA0B324ABBDCF00E53B0F /* RustBoy */ = {
 			isa = PBXGroup;
 			children = (
+				5926B73524D2E642005D302E /* RustBoy.swift */,
 				59EEA0B424ABBDCF00E53B0F /* UI */,
 				59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */,
-				59EEA0BC24ABBDCF00E53B0F /* RustBoy.swift */,
 			);
 			path = RustBoy;
 			sourceTree = "<group>";
@@ -307,16 +311,17 @@
 				59EEA0C324ABBDCF00E53B0F /* RoundButton.swift in Sources */,
 				59EEA0C724ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59E933A724D1E6A300D84D02 /* Emulator.swift in Sources */,
+				5926B73624D2E642005D302E /* RustBoy.swift in Sources */,
 				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
+				5926B73E24D2F68F005D302E /* SNES.swift in Sources */,
 				59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */,
 				59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
 				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
-				59EEA0CB24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
 				5976F83B24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
+				5926B73B24D2F5A7005D302E /* PlayerIndices.swift in Sources */,
 				59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
-				59E933A424D1E62B00D84D02 /* SNES.swift in Sources */,
 				59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */,
 				59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
 				59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
@@ -330,18 +335,19 @@
 				59EEA0C424ABBDCF00E53B0F /* RoundButton.swift in Sources */,
 				59EEA0C824ABBDCF00E53B0F /* Arrow.swift in Sources */,
 				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
+				5926B73724D2E642005D302E /* RustBoy.swift in Sources */,
 				59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */,
+				5926B73F24D2F690005D302E /* SNES.swift in Sources */,
 				59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
-				59EEA0CC24ABBDCF00E53B0F /* RustBoy.swift in Sources */,
 				59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
 				5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,
 				59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
+				5926B73C24D2F5A7005D302E /* PlayerIndices.swift in Sources */,
 				59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */,
 				59E933A824D1E6A300D84D02 /* Emulator.swift in Sources */,
 				59EEA0C224ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
-				59E933A924D1E70F00D84D02 /* SNES.swift in Sources */,
 				59EEA0C024ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
