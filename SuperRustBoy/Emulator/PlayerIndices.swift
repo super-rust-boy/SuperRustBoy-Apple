@@ -5,8 +5,6 @@
 //  Created by Sean Inge Asbjørnsen on 30/07/2020.
 //
 
-import Foundation
-
 enum PlayerIndices {}
 
 extension PlayerIndices {

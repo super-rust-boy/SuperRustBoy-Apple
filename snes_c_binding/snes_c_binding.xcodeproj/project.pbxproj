@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		59477F6424D3267000B49745 /* Cargo-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 59477F6624D3267000B49745 /* Build configuration list for PBXAggregateTarget "Cargo-iOS" */;
+			buildPhases = (
+				59477F6524D3267000B49745 /* Cargo build */,
+			);
+			dependencies = (
+			);
+			name = "Cargo-iOS";
+			productName = Cargo;
+		};
 		CA60A4F02F6CB0207B02AB73 /* Cargo */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */;
@@ -21,6 +32,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXContainerItemProxy section */
+		59477F6B24D3269000B49745 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA604676FE590547AC6FC57F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60A4F02F6CB0207B02AB73;
+			remoteInfo = Cargo;
+		};
 		CA60FAE0CCCBA9F0C9DA18EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA604676FE590547AC6FC57F /* Project object */;
@@ -31,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		59477F7024D3269000B49745 /* libsnes_c_binding-staticlib-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsnes_c_binding-staticlib-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F852FA24A3FD04003704E5 /* snes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snes.h; sourceTree = "<group>"; };
 		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */,
+				59477F7024D3269000B49745 /* libsnes_c_binding-staticlib-iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +95,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		59477F6924D3269000B49745 /* snes_c_binding-staticlib-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib-iOS" */;
+			buildPhases = (
+				59477F6C24D3269000B49745 /* Copy files (libsnes_c_binding.a) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59477F6A24D3269000B49745 /* PBXTargetDependency */,
+			);
+			name = "snes_c_binding-staticlib-iOS";
+			productName = libsnes_c_binding.a;
+			productReference = 59477F7024D3269000B49745 /* libsnes_c_binding-staticlib-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib" */;
@@ -124,11 +160,52 @@
 			targets = (
 				CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */,
 				CA60A4F02F6CB0207B02AB73 /* Cargo */,
+				59477F6924D3269000B49745 /* snes_c_binding-staticlib-iOS */,
+				59477F6424D3267000B49745 /* Cargo-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		59477F6524D3267000B49745 /* Cargo build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Cargo.toml",
+			);
+			name = "Cargo build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n    echo \"cargo build $CARGO_FLAGS\"\n\tcargo build $CARGO_FLAGS;\nfi\n";
+		};
+		59477F6C24D3269000B49745 /* Copy files (libsnes_c_binding.a) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/libsnes_c_binding.a",
+			);
+			name = "Copy files (libsnes_c_binding.a)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/libsnes_c_binding.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/libsnes_c_binding.a\" \"${BUILT_PRODUCTS_DIR}/\"\n";
+		};
 		CA6039A95960A95472218C97 /* Cargo build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -171,6 +248,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		59477F6A24D3269000B49745 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60A4F02F6CB0207B02AB73 /* Cargo */;
+			targetProxy = 59477F6B24D3269000B49745 /* PBXContainerItemProxy */;
+		};
 		CA60FC5933D791340F9F404A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CA60A4F02F6CB0207B02AB73 /* Cargo */;
@@ -179,6 +261,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		59477F6724D3267000B49745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "--release --target aarch64-apple-ios";
+				"CARGO_FLAGS[sdk=iphonesimulator*]" = "--release --target x86_64-apple-ios";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/release";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/release";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		59477F6824D3267000B49745 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_FLAGS = "--target aarch64-apple-ios";
+				"CARGO_FLAGS[sdk=iphonesimulator*]" = "--target x86_64-apple-ios";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/debug";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		59477F6E24D3269000B49745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/release";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/release";
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		59477F6F24D3269000B49745 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/aarch64-apple-ios/debug";
+				"CARGO_XCODE_PRODUCTS_DIR[sdk=iphonesimulator*]" = "$(BUILD_DIR)/cargo-target/x86_64-apple-ios/debug";
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		CA60170D3265513DAACD375D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -230,6 +372,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		59477F6624D3267000B49745 /* Build configuration list for PBXAggregateTarget "Cargo-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59477F6724D3267000B49745 /* Release */,
+				59477F6824D3267000B49745 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59477F6E24D3269000B49745 /* Release */,
+				59477F6F24D3269000B49745 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
