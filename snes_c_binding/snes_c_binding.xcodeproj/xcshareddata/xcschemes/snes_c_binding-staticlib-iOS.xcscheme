@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "59477F6424D3267000B49745"
-               BuildableName = "Cargo-iOS"
-               BlueprintName = "Cargo-iOS"
+               BlueprintIdentifier = "59477F6924D3269000B49745"
+               BuildableName = "lib.a"
+               BlueprintName = "snes_c_binding"
                ReferencedContainer = "container:snes_c_binding.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "59477F6424D3267000B49745"
-            BuildableName = "Cargo-iOS"
-            BlueprintName = "Cargo-iOS"
+            BlueprintIdentifier = "59477F6924D3269000B49745"
+            BuildableName = "lib.a"
+            BlueprintName = "snes_c_binding"
             ReferencedContainer = "container:snes_c_binding.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
