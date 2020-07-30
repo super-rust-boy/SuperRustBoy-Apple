@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		59477F7024D3269000B49745 /* libsnes_c_binding-staticlib-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsnes_c_binding-staticlib-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59477F7024D3269000B49745 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F852FA24A3FD04003704E5 /* snes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snes.h; sourceTree = "<group>"; };
 		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */,
-				59477F7024D3269000B49745 /* libsnes_c_binding-staticlib-iOS.a */,
+				59477F7024D3269000B49745 /* libsnes_c_binding.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		59477F6924D3269000B49745 /* snes_c_binding-staticlib-iOS */ = {
+		59477F6924D3269000B49745 /* snes_c_binding */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib-iOS" */;
+			buildConfigurationList = 59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding" */;
 			buildPhases = (
 				59477F6C24D3269000B49745 /* Copy files (libsnes_c_binding.a) */,
 			);
@@ -106,9 +106,9 @@
 			dependencies = (
 				59477F6A24D3269000B49745 /* PBXTargetDependency */,
 			);
-			name = "snes_c_binding-staticlib-iOS";
+			name = snes_c_binding;
 			productName = libsnes_c_binding.a;
-			productReference = 59477F7024D3269000B49745 /* libsnes_c_binding-staticlib-iOS.a */;
+			productReference = 59477F7024D3269000B49745 /* libsnes_c_binding.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */ = {
@@ -160,7 +160,7 @@
 			targets = (
 				CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */,
 				CA60A4F02F6CB0207B02AB73 /* Cargo */,
-				59477F6924D3269000B49745 /* snes_c_binding-staticlib-iOS */,
+				59477F6924D3269000B49745 /* snes_c_binding */,
 				59477F6424D3267000B49745 /* Cargo-iOS */,
 			);
 		};
@@ -300,7 +300,7 @@
 				INSTALL_GROUP = "";
 				INSTALL_MODE_FLAG = "";
 				INSTALL_OWNER = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = snes_c_binding;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -315,7 +315,7 @@
 				INSTALL_GROUP = "";
 				INSTALL_MODE_FLAG = "";
 				INSTALL_OWNER = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = snes_c_binding;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -381,7 +381,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib-iOS" */ = {
+		59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59477F6E24D3269000B49745 /* Release */,

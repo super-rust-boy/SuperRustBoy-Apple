@@ -19,6 +19,7 @@ internal struct SNESView: View {
                     DPad(rustBoy: RustBoy())
                     ActionButtons()
                 }
+                .frame(height: 200)
                 .padding()
 
                 HStack {
@@ -30,16 +31,23 @@ internal struct SNESView: View {
     }
 
     private struct ActionButtons: View {
+
+        private let size = CGFloat(60)
+
         var body: some View {
             HStack {
                 RoundButton(text: "Y", color: .green)
+                    .frame(width: size, height: size)
 
                 VStack {
                     RoundButton(text: "X", color: .blue)
+                        .frame(width: size, height: size)
                     RoundButton(text: "B", color: .yellow)
+                        .frame(width: size, height: size)
                 }
 
                 RoundButton(text: "A", color: .red)
+                    .frame(width: size, height: size)
             }
         }
     }
@@ -62,7 +70,18 @@ internal struct SNESView: View {
 
 
 struct SNESView_Previews: PreviewProvider {
+    private static let deviceNames: [String] = [
+        "iPhone SE (2nd generation)",
+        "iPhone 11 Pro Max",
+        "iPad Pro (11-inch) (2nd generation)"
+    ]
+
     static var previews: some View {
-        SNESView(snes: SNES())
+        ForEach(deviceNames, id: \.self) { deviceName in
+            SNESView(snes: SNES())
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
+        .preferredColorScheme(.light)
     }
 }
