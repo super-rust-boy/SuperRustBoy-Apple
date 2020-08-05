@@ -22,14 +22,25 @@ internal struct SNESView: View {
                         snes.buttonUnpressed(SNES.Button(direction), playerIndex: .playerOne)
                     }
 
-                    ActionButtons()
+                    ActionButtons(snes: snes)
                 }
                 .frame(height: 200)
                 .padding()
 
                 HStack {
-                    OptionButton(text: "Start")
-                    OptionButton(text: "Select")
+                    EmulatorButton(
+                        content: OptionButton(text: "Start"),
+                        button: .start,
+                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
+                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                    )
+
+                    EmulatorButton(
+                        content: OptionButton(text: "Select"),
+                        button: .select,
+                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
+                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                    )
                 }
             }
         }
@@ -37,22 +48,41 @@ internal struct SNESView: View {
 
     private struct ActionButtons: View {
 
+        let snes: SNES
+
         private let size = CGFloat(60)
 
         var body: some View {
             HStack {
-                RoundButton(text: "Y", color: .green)
-                    .frame(width: size, height: size)
+                EmulatorButton(
+                    content: RoundButton(text: "Y", color: .green), button: .y,
+                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
+                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                )
+                .frame(width: size, height: size)
 
                 VStack {
-                    RoundButton(text: "X", color: .blue)
-                        .frame(width: size, height: size)
-                    RoundButton(text: "B", color: .yellow)
-                        .frame(width: size, height: size)
+                    EmulatorButton(
+                        content: RoundButton(text: "X", color: .blue), button: .x,
+                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
+                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                    )
+                    .frame(width: size, height: size)
+
+                    EmulatorButton(
+                        content: RoundButton(text: "B", color: .yellow), button: .b,
+                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
+                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                    )
+                    .frame(width: size, height: size)
                 }
 
-                RoundButton(text: "A", color: .red)
-                    .frame(width: size, height: size)
+                EmulatorButton(
+                    content: RoundButton(text: "A", color: .red), button: .a,
+                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
+                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                )
+                .frame(width: size, height: size)
             }
         }
     }
