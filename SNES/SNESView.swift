@@ -16,7 +16,12 @@ internal struct SNESView: View {
             Display(emulator: snes)
             VStack {
                 HStack {
-                    DPad(rustBoy: RustBoy())
+                    DPad { direction in
+                        snes.buttonPressed(SNES.Button(direction), playerIndex: .playerOne)
+                    } onTouchUp: { direction in
+                        snes.buttonUnpressed(SNES.Button(direction), playerIndex: .playerOne)
+                    }
+
                     ActionButtons()
                 }
                 .frame(height: 200)
@@ -64,6 +69,21 @@ internal struct SNESView: View {
 
                 Text(text)
             }
+        }
+    }
+}
+
+private extension SNES.Button {
+    init(_ direction: DPad.Direction) {
+        switch direction {
+        case .left:
+            self = .left
+        case .up:
+            self = .up
+        case .right:
+            self = .right
+        case .down:
+            self = .down
         }
     }
 }

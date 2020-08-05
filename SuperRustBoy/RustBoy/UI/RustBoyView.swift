@@ -24,16 +24,20 @@ internal struct RustBoyView: View {
             Display(emulator: rustBoy)
 
             HStack {
-                DPad(rustBoy: rustBoy)
-                    .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
-                    .padding()
+                DPad { direction in
+                    rustBoy.buttonPressed(RustBoy.Button(direction))
+                } onTouchUp: { direction in
+                    rustBoy.buttonUnpressed(RustBoy.Button(direction))
+                }
+                .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
+                .padding()
 
                 Spacer()
 
                 HStack {
-                    RustBoyButton(type: .b, rustBoy: rustBoy) { RoundButton(text: "B") }
+                    RustBoyButton(type: .b, rustBoy: rustBoy, content: RoundButton(text: "B"))
                         .frame(maxHeight: Self.elementSize)
-                    RustBoyButton(type: .a, rustBoy: rustBoy) { RoundButton(text: "A") }
+                    RustBoyButton(type: .a, rustBoy: rustBoy, content: RoundButton(text: "A"))
                         .frame(maxHeight: Self.elementSize)
                 }
                 .frame(maxWidth: Self.elementSizeTimesTwo)
@@ -69,10 +73,25 @@ internal struct RustBoyView: View {
 
         var body: some View {
             VStack {
-                RustBoyButton(type: buttonType, rustBoy: rustBoy) { RoundedRectangle(cornerRadius: 25) }
+                RustBoyButton(type: buttonType, rustBoy: rustBoy, content: RoundedRectangle(cornerRadius: 25))
                 Text(title)
             }
             .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
+        }
+    }
+}
+
+private extension RustBoy.Button {
+    init(_ direction: DPad.Direction) {
+        switch direction {
+        case .left:
+            self = .left
+        case .up:
+            self = .up
+        case .right:
+            self = .right
+        case .down:
+            self = .down
         }
     }
 }

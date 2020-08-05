@@ -52,7 +52,7 @@ extension DisplayView: EmulatorDisplay {
 #if os(OSX)
             return nil
 #else
-            self.image?.cgImage
+            return self.image?.cgImage
 #endif
         }
         set {
