@@ -114,6 +114,7 @@
 		59477F7724D337F100B49745 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				59EEA0B524ABBDCF00E53B0F /* DPad.swift */,
 				59B2760F24DB302A00A14B07 /* EmulatorButton.swift */,
 				59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */,
 				59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */,
@@ -209,7 +210,6 @@
 		59EEA0B424ABBDCF00E53B0F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				59EEA0B524ABBDCF00E53B0F /* DPad.swift */,
 				59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */,
 				59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */,
 			);
