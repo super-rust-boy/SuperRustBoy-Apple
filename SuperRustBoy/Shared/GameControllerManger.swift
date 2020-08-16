@@ -84,7 +84,7 @@ fileprivate class Controller: GameController {
     init(controller: GCController) {
         self.internalController = .controller(controller)
 
-        controller.extendedGamepad?.dpad.valueChangedHandler = { [rustBoy] (dpad, x, y) in
+        controller.extendedGamepad?.dpad.valueChangedHandler = { [self] (dpad, x, y) in
              switch x {
              case 1:
                  rustBoy?.buttonPressed(.right)
