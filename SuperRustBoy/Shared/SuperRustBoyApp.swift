@@ -63,14 +63,11 @@ struct SuperRustBoyApp: App {
 }
 
 struct GenericFile: FileDocument {
-    static var readableContentTypes = [UTType.item]
+    static var readableContentTypes: [UTType] = [UTType.item]
 
-    init(fileWrapper: FileWrapper, contentType: UTType) throws {
+    init(configuration: Self.ReadConfiguration) throws {}
 
-    }
-
-    // this will be called when the system wants to write our data to disk
-    func write(to fileWrapper: inout FileWrapper, contentType: UTType) throws {
-
+    func fileWrapper(configuration: Self.WriteConfiguration) throws -> FileWrapper {
+        FileWrapper()
     }
 }
