@@ -96,7 +96,7 @@ struct GameControllerIndicator_Previews: PreviewProvider {
         let batteryLevel: Float?
         let kind: GameControllerType
 
-        var rustBoy: RustBoy? = nil
+        var receiver: GameControllerReceiver?
 
         init(playerIndex: Int?, batteryLevel: Float?, kind: GameControllerType) {
             self.playerIndex = playerIndex

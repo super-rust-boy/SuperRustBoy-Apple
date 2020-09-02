@@ -30,6 +30,11 @@ struct SuperRustBoyApp: App {
                         return SNES.Cartridge(path: romPath, saveFilePath: savePath)
                     }
 
+                // TODO: This won't work if controllers are attached at a later point in time
+                controllerManager.controllers.forEach { controller in
+                    controller.receiver = snes
+                }
+
                 return AnyView(SNESView(snes: snes))
 
             case "gb", "gba":
@@ -46,7 +51,7 @@ struct SuperRustBoyApp: App {
 
                 // TODO: This won't work if controllers are attached at a later point in time
                 controllerManager.controllers.forEach { controller in
-                    controller.rustBoy = rustboy
+                    controller.receiver = rustboy
                 }
 
                 return AnyView(RustBoyView(rustBoy: rustboy))

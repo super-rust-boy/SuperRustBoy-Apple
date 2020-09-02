@@ -9,11 +9,20 @@ import Combine
 import Foundation
 import GameController
 
+internal enum GameControllerButton {
+    case left, up, right, down, a, b, x, y, menu, options, leftShoulder, rightShoulder
+}
+
+internal protocol GameControllerReceiver: AnyObject {
+    func buttonPressed(_ button: GameControllerButton)
+    func buttonUnpressed(_ button: GameControllerButton)
+}
+
 internal protocol GameController: AnyObject {
     var playerIndex: Int? { get }
     var batteryLevel: Float? { get }
     var kind: GameControllerType { get }
-    var rustBoy: RustBoy? { get set }
+    var receiver: GameControllerReceiver? { get set }
 }
 
 internal enum GameControllerType {
@@ -72,7 +81,7 @@ fileprivate class Controller: GameController {
         }
     }
 
-    weak var rustBoy: RustBoy?
+    weak var receiver: GameControllerReceiver?
 
     let internalController: IternalGameControllerType
 
@@ -85,45 +94,61 @@ fileprivate class Controller: GameController {
         self.internalController = .controller(controller)
 
         controller.extendedGamepad?.dpad.valueChangedHandler = { [self] (dpad, x, y) in
-             switch x {
-             case 1:
-                 rustBoy?.buttonPressed(.right)
+            switch x {
+            case 1:
+                receiver?.buttonPressed(.right)
 
-             case -1:
-                 rustBoy?.buttonPressed(.left)
+            case -1:
+                receiver?.buttonPressed(.left)
 
-             default:
-                 rustBoy?.buttonUnpressed(.right)
-                 rustBoy?.buttonUnpressed(.left)
-             }
+            default:
+                receiver?.buttonUnpressed(.right)
+                receiver?.buttonUnpressed(.left)
+            }
 
-             switch y {
-             case 1:
-                 rustBoy?.buttonPressed(.up)
+            switch y {
+            case 1:
+                receiver?.buttonPressed(.up)
 
-             case -1:
-                 rustBoy?.buttonPressed(.down)
+            case -1:
+                receiver?.buttonPressed(.down)
 
-             default:
-                 rustBoy?.buttonUnpressed(.up)
-                 rustBoy?.buttonUnpressed(.down)
-             }
-         }
+            default:
+                receiver?.buttonUnpressed(.up)
+                receiver?.buttonUnpressed(.down)
+            }
+        }
 
         controller.extendedGamepad?.buttonA.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.a) : rustBoy?.buttonUnpressed(.a)
+            isPressed ? receiver?.buttonPressed(.a) : receiver?.buttonUnpressed(.a)
         }
 
         controller.extendedGamepad?.buttonB.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.b) : rustBoy?.buttonUnpressed(.b)
+            isPressed ? receiver?.buttonPressed(.b) : receiver?.buttonUnpressed(.b)
+        }
+
+        controller.extendedGamepad?.buttonX.valueChangedHandler = { [self] (button, pressure, isPressed) in
+            isPressed ? receiver?.buttonPressed(.x) : receiver?.buttonUnpressed(.x)
+        }
+
+        controller.extendedGamepad?.buttonY.valueChangedHandler = { [self] (button, pressure, isPressed) in
+            isPressed ? receiver?.buttonPressed(.y) : receiver?.buttonUnpressed(.y)
         }
 
         controller.extendedGamepad?.buttonMenu.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.start) : rustBoy?.buttonUnpressed(.start)
+            isPressed ? receiver?.buttonPressed(.menu) : receiver?.buttonUnpressed(.menu)
         }
 
         controller.extendedGamepad?.buttonOptions?.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.select) : rustBoy?.buttonUnpressed(.select)
+            isPressed ? receiver?.buttonPressed(.options) : receiver?.buttonUnpressed(.options)
+        }
+
+        controller.extendedGamepad?.leftShoulder.valueChangedHandler = { [self] (button, pressure, isPressed) in
+            isPressed ? receiver?.buttonPressed(.leftShoulder) : receiver?.buttonUnpressed(.leftShoulder)
+        }
+
+        controller.extendedGamepad?.rightShoulder.valueChangedHandler = { [self] (button, pressure, isPressed) in
+            isPressed ? receiver?.buttonPressed(.rightShoulder) : receiver?.buttonUnpressed(.rightShoulder)
         }
     }
 
@@ -131,35 +156,35 @@ fileprivate class Controller: GameController {
         self.internalController = .keyboard(keyboard)
 
         keyboard.keyboardInput?.button(forKeyCode: .upArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.up) : rustBoy?.buttonUnpressed(.up)
+            isPressed ? receiver?.buttonPressed(.up) : receiver?.buttonUnpressed(.up)
         }
 
         keyboard.keyboardInput?.button(forKeyCode: .downArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.down) : rustBoy?.buttonUnpressed(.down)
+            isPressed ? receiver?.buttonPressed(.down) : receiver?.buttonUnpressed(.down)
         }
 
         keyboard.keyboardInput?.button(forKeyCode: .leftArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.left) : rustBoy?.buttonUnpressed(.left)
+            isPressed ? receiver?.buttonPressed(.left) : receiver?.buttonUnpressed(.left)
         }
 
         keyboard.keyboardInput?.button(forKeyCode: .rightArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.right) : rustBoy?.buttonUnpressed(.right)
+            isPressed ? receiver?.buttonPressed(.right) : receiver?.buttonUnpressed(.right)
         }
-
-        keyboard.keyboardInput?.button(forKeyCode: .keyA)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.a) : rustBoy?.buttonUnpressed(.a)
-        }
-
-        keyboard.keyboardInput?.button(forKeyCode: .keyS)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.b) : rustBoy?.buttonUnpressed(.b)
-        }
-
-        keyboard.keyboardInput?.button(forKeyCode: .returnOrEnter)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.start) : rustBoy?.buttonUnpressed(.start)
-        }
-
-        keyboard.keyboardInput?.button(forKeyCode: .spacebar)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? rustBoy?.buttonPressed(.select) : rustBoy?.buttonUnpressed(.select)
-        }
+//
+//        keyboard.keyboardInput?.button(forKeyCode: .keyA)?.valueChangedHandler = { [self] (_, _, isPressed) in
+//            isPressed ? rustBoy?.buttonPressed(.a) : rustBoy?.buttonUnpressed(.a)
+//        }
+//
+//        keyboard.keyboardInput?.button(forKeyCode: .keyS)?.valueChangedHandler = { [self] (_, _, isPressed) in
+//            isPressed ? rustBoy?.buttonPressed(.b) : rustBoy?.buttonUnpressed(.b)
+//        }
+//
+//        keyboard.keyboardInput?.button(forKeyCode: .returnOrEnter)?.valueChangedHandler = { [self] (_, _, isPressed) in
+//            isPressed ? rustBoy?.buttonPressed(.start) : rustBoy?.buttonUnpressed(.start)
+//        }
+//
+//        keyboard.keyboardInput?.button(forKeyCode: .spacebar)?.valueChangedHandler = { [self] (_, _, isPressed) in
+//            isPressed ? rustBoy?.buttonPressed(.select) : rustBoy?.buttonUnpressed(.select)
+//        }
     }
 }
