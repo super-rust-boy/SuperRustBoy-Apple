@@ -96,7 +96,7 @@ struct GameControllerIndicator_Previews: PreviewProvider {
         let batteryLevel: Float?
         let kind: GameControllerType
 
-        var receiver: GameControllerReceiver?
+        var receiver: (GameControllerReceiver & KeyboardReceiver)?
 
         init(playerIndex: Int?, batteryLevel: Float?, kind: GameControllerType) {
             self.playerIndex = playerIndex

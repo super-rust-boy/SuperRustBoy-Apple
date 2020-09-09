@@ -25,6 +25,10 @@
 		59A1220025003DEA0025EC31 /* SNES+GameControllerReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A121FE25003DEA0025EC31 /* SNES+GameControllerReceiver.swift */; };
 		59B2761024DB302A00A14B07 /* EmulatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B2760F24DB302A00A14B07 /* EmulatorButton.swift */; };
 		59B2761124DB302A00A14B07 /* EmulatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B2760F24DB302A00A14B07 /* EmulatorButton.swift */; };
+		59BBA3CD250938D1006744E5 /* SNES+KeyboardReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BBA3CC250938D1006744E5 /* SNES+KeyboardReceiver.swift */; };
+		59BBA3CE250938D1006744E5 /* SNES+KeyboardReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BBA3CC250938D1006744E5 /* SNES+KeyboardReceiver.swift */; };
+		59BBA3D025093953006744E5 /* RustBoy+KeyboardReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BBA3CF25093953006744E5 /* RustBoy+KeyboardReceiver.swift */; };
+		59BBA3D125093953006744E5 /* RustBoy+KeyboardReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BBA3CF25093953006744E5 /* RustBoy+KeyboardReceiver.swift */; };
 		59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
@@ -72,6 +76,8 @@
 		59A121FB25003CDC0025EC31 /* RustBoy+GameControllerReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+GameControllerReceiver.swift"; sourceTree = "<group>"; };
 		59A121FE25003DEA0025EC31 /* SNES+GameControllerReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SNES+GameControllerReceiver.swift"; sourceTree = "<group>"; };
 		59B2760F24DB302A00A14B07 /* EmulatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulatorButton.swift; sourceTree = "<group>"; };
+		59BBA3CC250938D1006744E5 /* SNES+KeyboardReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SNES+KeyboardReceiver.swift"; sourceTree = "<group>"; };
+		59BBA3CF25093953006744E5 /* RustBoy+KeyboardReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+KeyboardReceiver.swift"; sourceTree = "<group>"; };
 		59C0D44F24CEEDA400C18650 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIndicator.swift; sourceTree = "<group>"; };
 		59DAB8EF24D3415A0079CCBB /* libsnes_c_binding-staticlib-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libsnes_c_binding-staticlib-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +194,7 @@
 			children = (
 				59E933A324D1E62B00D84D02 /* SNES.swift */,
 				59A121FE25003DEA0025EC31 /* SNES+GameControllerReceiver.swift */,
+				59BBA3CC250938D1006744E5 /* SNES+KeyboardReceiver.swift */,
 				59477F7424D3344800B49745 /* SNESView.swift */,
 			);
 			name = SNES;
@@ -210,6 +217,7 @@
 				5926B73524D2E642005D302E /* RustBoy.swift */,
 				59EEA0BB24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift */,
 				59A121FB25003CDC0025EC31 /* RustBoy+GameControllerReceiver.swift */,
+				59BBA3CF25093953006744E5 /* RustBoy+KeyboardReceiver.swift */,
 				59EEA0B424ABBDCF00E53B0F /* UI */,
 			);
 			path = RustBoy;
@@ -354,6 +362,8 @@
 				59EEA0D024ABBDDA00E53B0F /* C-Interop.swift in Sources */,
 				59477F7324D3310F00B49745 /* SNES.swift in Sources */,
 				59C0D45224CEEE7B00C18650 /* Speaker.swift in Sources */,
+				59BBA3D025093953006744E5 /* RustBoy+KeyboardReceiver.swift in Sources */,
+				59BBA3CD250938D1006744E5 /* SNES+KeyboardReceiver.swift in Sources */,
 				59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
 				59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
@@ -382,6 +392,8 @@
 				59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */,
 				5926B73F24D2F690005D302E /* SNES.swift in Sources */,
 				59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
+				59BBA3D125093953006744E5 /* RustBoy+KeyboardReceiver.swift in Sources */,
+				59BBA3CE250938D1006744E5 /* SNES+KeyboardReceiver.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
 				59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */,
 				5976F83C24ABBCD8000D7941 /* SuperRustBoyApp.swift in Sources */,

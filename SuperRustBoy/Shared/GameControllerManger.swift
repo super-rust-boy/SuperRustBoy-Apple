@@ -18,11 +18,16 @@ internal protocol GameControllerReceiver: AnyObject {
     func buttonUnpressed(_ button: GameControllerButton)
 }
 
+internal protocol KeyboardReceiver: AnyObject {
+    func buttonPressed(_ button: GCKeyCode)
+    func buttonUnpressed(_ button: GCKeyCode)
+}
+
 internal protocol GameController: AnyObject {
     var playerIndex: Int? { get }
     var batteryLevel: Float? { get }
     var kind: GameControllerType { get }
-    var receiver: GameControllerReceiver? { get set }
+    var receiver: (GameControllerReceiver & KeyboardReceiver)? { get set }
 }
 
 internal enum GameControllerType {
@@ -81,7 +86,7 @@ fileprivate class Controller: GameController {
         }
     }
 
-    weak var receiver: GameControllerReceiver?
+    weak var receiver: (GameControllerReceiver & KeyboardReceiver)?
 
     let internalController: IternalGameControllerType
 
@@ -155,36 +160,8 @@ fileprivate class Controller: GameController {
     init(keyboard: GCKeyboard) {
         self.internalController = .keyboard(keyboard)
 
-        keyboard.keyboardInput?.button(forKeyCode: .upArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? receiver?.buttonPressed(.up) : receiver?.buttonUnpressed(.up)
+        keyboard.keyboardInput?.keyChangedHandler = { [self] (input, buttonInput, keyCode, isPressed) in
+            isPressed ? receiver?.buttonPressed(keyCode) : receiver?.buttonUnpressed(keyCode)
         }
-
-        keyboard.keyboardInput?.button(forKeyCode: .downArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? receiver?.buttonPressed(.down) : receiver?.buttonUnpressed(.down)
-        }
-
-        keyboard.keyboardInput?.button(forKeyCode: .leftArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? receiver?.buttonPressed(.left) : receiver?.buttonUnpressed(.left)
-        }
-
-        keyboard.keyboardInput?.button(forKeyCode: .rightArrow)?.valueChangedHandler = { [self] (_, _, isPressed) in
-            isPressed ? receiver?.buttonPressed(.right) : receiver?.buttonUnpressed(.right)
-        }
-//
-//        keyboard.keyboardInput?.button(forKeyCode: .keyA)?.valueChangedHandler = { [self] (_, _, isPressed) in
-//            isPressed ? rustBoy?.buttonPressed(.a) : rustBoy?.buttonUnpressed(.a)
-//        }
-//
-//        keyboard.keyboardInput?.button(forKeyCode: .keyS)?.valueChangedHandler = { [self] (_, _, isPressed) in
-//            isPressed ? rustBoy?.buttonPressed(.b) : rustBoy?.buttonUnpressed(.b)
-//        }
-//
-//        keyboard.keyboardInput?.button(forKeyCode: .returnOrEnter)?.valueChangedHandler = { [self] (_, _, isPressed) in
-//            isPressed ? rustBoy?.buttonPressed(.start) : rustBoy?.buttonUnpressed(.start)
-//        }
-//
-//        keyboard.keyboardInput?.button(forKeyCode: .spacebar)?.valueChangedHandler = { [self] (_, _, isPressed) in
-//            isPressed ? rustBoy?.buttonPressed(.select) : rustBoy?.buttonUnpressed(.select)
-//        }
     }
 }
