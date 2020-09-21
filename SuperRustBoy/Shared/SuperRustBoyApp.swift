@@ -14,65 +14,56 @@ struct SuperRustBoyApp: App {
     @StateObject
     private var controllerManager = GameControllerManager()
 
+    @State
+    private var filePickerOpen = false
+
+    @State
+    private var romURL: URL?
+
     var body: some Scene {
-        DocumentGroup(viewing: GenericFile.self) { viewer -> AnyView in
+        WindowGroup { () -> AnyView in
+            if let romURL = romURL, romURL.startAccessingSecurityScopedResource() {
+                switch romURL.pathExtension {
+                case "sfc", "smc":
+                    let snes = SNES()
+                    snes.autoBoot = true
+                    snes.cartridge = SNES.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
 
-            switch viewer.fileURL?.pathExtension {
-            case "sfc", "smc":
-                let snes = SNES()
-                snes.autoBoot = true
-                snes.cartridge = viewer
-                    .fileURL
-                    .map { fileURL in
-                        let romPath = fileURL.path
-                        let savePath = Self.savePath(forRomURL: fileURL)
-
-                        return SNES.Cartridge(path: romPath, saveFilePath: savePath)
+                    // TODO: This won't work if controllers are attached at a later point in time
+                    controllerManager.controllers.forEach { controller in
+                        controller.receiver = snes
                     }
 
-                // TODO: This won't work if controllers are attached at a later point in time
-                controllerManager.controllers.forEach { controller in
-                    controller.receiver = snes
-                }
+                    return AnyView(SNESView(snes: snes))
 
-                return AnyView(SNESView(snes: snes))
+                case "gb", "gba":
+                    let rustboy = RustBoy()
+                    rustboy.autoBoot = true
+                    rustboy.cartridge = RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
 
-            case "gb", "gba":
-                let rustboy = RustBoy()
-                rustboy.autoBoot = true
-                rustboy.cartridge = viewer
-                    .fileURL
-                    .map { fileURL in
-                        let romPath = fileURL.path
-                        let savePath = Self.savePath(forRomURL: fileURL)
-
-                        return RustBoy.Cartridge(path: romPath, saveFilePath: savePath)
+                    // TODO: This won't work if controllers are attached at a later point in time
+                    controllerManager.controllers.forEach { controller in
+                        controller.receiver = rustboy
                     }
 
-                // TODO: This won't work if controllers are attached at a later point in time
-                controllerManager.controllers.forEach { controller in
-                    controller.receiver = rustboy
+                    return AnyView(RustBoyView(rustBoy: rustboy))
+
+                default:
+                    break
                 }
-
-                return AnyView(RustBoyView(rustBoy: rustboy))
-
-            default:
-                return AnyView(Color.white)
             }
+
+            return AnyView(Button("Open", action: { filePickerOpen = true })
+                    .fileImporter(isPresented: $filePickerOpen, allowedContentTypes: [UTType.item]) { urlResult in
+                        romURL = try? urlResult.get()
+                    })
         }
     }
 
     private static func savePath(forRomURL romURL: URL) -> String {
-        romURL.deletingPathExtension().path + ".sav"
-    }
-}
-
-struct GenericFile: FileDocument {
-    static var readableContentTypes: [UTType] = [UTType.item]
-
-    init(configuration: Self.ReadConfiguration) throws {}
-
-    func fileWrapper(configuration: Self.WriteConfiguration) throws -> FileWrapper {
-        FileWrapper()
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let savePath = documentDirectory.path + "/temp.sav"
+        print(savePath)
+        return savePath
     }
 }
