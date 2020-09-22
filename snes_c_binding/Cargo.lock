@@ -57,7 +57,7 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 [[package]]
 name = "oxide-7"
 version = "0.3.0"
-source = "git+https://github.com/coopersimon/oxide-7?branch=workspace#f5cce58f0eb09eec6504faffef6a0dca5c8f4a2a"
+source = "git+https://github.com/coopersimon/oxide-7?tag=0.3.0#17fdfa6d5cc44bec6dff717f5867121b3aa2c56d"
 dependencies = [
  "bitflags",
  "crossbeam-channel",
