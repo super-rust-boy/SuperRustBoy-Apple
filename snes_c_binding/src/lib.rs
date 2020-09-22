@@ -11,20 +11,21 @@ pub extern fn snesGetFrameInfo() -> snesFrameInfo {
         bytesPerPixel: 4,
         fps: 60,
 
-        target_width: 256,
-        target_height: 224,
+        targetWidth: 256,
+        targetHeight: 224,
     }
 }
 
 #[repr(C)]
+#[allow(non_camel_case_types)]
 pub struct snesFrameInfo {
     width: u32,
     height: u32,
     bytesPerPixel: u32,
     fps: u32,
     
-    target_width: u32,
-    target_height: u32,
+    targetWidth: u32,
+    targetHeight: u32,
 }
 
 #[repr(C)]
