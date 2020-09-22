@@ -23,6 +23,8 @@ typedef struct {
   uint32_t height;
   uint32_t bytesPerPixel;
   uint32_t fps;
+  uint32_t target_width;
+  uint32_t target_height;
 } snesFrameInfo;
 
 void snesButtonClickDown(const void *instance, snesButton cButton, uint32_t controller);

@@ -52,6 +52,7 @@
 		59477F7024D3269000B49745 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F852FA24A3FD04003704E5 /* snes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snes.h; sourceTree = "<group>"; };
 		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		C832FF62251A4E8B00E6C3D4 /* lib.rs */ = {isa = PBXFileReference; lastKnownFileType = text; path = lib.rs; sourceTree = "<group>"; };
 		CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA60C302EF549CC60DBB85C8 /* Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = Cargo.toml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +74,14 @@
 			name = "Required Libraries";
 			sourceTree = "<group>";
 		};
+		C832FF61251A4E8B00E6C3D4 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C832FF62251A4E8B00E6C3D4 /* lib.rs */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		CA602A420EA4A0ED5CC06A6A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +94,7 @@
 		CA603A9252CBEFE16596F55A = {
 			isa = PBXGroup;
 			children = (
+				C832FF61251A4E8B00E6C3D4 /* src */,
 				CA60C302EF549CC60DBB85C8 /* Cargo.toml */,
 				59F852F924A3FD04003704E5 /* headers */,
 				ADDEDBA66A6E2 /* Required Libraries */,
