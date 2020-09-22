@@ -36,7 +36,7 @@ struct SuperRustBoyApp: App {
 
                     return AnyView(SNESView(snes: snes))
 
-                case "gb", "gba":
+                case "gb", "gbc":
                     let rustboy = RustBoy()
                     rustboy.autoBoot = true
                     rustboy.cartridge = RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
