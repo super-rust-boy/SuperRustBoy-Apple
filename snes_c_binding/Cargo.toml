@@ -13,3 +13,4 @@ crate-type = ["staticlib"]
 
 [dependencies.oxide-7]
 git = "https://github.com/coopersimon/oxide-7"
+branch = "workspace"

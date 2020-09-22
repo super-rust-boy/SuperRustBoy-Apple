@@ -1,0 +1,10 @@
+/* module.modulemap */
+module CoreRustBoy {
+	header "../../super_rust_boy_c_binding/headers/rustboy.h"
+	export *
+}
+
+module CoreSNES {
+    header "../../snes_c_binding/headers/snes.h"
+    export *
+}
