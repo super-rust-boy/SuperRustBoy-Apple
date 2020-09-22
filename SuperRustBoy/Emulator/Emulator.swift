@@ -65,7 +65,7 @@ internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
 
         self.coreEmulator = coreEmulator
         let delegate = InternalSpeakerDelegate(coreEmulator: coreEmulator)
-//        self.speaker?.delegate = delegate
+        self.speaker?.delegate = delegate
         self.speakerDelegate = delegate
 
         return .success
@@ -80,7 +80,7 @@ internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
     }
 
     private var coreEmulator: CoreEmu?
-//    private let speaker = Speaker(sampleRate: Float64(sampleRate))
+    private let speaker = Speaker(sampleRate: Float64(sampleRate))
     private var speakerDelegate: InternalSpeakerDelegate?
     private var timer: Timer?
 
