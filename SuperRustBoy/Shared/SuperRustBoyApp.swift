@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UniformTypeIdentifiers
 
 @main
 struct SuperRustBoyApp: App {
@@ -53,17 +52,15 @@ struct SuperRustBoyApp: App {
                 }
             }
 
-            return AnyView(Button("Open", action: { filePickerOpen = true })
-                    .fileImporter(isPresented: $filePickerOpen, allowedContentTypes: [UTType.item]) { urlResult in
-                        romURL = try? urlResult.get()
-                    })
+            return AnyView(OpenRomPage(romURL: $romURL))
         }
     }
 
     private static func savePath(forRomURL romURL: URL) -> String {
+        print("ROM path: \(romURL.path)")
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let savePath = documentDirectory.path + "/temp.sav"
-        print(savePath)
+        let savePath = documentDirectory.path + "/\(romURL.deletingPathExtension().lastPathComponent).sav"
+        print("Save path: \(savePath)")
         return savePath
     }
 }

@@ -25,7 +25,7 @@ internal struct Display {
             $0.wantsLayer = true
             $0.layer?.backgroundColor = NSColor.black.cgColor
 #else
-            $0.contentMode = .scaleAspectFit
+            $0.contentMode = .scaleToFill
             $0.backgroundColor = Self.backgroundColor
 #endif
             emulator.display = $0
