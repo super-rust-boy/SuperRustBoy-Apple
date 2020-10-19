@@ -8,11 +8,33 @@
 enum PlayerIndices {}
 
 extension PlayerIndices {
-    enum OnePlayer: UInt32 {
+    enum OnePlayer: Int, RawRepresentable {
         case playerOne
+
+        init?(rawValue: Int) {
+            switch rawValue {
+            case 1:
+                self = .playerOne
+            default:
+                return nil
+            }
+        }
     }
 
-    enum TwoPlayer: UInt32 {
+    enum TwoPlayer: Int, RawRepresentable {
         case playerOne, playerTwo
+
+        init?(rawValue: Int) {
+            switch rawValue {
+            case 1:
+                self = .playerOne
+
+            case 2:
+                self = .playerTwo
+
+            default:
+                return nil
+            }
+        }
     }
 }

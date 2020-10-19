@@ -12,25 +12,21 @@ internal struct GameControllerIndicator: View {
     internal let gameController: GameController
 
     internal var body: some View {
-        Button {
-            
-        } label: {
-            HStack {
-                VStack {
-                    image
+        HStack {
+            VStack {
+                image
 
-                    if let batteryLevel = gameController.batteryLevel {
-                        ProgressView(value: batteryLevel)
-                            .accentColor(batteryIndicatorColor)
-                            .border(imageColor, width: 0.5)
-                            .padding(5)
-                    }
+                if let batteryLevel = gameController.batteryLevel {
+                    ProgressView(value: batteryLevel)
+                        .accentColor(batteryIndicatorColor)
+                        .border(imageColor, width: 0.5)
+                        .padding(5)
                 }
-                .frame(width: 35, height: 35)
-
-                Text(gameController.playerIndex.map { String($0) } ?? "-" )
-                    .accentColor(imageColor)
             }
+            .frame(width: 35, height: 35)
+
+            Text(gameController.playerIndex.map { String($0) } ?? "-" )
+                .foregroundColor(imageColor)
         }
     }
 
@@ -76,14 +72,15 @@ internal struct GameControllerIndicator: View {
         }
     }
 
+    @ViewBuilder
     private var image: some View {
         switch gameController.kind {
         case .controller:
-            return Image(systemName: "gamecontroller")
+            Image(systemName: "gamecontroller")
                 .foregroundColor(imageColor)
 
         case .keyboard:
-            return Image(systemName: "keyboard")
+            Image(systemName: "keyboard")
                 .foregroundColor(imageColor)
         }
     }
@@ -92,6 +89,7 @@ internal struct GameControllerIndicator: View {
 struct GameControllerIndicator_Previews: PreviewProvider {
 
     class MockedGameController: GameController {
+        var id: ObjectIdentifier { ObjectIdentifier(self) }
         let playerIndex: Int?
         let batteryLevel: Float?
         let kind: GameControllerType

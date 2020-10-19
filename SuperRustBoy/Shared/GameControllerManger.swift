@@ -14,20 +14,20 @@ internal enum GameControllerButton {
 }
 
 internal protocol GameControllerReceiver: AnyObject {
-    func buttonPressed(_ button: GameControllerButton)
-    func buttonUnpressed(_ button: GameControllerButton)
+    func buttonPressed(_ button: GameControllerButton, playerIndex: Int)
+    func buttonUnpressed(_ button: GameControllerButton, playerIndex: Int)
 }
 
 internal protocol KeyboardReceiver: AnyObject {
-    func buttonPressed(_ button: GCKeyCode)
-    func buttonUnpressed(_ button: GCKeyCode)
+    func buttonPressed(_ button: GCKeyCode, playerIndex: Int)
+    func buttonUnpressed(_ button: GCKeyCode, playerIndex: Int)
 }
 
 internal protocol GameController: AnyObject {
+    var id: ObjectIdentifier { get }
     var playerIndex: Int? { get }
     var batteryLevel: Float? { get }
     var kind: GameControllerType { get }
-    var receiver: (GameControllerReceiver & KeyboardReceiver)? { get set }
 }
 
 internal enum GameControllerType {
@@ -36,16 +36,26 @@ internal enum GameControllerType {
 
 internal final class GameControllerManager: ObservableObject {
 
-    internal private(set) var controllers = [GameController]()
+    internal weak var receiver: (GameControllerReceiver & KeyboardReceiver)? {
+        didSet {
+            internalControllers.forEach { $0.receiver = receiver }
+        }
+    }
+
+    internal var controllers: [GameController] { internalControllers }
+
+    private var internalControllers: [Controller] = [] {
+        didSet { objectWillChange.send() }
+    }
 
     internal init() {
         NotificationCenter
             .default
             .publisher(for: .GCControllerDidConnect)
             .compactMap { $0.object as? GCController }
-            .sink { controller in
-                self.controllers.append(Controller(controller: controller))
-                self.objectWillChange.send()
+            .sink { [weak self] controller in
+                guard let self = self else { return }
+                self.internalControllers.append(Controller(controller: controller, playerIndex: 1))
             }
             .store(in: &cancellables)
 
@@ -53,20 +63,30 @@ internal final class GameControllerManager: ObservableObject {
             .default
             .publisher(for: .GCKeyboardDidConnect)
             .compactMap { $0.object as? GCKeyboard }
-            .sink { keyboard in
-                self.controllers.append(Controller(keyboard: keyboard))
-                self.objectWillChange.send()
+            .sink { [weak self] keyboard in
+                guard let self = self else { return }
+                self.internalControllers.append(Controller(keyboard: keyboard, playerIndex: 1))
             }
             .store(in: &cancellables)
+    }
+
+    internal func rotateIndex(for controller: GameController) {
+        if let controller = controller as? Controller {
+            controller.playerIndex = (controller.playerIndex ?? 0) + 1
+            objectWillChange.send()
+        }
     }
 
     private var cancellables = Set<AnyCancellable>()
 }
 
 fileprivate class Controller: GameController {
-    var playerIndex: Int? {
-        nil
+
+    var id: ObjectIdentifier {
+        ObjectIdentifier(self)
     }
+
+    fileprivate var playerIndex: Int?
 
     var batteryLevel: Float? {
         switch internalController {
@@ -88,80 +108,100 @@ fileprivate class Controller: GameController {
 
     weak var receiver: (GameControllerReceiver & KeyboardReceiver)?
 
-    let internalController: IternalGameControllerType
+    private let internalController: IternalGameControllerType
 
     internal enum IternalGameControllerType {
         case keyboard(GCKeyboard)
         case controller(GCController)
     }
 
-    init(controller: GCController) {
+    init(controller: GCController, playerIndex: Int) {
         self.internalController = .controller(controller)
+        self.playerIndex = playerIndex
 
         controller.extendedGamepad?.dpad.valueChangedHandler = { [self] (dpad, x, y) in
             switch x {
             case 1:
-                receiver?.buttonPressed(.right)
+                receiver?.buttonPressed(.right, playerIndex: playerIndex)
 
             case -1:
-                receiver?.buttonPressed(.left)
+                receiver?.buttonPressed(.left, playerIndex: playerIndex)
 
             default:
-                receiver?.buttonUnpressed(.right)
-                receiver?.buttonUnpressed(.left)
+                receiver?.buttonUnpressed(.right, playerIndex: playerIndex)
+                receiver?.buttonUnpressed(.left, playerIndex: playerIndex)
             }
 
             switch y {
             case 1:
-                receiver?.buttonPressed(.up)
+                receiver?.buttonPressed(.up, playerIndex: playerIndex)
 
             case -1:
-                receiver?.buttonPressed(.down)
+                receiver?.buttonPressed(.down, playerIndex: playerIndex)
 
             default:
-                receiver?.buttonUnpressed(.up)
-                receiver?.buttonUnpressed(.down)
+                receiver?.buttonUnpressed(.up, playerIndex: playerIndex)
+                receiver?.buttonUnpressed(.down, playerIndex: playerIndex)
             }
         }
 
         controller.extendedGamepad?.buttonA.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.a) : receiver?.buttonUnpressed(.a)
+            isPressed
+                ? receiver?.buttonPressed(.a, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.a, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.buttonB.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.b) : receiver?.buttonUnpressed(.b)
+            isPressed
+                ? receiver?.buttonPressed(.b, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.b, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.buttonX.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.x) : receiver?.buttonUnpressed(.x)
+            isPressed
+                ? receiver?.buttonPressed(.x, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.x, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.buttonY.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.y) : receiver?.buttonUnpressed(.y)
+            isPressed
+                ? receiver?.buttonPressed(.y, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.y, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.buttonMenu.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.menu) : receiver?.buttonUnpressed(.menu)
+            isPressed
+                ? receiver?.buttonPressed(.menu, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.menu, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.buttonOptions?.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.options) : receiver?.buttonUnpressed(.options)
+            isPressed
+                ? receiver?.buttonPressed(.options, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.options, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.leftShoulder.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.leftShoulder) : receiver?.buttonUnpressed(.leftShoulder)
+            isPressed
+                ? receiver?.buttonPressed(.leftShoulder, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.leftShoulder, playerIndex: playerIndex)
         }
 
         controller.extendedGamepad?.rightShoulder.valueChangedHandler = { [self] (button, pressure, isPressed) in
-            isPressed ? receiver?.buttonPressed(.rightShoulder) : receiver?.buttonUnpressed(.rightShoulder)
+            isPressed
+                ? receiver?.buttonPressed(.rightShoulder, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(.rightShoulder, playerIndex: playerIndex)
         }
     }
 
-    init(keyboard: GCKeyboard) {
+    init(keyboard: GCKeyboard, playerIndex: Int) {
         self.internalController = .keyboard(keyboard)
+        self.playerIndex = playerIndex
 
         keyboard.keyboardInput?.keyChangedHandler = { [self] (input, buttonInput, keyCode, isPressed) in
-            isPressed ? receiver?.buttonPressed(keyCode) : receiver?.buttonUnpressed(keyCode)
+            isPressed
+                ? receiver?.buttonPressed(keyCode, playerIndex: playerIndex)
+                : receiver?.buttonUnpressed(keyCode, playerIndex: playerIndex)
         }
     }
 }

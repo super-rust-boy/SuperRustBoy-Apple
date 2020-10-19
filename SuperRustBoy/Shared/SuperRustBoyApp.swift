@@ -36,48 +36,22 @@ struct SuperRustBoyWindow: View {
     }
 
     @State
-    private var filePickerOpen = false
-
-    @State
-    private var romURL: URL?
+    private var rom: OpenRomPage.ROMType?
 
     var body: some View {
-        if let romURL = romURL, romURL.startAccessingSecurityScopedResource() {
-            switch romURL.pathExtension {
-            case "sfc", "smc":
-                snes.cartridge = SNES.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
+        switch rom {
+        case .rustboy(let cartridge):
+            rustboy.cartridge = cartridge
+            controllerManager.receiver = rustboy
+            return AnyView(RustBoyView(rustBoy: rustboy))
 
-                // TODO: This won't work if controllers are attached at a later point in time
-                controllerManager.controllers.forEach { controller in
-                    controller.receiver = snes
-                }
+        case .snes(let cartridge):
+            snes.cartridge = cartridge
+            controllerManager.receiver = snes
+            return AnyView(SNESView(snes: snes, gameControllerManager: controllerManager))
 
-                return AnyView(SNESView(snes: snes))
-
-            case "gb", "gbc":
-                rustboy.cartridge = RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
-
-                // TODO: This won't work if controllers are attached at a later point in time
-                controllerManager.controllers.forEach { controller in
-                    controller.receiver = rustboy
-                }
-
-                return AnyView(RustBoyView(rustBoy: rustboy))
-
-            default:
-                break
-            }
+        default:
+            return AnyView(OpenRomPage(rom: $rom))
         }
-
-        return AnyView(OpenRomPage(romURL: $romURL))
-    }
-
-
-    private static func savePath(forRomURL romURL: URL) -> String {
-        print("ROM path: \(romURL.path)")
-        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let savePath = documentDirectory.path + "/\(romURL.deletingPathExtension().lastPathComponent).sav"
-        print("Save path: \(savePath)")
-        return savePath
     }
 }

@@ -35,11 +35,11 @@ internal final class CoreSNES: CoreEmulator {
     }
 
     internal func buttonPressed(_ button: SNES.Button, playerIndex: PlayerIndices.TwoPlayer) {
-        snesButtonClickDown(coreRef, snesButton(button), playerIndex.rawValue)
+        snesButtonClickDown(coreRef, snesButton(button), UInt32(playerIndex.rawValue))
     }
 
     internal func buttonUnpressed(_ button: SNES.Button, playerIndex: PlayerIndices.TwoPlayer) {
-        snesButtonClickUp(coreRef, snesButton(button), playerIndex.rawValue)
+        snesButtonClickUp(coreRef, snesButton(button), UInt32(playerIndex.rawValue))
     }
 
     internal func render() -> CGImage? {

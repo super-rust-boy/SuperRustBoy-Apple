@@ -6,15 +6,15 @@
 //
 
 extension RustBoy: GameControllerReceiver {
-    func buttonPressed(_ button: GameControllerButton) {
-        if let button = RustBoy.Button(button) {
-            buttonPressed(button)
+    func buttonPressed(_ button: GameControllerButton, playerIndex: Int) {
+        if let button = RustBoy.Button(button), let playerIndex = PlayerIndices.OnePlayer(rawValue: playerIndex) {
+            buttonPressed(button, playerIndex: playerIndex)
         }
     }
 
-    func buttonUnpressed(_ button: GameControllerButton) {
-        if let button = RustBoy.Button(button) {
-            buttonUnpressed(button)
+    func buttonUnpressed(_ button: GameControllerButton, playerIndex: Int) {
+        if let button = RustBoy.Button(button), let playerIndex = PlayerIndices.OnePlayer(rawValue: playerIndex) {
+            buttonUnpressed(button, playerIndex: playerIndex)
         }
     }
 }
