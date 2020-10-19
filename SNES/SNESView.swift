@@ -13,7 +13,13 @@ internal struct SNESView: View {
 
     internal var body: some View {
         VStack {
+            Spacer()
+
             Display(emulator: snes)
+                .aspectRatio(CGSize(width: 4, height: 3), contentMode: .fit)
+
+            Spacer()
+
             VStack {
                 HStack {
                     DPad { direction in
@@ -93,7 +99,6 @@ internal struct SNESView: View {
         var body: some View {
             VStack {
                 RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(.black)
                     .frame(width: 30, height: 60)
                     .rotationEffect(.degrees(45))
 

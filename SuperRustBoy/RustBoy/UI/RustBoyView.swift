@@ -21,7 +21,13 @@ internal struct RustBoyView: View {
 
     internal var body: some View {
         VStack {
+
+            Spacer()
+
             Display(emulator: rustBoy)
+                .aspectRatio(CGSize(width: 10, height: 9), contentMode: .fit)
+
+            Spacer()
 
             HStack {
                 DPad { direction in
