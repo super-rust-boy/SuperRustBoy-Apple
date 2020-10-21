@@ -148,3 +148,31 @@ pub unsafe extern fn snesCartName(instance: *const c_void, out_buffer: *mut u8, 
         
     }
 }
+
+#[no_mangle]
+pub unsafe extern fn snesGetAudioHandle(instance: *const c_void, sample_rate: u32) -> *const c_void {
+    let snes = instance as *mut SNES;
+
+    match snes.as_mut() {
+        Some(snes_ref) => {
+            let audio_handle = Box::new(snes_ref.enable_audio(sample_rate as f64));
+            Box::into_raw(audio_handle) as *const c_void
+        }
+        None => std::ptr::null()
+    }
+}
+
+#[no_mangle]
+pub unsafe extern fn snesDeleteAudioHandle(instance: *const c_void) {
+    let audio_handle = instance as *mut SNESAudioHandler;
+    audio_handle.drop_in_place();
+}
+
+#[no_mangle]
+pub unsafe extern fn snesGetAudioPacket(instance: *const c_void, buffer: *mut f32, length: u32) {
+    let audio_handle = instance as *mut SNESAudioHandler;
+    if let Some(audio_handle_ref) = audio_handle.as_mut() {
+        let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
+        audio_handle_ref.get_audio_packet(&mut buffer_slice)
+    }
+}

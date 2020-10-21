@@ -37,6 +37,12 @@ const void *snesCreate(const char *cartridgePath, const char *saveFilePath);
 
 void snesDelete(const void *instance);
 
+void snesDeleteAudioHandle(const void *instance);
+
 void snesFrame(const void *instance, uint8_t *buffer, uint32_t length);
+
+const void *snesGetAudioHandle(const void *instance, uint32_t sampleRate);
+
+void snesGetAudioPacket(const void *instance, float *buffer, uint32_t length);
 
 snesFrameInfo snesGetFrameInfo(void);
