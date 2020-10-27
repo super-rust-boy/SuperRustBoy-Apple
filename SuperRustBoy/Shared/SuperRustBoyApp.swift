@@ -22,36 +22,73 @@ struct SuperRustBoyApp: App {
 
 struct SuperRustBoyWindow: View {
 
+    private enum Emulator {
+        case rustboy(RustBoy)
+        case snes(SNES)
+    }
+
     @StateObject
     private var controllerManager = GameControllerManager()
 
-    @StateObject
-    private var snes = SNES.setup {
-        $0.autoBoot = true
-    }
-
-    @StateObject
-    private var rustboy = RustBoy.setup {
-        $0.autoBoot = true
-    }
+    @State
+    private var showUI = true
 
     @State
-    private var rom: OpenRomPage.ROMType?
+    private var emulator: Emulator?
 
     var body: some View {
-        switch rom {
-        case .rustboy(let cartridge):
-            rustboy.cartridge = cartridge
-            controllerManager.receiver = rustboy
-            return AnyView(RustBoyView(rustBoy: rustboy))
+        VStack {
+            HStack {
+                Button(showUI ? "Hide" : "Show") { withAnimation { showUI.toggle() }}
+                    .frame(width: 75)
+                ForEach(controllerManager.controllers, id: \.id) { controller in
+                    GameControllerIndicator(gameController: controller)
+                }
+            }
 
-        case .snes(let cartridge):
-            snes.cartridge = cartridge
-            controllerManager.receiver = snes
-            return AnyView(SNESView(snes: snes, gameControllerManager: controllerManager))
+            Spacer()
 
-        default:
-            return AnyView(OpenRomPage(rom: $rom))
+            switch emulator {
+            case .rustboy(let rustboy):
+                RustBoyView(rustBoy: rustboy)
+
+            case .snes(let snes):
+                SNESView(snes: snes, showUI: showUI)
+
+            default:
+                OpenCartridgePage(cartridge: Binding(get: {
+                    switch emulator {
+                    case .rustboy(let rustboy):
+                        return rustboy.cartridge.map(OpenCartridgePage.Cartridge.rustboy)
+
+                    case .snes(let snes):
+                        return snes.cartridge.map(OpenCartridgePage.Cartridge.snes)
+
+                    default: return nil
+                    }
+                }, set: { romType in
+                    switch romType {
+                    case .rustboy(let cart):
+                        let rustboy = RustBoy()
+                        controllerManager.receiver = rustboy
+                        rustboy.cartridge = cart
+                        _ = rustboy.boot()
+                        emulator = .rustboy(rustboy)
+
+                    case .snes(let cart):
+                        let snes = SNES()
+                        controllerManager.receiver = snes
+                        snes.cartridge = cart
+                        _ = snes.boot()
+                        emulator = .snes(snes)
+
+                    default:
+                        emulator = nil
+                    }
+                }))
+            }
+
+            Spacer()
         }
     }
 }

@@ -8,15 +8,15 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct OpenRomPage: View {
+struct OpenCartridgePage: View {
 
-    enum ROMType {
+    enum Cartridge {
         case rustboy(RustBoy.Cartridge)
         case snes(SNES.Cartridge)
     }
 
     @Binding
-    var rom: ROMType?
+    var cartridge: Cartridge?
 
     @State
     private var filePickerOpen = false
@@ -33,10 +33,10 @@ struct OpenRomPage: View {
 
                     switch romURL.pathExtension {
                     case "sfc", "smc":
-                        rom = .snes(SNES.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
+                        cartridge = .snes(SNES.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
 
                     case "gb", "gbc":
-                        rom = .rustboy(RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
+                        cartridge = .rustboy(RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
                     default:
                         break
                     }
@@ -56,9 +56,9 @@ struct OpenRomPage: View {
 struct OpenRomPage_Previews: PreviewProvider {
 
     @State
-    static var rom: OpenRomPage.ROMType?
+    static var cartridge: OpenCartridgePage.Cartridge?
 
     static var previews: some View {
-        OpenRomPage(rom: $rom)
+        OpenCartridgePage(cartridge: $cartridge)
     }
 }

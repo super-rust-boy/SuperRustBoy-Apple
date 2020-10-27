@@ -11,23 +11,10 @@ internal struct SNESView: View {
 
     internal let snes: SNES
 
-    @ObservedObject
-    var gameControllerManager: GameControllerManager
-
-    @State
-    private var showUI = true
+    internal let showUI: Bool
 
     internal var body: some View {
         VStack {
-
-            HStack {
-                Button(showUI ? "Hide UI" : "Show UI") { withAnimation { showUI.toggle() }}
-                ForEach(gameControllerManager.controllers, id: \.id) { controller in
-                    GameControllerIndicator(gameController: controller)
-                }
-            }
-
-            Spacer()
 
             Display(emulator: snes)
                 .aspectRatio(CGSize(width: 4, height: 3), contentMode: .fit)
@@ -149,7 +136,7 @@ struct SNESView_Previews: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            SNESView(snes: SNES(), gameControllerManager: GameControllerManager())
+            SNESView(snes: SNES(), showUI: true)
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
