@@ -34,12 +34,30 @@ struct SuperRustBoyWindow: View {
     private var showUI = true
 
     @State
+    private var mute = true {
+        didSet {
+            switch emulator {
+            case .rustboy(let instance):
+                instance.volume = mute ? 0 : 0.7
+
+            case .snes(let instance):
+                instance.volume = mute ? 0 : 0.7
+
+            case .none:
+                break
+            }
+        }
+    }
+
+    @State
     private var emulator: Emulator?
 
     var body: some View {
         VStack {
             HStack {
                 Button(showUI ? "Hide" : "Show") { withAnimation { showUI.toggle() }}
+                    .frame(width: 75)
+                Button(mute ? "Unmute" : "Mute") { withAnimation { mute.toggle() }}
                     .frame(width: 75)
                 ForEach(controllerManager.controllers, id: \.id) { controller in
                     GameControllerIndicator(gameController: controller)
@@ -72,6 +90,7 @@ struct SuperRustBoyWindow: View {
                         let rustboy = RustBoy()
                         controllerManager.receiver = rustboy
                         rustboy.cartridge = cart
+                        rustboy.volume = 0
                         _ = rustboy.boot()
                         emulator = .rustboy(rustboy)
 
@@ -79,6 +98,7 @@ struct SuperRustBoyWindow: View {
                         let snes = SNES()
                         controllerManager.receiver = snes
                         snes.cartridge = cart
+                        snes.volume = 0
                         _ = snes.boot()
                         emulator = .snes(snes)
 
