@@ -27,6 +27,7 @@ internal final class CoreSNES: CoreEmulator {
     internal required init?(cartridge: SNES.Cartridge, sampleRate: UInt32) {
         guard let coreRef = snesCreate(cartridge.path, cartridge.saveFilePath) else { return nil }
         self.coreRef = coreRef
+        self.audioHandle = AudioHandle(coreSNESRef: coreRef, sampleRate: sampleRate)
     }
 
     deinit {
@@ -50,8 +51,10 @@ internal final class CoreSNES: CoreEmulator {
     }
 
     internal func getAudioPacket(buffer: inout [Float]) {
-        // TODO
+        audioHandle.getAudioPacket(buffer: &buffer)
     }
+    
+    private let audioHandle: AudioHandle
 
     private let coreRef: UnsafeRawPointer
     private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
@@ -78,6 +81,23 @@ internal final class CoreSNES: CoreEmulator {
             intent:             CGColorRenderingIntent.saturation
         )
     }
+}
+
+private final class AudioHandle {
+
+    fileprivate init(coreSNESRef: UnsafeRawPointer, sampleRate: UInt32) {
+        coreAudioHandleRef = snesGetAudioHandle(coreSNESRef, sampleRate)
+    }
+
+    deinit {
+        snesDeleteAudioHandle(coreAudioHandleRef)
+    }
+
+    fileprivate func getAudioPacket(buffer: inout [Float]) {
+        snesGetAudioPacket(coreAudioHandleRef, &buffer, UInt32(buffer.count))
+    }
+
+    private let coreAudioHandleRef: UnsafeRawPointer
 }
 
 private extension snesButton {
