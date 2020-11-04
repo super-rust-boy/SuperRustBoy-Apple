@@ -72,7 +72,7 @@ extension Display: NSViewRepresentable {
 #else
 extension Display: UIViewRepresentable {
 	internal func makeUIView(context: Context) -> DisplayView { createDisplayView() }
-	internal func updateUIView(_ uiView: DisplayView, context: Context) {}
+	internal func updateUIView(_ uiView: DisplayView, context: Context) { emulator.display = uiView }
 }
 #endif
 
