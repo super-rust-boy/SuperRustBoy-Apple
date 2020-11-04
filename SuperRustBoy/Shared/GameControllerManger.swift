@@ -23,13 +23,6 @@ internal protocol KeyboardReceiver: AnyObject {
     func buttonUnpressed(_ button: GCKeyCode, playerIndex: Int)
 }
 
-internal protocol GameController: AnyObject {
-    var id: ObjectIdentifier { get }
-    var playerIndex: Int? { get }
-    var batteryLevel: Float? { get }
-    var kind: GameControllerType { get }
-}
-
 internal enum GameControllerType {
     case keyboard, controller
 }
@@ -38,13 +31,11 @@ internal final class GameControllerManager: ObservableObject {
 
     internal weak var receiver: (GameControllerReceiver & KeyboardReceiver)? {
         didSet {
-            internalControllers.forEach { $0.receiver = receiver }
+            controllers.forEach { $0.receiver = receiver }
         }
     }
 
-    internal var controllers: [GameController] { internalControllers }
-
-    private var internalControllers: [Controller] = [] {
+    internal private(set) var controllers: [Controller] = [] {
         didSet { objectWillChange.send() }
     }
 
@@ -55,7 +46,7 @@ internal final class GameControllerManager: ObservableObject {
             .compactMap { $0.object as? GCController }
             .sink { [weak self] controller in
                 guard let self = self else { return }
-                self.internalControllers.append(Controller(controller: controller, playerIndex: 1))
+                self.controllers.append(Controller(controller: controller, playerIndex: 1))
             }
             .store(in: &cancellables)
 
@@ -65,28 +56,48 @@ internal final class GameControllerManager: ObservableObject {
             .compactMap { $0.object as? GCKeyboard }
             .sink { [weak self] keyboard in
                 guard let self = self else { return }
-                self.internalControllers.append(Controller(keyboard: keyboard, playerIndex: 1))
+                self.controllers.append(Controller(keyboard: keyboard, playerIndex: 1))
             }
             .store(in: &cancellables)
-    }
-
-    internal func rotateIndex(for controller: GameController) {
-        if let controller = controller as? Controller {
-            controller.playerIndex = (controller.playerIndex ?? 0) + 1
-            objectWillChange.send()
-        }
     }
 
     private var cancellables = Set<AnyCancellable>()
 }
 
-fileprivate class Controller: GameController {
+internal class Controller: ObservableObject {
 
     var id: ObjectIdentifier {
         ObjectIdentifier(self)
     }
 
-    fileprivate var playerIndex: Int?
+    var playerIndex: Int {
+        didSet {
+            switch internalController {
+            case .controller(let controller):
+                switch playerIndex {
+                case 1:
+                    controller.playerIndex = .index1
+
+                case 2:
+                    controller.playerIndex = .index2
+
+                case 3:
+                    controller.playerIndex = .index3
+
+                case 4:
+                    controller.playerIndex = .index4
+
+                default:
+                    controller.playerIndex = .indexUnset
+                }
+
+            case .keyboard:
+                break
+            }
+
+            objectWillChange.send()
+        }
+    }
 
     var batteryLevel: Float? {
         switch internalController {

@@ -9,7 +9,8 @@ import SwiftUI
 
 internal struct GameControllerIndicator: View {
 
-    internal let gameController: GameController
+    @ObservedObject
+    internal var gameController: Controller
 
     internal var body: some View {
         HStack {
@@ -25,8 +26,9 @@ internal struct GameControllerIndicator: View {
             }
             .frame(width: 35, height: 35)
 
-            Text(gameController.playerIndex.map { String($0) } ?? "-" )
+            Text(String(gameController.playerIndex))
                 .foregroundColor(imageColor)
+                .font(.system(size: 14, design: .monospaced))
         }
     }
 
@@ -52,9 +54,7 @@ internal struct GameControllerIndicator: View {
     }
 
     private var imageColor: Color {
-        guard let index = gameController.playerIndex else { return .gray }
-
-        switch index {
+        switch gameController.playerIndex {
         case 1:
             return .blue
 
@@ -86,40 +86,40 @@ internal struct GameControllerIndicator: View {
     }
 }
 
-struct GameControllerIndicator_Previews: PreviewProvider {
-
-    class MockedGameController: GameController {
-        var id: ObjectIdentifier { ObjectIdentifier(self) }
-        let playerIndex: Int?
-        let batteryLevel: Float?
-        let kind: GameControllerType
-
-        var receiver: (GameControllerReceiver & KeyboardReceiver)?
-
-        init(playerIndex: Int?, batteryLevel: Float?, kind: GameControllerType) {
-            self.playerIndex = playerIndex
-            self.batteryLevel = batteryLevel
-            self.kind = kind
-        }
-    }
-
-    static var previews: some View {
-        VStack {
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 1, batteryLevel: nil, kind: .keyboard))
-                .padding()
-
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 2, batteryLevel: 0.1, kind: .controller))
-                .padding()
-
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 3, batteryLevel: 0.35, kind: .controller))
-                .padding()
-
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: 4, batteryLevel: 0.75, kind: .controller))
-                .padding()
-
-            GameControllerIndicator(gameController: MockedGameController(playerIndex: nil, batteryLevel: nil, kind: .keyboard))
-                .padding()
-        }
-        .previewLayout(.sizeThatFits)
-    }
-}
+//struct GameControllerIndicator_Previews: PreviewProvider {
+//
+//    class MockedGameController {
+//        var id: ObjectIdentifier { ObjectIdentifier(self) }
+//        var playerIndex: Int
+//        let batteryLevel: Float?
+//        let kind: GameControllerType
+//
+//        var receiver: (GameControllerReceiver & KeyboardReceiver)?
+//
+//        init(playerIndex: Int, batteryLevel: Float?, kind: GameControllerType) {
+//            self.playerIndex = playerIndex
+//            self.batteryLevel = batteryLevel
+//            self.kind = kind
+//        }
+//    }
+//
+//    static var previews: some View {
+//        VStack {
+//            GameControllerIndicator(gameController: MockedGameController(playerIndex: 1, batteryLevel: nil, kind: .keyboard))
+//                .padding()
+//
+//            GameControllerIndicator(gameController: MockedGameController(playerIndex: 2, batteryLevel: 0.1, kind: .controller))
+//                .padding()
+//
+//            GameControllerIndicator(gameController: MockedGameController(playerIndex: 3, batteryLevel: 0.35, kind: .controller))
+//                .padding()
+//
+//            GameControllerIndicator(gameController: MockedGameController(playerIndex: 4, batteryLevel: 0.75, kind: .controller))
+//                .padding()
+//
+//            GameControllerIndicator(gameController: MockedGameController(playerIndex: 0, batteryLevel: nil, kind: .keyboard))
+//                .padding()
+//        }
+//        .previewLayout(.sizeThatFits)
+//    }
+//}
