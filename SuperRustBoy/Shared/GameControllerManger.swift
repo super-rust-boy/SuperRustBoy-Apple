@@ -141,75 +141,75 @@ internal class Controller: ObservableObject {
         controller.extendedGamepad?.dpad.valueChangedHandler = { [self] (dpad, x, y) in
             switch x {
             case 1:
-                receiver?.buttonPressed(.right, playerIndex: playerIndex)
+                receiver?.buttonPressed(.right, playerIndex: self.playerIndex)
 
             case -1:
-                receiver?.buttonPressed(.left, playerIndex: playerIndex)
+                receiver?.buttonPressed(.left, playerIndex: self.playerIndex)
 
             default:
-                receiver?.buttonUnpressed(.right, playerIndex: playerIndex)
-                receiver?.buttonUnpressed(.left, playerIndex: playerIndex)
+                receiver?.buttonUnpressed(.right, playerIndex: self.playerIndex)
+                receiver?.buttonUnpressed(.left, playerIndex: self.playerIndex)
             }
 
             switch y {
             case 1:
-                receiver?.buttonPressed(.up, playerIndex: playerIndex)
+                receiver?.buttonPressed(.up, playerIndex: self.playerIndex)
 
             case -1:
-                receiver?.buttonPressed(.down, playerIndex: playerIndex)
+                receiver?.buttonPressed(.down, playerIndex: self.playerIndex)
 
             default:
-                receiver?.buttonUnpressed(.up, playerIndex: playerIndex)
-                receiver?.buttonUnpressed(.down, playerIndex: playerIndex)
+                receiver?.buttonUnpressed(.up, playerIndex: self.playerIndex)
+                receiver?.buttonUnpressed(.down, playerIndex: self.playerIndex)
             }
         }
 
         controller.extendedGamepad?.buttonA.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.a, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.a, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.a, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.a, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.buttonB.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.b, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.b, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.b, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.b, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.buttonX.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.x, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.x, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.x, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.x, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.buttonY.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.y, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.y, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.y, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.y, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.buttonMenu.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.menu, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.menu, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.menu, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.menu, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.buttonOptions?.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.options, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.options, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.options, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.options, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.leftShoulder.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.leftShoulder, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.leftShoulder, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.leftShoulder, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.leftShoulder, playerIndex: self.playerIndex)
         }
 
         controller.extendedGamepad?.rightShoulder.valueChangedHandler = { [self] (button, pressure, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(.rightShoulder, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(.rightShoulder, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(.rightShoulder, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(.rightShoulder, playerIndex: self.playerIndex)
         }
     }
 
@@ -219,8 +219,8 @@ internal class Controller: ObservableObject {
 
         keyboard.keyboardInput?.keyChangedHandler = { [self] (input, buttonInput, keyCode, isPressed) in
             isPressed
-                ? receiver?.buttonPressed(keyCode, playerIndex: playerIndex)
-                : receiver?.buttonUnpressed(keyCode, playerIndex: playerIndex)
+                ? receiver?.buttonPressed(keyCode, playerIndex: self.playerIndex)
+                : receiver?.buttonUnpressed(keyCode, playerIndex: self.playerIndex)
         }
     }
 }
