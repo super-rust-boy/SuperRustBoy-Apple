@@ -48,7 +48,7 @@ internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
     }
 
     internal final var volume: Float {
-        get { speaker?.volume ?? 0}
+        get { speaker?.volume ?? 0 }
         set { speaker?.volume = newValue }
     }
 
