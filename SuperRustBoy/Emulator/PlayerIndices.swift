@@ -8,33 +8,42 @@
 enum PlayerIndices {}
 
 extension PlayerIndices {
-    enum OnePlayer: Int, RawRepresentable {
-        case playerOne
-
-        init?(rawValue: Int) {
-            switch rawValue {
-            case 1:
-                self = .playerOne
-            default:
-                return nil
-            }
-        }
+    enum OnePlayer: Int {
+        case player1
     }
 
-    enum TwoPlayer: Int, RawRepresentable {
-        case playerOne, playerTwo
+    enum TwoPlayer: Int {
+        case player1, player2
+    }
 
-        init?(rawValue: Int) {
-            switch rawValue {
-            case 1:
-                self = .playerOne
+    enum FourPlayer: Int {
+        case player1, player2, player3, player4
+    }
+}
 
-            case 2:
-                self = .playerTwo
+extension PlayerIndices.OnePlayer {
+    init?(_ index: PlayerIndices.FourPlayer) {
+        switch index {
+        case .player1:
+            self = .player1
 
-            default:
-                return nil
-            }
+        case .player2, .player3, .player4:
+            return nil
+        }
+    }
+}
+
+extension PlayerIndices.TwoPlayer {
+    init?(_ index: PlayerIndices.FourPlayer) {
+        switch index {
+        case .player1:
+            self = .player1
+
+        case .player2:
+            self = .player2
+
+        case .player3, .player4:
+            return nil
         }
     }
 }

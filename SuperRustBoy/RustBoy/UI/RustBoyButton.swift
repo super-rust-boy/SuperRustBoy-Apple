@@ -18,8 +18,8 @@ internal struct RustBoyButton<ViewType>: View where ViewType: View {
         EmulatorButton(
             content: content,
             button: type,
-            onTouchDown: rustBoy.buttonPressed,
-            onTouchUp: rustBoy.buttonUnpressed
+            onTouchDown: { rustBoy.buttonPressed($0, playerIndex: .player1) },
+            onTouchUp: { rustBoy.buttonUnpressed($0, playerIndex: .player1) }
         )
 	}
 }

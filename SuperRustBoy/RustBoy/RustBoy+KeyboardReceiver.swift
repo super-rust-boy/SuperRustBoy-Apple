@@ -8,14 +8,14 @@
 import GameController
 
 extension RustBoy: KeyboardReceiver {
-    func buttonPressed(_ button: GCKeyCode, playerIndex: Int) {
-        if let button = RustBoy.Button(button), let playerIndex = PlayerIndices.OnePlayer(rawValue: playerIndex) {
+    func buttonPressed(_ button: GCKeyCode, playerIndex: PlayerIndices.FourPlayer) {
+        if let button = RustBoy.Button(button), let playerIndex = PlayerIndices.OnePlayer(playerIndex) {
             buttonPressed(button, playerIndex: playerIndex)
         }
     }
 
-    func buttonUnpressed(_ button: GCKeyCode, playerIndex: Int) {
-        if let button = RustBoy.Button(button), let playerIndex = PlayerIndices.OnePlayer(rawValue: playerIndex) {
+    func buttonUnpressed(_ button: GCKeyCode, playerIndex: PlayerIndices.FourPlayer) {
+        if let button = RustBoy.Button(button), let playerIndex = PlayerIndices.OnePlayer(playerIndex) {
             buttonUnpressed(button, playerIndex: playerIndex)
         }
     }

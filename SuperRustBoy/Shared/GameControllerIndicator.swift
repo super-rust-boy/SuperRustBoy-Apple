@@ -20,17 +20,19 @@ internal struct GameControllerIndicator: View {
                 if let batteryLevel = gameController.batteryLevel {
                     ProgressView(value: batteryLevel)
                         .accentColor(batteryIndicatorColor)
-                        .border(imageColor, width: 0.5)
+                        .border(iconColor, width: 0.5)
                         .padding(5)
                 }
             }
             .frame(width: 35, height: 35)
 
-            Text(String(gameController.playerIndex))
-                .foregroundColor(imageColor)
+            Text(String(gameController.playerIndex.rawValue))
+                .foregroundColor(iconColor)
                 .font(.system(size: 14, design: .monospaced))
         }
     }
+
+    private var iconColor: Color { Color(gameController.color) }
 
     private var batteryIndicatorColor: Color {
 
@@ -53,35 +55,16 @@ internal struct GameControllerIndicator: View {
         }
     }
 
-    private var imageColor: Color {
-        switch gameController.playerIndex {
-        case 1:
-            return .blue
-
-        case 2:
-            return .green
-
-        case 3:
-            return .purple
-
-        case 4:
-            return .yellow
-
-        default:
-            return .gray
-        }
-    }
-
     @ViewBuilder
     private var image: some View {
         switch gameController.kind {
         case .controller:
             Image(systemName: "gamecontroller")
-                .foregroundColor(imageColor)
+                .foregroundColor(iconColor)
 
         case .keyboard:
             Image(systemName: "keyboard")
-                .foregroundColor(imageColor)
+                .foregroundColor(iconColor)
         }
     }
 }

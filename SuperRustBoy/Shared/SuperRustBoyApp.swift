@@ -58,8 +58,8 @@ struct SuperRustBoyWindow: View {
                     .frame(width: 75)
                 ForEach(controllerManager.controllers, id: \.id) { controller in
                     Menu {
-                        Button("Player 1") { controller.playerIndex = 1 }
-                        Button("Player 2") { controller.playerIndex = 2 }
+                        Button("Player 1") { controller.playerIndex = .player1 }
+                        Button("Player 2") { controller.playerIndex = .player2 }
                     } label: {
                         GameControllerIndicator(gameController: controller)
                     }

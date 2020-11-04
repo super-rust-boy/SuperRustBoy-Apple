@@ -6,14 +6,14 @@
 //
 
 extension SNES: GameControllerReceiver {
-    func buttonPressed(_ button: GameControllerButton, playerIndex: Int) {
-        if let playerIndex = PlayerIndices.TwoPlayer(rawValue: playerIndex) {
+    func buttonPressed(_ button: GameControllerButton, playerIndex: PlayerIndices.FourPlayer) {
+        if let playerIndex = PlayerIndices.TwoPlayer(playerIndex) {
             buttonPressed(SNES.Button(button), playerIndex: playerIndex)
         }
     }
 
-    func buttonUnpressed(_ button: GameControllerButton, playerIndex: Int) {
-        if let playerIndex = PlayerIndices.TwoPlayer(rawValue: playerIndex) {
+    func buttonUnpressed(_ button: GameControllerButton, playerIndex: PlayerIndices.FourPlayer) {
+        if let playerIndex = PlayerIndices.TwoPlayer(playerIndex) {
             buttonUnpressed(SNES.Button(button), playerIndex: playerIndex)
         }
     }

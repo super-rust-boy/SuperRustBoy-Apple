@@ -14,13 +14,13 @@ internal enum GameControllerButton {
 }
 
 internal protocol GameControllerReceiver: AnyObject {
-    func buttonPressed(_ button: GameControllerButton, playerIndex: Int)
-    func buttonUnpressed(_ button: GameControllerButton, playerIndex: Int)
+    func buttonPressed(_ button: GameControllerButton, playerIndex: PlayerIndices.FourPlayer)
+    func buttonUnpressed(_ button: GameControllerButton, playerIndex: PlayerIndices.FourPlayer)
 }
 
 internal protocol KeyboardReceiver: AnyObject {
-    func buttonPressed(_ button: GCKeyCode, playerIndex: Int)
-    func buttonUnpressed(_ button: GCKeyCode, playerIndex: Int)
+    func buttonPressed(_ button: GCKeyCode, playerIndex: PlayerIndices.FourPlayer)
+    func buttonUnpressed(_ button: GCKeyCode, playerIndex: PlayerIndices.FourPlayer)
 }
 
 internal enum GameControllerType {
@@ -46,7 +46,7 @@ internal final class GameControllerManager: ObservableObject {
             .compactMap { $0.object as? GCController }
             .sink { [weak self] controller in
                 guard let self = self else { return }
-                self.controllers.append(Controller(controller: controller, playerIndex: 1))
+                self.controllers.append(Controller(controller: controller, playerIndex: .player1))
             }
             .store(in: &cancellables)
 
@@ -56,7 +56,7 @@ internal final class GameControllerManager: ObservableObject {
             .compactMap { $0.object as? GCKeyboard }
             .sink { [weak self] keyboard in
                 guard let self = self else { return }
-                self.controllers.append(Controller(keyboard: keyboard, playerIndex: 1))
+                self.controllers.append(Controller(keyboard: keyboard, playerIndex: .player1))
             }
             .store(in: &cancellables)
     }
@@ -70,26 +70,18 @@ internal class Controller: ObservableObject {
         ObjectIdentifier(self)
     }
 
-    var playerIndex: Int {
+    var playerIndex: PlayerIndices.FourPlayer {
         didSet {
             switch internalController {
             case .controller(let controller):
-                switch playerIndex {
-                case 1:
-                    controller.playerIndex = .index1
+                controller.playerIndex = GCControllerPlayerIndex(playerIndex)
 
-                case 2:
-                    controller.playerIndex = .index2
+                var red: CGFloat = 0
+                var green: CGFloat = 0
+                var blue: CGFloat = 0
 
-                case 3:
-                    controller.playerIndex = .index3
-
-                case 4:
-                    controller.playerIndex = .index4
-
-                default:
-                    controller.playerIndex = .indexUnset
-                }
+                color.getRed(&red, green: &green, blue: &blue, alpha: nil)
+                controller.light?.color = GCColor(red: Float(red), green: Float(green), blue: Float(blue))
 
             case .keyboard:
                 break
@@ -105,6 +97,22 @@ internal class Controller: ObservableObject {
             return controller.battery?.batteryLevel
         case .keyboard:
             return nil
+        }
+    }
+
+    var color: UIColor {
+        switch playerIndex {
+        case .player1:
+            return .green
+
+        case .player2:
+            return .yellow
+
+        case .player3:
+            return .purple
+
+        case .player4:
+            return .cyan
         }
     }
 
@@ -126,7 +134,7 @@ internal class Controller: ObservableObject {
         case controller(GCController)
     }
 
-    init(controller: GCController, playerIndex: Int) {
+    init(controller: GCController, playerIndex: PlayerIndices.FourPlayer) {
         self.internalController = .controller(controller)
         self.playerIndex = playerIndex
 
@@ -205,7 +213,7 @@ internal class Controller: ObservableObject {
         }
     }
 
-    init(keyboard: GCKeyboard, playerIndex: Int) {
+    init(keyboard: GCKeyboard, playerIndex: PlayerIndices.FourPlayer) {
         self.internalController = .keyboard(keyboard)
         self.playerIndex = playerIndex
 
@@ -213,6 +221,21 @@ internal class Controller: ObservableObject {
             isPressed
                 ? receiver?.buttonPressed(keyCode, playerIndex: playerIndex)
                 : receiver?.buttonUnpressed(keyCode, playerIndex: playerIndex)
+        }
+    }
+}
+
+private extension GCControllerPlayerIndex {
+    init(_ index: PlayerIndices.FourPlayer) {
+        switch index {
+        case .player1:
+            self = .index1
+        case .player2:
+            self = .index2
+        case .player3:
+            self = .index3
+        case .player4:
+            self = .index4
         }
     }
 }
