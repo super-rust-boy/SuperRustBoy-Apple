@@ -47,3 +47,14 @@ extension PlayerIndices.TwoPlayer {
         }
     }
 }
+
+extension PlayerIndices.FourPlayer: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .player1: return "1"
+        case .player2: return "2"
+        case .player3: return "3"
+        case .player4: return "4"
+        }
+    }
+}

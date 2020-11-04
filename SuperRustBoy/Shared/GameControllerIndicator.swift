@@ -26,7 +26,7 @@ internal struct GameControllerIndicator: View {
             }
             .frame(width: 35, height: 35)
 
-            Text(String(gameController.playerIndex.rawValue))
+            Text(gameController.playerIndex.description)
                 .foregroundColor(iconColor)
                 .font(.system(size: 14, design: .monospaced))
         }
