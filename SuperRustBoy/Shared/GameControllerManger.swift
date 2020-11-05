@@ -74,15 +74,7 @@ internal class Controller: ObservableObject {
         didSet {
             switch internalController {
             case .controller(let controller):
-                controller.playerIndex = GCControllerPlayerIndex(playerIndex)
-
-                var red: CGFloat = 0
-                var green: CGFloat = 0
-                var blue: CGFloat = 0
-
-                color.getRed(&red, green: &green, blue: &blue, alpha: nil)
-                controller.light?.color = GCColor(red: Float(red), green: Float(green), blue: Float(blue))
-
+                updateController(controller)
             case .keyboard:
                 break
             }
@@ -137,6 +129,8 @@ internal class Controller: ObservableObject {
     init(controller: GCController, playerIndex: PlayerIndices.FourPlayer) {
         self.internalController = .controller(controller)
         self.playerIndex = playerIndex
+
+        updateController(controller)
 
         controller.extendedGamepad?.dpad.valueChangedHandler = { [self] (dpad, x, y) in
             switch x {
@@ -222,6 +216,17 @@ internal class Controller: ObservableObject {
                 ? receiver?.buttonPressed(keyCode, playerIndex: self.playerIndex)
                 : receiver?.buttonUnpressed(keyCode, playerIndex: self.playerIndex)
         }
+    }
+
+    private func updateController(_ controller: GCController) {
+        controller.playerIndex = GCControllerPlayerIndex(playerIndex)
+
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+
+        color.getRed(&red, green: &green, blue: &blue, alpha: nil)
+        controller.light?.color = GCColor(red: Float(red), green: Float(green), blue: Float(blue))
     }
 }
 
