@@ -119,9 +119,9 @@ internal class Controller: ObservableObject {
 
     weak var receiver: (GameControllerReceiver & KeyboardReceiver)?
 
-    private let internalController: IternalGameControllerType
+    private let internalController: InternalGameControllerType
 
-    internal enum IternalGameControllerType {
+    internal enum InternalGameControllerType {
         case keyboard(GCKeyboard)
         case controller(GCController)
     }
