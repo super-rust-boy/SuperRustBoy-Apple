@@ -8,11 +8,53 @@
 enum PlayerIndices {}
 
 extension PlayerIndices {
-    enum OnePlayer: UInt32 {
-        case playerOne
+    enum OnePlayer: Int {
+        case player1
     }
 
-    enum TwoPlayer: UInt32 {
-        case playerOne, playerTwo
+    enum TwoPlayer: Int {
+        case player1, player2
+    }
+
+    enum FourPlayer: Int {
+        case player1, player2, player3, player4
+    }
+}
+
+extension PlayerIndices.OnePlayer {
+    init?(_ index: PlayerIndices.FourPlayer) {
+        switch index {
+        case .player1:
+            self = .player1
+
+        case .player2, .player3, .player4:
+            return nil
+        }
+    }
+}
+
+extension PlayerIndices.TwoPlayer {
+    init?(_ index: PlayerIndices.FourPlayer) {
+        switch index {
+        case .player1:
+            self = .player1
+
+        case .player2:
+            self = .player2
+
+        case .player3, .player4:
+            return nil
+        }
+    }
+}
+
+extension PlayerIndices.FourPlayer: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .player1: return "1"
+        case .player2: return "2"
+        case .player3: return "3"
+        case .player4: return "4"
+        }
     }
 }

@@ -8,15 +8,15 @@
 import GameController
 
 extension SNES: KeyboardReceiver {
-    func buttonPressed(_ button: GCKeyCode) {
-        if let button = SNES.Button(button) {
-            buttonPressed(button, playerIndex: .playerOne)
+    func buttonPressed(_ button: GCKeyCode, playerIndex: PlayerIndices.FourPlayer) {
+        if let button = SNES.Button(button), let playerIndex = PlayerIndices.TwoPlayer(playerIndex) {
+            buttonPressed(button, playerIndex: playerIndex)
         }
     }
 
-    func buttonUnpressed(_ button: GCKeyCode) {
-        if let button = SNES.Button(button) {
-            buttonUnpressed(button, playerIndex: .playerOne)
+    func buttonUnpressed(_ button: GCKeyCode, playerIndex: PlayerIndices.FourPlayer) {
+        if let button = SNES.Button(button), let playerIndex = PlayerIndices.TwoPlayer(playerIndex) {
+            buttonUnpressed(button, playerIndex: playerIndex)
         }
     }
 }

@@ -9,12 +9,12 @@
 import SwiftUI
 
 #if os(OSX)
-internal typealias ViewType = NSImageView
+internal typealias ImageView = NSImageView
 #else
-internal typealias ViewType = UIImageView
+internal typealias ImageView = UIImageView
 #endif
 
-internal class DisplayView: ViewType {}
+internal class DisplayView: ImageView {}
 
 internal struct Display {
     internal let emulator: Emulator
@@ -72,7 +72,7 @@ extension Display: NSViewRepresentable {
 #else
 extension Display: UIViewRepresentable {
 	internal func makeUIView(context: Context) -> DisplayView { createDisplayView() }
-	internal func updateUIView(_ uiView: DisplayView, context: Context) {}
+	internal func updateUIView(_ uiView: DisplayView, context: Context) { emulator.display = uiView }
 }
 #endif
 

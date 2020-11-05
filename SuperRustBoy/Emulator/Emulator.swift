@@ -47,6 +47,11 @@ internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
         }
     }
 
+    internal final var volume: Float {
+        get { speaker?.volume ?? 0 }
+        set { speaker?.volume = newValue }
+    }
+
     internal final var autoBoot = false
 
     internal weak final var display: EmulatorDisplay?
@@ -100,11 +105,11 @@ internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
 
 extension BaseEmulator where CoreEmu.PlayerIndexType == PlayerIndices.OnePlayer {
     func buttonPressed(_ button: CoreEmu.Button) {
-        buttonPressed(button, playerIndex: .playerOne)
+        buttonPressed(button, playerIndex: .player1)
     }
 
     func buttonUnpressed(_ button: CoreEmu.Button) {
-        buttonUnpressed(button, playerIndex: .playerOne)
+        buttonUnpressed(button, playerIndex: .player1)
     }
 }
 

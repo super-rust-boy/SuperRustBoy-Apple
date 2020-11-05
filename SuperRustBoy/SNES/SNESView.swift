@@ -11,42 +11,45 @@ internal struct SNESView: View {
 
     internal let snes: SNES
 
+    internal let showUI: Bool
+
     internal var body: some View {
         VStack {
-            Spacer()
 
             Display(emulator: snes)
                 .aspectRatio(CGSize(width: 4, height: 3), contentMode: .fit)
 
             Spacer()
 
-            VStack {
-                HStack {
-                    DPad { direction in
-                        snes.buttonPressed(SNES.Button(direction), playerIndex: .playerOne)
-                    } onTouchUp: { direction in
-                        snes.buttonUnpressed(SNES.Button(direction), playerIndex: .playerOne)
+            if showUI {
+                VStack {
+                    HStack {
+                        DPad { direction in
+                            snes.buttonPressed(SNES.Button(direction), playerIndex: .player1)
+                        } onTouchUp: { direction in
+                            snes.buttonUnpressed(SNES.Button(direction), playerIndex: .player1)
+                        }
+
+                        ActionButtons(snes: snes)
                     }
+                    .frame(height: 200)
+                    .padding()
 
-                    ActionButtons(snes: snes)
-                }
-                .frame(height: 200)
-                .padding()
+                    HStack {
+                        EmulatorButton(
+                            content: OptionButton(text: "Start"),
+                            button: .start,
+                            onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
+                            onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
+                        )
 
-                HStack {
-                    EmulatorButton(
-                        content: OptionButton(text: "Start"),
-                        button: .start,
-                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
-                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
-                    )
-
-                    EmulatorButton(
-                        content: OptionButton(text: "Select"),
-                        button: .select,
-                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
-                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
-                    )
+                        EmulatorButton(
+                            content: OptionButton(text: "Select"),
+                            button: .select,
+                            onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
+                            onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
+                        )
+                    }
                 }
             }
         }
@@ -62,31 +65,31 @@ internal struct SNESView: View {
             HStack {
                 EmulatorButton(
                     content: RoundButton(text: "Y", color: .green), button: .y,
-                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
-                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
+                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
                 )
                 .frame(width: size, height: size)
 
                 VStack {
                     EmulatorButton(
                         content: RoundButton(text: "X", color: .blue), button: .x,
-                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
-                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
+                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
                     )
                     .frame(width: size, height: size)
 
                     EmulatorButton(
                         content: RoundButton(text: "B", color: .yellow), button: .b,
-                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
-                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
+                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
                     )
                     .frame(width: size, height: size)
                 }
 
                 EmulatorButton(
                     content: RoundButton(text: "A", color: .red), button: .a,
-                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .playerOne) },
-                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .playerOne) }
+                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
+                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
                 )
                 .frame(width: size, height: size)
             }
@@ -133,7 +136,7 @@ struct SNESView_Previews: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            SNESView(snes: SNES())
+            SNESView(snes: SNES(), showUI: true)
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

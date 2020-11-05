@@ -6,53 +6,102 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 @main
 struct SuperRustBoyApp: App {
+
+    var body: some Scene {
+        WindowGroup {
+            SuperRustBoyWindow()
+        }
+    }
+}
+
+struct SuperRustBoyWindow: View {
 
     @StateObject
     private var controllerManager = GameControllerManager()
 
     @State
-    private var filePickerOpen = false
+    private var showUI = true
 
     @State
-    private var romURL: URL?
+    private var mute = true {
+        didSet {
+            switch emulator {
+            case .rustboy(let instance):
+                instance.volume = mute ? 0 : 0.7
 
-    var body: some Scene {
-        WindowGroup { () -> AnyView in
-            if let romURL = romURL, romURL.startAccessingSecurityScopedResource() {
-                switch romURL.pathExtension {
-                case "sfc", "smc":
-                    let snes = SNES()
-                    snes.autoBoot = true
-                    snes.cartridge = SNES.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
+            case .snes(let instance):
+                instance.volume = mute ? 0 : 0.7
 
-                    // TODO: This won't work if controllers are attached at a later point in time
-                    controllerManager.controllers.forEach { controller in
-                        controller.receiver = snes
+            case .none:
+                break
+            }
+        }
+    }
+
+    @State
+    private var emulator: Models.Emulator?
+
+    @State
+    private var filePickerOpen = false
+
+    var body: some View {
+        VStack {
+            HStack {
+                Button("Open", action: { filePickerOpen = true })
+                Button(showUI ? "Hide" : "Show") { withAnimation { showUI.toggle() }}
+                    .frame(width: 75)
+                Button(mute ? "Unmute" : "Mute") { withAnimation { mute.toggle() }}
+                    .frame(width: 75)
+                ForEach(controllerManager.controllers, id: \.id) { controller in
+                    Menu {
+                        Button("Player 1") { controller.playerIndex = .player1 }
+                        Button("Player 2") { controller.playerIndex = .player2 }
+                    } label: {
+                        GameControllerIndicator(gameController: controller)
                     }
-
-                    return AnyView(SNESView(snes: snes))
-
-                case "gb", "gbc":
-                    let rustboy = RustBoy()
-                    rustboy.autoBoot = true
-                    rustboy.cartridge = RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL))
-
-                    // TODO: This won't work if controllers are attached at a later point in time
-                    controllerManager.controllers.forEach { controller in
-                        controller.receiver = rustboy
-                    }
-
-                    return AnyView(RustBoyView(rustBoy: rustboy))
-
-                default:
-                    break
                 }
             }
 
-            return AnyView(OpenRomPage(romURL: $romURL))
+            Spacer()
+
+            switch emulator {
+            case .rustboy(let rustboy):
+                RustBoyView(rustBoy: rustboy, showUI: showUI)
+
+            case .snes(let snes):
+                SNESView(snes: snes, showUI: showUI)
+
+            default:
+                EmptyView()
+            }
+
+            Spacer()
+        }
+        .fileImporter(isPresented: $filePickerOpen, allowedContentTypes: [UTType.item]) { urlResult in
+
+            guard let romURL = try? urlResult.get() else { return }
+
+            romURL.startAccessingSecurityScopedResource()
+            let cartridge: Models.Cartridge?
+
+            switch romURL.pathExtension {
+            case "sfc", "smc":
+                cartridge = Models.Cartridge.snes(SNES.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
+
+            case "gb", "gbc":
+                cartridge = Models.Cartridge.rustboy(RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
+
+            default:
+                cartridge = nil
+            }
+
+            print("Setting emulator")
+            emulator = cartridge.flatMap(Models.Emulator.init)
+            controllerManager.receiver = emulator?.receiver
         }
     }
 
