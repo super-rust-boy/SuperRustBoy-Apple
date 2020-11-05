@@ -13,6 +13,8 @@ internal struct RustBoyView: View {
 
     internal let rustBoy: RustBoy
 
+    internal let showUI: Bool
+
     private static let columns = [
         GridItem(.flexible(minimum: 50)),
         GridItem(.fixed(100)),
@@ -29,41 +31,43 @@ internal struct RustBoyView: View {
 
             Spacer()
 
-            HStack {
-                DPad { direction in
-                    rustBoy.buttonPressed(RustBoy.Button(direction))
-                } onTouchUp: { direction in
-                    rustBoy.buttonUnpressed(RustBoy.Button(direction))
-                }
-                .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
-                .padding()
-
-                Spacer()
-
+            if showUI {
                 HStack {
-                    RustBoyButton(type: .b, rustBoy: rustBoy, content: RoundButton(text: "B"))
-                        .frame(maxHeight: Self.elementSize)
-                    RustBoyButton(type: .a, rustBoy: rustBoy, content: RoundButton(text: "A"))
-                        .frame(maxHeight: Self.elementSize)
-                }
-                .frame(maxWidth: Self.elementSizeTimesTwo)
-                .padding()
-            }
-            .padding(.bottom, 75)
-
-            LazyVGrid(columns: Self.columns) {
-                Spacer()
-
-                VStack {
-                    Spacer()
-                    HStack {
-                        OptionButton(rustBoy: rustBoy, buttonType: .select, title: "Select")
-                        OptionButton(rustBoy: rustBoy, buttonType: .start, title: "Start")
+                    DPad { direction in
+                        rustBoy.buttonPressed(RustBoy.Button(direction))
+                    } onTouchUp: { direction in
+                        rustBoy.buttonUnpressed(RustBoy.Button(direction))
                     }
-                }
-                .padding()
+                    .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
+                    .padding()
 
-                Spacer()
+                    Spacer()
+
+                    HStack {
+                        RustBoyButton(type: .b, rustBoy: rustBoy, content: RoundButton(text: "B"))
+                            .frame(maxHeight: Self.elementSize)
+                        RustBoyButton(type: .a, rustBoy: rustBoy, content: RoundButton(text: "A"))
+                            .frame(maxHeight: Self.elementSize)
+                    }
+                    .frame(maxWidth: Self.elementSizeTimesTwo)
+                    .padding()
+                }
+                .padding(.bottom, 75)
+
+                LazyVGrid(columns: Self.columns) {
+                    Spacer()
+
+                    VStack {
+                        Spacer()
+                        HStack {
+                            OptionButton(rustBoy: rustBoy, buttonType: .select, title: "Select")
+                            OptionButton(rustBoy: rustBoy, buttonType: .start, title: "Start")
+                        }
+                    }
+                    .padding()
+
+                    Spacer()
+                }
             }
         }
     }
@@ -112,7 +116,7 @@ struct RustBoyView_Preview: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            RustBoyView(rustBoy: RustBoy())
+            RustBoyView(rustBoy: RustBoy(), showUI: true)
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

@@ -70,7 +70,7 @@ struct SuperRustBoyWindow: View {
 
             switch emulator {
             case .rustboy(let rustboy):
-                RustBoyView(rustBoy: rustboy)
+                RustBoyView(rustBoy: rustboy, showUI: showUI)
 
             case .snes(let snes):
                 SNESView(snes: snes, showUI: showUI)
