@@ -36,7 +36,10 @@ internal final class GameControllerManager: ObservableObject {
     }
 
     internal private(set) var controllers: [Controller] = [] {
-        didSet { objectWillChange.send() }
+        didSet {
+            controllers.forEach { $0.receiver = receiver }
+            objectWillChange.send()
+        }
     }
 
     internal init() {
@@ -57,6 +60,42 @@ internal final class GameControllerManager: ObservableObject {
             .sink { [weak self] keyboard in
                 guard let self = self else { return }
                 self.controllers.append(Controller(keyboard: keyboard, playerIndex: .player1))
+            }
+            .store(in: &cancellables)
+
+        NotificationCenter
+            .default
+            .publisher(for: .GCControllerDidDisconnect)
+            .compactMap { $0.object as? GCController }
+            .sink { [weak self] removedController in
+                guard let self = self else { return }
+                self.controllers.removeAll(where: { controller in
+                    switch controller.internalController {
+                    case .controller(let internalController):
+                        return internalController === removedController
+
+                    case .keyboard:
+                        return false
+                    }
+                })
+            }
+            .store(in: &cancellables)
+
+        NotificationCenter
+            .default
+            .publisher(for: .GCKeyboardDidDisconnect)
+            .compactMap { $0.object as? GCKeyboard }
+            .sink { [weak self] removedKeyboard in
+                guard let self = self else { return }
+                self.controllers.removeAll(where: { controller in
+                    switch controller.internalController {
+                    case .keyboard(let internalKeyboard):
+                        return internalKeyboard === removedKeyboard
+
+                    case .controller:
+                        return false
+                    }
+                })
             }
             .store(in: &cancellables)
     }
@@ -119,7 +158,7 @@ internal class Controller: ObservableObject {
 
     weak var receiver: (GameControllerReceiver & KeyboardReceiver)?
 
-    private let internalController: InternalGameControllerType
+    fileprivate let internalController: InternalGameControllerType
 
     internal enum InternalGameControllerType {
         case keyboard(GCKeyboard)
