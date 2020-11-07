@@ -18,4 +18,4 @@ jobs:
         target: x86_64-apple-ios
 
     - name: Build
-      run: xcodebuild -workspace SuperRustBoy.xcworkspace -scheme SuperRustBoy-iOS -destination platform="iOS Simulator",name="iPhone 8"
+      run: xcodebuild -workspace SuperRustBoy.xcworkspace -scheme iOS -destination platform="iOS Simulator",name="iPhone 8"
