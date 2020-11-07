@@ -23,7 +23,7 @@ struct SuperRustBoyWindow: View {
     @StateObject
     private var controllerManager = GameControllerManager()
 
-    @State
+    @AppStorage("showOnScreenControls")
     private var showUI = true
 
     @State
