@@ -24,31 +24,20 @@ internal struct SNESView: View {
             if showUI {
                 VStack {
                     HStack {
-                        DPad { direction in
-                            snes.buttonPressed(SNES.Button(direction), playerIndex: .player1)
-                        } onTouchUp: { direction in
-                            snes.buttonUnpressed(SNES.Button(direction), playerIndex: .player1)
-                        }
-
+                        DPad(emulator: snes, index: .player1, direction: SNES.Button.init)
                         ActionButtons(snes: snes)
                     }
                     .frame(height: 200)
                     .padding()
 
                     HStack {
-                        EmulatorButton(
-                            content: OptionButton(text: "Start"),
-                            button: .start,
-                            onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
-                            onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
-                        )
+                        EmulatorButton(emulator: snes, button: .start, index: .player1) {
+                            OptionButton(text: "Start")
+                        }
 
-                        EmulatorButton(
-                            content: OptionButton(text: "Select"),
-                            button: .select,
-                            onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
-                            onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
-                        )
+                        EmulatorButton(emulator: snes, button: .select, index: .player1) {
+                            OptionButton(text: "Select")
+                        }
                     }
                 }
             }
@@ -63,34 +52,27 @@ internal struct SNESView: View {
 
         var body: some View {
             HStack {
-                EmulatorButton(
-                    content: RoundButton(text: "Y", color: .green), button: .y,
-                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
-                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
-                )
+
+                EmulatorButton(emulator: snes, button: .y, index: .player1) {
+                    RoundButton(text: "Y", color: .green)
+                }
                 .frame(width: size, height: size)
 
                 VStack {
-                    EmulatorButton(
-                        content: RoundButton(text: "X", color: .blue), button: .x,
-                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
-                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
-                    )
+                    EmulatorButton(emulator: snes, button: .x, index: .player1) {
+                        RoundButton(text: "X", color: .blue)
+                    }
                     .frame(width: size, height: size)
 
-                    EmulatorButton(
-                        content: RoundButton(text: "B", color: .yellow), button: .b,
-                        onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
-                        onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
-                    )
+                    EmulatorButton(emulator: snes, button: .b, index: .player1) {
+                        RoundButton(text: "B", color: .yellow)
+                    }
                     .frame(width: size, height: size)
                 }
 
-                EmulatorButton(
-                    content: RoundButton(text: "A", color: .red), button: .a,
-                    onTouchDown: { button in snes.buttonPressed(button, playerIndex: .player1) },
-                    onTouchUp: { button in snes.buttonUnpressed(button, playerIndex: .player1) }
-                )
+                EmulatorButton(emulator: snes, button: .a, index: .player1) {
+                    RoundButton(text: "A", color: .red)
+                }
                 .frame(width: size, height: size)
             }
         }
@@ -112,7 +94,7 @@ internal struct SNESView: View {
 }
 
 private extension SNES.Button {
-    init(_ direction: DPad.Direction) {
+    init(_ direction: DPad<CoreSNES, SNES>.Direction) {
         switch direction {
         case .left:
             self = .left

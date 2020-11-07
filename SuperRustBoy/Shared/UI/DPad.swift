@@ -8,35 +8,36 @@
 
 import SwiftUI
 
-internal struct DPad: View {
+internal struct DPad<CoreEmulator, Emulator: BaseEmulator<CoreEmulator>>: View {
 
-    enum Direction {
+    internal enum Direction {
         case left, up, right, down
     }
 
-    internal let onTouchDown: (Direction) -> Void
-    internal let onTouchUp: (Direction) -> Void
+    internal let emulator: Emulator
+    internal let index: CoreEmulator.PlayerIndexType
+    internal let direction: (Direction) -> CoreEmulator.Button
 
 	internal var body: some View {
 
 		GeometryReader { geometry in
 			ZStack {
                 HalfPad(
-                    firstButtonType: .left,
-                    secondButtonType: .right,
-                    onTouchDown: onTouchDown,
-                    onTouchUp: onTouchUp
+                    emulator: emulator,
+                    firstButtonType: direction(.left),
+                    secondButtonType: direction(.right),
+                    index: index
                 )
                 .frame(height: min(geometry.size.height, geometry.size.width) / 3)
 
                 HalfPad(
-                    firstButtonType: .up,
-                    secondButtonType: .down,
-                    onTouchDown: onTouchDown,
-                    onTouchUp: onTouchUp
+                    emulator: emulator,
+                    firstButtonType: direction(.up),
+                    secondButtonType: direction(.down),
+                    index: index
                 )
                 .frame(height: min(geometry.size.height, geometry.size.width) / 3)
-					.rotationEffect(.degrees(90))
+                .rotationEffect(.degrees(90))
 			}
             .frame(
                 width:	min(geometry.size.height, geometry.size.width),
@@ -47,29 +48,22 @@ internal struct DPad: View {
 
 }
 
-fileprivate struct HalfPad<Button>: View {
+fileprivate struct HalfPad<CoreEmulator, Emulator: BaseEmulator<CoreEmulator>>: View {
 
-	fileprivate let firstButtonType: Button
-    fileprivate let secondButtonType: Button
-
-    fileprivate let onTouchDown: (Button) -> Void
-    fileprivate let onTouchUp: (Button) -> Void
+    fileprivate let emulator: Emulator
+    fileprivate let firstButtonType: CoreEmulator.Button
+    fileprivate let secondButtonType: CoreEmulator.Button
+    fileprivate let index: CoreEmulator.PlayerIndexType
 
 	fileprivate var body: some View {
 		HStack {
-            EmulatorButton(
-                content: Arrow(),
-                button: firstButtonType,
-                onTouchDown: onTouchDown,
-                onTouchUp: onTouchUp
-            )
+            EmulatorButton(emulator: emulator, button: firstButtonType, index: index) {
+                Arrow()
+            }
 
-            EmulatorButton(
-                content: Arrow(),
-                button: secondButtonType,
-                onTouchDown: onTouchDown,
-                onTouchUp: onTouchUp
-            )
+            EmulatorButton(emulator: emulator, button: secondButtonType, index: index) {
+                Arrow()
+            }
             .rotationEffect(.degrees(180))
 		}
 	}
