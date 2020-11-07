@@ -32,12 +32,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXContainerItemProxy section */
-		59477F6B24D3269000B49745 /* PBXContainerItemProxy */ = {
+		59269AAD2556DEAB00C56779 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA604676FE590547AC6FC57F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CA60A4F02F6CB0207B02AB73;
-			remoteInfo = Cargo;
+			remoteGlobalIDString = 59477F6424D3267000B49745;
+			remoteInfo = "Cargo-iOS";
 		};
 		CA60FAE0CCCBA9F0C9DA18EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -114,7 +114,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				59477F6A24D3269000B49745 /* PBXTargetDependency */,
+				59269AAE2556DEAB00C56779 /* PBXTargetDependency */,
 			);
 			name = snes_c_binding;
 			productName = libsnes_c_binding.a;
@@ -258,10 +258,10 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		59477F6A24D3269000B49745 /* PBXTargetDependency */ = {
+		59269AAE2556DEAB00C56779 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA60A4F02F6CB0207B02AB73 /* Cargo */;
-			targetProxy = 59477F6B24D3269000B49745 /* PBXContainerItemProxy */;
+			target = 59477F6424D3267000B49745 /* Cargo-iOS */;
+			targetProxy = 59269AAD2556DEAB00C56779 /* PBXContainerItemProxy */;
 		};
 		CA60FC5933D791340F9F404A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
