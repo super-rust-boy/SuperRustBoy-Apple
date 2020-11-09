@@ -13,11 +13,7 @@ internal struct RoundButton: View {
 	internal let text: String
     internal let color: Color
 
-    init(text: String) {
-        self.init(text: text, color: .blue)
-    }
-
-    init(text: String, color: Color) {
+    init(text: String, color: Color = .blue) {
         self.text = text
         self.color = color
     }

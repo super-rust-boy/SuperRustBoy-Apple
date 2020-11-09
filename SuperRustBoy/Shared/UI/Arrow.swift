@@ -27,3 +27,12 @@ internal struct Arrow: Shape {
 		return path
 	}
 }
+
+struct Arrow_Previews: PreviewProvider {
+    static var previews: some View {
+        Arrow()
+            .frame(width: 100, height: 50)
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
+}

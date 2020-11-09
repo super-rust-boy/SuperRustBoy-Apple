@@ -11,7 +11,7 @@ import Combine
 
 internal struct RustBoyView: View {
 
-    internal let rustBoy: RustBoy
+    internal let rustBoy: RustBoy?
 
     internal let showUI: Bool
 
@@ -53,7 +53,7 @@ internal struct RustBoyView: View {
                     .frame(maxWidth: Self.elementSizeTimesTwo)
                     .padding()
                 }
-                .padding(.bottom, 75)
+                .padding(.bottom, 25)
 
                 LazyVGrid(columns: Self.columns) {
                     Spacer()
@@ -78,7 +78,7 @@ internal struct RustBoyView: View {
 
     private struct OptionButton: View {
 
-        let rustBoy: RustBoy
+        let rustBoy: RustBoy?
         let buttonType: RustBoy.Button
         let title: String
 
@@ -119,7 +119,7 @@ struct RustBoyView_Preview: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            RustBoyView(rustBoy: RustBoy(), showUI: true)
+            RustBoyView(rustBoy: nil, showUI: true)
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

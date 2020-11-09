@@ -14,12 +14,11 @@ internal struct DPad<CoreEmulator, Emulator: BaseEmulator<CoreEmulator>>: View {
         case left, up, right, down
     }
 
-    internal let emulator: Emulator
+    internal let emulator: Emulator?
     internal let index: CoreEmulator.PlayerIndexType
     internal let direction: (Direction) -> CoreEmulator.Button
 
 	internal var body: some View {
-
 		GeometryReader { geometry in
 			ZStack {
                 HalfPad(
@@ -40,17 +39,20 @@ internal struct DPad<CoreEmulator, Emulator: BaseEmulator<CoreEmulator>>: View {
                 .rotationEffect(.degrees(90))
 			}
             .frame(
-                width:	min(geometry.size.height, geometry.size.width),
-                height:	min(geometry.size.height, geometry.size.width)
+                width: min(geometry.size.height, geometry.size.width),
+                height: min(geometry.size.height, geometry.size.width)
+            )
+            .position(
+                x: geometry.size.width * 0.5,
+                y: geometry.size.height * 0.5
             )
 		}
-	}
-
+    }
 }
 
 fileprivate struct HalfPad<CoreEmulator, Emulator: BaseEmulator<CoreEmulator>>: View {
 
-    fileprivate let emulator: Emulator
+    fileprivate let emulator: Emulator?
     fileprivate let firstButtonType: CoreEmulator.Button
     fileprivate let secondButtonType: CoreEmulator.Button
     fileprivate let index: CoreEmulator.PlayerIndexType
@@ -67,4 +69,16 @@ fileprivate struct HalfPad<CoreEmulator, Emulator: BaseEmulator<CoreEmulator>>: 
             .rotationEffect(.degrees(180))
 		}
 	}
+}
+
+struct DPad_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.hashValue) { theme in
+            DPad(emulator: Optional<SNES>.none, index: .player1, direction: SNES.Button.init)
+                .frame(width: 200, height: 500)
+                .previewLayout(.sizeThatFits)
+                .environment(\.colorScheme, theme)
+                .background(theme == .dark ? Color.black : Color.white)
+        }
+    }
 }

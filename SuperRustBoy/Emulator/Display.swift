@@ -17,7 +17,7 @@ internal typealias ImageView = UIImageView
 internal class DisplayView: ImageView {}
 
 internal struct Display {
-    internal let emulator: Emulator
+    internal let emulator: Emulator?
 
     fileprivate func createDisplayView() -> DisplayView {
         DisplayView.setup {
@@ -29,7 +29,7 @@ internal struct Display {
             $0.contentMode = .scaleToFill
             $0.backgroundColor = Self.backgroundColor
 #endif
-            emulator.display = $0
+            emulator?.display = $0
         }
     }
 
@@ -66,7 +66,7 @@ extension Display: NSViewRepresentable {
 #else
 extension Display: UIViewRepresentable {
 	internal func makeUIView(context: Context) -> DisplayView { createDisplayView() }
-	internal func updateUIView(_ uiView: DisplayView, context: Context) { emulator.display = uiView }
+	internal func updateUIView(_ uiView: DisplayView, context: Context) { emulator?.display = uiView }
 }
 #endif
 

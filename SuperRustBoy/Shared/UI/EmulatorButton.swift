@@ -13,13 +13,13 @@ internal struct EmulatorButton<
     Emulator: BaseEmulator<CoreEmulator>
 >: View where ViewType: View {
 
-    private let emulator: Emulator
+    private let emulator: Emulator?
     private let button: CoreEmulator.Button
     private let index: CoreEmulator.PlayerIndexType
     private let content: ViewType
 
     init(
-        emulator: Emulator,
+        emulator: Emulator?,
         button: CoreEmulator.Button,
         index: CoreEmulator.PlayerIndexType,
         @ViewBuilder content: () -> ViewType
@@ -40,10 +40,10 @@ internal struct EmulatorButton<
                 DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged { value in
                         touchDown = true
-                        emulator.buttonPressed(button, playerIndex: index)
+                        emulator?.buttonPressed(button, playerIndex: index)
                     }.onEnded { value in
                         touchDown = false
-                        emulator.buttonUnpressed(button, playerIndex: index)
+                        emulator?.buttonUnpressed(button, playerIndex: index)
                     }
             )
     }

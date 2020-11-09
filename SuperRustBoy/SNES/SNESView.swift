@@ -9,7 +9,7 @@ import SwiftUI
 
 internal struct SNESView: View {
 
-    internal let snes: SNES
+    internal let snes: SNES?
 
     internal let showUI: Bool
 
@@ -25,6 +25,8 @@ internal struct SNESView: View {
                 VStack {
                     HStack {
                         DPad(emulator: snes, index: .player1, direction: SNES.Button.init)
+                            .frame(maxWidth: 200)
+                        Spacer()
                         ActionButtons(snes: snes)
                     }
                     .frame(height: 200)
@@ -46,13 +48,12 @@ internal struct SNESView: View {
 
     private struct ActionButtons: View {
 
-        let snes: SNES
+        let snes: SNES?
 
         private let size = CGFloat(60)
 
         var body: some View {
             HStack {
-
                 EmulatorButton(emulator: snes, button: .y, index: .player1) {
                     RoundButton(text: "Y", color: .green)
                 }
@@ -93,7 +94,7 @@ internal struct SNESView: View {
     }
 }
 
-private extension SNES.Button {
+extension SNES.Button {
     init(_ direction: DPad<CoreSNES, SNES>.Direction) {
         switch direction {
         case .left:
@@ -118,7 +119,7 @@ struct SNESView_Previews: PreviewProvider {
 
     static var previews: some View {
         ForEach(deviceNames, id: \.self) { deviceName in
-            SNESView(snes: SNES(), showUI: true)
+            SNESView(snes: nil, showUI: true)
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
