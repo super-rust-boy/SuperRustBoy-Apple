@@ -129,3 +129,9 @@ struct SuperRustBoyWindow: View {
         return savePath
     }
 }
+
+struct SuperRustBoyApp_Previews: PreviewProvider {
+    static var previews: some View {
+        SuperRustBoyWindow()
+    }
+}
