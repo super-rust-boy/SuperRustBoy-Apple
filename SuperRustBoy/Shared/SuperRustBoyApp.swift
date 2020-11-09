@@ -92,7 +92,7 @@ struct SuperRustBoyWindow: View {
                 SNESView(snes: snes, showUI: showUI)
 
             case .none:
-                EmptyView()
+                RustBoyView(rustBoy: nil, showUI: showUI)
             }
 
             Spacer()
