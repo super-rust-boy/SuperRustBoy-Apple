@@ -33,21 +33,22 @@ internal struct RustBoyView: View {
 
             if showUI {
                 HStack {
-                    DPad { direction in
-                        rustBoy.buttonPressed(RustBoy.Button(direction))
-                    } onTouchUp: { direction in
-                        rustBoy.buttonUnpressed(RustBoy.Button(direction))
-                    }
-                    .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
-                    .padding()
+                    DPad(emulator: rustBoy, index: .player1, direction: RustBoy.Button.init)
+                        .frame(maxWidth: Self.elementSizeTimesTwo, maxHeight: Self.elementSizeTimesTwo)
+                        .padding()
 
                     Spacer()
 
                     HStack {
-                        RustBoyButton(type: .b, rustBoy: rustBoy, content: RoundButton(text: "B"))
-                            .frame(maxHeight: Self.elementSize)
-                        RustBoyButton(type: .a, rustBoy: rustBoy, content: RoundButton(text: "A"))
-                            .frame(maxHeight: Self.elementSize)
+                        EmulatorButton(emulator: rustBoy, button: .b, index: .player1) {
+                            RoundButton(text: "B")
+                        }
+                        .frame(maxHeight: Self.elementSize)
+
+                        EmulatorButton(emulator: rustBoy, button: .a, index: .player1) {
+                            RoundButton(text: "A")
+                        }
+                        .frame(maxHeight: Self.elementSize)
                     }
                     .frame(maxWidth: Self.elementSizeTimesTwo)
                     .padding()
@@ -82,9 +83,11 @@ internal struct RustBoyView: View {
         let title: String
 
         var body: some View {
-            VStack {
-                RustBoyButton(type: buttonType, rustBoy: rustBoy, content: RoundedRectangle(cornerRadius: 25))
-                Text(title)
+            EmulatorButton(emulator: rustBoy, button: buttonType, index: .player1) {
+                VStack {
+                    RoundedRectangle(cornerRadius: 25)
+                    Text(title)
+                }
             }
             .frame(minWidth: 50, maxWidth: 60, maxHeight: 50)
         }
@@ -92,7 +95,7 @@ internal struct RustBoyView: View {
 }
 
 private extension RustBoy.Button {
-    init(_ direction: DPad.Direction) {
+    init(_ direction: DPad<CoreRustBoy, RustBoy>.Direction) {
         switch direction {
         case .left:
             self = .left

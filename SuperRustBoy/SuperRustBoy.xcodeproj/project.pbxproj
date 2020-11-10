@@ -43,8 +43,6 @@
 		59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B524ABBDCF00E53B0F /* DPad.swift */; };
 		59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
 		59EEA0C024ABBDCF00E53B0F /* RustBoyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */; };
-		59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */; };
-		59EEA0C224ABBDCF00E53B0F /* RustBoyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */; };
 		59EEA0C324ABBDCF00E53B0F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */; };
 		59EEA0C424ABBDCF00E53B0F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */; };
 		59EEA0C524ABBDCF00E53B0F /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0B924ABBDCF00E53B0F /* Display.swift */; };
@@ -91,7 +89,6 @@
 		59E933AA24D1E98D00D84D02 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EEA0B524ABBDCF00E53B0F /* DPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
 		59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
-		59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyButton.swift; sourceTree = "<group>"; };
 		59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		59EEA0B924ABBDCF00E53B0F /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		59EEA0BA24ABBDCF00E53B0F /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
@@ -245,7 +242,6 @@
 		59EEA0B424ABBDCF00E53B0F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				59EEA0B724ABBDCF00E53B0F /* RustBoyButton.swift */,
 				59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */,
 			);
 			path = UI;
@@ -393,7 +389,6 @@
 				59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */,
 				59EEA0C924ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				59EEA0BD24ABBDCF00E53B0F /* DPad.swift in Sources */,
-				59EEA0C124ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
 				59EEA0BF24ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,7 +419,6 @@
 				59EEA0CA24ABBDCF00E53B0F /* RustBoy+EmptyInstantiable.swift in Sources */,
 				59EEA0BE24ABBDCF00E53B0F /* DPad.swift in Sources */,
 				59E933A824D1E6A300D84D02 /* Emulator.swift in Sources */,
-				59EEA0C224ABBDCF00E53B0F /* RustBoyButton.swift in Sources */,
 				59EEA0C024ABBDCF00E53B0F /* RustBoyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
