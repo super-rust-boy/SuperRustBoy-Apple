@@ -17,4 +17,4 @@ jobs:
         toolchain: stable
 
     - name: Build
-      run: xcodebuild -workspace SuperRustBoy.xcworkspace -scheme SuperRustBoy
+      run: xcodebuild -workspace SuperRustBoy.xcworkspace -scheme macOS
