@@ -24,7 +24,7 @@ struct SuperRustBoyWindow: View {
     private var controllerManager = GameControllerManager()
 
     @AppStorage("showOnScreenControls")
-    private var showUI = true
+    private var showUI = Self.showUIDefault
 
     @State
     private var mute = true {
@@ -58,11 +58,13 @@ struct SuperRustBoyWindow: View {
                         Image(systemName: "folder")
                     })
 
+                    #if os(iOS)
                     Button(action: { withAnimation { showUI.toggle() }}, label: {
                         showUI
                             ? Image(systemName: "gamecontroller.fill")
                             : Image(systemName: "gamecontroller")
                     })
+                    #endif
 
                     Button(action: { mute.toggle() }, label: {
                         mute
@@ -73,12 +75,12 @@ struct SuperRustBoyWindow: View {
                 .frame(width: buttonSize, height: buttonSize)
 
                 ForEach(controllerManager.controllers, id: \.id) { controller in
-                    Menu {
-                        Button("Player 1") { controller.playerIndex = .player1 }
-                        Button("Player 2") { controller.playerIndex = .player2 }
-                    } label: {
-                        GameControllerIndicator(gameController: controller)
-                    }
+                    #if os(iOS)
+                    Self.menu(for: controller)
+                    #else
+                    Self.menu(for: controller)
+                        .frame(width: 75)
+                    #endif
                 }
             }
 
@@ -127,6 +129,23 @@ struct SuperRustBoyWindow: View {
         let savePath = documentDirectory.path + "/\(romURL.deletingPathExtension().lastPathComponent).sav"
         print("Save path: \(savePath)")
         return savePath
+    }
+
+    private static func menu(for controller: Controller) -> some View {
+        Menu {
+            Button("Player 1") { controller.playerIndex = .player1 }
+            Button("Player 2") { controller.playerIndex = .player2 }
+        } label: {
+            GameControllerIndicator(gameController: controller)
+        }
+    }
+
+    private static var showUIDefault: Bool {
+        #if os(iOS)
+        return true
+        #else
+        return false
+        #endif
     }
 }
 

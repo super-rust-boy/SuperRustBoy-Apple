@@ -43,8 +43,9 @@ internal final class GameControllerManager: ObservableObject {
     }
 
     internal init() {
-        NotificationCenter
-            .default
+        let notificationCenter = NotificationCenter.default
+
+        notificationCenter
             .publisher(for: .GCControllerDidConnect)
             .compactMap { $0.object as? GCController }
             .sink { [weak self] controller in
@@ -53,8 +54,7 @@ internal final class GameControllerManager: ObservableObject {
             }
             .store(in: &cancellables)
 
-        NotificationCenter
-            .default
+        notificationCenter
             .publisher(for: .GCKeyboardDidConnect)
             .compactMap { $0.object as? GCKeyboard }
             .sink { [weak self] keyboard in
@@ -63,8 +63,7 @@ internal final class GameControllerManager: ObservableObject {
             }
             .store(in: &cancellables)
 
-        NotificationCenter
-            .default
+        notificationCenter
             .publisher(for: .GCControllerDidDisconnect)
             .compactMap { $0.object as? GCController }
             .sink { [weak self] removedController in
@@ -81,8 +80,7 @@ internal final class GameControllerManager: ObservableObject {
             }
             .store(in: &cancellables)
 
-        NotificationCenter
-            .default
+        notificationCenter
             .publisher(for: .GCKeyboardDidDisconnect)
             .compactMap { $0.object as? GCKeyboard }
             .sink { [weak self] removedKeyboard in
