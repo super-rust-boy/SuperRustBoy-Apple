@@ -47,19 +47,12 @@ internal struct Display {
 }
 
 extension DisplayView: EmulatorDisplay {
-    var imageData: CGImage? {
-        get {
+    func setCGImage(_ image: CGImage) {
 #if os(OSX)
-            return nil
+        self.image = NSImage(cgImage: image, size: .init(width: 400, height: 300))
 #else
-            return self.image?.cgImage
+        self.image = UIImage(cgImage: image)
 #endif
-        }
-        set {
-#if os(iOS)
-            self.image = newValue.map(UIImage.init)
-#endif
-        }
     }
 }
 

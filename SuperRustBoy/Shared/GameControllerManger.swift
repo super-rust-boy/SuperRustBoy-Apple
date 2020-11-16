@@ -131,7 +131,13 @@ internal class Controller: ObservableObject {
         }
     }
 
-    var color: UIColor {
+#if os(OSX)
+    internal typealias Color = NSColor
+#else
+    internal typealias Color = UIColor
+#endif
+
+    var color: Color {
         switch playerIndex {
         case .player1:
             return .green

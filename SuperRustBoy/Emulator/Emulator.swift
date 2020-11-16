@@ -9,7 +9,7 @@ import Foundation
 import CoreGraphics
 
 internal protocol EmulatorDisplay: AnyObject {
-    var imageData: CGImage? { get set }
+    func setCGImage(_ image: CGImage)
 }
 
 internal protocol Emulator: AnyObject {
@@ -58,8 +58,8 @@ internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
 
     internal init() {
         timer = Timer.scheduledTimer(withTimeInterval: 1 / framerate, repeats: true) { [weak self] timer in
-            guard let display = self?.display else { return }
-            display.imageData = self?.coreEmulator?.render()
+            guard let self = self, let display = self.display, let image = self.coreEmulator?.render() else { return }
+            display.setCGImage(image)
         }
     }
 
