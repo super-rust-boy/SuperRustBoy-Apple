@@ -24,6 +24,7 @@ internal struct Display {
 #if os(OSX)
             $0.wantsLayer = true
             $0.layer?.backgroundColor = NSColor.black.cgColor
+            $0.imageScaling = .scaleAxesIndependently
 #else
             $0.contentMode = .scaleToFill
             $0.backgroundColor = Self.backgroundColor
@@ -49,7 +50,7 @@ internal struct Display {
 extension DisplayView: EmulatorDisplay {
     func setCGImage(_ image: CGImage) {
 #if os(OSX)
-        self.image = NSImage(cgImage: image, size: .init(width: 400, height: 300))
+        self.image = NSImage(cgImage: image, size: .zero)
 #else
         self.image = UIImage(cgImage: image)
 #endif
