@@ -1,6 +1,6 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
-use rustboy::{RustBoy, UserPalette, Button, RustBoyAudioHandle};
+use rustboy::{RustBoy, ROMType, UserPalette, Button, RustBoyAudioHandle};
 use std::slice;
 
 #[no_mangle]
@@ -59,12 +59,14 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
 
     let cart_path_result = unsafe { CStr::from_ptr(cartridge_path) };
     let cart_path = match cart_path_result.to_str() {
-        Ok(c) => c,
+        Ok(c) => c.to_string(),
         Err(_) => {
             println!("Failed to parse cartridge path");
             return std::ptr::null();
         }
     };
+    
+    let rom_type = ROMType::File(cart_path);
 
     if save_file_path.is_null() {
         println!("Save file path is null");
@@ -80,7 +82,7 @@ pub extern fn rustBoyCreate(cartridge_path: *const c_char, save_file_path: *cons
         }
     };
 
-    let instance = RustBoy::new(cart_path, save_path, UserPalette::Default);
+    let instance = RustBoy::new(rom_type, save_path, UserPalette::Default);
 
     Box::into_raw(instance) as *const c_void
 }
