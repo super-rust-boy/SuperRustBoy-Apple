@@ -88,8 +88,8 @@
 			children = (
 				CA605C54D0650C61841FC91A /* Cargo.toml */,
 				592DFF0523FF3AF000793939 /* cbindgen.toml */,
-				592DFF0623FF3B1C00793939 /* src */,
 				592DFF0323FF382600793939 /* headers */,
+				592DFF0623FF3B1C00793939 /* src */,
 				ADDEDBA66A6E2 /* Required Libraries */,
 				CA60DC989B716CB8AB3B4096 /* Products */,
 			);
