@@ -18,15 +18,15 @@
 			name = "Cargo-iOS";
 			productName = Cargo;
 		};
-		CA60A4F02F6CB0207B02AB73 /* Cargo */ = {
+		CA60A4F02F6CB0207B02AB73 /* Cargo-macOS */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo-macOS" */;
 			buildPhases = (
 				CA6039A95960A95472218C97 /* Cargo build */,
 			);
 			dependencies = (
 			);
-			name = Cargo;
+			name = "Cargo-macOS";
 			productName = Cargo;
 		};
 /* End PBXAggregateTarget section */
@@ -50,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		59477F7024D3269000B49745 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59671B2C256D9CBB00B92B55 /* cbindgen.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = cbindgen.toml; sourceTree = "<group>"; };
 		59F852FA24A3FD04003704E5 /* snes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = snes.h; sourceTree = "<group>"; };
 		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		C832FF62251A4E8B00E6C3D4 /* lib.rs */ = {isa = PBXFileReference; lastKnownFileType = text; path = lib.rs; sourceTree = "<group>"; };
@@ -94,9 +95,10 @@
 		CA603A9252CBEFE16596F55A = {
 			isa = PBXGroup;
 			children = (
-				C832FF61251A4E8B00E6C3D4 /* src */,
 				CA60C302EF549CC60DBB85C8 /* Cargo.toml */,
+				59671B2C256D9CBB00B92B55 /* cbindgen.toml */,
 				59F852F924A3FD04003704E5 /* headers */,
+				C832FF61251A4E8B00E6C3D4 /* src */,
 				ADDEDBA66A6E2 /* Required Libraries */,
 				CA602A420EA4A0ED5CC06A6A /* Products */,
 			);
@@ -105,9 +107,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		59477F6924D3269000B49745 /* snes_c_binding */ = {
+		59477F6924D3269000B49745 /* snes_c_binding-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding" */;
+			buildConfigurationList = 59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding-iOS" */;
 			buildPhases = (
 				59477F6C24D3269000B49745 /* Copy files (libsnes_c_binding.a) */,
 			);
@@ -116,14 +118,14 @@
 			dependencies = (
 				59269AAE2556DEAB00C56779 /* PBXTargetDependency */,
 			);
-			name = snes_c_binding;
+			name = "snes_c_binding-iOS";
 			productName = libsnes_c_binding.a;
 			productReference = 59477F7024D3269000B49745 /* libsnes_c_binding.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */ = {
+		CA6021EBE591C0680A387C43 /* snes_c_binding-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib" */;
+			buildConfigurationList = CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-macOS" */;
 			buildPhases = (
 				CA6074E460DBB6D2FDCD3A5F /* Copy files (libsnes_c_binding.a) */,
 			);
@@ -132,7 +134,7 @@
 			dependencies = (
 				CA60FC5933D791340F9F404A /* PBXTargetDependency */,
 			);
-			name = "snes_c_binding-staticlib";
+			name = "snes_c_binding-macOS";
 			productName = libsnes_c_binding.a;
 			productReference = CA60267015F5A2979B9F4399 /* libsnes_c_binding.a */;
 			productType = "com.apple.product-type.library.static";
@@ -155,7 +157,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			buildConfigurationList = CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo-macOS" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -168,9 +170,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA6021EBE591C0680A387C43 /* snes_c_binding-staticlib */,
-				CA60A4F02F6CB0207B02AB73 /* Cargo */,
-				59477F6924D3269000B49745 /* snes_c_binding */,
+				CA6021EBE591C0680A387C43 /* snes_c_binding-macOS */,
+				59477F6924D3269000B49745 /* snes_c_binding-iOS */,
+				CA60A4F02F6CB0207B02AB73 /* Cargo-macOS */,
 				59477F6424D3267000B49745 /* Cargo-iOS */,
 			);
 		};
@@ -265,7 +267,7 @@
 		};
 		CA60FC5933D791340F9F404A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA60A4F02F6CB0207B02AB73 /* Cargo */;
+			target = CA60A4F02F6CB0207B02AB73 /* Cargo-macOS */;
 			targetProxy = CA60FAE0CCCBA9F0C9DA18EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,7 +395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding" */ = {
+		59477F6D24D3269000B49745 /* Build configuration list for PBXNativeTarget "snes_c_binding-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59477F6E24D3269000B49745 /* Release */,
@@ -402,7 +404,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo" */ = {
+		CA60454EDCF938E28579C9BB /* Build configuration list for PBXAggregateTarget "Cargo-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA60AF575CD80A6D95238BF4 /* Release */,
@@ -411,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-staticlib" */ = {
+		CA60AAC6ED6F9A526A83B5BB /* Build configuration list for PBXNativeTarget "snes_c_binding-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA60170D3265513DAACD375D /* Release */,
