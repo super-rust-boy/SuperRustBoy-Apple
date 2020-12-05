@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5912578A257C135C00B50B13 /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59125788257C135C00B50B13 /* librustboy_c_binding.a */; };
+		5912578B257C135C00B50B13 /* libsnes_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59125789257C135C00B50B13 /* libsnes_c_binding.a */; };
+		5912578E257C136A00B50B13 /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5912578C257C136A00B50B13 /* librustboy_c_binding.a */; };
+		5912578F257C136A00B50B13 /* libsnes_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5912578D257C136A00B50B13 /* libsnes_c_binding.a */; };
 		5926B73624D2E642005D302E /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73524D2E642005D302E /* RustBoy.swift */; };
 		5926B73724D2E642005D302E /* RustBoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73524D2E642005D302E /* RustBoy.swift */; };
 		5926B73B24D2F5A7005D302E /* PlayerIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5926B73A24D2F5A7005D302E /* PlayerIndices.swift */; };
@@ -33,8 +37,6 @@
 		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
 		59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
-		59DAB8F224D342810079CCBB /* libsnes_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DAB8F124D342810079CCBB /* libsnes_c_binding.a */; };
-		59E20BDB24D34DF70035C1A5 /* libsnes_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E20BDA24D34DF70035C1A5 /* libsnes_c_binding.a */; };
 		59E4C2D5254F1B0200B6131F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4C2D4254F1B0200B6131F /* Models.swift */; };
 		59E4C2D6254F1B0200B6131F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4C2D4254F1B0200B6131F /* Models.swift */; };
 		59E933A724D1E6A300D84D02 /* Emulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E933A624D1E6A300D84D02 /* Emulator.swift */; };
@@ -55,16 +57,17 @@
 		59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */; };
 		59EEA0D224ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
 		59EEA0D324ABBDDA00E53B0F /* EmptyInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */; };
-		59EEA0DE24ABC07200E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */; };
-		59EEA0E024ABC07B00E53B0F /* librustboy_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */; };
 		59EEA0E224ABCB5E00E53B0F /* GameControllerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */; };
 		59EEA0E324ABCB5E00E53B0F /* GameControllerManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59125788257C135C00B50B13 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59125789257C135C00B50B13 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5912578C257C136A00B50B13 /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5912578D257C136A00B50B13 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5926B73524D2E642005D302E /* RustBoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustBoy.swift; sourceTree = "<group>"; };
 		5926B73A24D2F5A7005D302E /* PlayerIndices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerIndices.swift; sourceTree = "<group>"; };
-		59477F7124D3281500B49745 /* libsnes_c_binding-staticlib-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libsnes_c_binding-staticlib-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5976F82824ABBCD8000D7941 /* SuperRustBoyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRustBoyApp.swift; sourceTree = "<group>"; };
 		5976F82A24ABBCD8000D7941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5976F82F24ABBCD8000D7941 /* SuperRustBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperRustBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,12 +84,8 @@
 		59BBA3CF25093953006744E5 /* RustBoy+KeyboardReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RustBoy+KeyboardReceiver.swift"; sourceTree = "<group>"; };
 		59C0D44F24CEEDA400C18650 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIndicator.swift; sourceTree = "<group>"; };
-		59DAB8EF24D3415A0079CCBB /* libsnes_c_binding-staticlib-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libsnes_c_binding-staticlib-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59DAB8F124D342810079CCBB /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		59E20BDA24D34DF70035C1A5 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4C2D4254F1B0200B6131F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		59E933A624D1E6A300D84D02 /* Emulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emulator.swift; sourceTree = "<group>"; };
-		59E933AA24D1E98D00D84D02 /* libsnes_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsnes_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EEA0B524ABBDCF00E53B0F /* DPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
 		59EEA0B624ABBDCF00E53B0F /* RustBoyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RustBoyView.swift; sourceTree = "<group>"; };
 		59EEA0B824ABBDCF00E53B0F /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -96,8 +95,6 @@
 		59EEA0CE24ABBDDA00E53B0F /* C-Interop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "C-Interop.swift"; sourceTree = "<group>"; };
 		59EEA0CF24ABBDDA00E53B0F /* EmptyInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyInstantiable.swift; sourceTree = "<group>"; };
 		59EEA0D424ABBE3900E53B0F /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = librustboy_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EEA0E124ABCB5E00E53B0F /* GameControllerManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,8 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59DAB8F224D342810079CCBB /* libsnes_c_binding.a in Frameworks */,
-				59EEA0DE24ABC07200E53B0F /* librustboy_c_binding.a in Frameworks */,
+				5912578F257C136A00B50B13 /* libsnes_c_binding.a in Frameworks */,
+				5912578E257C136A00B50B13 /* librustboy_c_binding.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59E20BDB24D34DF70035C1A5 /* libsnes_c_binding.a in Frameworks */,
-				59EEA0E024ABC07B00E53B0F /* librustboy_c_binding.a in Frameworks */,
+				5912578B257C135C00B50B13 /* libsnes_c_binding.a in Frameworks */,
+				5912578A257C135C00B50B13 /* librustboy_c_binding.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,13 +256,10 @@
 		59EEA0DC24ABC07200E53B0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				59E20BDA24D34DF70035C1A5 /* libsnes_c_binding.a */,
-				59DAB8F124D342810079CCBB /* libsnes_c_binding.a */,
-				59DAB8EF24D3415A0079CCBB /* libsnes_c_binding-staticlib-iOS.a */,
-				59477F7124D3281500B49745 /* libsnes_c_binding-staticlib-iOS.a */,
-				59E933AA24D1E98D00D84D02 /* libsnes_c_binding.a */,
-				59EEA0DF24ABC07B00E53B0F /* librustboy_c_binding.a */,
-				59EEA0DD24ABC07200E53B0F /* librustboy_c_binding.a */,
+				5912578C257C136A00B50B13 /* librustboy_c_binding.a */,
+				5912578D257C136A00B50B13 /* libsnes_c_binding.a */,
+				59125788257C135C00B50B13 /* librustboy_c_binding.a */,
+				59125789257C135C00B50B13 /* libsnes_c_binding.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
