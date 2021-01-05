@@ -48,14 +48,30 @@ struct SuperRustBoyWindow: View {
     @State
     private var filePickerOpen = false
 
+    private let buttonSize = CGFloat(44)
+
     var body: some View {
         VStack {
-            HStack {
-                Button("Open", action: { filePickerOpen = true })
-                Button(showUI ? "Hide" : "Show") { withAnimation { showUI.toggle() }}
-                    .frame(width: 75)
-                Button(mute ? "Unmute" : "Mute") { withAnimation { mute.toggle() }}
-                    .frame(width: 75)
+            HStack(spacing: 15) {
+                Group {
+                    Button(action: { filePickerOpen = true }, label: {
+                        Image(systemName: "folder")
+                    })
+
+                    Button(action: { withAnimation { showUI.toggle() }}, label: {
+                        showUI
+                            ? Image(systemName: "gamecontroller.fill")
+                            : Image(systemName: "gamecontroller")
+                    })
+
+                    Button(action: { mute.toggle() }, label: {
+                        mute
+                            ? Image(systemName: "speaker.slash.fill")
+                            : Image(systemName: "speaker.wave.2.fill")
+                    })
+                }
+                .frame(width: buttonSize, height: buttonSize)
+
                 ForEach(controllerManager.controllers, id: \.id) { controller in
                     Menu {
                         Button("Player 1") { controller.playerIndex = .player1 }
@@ -75,7 +91,7 @@ struct SuperRustBoyWindow: View {
             case .snes(let snes):
                 SNESView(snes: snes, showUI: showUI)
 
-            default:
+            case .none:
                 EmptyView()
             }
 
