@@ -1,6 +1,6 @@
 [package]
 name = "snes_c_binding"
-version = "0.1.0"
+version = "0.3.0"
 authors = ["simon <simon.d.cooper@hotmail.co.uk>"]
 edition = "2018"
 

@@ -79,7 +79,7 @@ checksum = "cc0966ad788ec7289562643e05c611b7853e0618b7f9306aafd2fc727abfe168"
 
 [[package]]
 name = "snes_c_binding"
-version = "0.1.0"
+version = "0.3.0"
 dependencies = [
  "oxide-7",
 ]
