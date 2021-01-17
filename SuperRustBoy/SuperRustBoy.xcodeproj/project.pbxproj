@@ -194,16 +194,8 @@
 				59838E1A254588AF00F4F332 /* SNES+GameControllerReceiver.swift */,
 				59838E18254588AF00F4F332 /* SNES+KeyboardReceiver.swift */,
 				59838E1B254588AF00F4F332 /* SNESView.swift */,
-				59838E17254588AF00F4F332 /* UI */,
 			);
 			path = SNES;
-			sourceTree = "<group>";
-		};
-		59838E17254588AF00F4F332 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		59E4C2D3254F1AD700B6131F /* Models */ = {
