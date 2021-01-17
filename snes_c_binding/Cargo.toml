@@ -1,6 +1,6 @@
 [package]
 name = "snes_c_binding"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["simon <simon.d.cooper@hotmail.co.uk>"]
 edition = "2018"
 
@@ -13,4 +13,4 @@ crate-type = ["staticlib"]
 
 [dependencies.oxide-7]
 git = "https://github.com/coopersimon/oxide-7"
-tag = "0.3.0"
+tag = "v0.3.1"
