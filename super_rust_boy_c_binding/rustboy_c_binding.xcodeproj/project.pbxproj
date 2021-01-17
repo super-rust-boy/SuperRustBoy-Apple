@@ -345,6 +345,7 @@
 				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = rustboy_c_binding;
 				SDKROOT = macosx;
@@ -359,6 +360,7 @@
 				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = rustboy_c_binding;
 				SDKROOT = macosx;
