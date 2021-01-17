@@ -140,13 +140,11 @@ struct SuperRustBoyWindow: View {
         }
     }
 
-    private static var showUIDefault: Bool {
-        #if os(iOS)
-        return true
-        #else
-        return false
-        #endif
-    }
+#if os(iOS)
+    private static let showUIDefault = true
+#else
+    private static let showUIDefault = false
+#endif
 }
 
 struct SuperRustBoyApp_Previews: PreviewProvider {
