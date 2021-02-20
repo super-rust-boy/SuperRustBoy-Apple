@@ -36,7 +36,7 @@ internal enum BootStatus: Error {
     case success
 }
 
-internal class BaseEmulator<CoreEmu>: Emulator where CoreEmu: CoreEmulator {
+internal class BaseEmulator<CoreEmu: CoreEmulator>: Emulator {
     internal final var cartridge: CoreEmu.Cartridge? {
         didSet {
             coreEmulator = nil
