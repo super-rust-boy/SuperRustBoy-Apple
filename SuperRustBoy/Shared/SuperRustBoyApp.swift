@@ -33,6 +33,9 @@ struct SuperRustBoyWindow: View {
             case .rustboy(let instance):
                 instance.volume = mute ? 0 : 0.7
 
+            case .gba(let instance):
+                instance.volume = mute ? 0 : 0.7
+
             case .snes(let instance):
                 instance.volume = mute ? 0 : 0.7
 
@@ -87,6 +90,9 @@ struct SuperRustBoyWindow: View {
             switch emulator {
             case .rustboy(let rustboy):
                 RustBoyView(rustBoy: rustboy, showUI: showUI)
+
+            case .gba(let gba):
+                EmptyView()
 
             case .snes(let snes):
                 SNESView(snes: snes, showUI: showUI)

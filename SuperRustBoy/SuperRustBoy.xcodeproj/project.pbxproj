@@ -37,6 +37,8 @@
 		59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C0D44F24CEEDA400C18650 /* Speaker.swift */; };
 		59CD369325E1652E00B8B5AD /* libspa_c_binding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CD369225E1652E00B8B5AD /* libspa_c_binding.a */; };
 		59CD369A25E1674600B8B5AD /* GBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD369925E1674600B8B5AD /* GBA.swift */; };
+		59CD369E25E16B2A00B8B5AD /* GBA+GameControllerReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD369D25E16B2A00B8B5AD /* GBA+GameControllerReceiver.swift */; };
+		59CD36A225E16BC300B8B5AD /* GBA+KeyboardReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CD36A125E16BC300B8B5AD /* GBA+KeyboardReceiver.swift */; };
 		59D8CEB424BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
 		59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */; };
 		59E4C2D5254F1B0200B6131F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4C2D4254F1B0200B6131F /* Models.swift */; };
@@ -87,6 +89,8 @@
 		59C0D44F24CEEDA400C18650 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		59CD369225E1652E00B8B5AD /* libspa_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libspa_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CD369925E1674600B8B5AD /* GBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBA.swift; sourceTree = "<group>"; };
+		59CD369D25E16B2A00B8B5AD /* GBA+GameControllerReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBA+GameControllerReceiver.swift"; sourceTree = "<group>"; };
+		59CD36A125E16BC300B8B5AD /* GBA+KeyboardReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GBA+KeyboardReceiver.swift"; sourceTree = "<group>"; };
 		59D8CEB324BDF6BA00FB700C /* GameControllerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerIndicator.swift; sourceTree = "<group>"; };
 		59E4C2D4254F1B0200B6131F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		59E933A624D1E6A300D84D02 /* Emulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emulator.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				59CD369925E1674600B8B5AD /* GBA.swift */,
+				59CD369D25E16B2A00B8B5AD /* GBA+GameControllerReceiver.swift */,
+				59CD36A125E16BC300B8B5AD /* GBA+KeyboardReceiver.swift */,
 			);
 			path = GBA;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				59EEA0D124ABBDDA00E53B0F /* C-Interop.swift in Sources */,
 				59B2761124DB302A00A14B07 /* EmulatorButton.swift in Sources */,
 				5926B73724D2E642005D302E /* RustBoy.swift in Sources */,
+				59CD369E25E16B2A00B8B5AD /* GBA+GameControllerReceiver.swift in Sources */,
 				59CD369A25E1674600B8B5AD /* GBA.swift in Sources */,
 				59838E23254588AF00F4F332 /* SNESView.swift in Sources */,
 				59A121FD25003CDC0025EC31 /* RustBoy+GameControllerReceiver.swift in Sources */,
@@ -419,6 +426,7 @@
 				59C0D45324CEEE7C00C18650 /* Speaker.swift in Sources */,
 				59D8CEB524BDF6BA00FB700C /* GameControllerIndicator.swift in Sources */,
 				59BBA3D125093953006744E5 /* RustBoy+KeyboardReceiver.swift in Sources */,
+				59CD36A225E16BC300B8B5AD /* GBA+KeyboardReceiver.swift in Sources */,
 				59EEA0C624ABBDCF00E53B0F /* Display.swift in Sources */,
 				59838E21254588AF00F4F332 /* SNES+GameControllerReceiver.swift in Sources */,
 				59838E1F254588AF00F4F332 /* SNES.swift in Sources */,
