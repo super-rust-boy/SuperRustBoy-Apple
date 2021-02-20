@@ -1,0 +1,3 @@
+language = "C"
+[fn]
+rename_args = "camelCase"

@@ -1,0 +1,16 @@
+[package]
+name = "spa_c_binding"
+version = "0.1.0"
+authors = ["Sean Inge Asbjørnsen <seanasbjornsen@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "spa_c_binding"
+path = "src/lib.rs"
+crate-type = ["staticlib"]
+
+[dependencies.spa]
+git = "https://github.com/coopersimon/spa.git"
+branch = "master"
