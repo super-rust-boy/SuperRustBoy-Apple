@@ -10,4 +10,7 @@
    <FileRef
       location = "group:snes_c_binding/snes_c_binding.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:spa_c_binding/spa_c_binding.xcodeproj">
+   </FileRef>
 </Workspace>

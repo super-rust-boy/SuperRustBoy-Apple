@@ -8,3 +8,8 @@ module CoreSNES {
     header "../../snes_c_binding/headers/snes.h"
     export *
 }
+
+module CoreGBA {
+    header "../../spa_c_binding/headers/gba.h"
+    export *
+}

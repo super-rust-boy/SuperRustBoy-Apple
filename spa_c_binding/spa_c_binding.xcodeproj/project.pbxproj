@@ -1,0 +1,266 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CA606AB4DBF6AF2CAFB78352 /* Cargo */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CA60BDF537BDABCE1ACD4D81 /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			buildPhases = (
+				CA60FA3B57DED808F519BB0E /* Cargo build */,
+			);
+			dependencies = (
+			);
+			name = Cargo;
+			productName = Cargo;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		CA60CE45D9FE124448EFBC68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60D906DDC38B92118340E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA606AB4DBF6AF2CAFB78352;
+			remoteInfo = Cargo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		59CD368D25E1642600B8B5AD /* cbindgen.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = cbindgen.toml; sourceTree = "<group>"; };
+		59CD368F25E1642600B8B5AD /* gba.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gba.h; sourceTree = "<group>"; };
+		59CD369125E1642600B8B5AD /* lib.rs */ = {isa = PBXFileReference; lastKnownFileType = text; path = lib.rs; sourceTree = "<group>"; };
+		ADDEDBA66A6E1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		CA6049EB3D4EFB4CAAD01ED1 /* libspa_c_binding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libspa_c_binding.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA60C355B341A2F63D51F3C8 /* Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = Cargo.toml; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		59CD368E25E1642600B8B5AD /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				59CD368F25E1642600B8B5AD /* gba.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		59CD369025E1642600B8B5AD /* src */ = {
+			isa = PBXGroup;
+			children = (
+				59CD369125E1642600B8B5AD /* lib.rs */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		ADDEDBA66A6E2 /* Required Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				ADDEDBA66A6E1 /* libresolv.tbd */,
+			);
+			name = "Required Libraries";
+			sourceTree = "<group>";
+		};
+		CA60614ADB97D3F9A95ED260 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA6049EB3D4EFB4CAAD01ED1 /* libspa_c_binding.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA60F9038BDE7EC1DA712855 = {
+			isa = PBXGroup;
+			children = (
+				CA60C355B341A2F63D51F3C8 /* Cargo.toml */,
+				59CD368D25E1642600B8B5AD /* cbindgen.toml */,
+				59CD368E25E1642600B8B5AD /* headers */,
+				CA60614ADB97D3F9A95ED260 /* Products */,
+				ADDEDBA66A6E2 /* Required Libraries */,
+				59CD369025E1642600B8B5AD /* src */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA60D579E08EC059005E09CD /* spa_c_binding-staticlib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA6019B559FAFA67CDB49DFF /* Build configuration list for PBXNativeTarget "spa_c_binding-staticlib" */;
+			buildPhases = (
+				CA6025362751E69BFCCAFBD6 /* Copy files (libspa_c_binding.a) */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60A62044A4854C38A25F0C /* PBXTargetDependency */,
+			);
+			name = "spa_c_binding-staticlib";
+			productName = libspa_c_binding.a;
+			productReference = CA6049EB3D4EFB4CAAD01ED1 /* libspa_c_binding.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA60D906DDC38B92118340E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					CA606AB4DBF6AF2CAFB78352 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60D579E08EC059005E09CD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA60BDF537BDABCE1ACD4D81 /* Build configuration list for PBXAggregateTarget "Cargo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA60F9038BDE7EC1DA712855;
+			productRefGroup = CA60614ADB97D3F9A95ED260 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA60D579E08EC059005E09CD /* spa_c_binding-staticlib */,
+				CA606AB4DBF6AF2CAFB78352 /* Cargo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA6025362751E69BFCCAFBD6 /* Copy files (libspa_c_binding.a) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(CARGO_XCODE_PRODUCTS_DIR)/libspa_c_binding.a",
+			);
+			name = "Copy files (libspa_c_binding.a)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/libspa_c_binding.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/libspa_c_binding.a\" \"${BUILT_PRODUCTS_DIR}/\"";
+		};
+		CA60FA3B57DED808F519BB0E /* Cargo build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Cargo.toml",
+			);
+			name = "Cargo build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;\nif [ \"$ACTION\" = \"clean\" ]; then\n\tcargo clean;\nelse\n\tcargo build $CARGO_FLAGS;\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA60A62044A4854C38A25F0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA606AB4DBF6AF2CAFB78352 /* Cargo */;
+			targetProxy = CA60CE45D9FE124448EFBC68 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CA600E2F871449A47D4AA8E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = spa_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CA605B225FE78E7042CE584A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "--release";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = spa_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA608937980AD7AAF277B8B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				PRODUCT_NAME = spa_c_binding;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CA60EB0A8AD384192CB6A3EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = spa_c_binding;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA6019B559FAFA67CDB49DFF /* Build configuration list for PBXNativeTarget "spa_c_binding-staticlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA608937980AD7AAF277B8B0 /* Release */,
+				CA600E2F871449A47D4AA8E1 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60BDF537BDABCE1ACD4D81 /* Build configuration list for PBXAggregateTarget "Cargo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA605B225FE78E7042CE584A /* Release */,
+				CA60EB0A8AD384192CB6A3EF /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA60D906DDC38B92118340E3 /* Project object */;
+}
