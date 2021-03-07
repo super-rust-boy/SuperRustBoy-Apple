@@ -1,6 +1,7 @@
 use std::ffi::{c_void, CStr};
 use std::os::raw::c_char;
 use spa::{GBA, Button};
+use std::slice;
 
 #[repr(C)]
 #[allow(non_camel_case_types)]
@@ -64,6 +65,17 @@ pub extern fn gbaCreate(cartridge_path: *const c_char) -> *const c_void {
 pub unsafe extern fn gbaDelete(instance: *const c_void) {
     let gba = instance as *mut GBA;
     gba.drop_in_place();
+}
+
+#[no_mangle]
+pub unsafe extern fn gbaFrame(instance: *const c_void, buffer: *mut u8, length: u32) {
+    let gba = instance as *mut GBA;
+    if let Some(gba_ref) = gba.as_mut() {
+
+        let mut buffer_slice = slice::from_raw_parts_mut(buffer, length as usize);
+
+        gba_ref.frame(&mut buffer_slice);
+    }
 }
 
 #[no_mangle]

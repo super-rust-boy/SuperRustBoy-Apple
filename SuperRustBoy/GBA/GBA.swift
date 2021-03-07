@@ -7,6 +7,7 @@
 
 import CoreGBA
 import CoreGraphics
+import Foundation
 
 internal final class GBA: BaseEmulator<CoreGBA> {
     internal enum Button {
@@ -37,10 +38,41 @@ internal final class CoreGBA: CoreEmulator {
         gbaButtonSetPressed(coreRef, gbaButton(button), false)
     }
 
-    func render() -> CGImage? { nil }
+    func render() -> CGImage? {
+        gbaFrame(coreRef, &buffer, UInt32(buffer.count))
+
+        let data = Data(bytes: &buffer, count: buffer.count)
+
+        return Self.createCGImage(from: data)
+    }
+
     func getAudioPacket(buffer: inout [Float]) {}
 
     private let coreRef: UnsafeRawPointer
+    private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
+
+    private static let frameInfo = (width: 0, height: 0, bytesPerPixel: 0)
+    private static let frameBufferSize = frameInfo.width * frameInfo.height * frameInfo.bytesPerPixel
+    private static let bitsPerByte = 8
+
+    private static func createCGImage(from data: Data) -> CGImage? {
+        guard let dataProvider = CGDataProvider(data: data as CFData) else { return nil }
+        guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB) else { return nil }
+
+        return CGImage(
+            width:              Int(frameInfo.width),
+            height:             Int(frameInfo.height),
+            bitsPerComponent:   8,
+            bitsPerPixel:       Int(frameInfo.bytesPerPixel) * bitsPerByte,
+            bytesPerRow:        Int(frameInfo.width * frameInfo.bytesPerPixel),
+            space:              colorSpace,
+            bitmapInfo:         [CGBitmapInfo.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)],
+            provider:           dataProvider,
+            decode:             nil,
+            shouldInterpolate:  false,
+            intent:             CGColorRenderingIntent.saturation
+        )
+    }
 }
 
 private extension gbaButton {
