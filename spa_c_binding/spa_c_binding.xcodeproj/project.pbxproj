@@ -205,10 +205,12 @@
 		CA605B225FE78E7042CE584A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CARGO_FLAGS = "--release";
 				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = spa_c_binding;
 				SDKROOT = macosx;
@@ -229,10 +231,12 @@
 		CA60EB0A8AD384192CB6A3EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CARGO_FLAGS = "";
 				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
 				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = spa_c_binding;
 				SDKROOT = macosx;
