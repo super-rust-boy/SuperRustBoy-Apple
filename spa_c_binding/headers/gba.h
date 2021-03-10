@@ -14,9 +14,16 @@ typedef enum gbaButton {
   gbaButtonR,
 } gbaButton;
 
-const void* gbaCreate(const char* cartridgePath);
+typedef struct gbaRenderSize {
+    uint32_t width;
+    uint32_t height;
+} gbaRenderSize;
+
+const void* gbaCreate(const char* biosPath, const char* cartridgePath);
 
 void gbaDelete(const void* instance);
+
+gbaRenderSize gbaFetchRenderSize(const void* instance);
 
 void gbaButtonSetPressed(const void* instance, enum gbaButton cButton, bool pressed);
 

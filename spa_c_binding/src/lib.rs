@@ -18,6 +18,13 @@ pub enum gbaButton {
     gbaButtonR
 }
 
+#[repr(C)]
+#[allow(non_camel_case_types)]
+pub struct gbaRenderSize {
+    width: u32,
+    height: u32
+}
+
 impl gbaButton {
     fn to_button(&self) -> Button {
         use gbaButton::*;
@@ -38,7 +45,7 @@ impl gbaButton {
 }
 
 #[no_mangle]
-pub extern fn gbaCreate(cartridge_path: *const c_char) -> *const c_void {
+pub extern fn gbaCreate(bios_path: *const c_char, cartridge_path: *const c_char) -> *const c_void {
 
     if cartridge_path.is_null() {
         println!("Cartridge path is null");
@@ -46,6 +53,8 @@ pub extern fn gbaCreate(cartridge_path: *const c_char) -> *const c_void {
     }
 
     let cart_path_result = unsafe { CStr::from_ptr(cartridge_path) };
+    let bios_path_result = unsafe { CStr::from_ptr(bios_path) };
+
     let cart_path = match cart_path_result.to_str() {
         Ok(c) => c.to_string(),
         Err(_) => {
@@ -54,9 +63,18 @@ pub extern fn gbaCreate(cartridge_path: *const c_char) -> *const c_void {
         }
     };
 
-    let path = std::path::Path::new(&cart_path);
+    let bios_path = match bios_path_result.to_str() {
+        Ok(c) => c.to_string(),
+        Err(_) => {
+            println!("Failed to parse bios path");
+            return std::ptr::null();
+        }
+    };
 
-    let instance = Box::new(GBA::new(path, Option::None));
+    let path = std::path::Path::new(&cart_path);
+    let bios_path = std::path::Path::new(&bios_path);
+
+    let instance = Box::new(GBA::new(path, Option::None, Some(bios_path)));
 
     Box::into_raw(instance) as *const c_void
 }
@@ -65,6 +83,14 @@ pub extern fn gbaCreate(cartridge_path: *const c_char) -> *const c_void {
 pub unsafe extern fn gbaDelete(instance: *const c_void) {
     let gba = instance as *mut GBA;
     gba.drop_in_place();
+}
+
+#[no_mangle]
+pub unsafe extern fn gbaFetchRenderSize(instance: *const c_void) -> gbaRenderSize {
+    let gba = instance as *mut GBA;
+    let (width, height) = gba.as_mut().unwrap().render_size();
+
+    gbaRenderSize { width: width as u32, height: height as u32 }
 }
 
 #[no_mangle]

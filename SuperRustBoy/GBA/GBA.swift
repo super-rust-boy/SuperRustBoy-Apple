@@ -16,14 +16,16 @@ internal final class GBA: BaseEmulator<CoreGBA> {
 
     internal struct Cartridge {
         internal let path: String
+        internal let biosPath: String
     }
 }
 
 internal final class CoreGBA: CoreEmulator {
 
     internal required init?(cartridge: GBA.Cartridge, sampleRate: UInt32) {
-        guard let coreRef = gbaCreate(cartridge.path) else { return nil }
+        guard let coreRef = gbaCreate(cartridge.path, cartridge.biosPath) else { return nil }
         self.coreRef = coreRef
+        self.frameInfo = gbaFetchRenderSize(coreRef)
     }
 
     deinit {
@@ -43,19 +45,24 @@ internal final class CoreGBA: CoreEmulator {
 
         let data = Data(bytes: &buffer, count: buffer.count)
 
-        return Self.createCGImage(from: data)
+        return createCGImage(from: data)
     }
 
     func getAudioPacket(buffer: inout [Float]) {}
 
     private let coreRef: UnsafeRawPointer
-    private var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
+    private lazy var buffer = [UInt8](repeating: 0, count: Int(frameBufferSize))
 
-    private static let frameInfo = (width: 0, height: 0, bytesPerPixel: 0)
-    private static let frameBufferSize = frameInfo.width * frameInfo.height * frameInfo.bytesPerPixel
-    private static let bitsPerByte = 8
+    private let frameInfo: gbaRenderSize
 
-    private static func createCGImage(from data: Data) -> CGImage? {
+    private var frameBufferSize: UInt32 {
+        frameInfo.width * frameInfo.height * Self.bytesPerPixel
+    }
+
+    private static let bitsPerByte: UInt32 = 8
+    private static let bytesPerPixel: UInt32 = 4
+
+    private func createCGImage(from data: Data) -> CGImage? {
         guard let dataProvider = CGDataProvider(data: data as CFData) else { return nil }
         guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB) else { return nil }
 
@@ -63,8 +70,8 @@ internal final class CoreGBA: CoreEmulator {
             width:              Int(frameInfo.width),
             height:             Int(frameInfo.height),
             bitsPerComponent:   8,
-            bitsPerPixel:       Int(frameInfo.bytesPerPixel) * bitsPerByte,
-            bytesPerRow:        Int(frameInfo.width * frameInfo.bytesPerPixel),
+            bitsPerPixel:       Int(Self.bytesPerPixel * Self.bitsPerByte),
+            bytesPerRow:        Int(frameInfo.width * Self.bytesPerPixel),
             space:              colorSpace,
             bitmapInfo:         [CGBitmapInfo.byteOrder32Big, CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)],
             provider:           dataProvider,

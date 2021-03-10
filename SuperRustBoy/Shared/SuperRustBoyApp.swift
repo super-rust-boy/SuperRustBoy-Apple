@@ -92,7 +92,8 @@ struct SuperRustBoyWindow: View {
                 RustBoyView(rustBoy: rustboy, showUI: showUI)
 
             case .gba(let gba):
-                EmptyView()
+                Display(emulator: gba)
+                    .aspectRatio(CGSize(width: 4, height: 3), contentMode: .fit)
 
             case .snes(let snes):
                 SNESView(snes: snes, showUI: showUI)
@@ -116,6 +117,9 @@ struct SuperRustBoyWindow: View {
 
             case "gb", "gbc":
                 cartridge = Models.Cartridge.rustboy(RustBoy.Cartridge(path: romURL.path, saveFilePath: Self.savePath(forRomURL: romURL)))
+
+            case "gba":
+                cartridge = Models.Cartridge.gba(GBA.Cartridge(path: romURL.path, biosPath: "/Users/seaningeasbjornsen/Downloads/gba_bios.bin"))
 
             default:
                 cartridge = nil
