@@ -23,7 +23,7 @@ internal final class GBA: BaseEmulator<CoreGBA> {
 internal final class CoreGBA: CoreEmulator {
 
     internal required init?(cartridge: GBA.Cartridge, sampleRate: UInt32) {
-        guard let coreRef = gbaCreate(cartridge.path, cartridge.biosPath) else { return nil }
+        guard let coreRef = gbaCreate(cartridge.biosPath, cartridge.path) else { return nil }
         self.coreRef = coreRef
         self.frameInfo = gbaFetchRenderSize(coreRef)
     }
